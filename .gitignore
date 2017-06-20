@@ -1,0 +1,27 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Mario4.02/v15
+/Game1/bin/Windows/x86/Debug/Content/BlockSpriteSheet
+/Game1/bin/Windows/x86/Debug/SharpDX.xml
+/Game1/bin/Windows/x86/Debug/SharpDX.XInput.xml
+/Game1/bin/Windows/x86/Debug/SharpDX.XInput.dll
+/Game1/bin/Windows/x86/Debug/SharpDX.XAudio2.xml
+/Game1/bin/Windows/x86/Debug/SharpDX.XAudio2.dll
+/Game1/bin/Windows/x86/Debug/SharpDX.MediaFoundation.xml
+/Game1/bin/Windows/x86/Debug/SharpDX.MediaFoundation.dll
+/Game1/bin/Windows/x86/Debug/SharpDX.DXGI.xml
+/Game1/bin/Windows/x86/Debug/SharpDX.DXGI.dll
+/Game1/bin/Windows/x86/Debug/SharpDX.dll
+/Game1/bin/Windows/x86/Debug/SharpDX.Direct3D9.xml
+/Game1/bin/Windows/x86/Debug/SharpDX.Direct3D9.dll
+/Game1/bin/Windows/x86/Debug/SharpDX.Direct3D11.xml
+/Game1/bin/Windows/x86/Debug/SharpDX.Direct3D11.dll
+/Game1/bin/Windows/x86/Debug/SharpDX.Direct2D1.xml
+/Game1/bin/Windows/x86/Debug/SharpDX.Direct2D1.dll
+/Game1/bin/Windows/x86/Debug/MonoGame.Framework.xml
+/Game1/bin/Windows/x86/Debug/MonoGame.Framework.dll
+/Game1/bin/Windows/x86/Debug/Game1.pdb
+/Game1/bin/Windows/x86/Debug/Game1.exe
+/Game1/obj/x86/Debug

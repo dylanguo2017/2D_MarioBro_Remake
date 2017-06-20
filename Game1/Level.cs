@@ -82,7 +82,26 @@ namespace Game
                     {
                         gameObject = new MotionlessAnimatedSprite(myGame.greenMushroomItem, 1, 1, positionColumn * 16, positionRow * 16);
                     }
-                                        
+                    else if (target[positionColumn] == "oneCloud")
+                    {
+                        gameObject = new MotionlessNonAnimatedSprite(myGame.oneCloudBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                    }
+                    else if (target[positionColumn] == "threeClouds")
+                    {
+                        gameObject = new MotionlessNonAnimatedSprite(myGame.threeCloudsBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                    }
+                    else if (target[positionColumn] == "threeBushes")
+                    {
+                        gameObject = new MotionlessNonAnimatedSprite(myGame.threeBushesBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                    }
+                    else if (target[positionColumn] == "smallMountain")
+                    {
+                        gameObject = new MotionlessNonAnimatedSprite(myGame.smallMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                    }
+                    else if (target[positionColumn] == "bigMountain")
+                    {
+                        gameObject = new MotionlessNonAnimatedSprite(myGame.bigMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                    }
                     list.Add(gameObject);
                     positionColumn++;
                 }
