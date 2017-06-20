@@ -1,0 +1,9 @@
+﻿Author: Morgan Gongwer
+Date: 6/16/2017
+Sprint 3
+Name of the .cs file being reviewed: LoadLevel.cs
+Author of the .cs file being reviewed: Dylan Guo
+Number of minutes taken to complete the review: 35
+
+Specific comments on readibility: 
+	The code is very readable. Each field has a meaningful name that allows knowing what it will be used for easy. For example, the line "inComingLine = levelFile.ReadLine();" lets the user know that the next object being read from the file will be labeled as inComngLine.  Also, having meaningful labels makes tracing through the code less of a headache. This code is easy to follow. The part that makes it not 100% readable is the amount of if/else ifs. There are quite a few so it seems lengthy and difficult to keep track of. It makes sense why there are so many but also makes it challenging to keep track of. Possibility of reorganizing will be looked in to. It has high maintainability. Any new object we create and enter into the file can have a block of code added that follows the exact same layout as the others. Or if we need to remove an object nothing else in this file will be affected.

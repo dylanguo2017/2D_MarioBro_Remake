@@ -1,0 +1,13 @@
+Author: Shiny Patel
+Date: 6/16/2017
+Sprint#: 3
+.cs file reviewed: MarioStateClass.cs
+author of cs file: Rezeki Utomo
+# of minutes taken to complete the review: 25
+
+Specific comments on readibility: 
+This class has booleans facingleft, crouch, jump, move, up, down, left and right. The
+enum marioStatus has values large, fire, small, dead and star. Other class members are xCoor, yCoor,
+moveR, moveL, moveUp and moveDown. Most of the names are self-explanatory but some of them do not provide 
+enough information such as what is the difference between boolean move vs booleans up/down/left/right or the 
+difference between boolean move vs methods moveL/moveR/moveUp/moveDown etc.

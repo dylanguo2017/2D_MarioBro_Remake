@@ -1,0 +1,12 @@
+Author : Dylan Guo
+Date: 6/16/2017
+Sprint 3
+MarioBlockCollisionHandler.cs 
+Author of MarioBlockCollisionHandler.cs : Morgan Gongwer
+Minutes spent: 8 mins
+Comments:
+         The naming technique used for the class, variables, methods in the file is correct,
+		 most of the names used are meaningful and readable.
+
+		 Enumeration is used for distinguishing different state of marios, which is a good practice for
+		 improving the readability.

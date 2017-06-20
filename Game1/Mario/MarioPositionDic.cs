@@ -5,7 +5,7 @@ namespace Game
     public class MarioPositionDic
     {
         private Vector2 MarioPositionVec;
-        public Vector2[] PositionArr = new Vector2[43];
+        public Vector2[] PositionArr = new Vector2[69];
 
         public MarioPositionDic()
         {
@@ -203,6 +203,114 @@ namespace Game
             PositionArr[42] = MarioPositionVec;
             // End of Big mario facing left.
 
+            //start of star small mario facing right 
+            MarioPositionVec.X = 211;// this is small star mario facing right idle
+            MarioPositionVec.Y = 192;
+            PositionArr[43] = MarioPositionVec;
+
+            MarioPositionVec.X = 241;// small right run 1
+            MarioPositionVec.Y = 192;
+            PositionArr[44] = MarioPositionVec;
+
+            MarioPositionVec.X = 272;// small right run 2
+            MarioPositionVec.Y = 0;
+            PositionArr[45] = MarioPositionVec;
+
+            MarioPositionVec.X = 300;// small right run 3
+            MarioPositionVec.Y = 192;
+            PositionArr[46] = MarioPositionVec;
+
+            MarioPositionVec.X = 331;// small right brake
+            MarioPositionVec.Y = 192;
+            PositionArr[47] = MarioPositionVec;
+
+            MarioPositionVec.X = 359;// small right jump
+            MarioPositionVec.Y = 192;
+            PositionArr[48] = MarioPositionVec;
+
+            MarioPositionVec.X = 181;// this is small star mario left facing idle
+            MarioPositionVec.Y = 192;
+            PositionArr[49] = MarioPositionVec;
+
+            MarioPositionVec.X = 150;// small star mario left facing run 1
+            MarioPositionVec.Y = 192;
+            PositionArr[50] = MarioPositionVec;
+
+            MarioPositionVec.X = 121;// small star mario left facing run 2
+            MarioPositionVec.Y = 0;
+            PositionArr[51] = MarioPositionVec;
+
+            MarioPositionVec.X = 89;// small star mario left facing run 3
+            MarioPositionVec.Y = 192;
+            PositionArr[52] = MarioPositionVec;
+
+            MarioPositionVec.X = 60;// small star mario left facing brake
+            MarioPositionVec.Y = 192;
+            PositionArr[53] = MarioPositionVec;
+
+            MarioPositionVec.X = 29;// small star mario left facing jump
+            MarioPositionVec.Y = 192;
+            PositionArr[54] = MarioPositionVec;
+            // end of star small mario
+
+            //beginning of big star mario
+            MarioPositionVec.X = 209;// big star mario facing right idle
+            MarioPositionVec.Y = 212;
+            PositionArr[55] = MarioPositionVec;
+
+            MarioPositionVec.X = 239;// big star mario facing right run 1
+            MarioPositionVec.Y = 212;
+            PositionArr[56] = MarioPositionVec;
+
+            MarioPositionVec.X = 270;// big star mario facing right run 2
+            MarioPositionVec.Y = 212;
+            PositionArr[57] = MarioPositionVec;
+
+            MarioPositionVec.X = 299;// big star mario facing right run 3
+            MarioPositionVec.Y = 213;
+            PositionArr[58] = MarioPositionVec;
+
+            MarioPositionVec.X = 329;// big star mario facing right brake
+            MarioPositionVec.Y = 212;
+            PositionArr[59] = MarioPositionVec;
+
+            MarioPositionVec.X = 358;// big star mario facing right jump
+            MarioPositionVec.Y = 212;
+            PositionArr[60] = MarioPositionVec;
+
+            MarioPositionVec.X = 389;// big star mario facing right crouch
+            MarioPositionVec.Y = 207;
+            PositionArr[61] = MarioPositionVec;
+
+            //////////
+            MarioPositionVec.X = 180;// big star mario facing left idle
+            MarioPositionVec.Y = 212;
+            PositionArr[62] = MarioPositionVec;
+
+            MarioPositionVec.X = 150;// big star mario facing left run 1
+            MarioPositionVec.Y = 212;
+            PositionArr[63] = MarioPositionVec;
+
+            MarioPositionVec.X = 121;// big star mario facing left run 2
+            MarioPositionVec.Y = 212;
+            PositionArr[64] = MarioPositionVec;
+
+            MarioPositionVec.X = 90;// big star mario facing left run 3
+            MarioPositionVec.Y = 213;
+            PositionArr[65] = MarioPositionVec;
+
+            MarioPositionVec.X = 60;// big star mario facing left brake
+            MarioPositionVec.Y = 212;
+            PositionArr[66] = MarioPositionVec;
+
+            MarioPositionVec.X = 30;// big star mario facing left jump
+            MarioPositionVec.Y = 212;
+            PositionArr[67] = MarioPositionVec;
+
+            MarioPositionVec.X = 0;// big star mario facing left crouch
+            MarioPositionVec.Y = 207;
+            PositionArr[68] = MarioPositionVec;
+            // end of big star mario
         }
 
     }

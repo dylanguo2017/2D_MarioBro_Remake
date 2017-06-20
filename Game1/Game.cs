@@ -64,6 +64,7 @@ namespace Game
         private ICommand arCmd;
 
         private int animationModifier;
+        private int starDuration;
         
         public List<ISprite> list;
         private ICollisionDetector collisionDetector;
@@ -128,6 +129,7 @@ namespace Game
             marioState = new MarioStateClass(false, false, false, false);
 
             animationModifier = 0;
+            starDuration = 500;
 
             base.Initialize();
         }
@@ -178,6 +180,26 @@ namespace Game
         protected override void Update(GameTime gameTime)
         {
             collisionDetector.Update();
+            if (marioState.star)
+            {
+                starDuration--;
+                if(starDuration < 0)
+                {
+                    starDuration = 500;
+                    if (marioState.curStat.Equals(MarioStateClass.marioStatus.small))
+                    {
+                        mario = new SmallMario(marioState, marioSprites);
+                    }
+                    else if (marioState.curStat.Equals(MarioStateClass.marioStatus.large))
+                    {
+                        mario = new LargeMario(marioState, marioSprites);
+                    }
+                    else
+                    {
+                        mario = new FireMario(marioState, marioSprites);
+                    }
+                }
+            }
 
             animationModifier++;
             foreach (IController x in contrl)
