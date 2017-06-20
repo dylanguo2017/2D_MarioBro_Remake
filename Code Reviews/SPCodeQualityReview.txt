@@ -1,0 +1,15 @@
+Author: Shiny Patel
+Date: 6/6/2017
+Sprint#: 2
+.cs file reviewed: Enemy.cs
+Author of cs file: Morgan Gongwer
+# of minutes taken to complete the review: 25
+Comments on code quality:
+	Enemy class has high cohesion and loose coupling. It only has two methods draw and update
+	which supports a central purpose and contain strongly related functionality. It also has 
+	a low number of class dependencies as it is only dependent on Texture2D and SpriteBatch classes for
+	its functionality. However, the code is not very re-usable for future sprints as having one enemy
+	class for all enemies (Goomba, Koopa etc.) will not be sufficient.
+Hypothetical change:
+	Create separate enemy classes (just like separate block and mario classes in this sprint) 
+	for each enemy type (for future sprints).

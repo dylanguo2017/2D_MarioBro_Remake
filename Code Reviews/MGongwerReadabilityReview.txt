@@ -1,0 +1,17 @@
+﻿Author: Morgan Gongwer
+Date: 6/2/2017
+Sprint 2
+Name of the .cs file being reviewed: FireMario.cs
+Author of the .cs file being reviewed: Rezeki Utomo
+Number of minutes taken to complete the review: 25
+
+The code is pretty readable. Knowing the different frames involved, x or y coordinates, width and height of a sprite, and state 
+are very easy to understand. The flow is consistent and easy to follow as everything for the right is done first and then the left.
+A readability issue arrises with a new developer not knowing right away what fireMarioId, fireMarioLM, 
+fireMarioLJ, fireMarioLC, fireMarioRM, fireMarioRJ, and fireMarioRC are if you are not familiar with the game. Id stands for idle.
+LM stands for left move and so on. Once you know one it's fairly easy to assume but initially they may just seem like odd labels.
+
+The code quality is good and not much can be done, that I know of, to reduce the code length. It is very easy to follow.
+
+Hypothetical change:
+	Define desitination rectangle before the if/else statments sinces several use the same one.

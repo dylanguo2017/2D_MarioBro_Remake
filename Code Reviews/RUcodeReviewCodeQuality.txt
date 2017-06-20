@@ -1,0 +1,20 @@
+Author: Rezeki Utomo
+Date: 6/6/2017
+Sprint#: 2
+.cs file reviewed: BlockQuestionMark.cs
+author of cs file: Dylan Guo
+# of minutes taken to complete the review: 30
+
+Specific comments on code quality:
+	code is very efficient in the update method as the questionmark block can only 
+	change into a used block. However, the code is not very re-useable as it only
+	spawns the block in a single specific location. Overall, this code has high
+	cohesion as each method has a very specific purpose and all the code inside
+	the method only focuses on doing that. Coupling is also a bit low as the code
+	does not use any global variable or call any other class's method. the only 
+	thing that causes coupling to be a bit tighter is the parameter passing that
+	the constructor and draw method takes.
+
+hypothetical change:
+	make the draw method take a vector parameter so that block summoning is not 
+	pre-determined such as in this method.
