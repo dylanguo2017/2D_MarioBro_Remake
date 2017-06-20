@@ -32,19 +32,7 @@ namespace Game
         }
         public void Update()
         {
-            duration--;
-            if (duration == 0)
-            {
-                marioState.star = false;
-                if (marioState.curStat == MarioStateClass.marioStatus.large)
-                {
-                    System.Convert.ChangeType(this, typeof(LargeMario));
-                }
-                else
-                {
-                    System.Convert.ChangeType(this, typeof(FireMario));
-                }
-            }
+
             if (marioState.move && marioState.facingLeft)
             {
                 leftFacingCurrentFrame++;

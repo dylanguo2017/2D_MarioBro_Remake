@@ -245,3 +245,6 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInpu
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D9.xml
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.dll
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.pdb
+C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.csprojResolveAssemblyReference.cache
+C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.dll
+C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.pdb

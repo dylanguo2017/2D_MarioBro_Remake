@@ -33,14 +33,6 @@ namespace Game
         }
         public void Update()
         {
-            duration--;
-            if (duration == 0)
-            {
-                marioState.star = false;
-                System.Convert.ChangeType(this, typeof(SmallMario));
-            }
-                
-
             if (marioState.move && marioState.facingLeft && !marioState.jump)
             {
                 leftFacingCurrentFrame++;
