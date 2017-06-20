@@ -87,9 +87,7 @@ namespace Game
 
         private int animationModifier;
         
-        public Initialize initialize;
         public ArrayList list;
-        public LevelList levelList;
         private ICollisionDetector collisionDetector;
 
         public Game()
@@ -101,9 +99,7 @@ namespace Game
         protected override void Initialize()
         {   
             contrl = new ArrayList();
-
-            initialize = new Initialize(this);
-            levelList = new LevelList(this);
+            
             collisionDetector = new MarioCollisionDetector(this);
 
             IController keyboard = new KeyboardController();
@@ -190,7 +186,9 @@ namespace Game
 
             marioSprites = this.Content.Load<Texture2D>("BlockSpriteSheet/MarioSpriteSheet");
 
-            initialize.Game();
+            mario = new SmallMario(marioState, marioSprites);
+
+            list = Level.Load(this);
         }
 
         protected override void UnloadContent()

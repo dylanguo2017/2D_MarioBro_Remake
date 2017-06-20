@@ -21,7 +21,9 @@ namespace Game
             myGame.marioState.XCoor = 300;
             myGame.marioState.YCoor = 300;
 
-            myGame.initialize.Game();
+            myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
+
+            myGame.list = Level.Load(myGame);
         }
     }
 }

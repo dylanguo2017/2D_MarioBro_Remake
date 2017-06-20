@@ -74,7 +74,6 @@
     <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
     <Compile Include="IObject.cs" />
-    <Compile Include="Initialize.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Mario\MarioPositionDic.cs" />
     <Compile Include="Game.cs" />
@@ -92,7 +91,6 @@
     <Compile Include="Sprites\MotionlessAnimatedSprite.cs" />
     <Compile Include="Sprites\MotionlessNonAnimatedSprite.cs" />
     <Compile Include="Sprites\Sprite.cs" />
-    <Compile Include="LevelList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
