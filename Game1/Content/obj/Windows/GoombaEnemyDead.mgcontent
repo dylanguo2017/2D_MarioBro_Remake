@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Dylan/Source/Repos/Mario4.0/Game1/Content/GoombaEnemyDead.png</SourceFile>
-  <SourceTime>2017-06-20T13:36:02.4221102-04:00</SourceTime>
-  <DestFile>C:/Users/Dylan/Source/Repos/Mario4.0/Game1/Content/bin/Windows/GoombaEnemyDead.xnb</DestFile>
-  <DestTime>2017-06-20T13:58:59.0620104-04:00</DestTime>
+  <SourceFile>C:/Users/Admin/Source/Repos/Mario4.02/Game1/Content/GoombaEnemyDead.png</SourceFile>
+  <SourceTime>2017-06-20T16:42:19.2839796-04:00</SourceTime>
+  <DestFile>C:/Users/Admin/Source/Repos/Mario4.02/Game1/Content/bin/Windows/GoombaEnemyDead.xnb</DestFile>
+  <DestTime>2017-06-20T16:45:50.709144-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
