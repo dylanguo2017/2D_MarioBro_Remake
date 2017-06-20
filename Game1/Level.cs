@@ -1,15 +1,16 @@
 ﻿using Game.Sprites;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Game
 {
     public static class Level
     {
-        public static ArrayList Load(Game myGame)
+        public static List<ISprite> Load(Game myGame)
         {
-            ArrayList list = new ArrayList();
+            List<ISprite> list = new List<ISprite>();
             StreamReader levelFile = new StreamReader(
          Path.Combine(Directory.GetCurrentDirectory(),
                       "Content", "Levels", "TLevel1-1.txt")

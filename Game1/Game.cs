@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Game
 {
@@ -10,29 +11,6 @@ namespace Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        public ISprite star;
-        public ISprite greenMushroom;
-        public ISprite redMushroom;
-        public ISprite coin;
-        public ISprite fireFlower;
-
-        public ISprite goomba;
-        public ISprite koopa;
-
-        public ISprite oneCloud;
-        public ISprite threeClouds;
-        public ISprite threeBushes;
-        public ISprite smallMountain;
-        public ISprite bigMountain;
-
-        public ISprite diamondBlock;
-        public ISprite brickBlock;
-        public ISprite crackBlock;
-        public ISprite pipe;
-        public ISprite usedBlock;
-        public ISprite invisibleBlock;
-        public ISprite questionMarkBlock;
 
         public MarioStateClass marioState;
 
@@ -87,7 +65,7 @@ namespace Game
 
         private int animationModifier;
         
-        public ArrayList list;
+        public List<ISprite> list;
         private ICollisionDetector collisionDetector;
 
         public Game()

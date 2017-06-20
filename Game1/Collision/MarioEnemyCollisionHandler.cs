@@ -34,6 +34,7 @@ namespace Game
                 if (enemy.type.Equals("GoombaEnemy"))
                 {
                     enemy.ToggleSpriteSheet(myGame.goombaEnemyDead, 1, 1);
+                    enemy.visible = false;
                 }
                 else
                 {

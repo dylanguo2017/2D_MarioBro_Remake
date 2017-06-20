@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Game
 {
     class MarioCollisionDetector : ICollisionDetector
     {
         private Game myGame;
-        private ArrayList marioCollisionList;
+        private List<ISprite> marioCollisionList;
         private Rectangle marioRec;
         private Rectangle objectRec;
         private String marioCollidesFromHorizontalSide;
@@ -17,7 +18,7 @@ namespace Game
         public MarioCollisionDetector(Game game)
         {
             myGame = game;
-            marioCollisionList = new ArrayList();
+            marioCollisionList = new List<ISprite>();
         }
 
         public void Update()
