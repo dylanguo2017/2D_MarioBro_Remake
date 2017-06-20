@@ -24,6 +24,7 @@ namespace Game
             rightFacingCurrentFrame = 14;
             leftFacingCurrentFrame = 21;
             marioState.curStat = MarioStateClass.marioStatus.large;
+            marioState.star = false;
         }
         public MarioStateClass.marioStatus currentStatus()
         {

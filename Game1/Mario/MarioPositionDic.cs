@@ -213,7 +213,7 @@ namespace Game
             PositionArr[44] = MarioPositionVec;
 
             MarioPositionVec.X = 272;// small right run 2
-            MarioPositionVec.Y = 192;
+            MarioPositionVec.Y = 0;
             PositionArr[45] = MarioPositionVec;
 
             MarioPositionVec.X = 300;// small right run 3
@@ -237,7 +237,7 @@ namespace Game
             PositionArr[50] = MarioPositionVec;
 
             MarioPositionVec.X = 121;// small star mario left facing run 2
-            MarioPositionVec.Y = 192;
+            MarioPositionVec.Y = 0;
             PositionArr[51] = MarioPositionVec;
 
             MarioPositionVec.X = 89;// small star mario left facing run 3
