@@ -133,18 +133,6 @@
 /processorParam:TextureFormat=Color
 /build:InvisibleBlock.png
 
-#begin BlockSpriteSheet/MarioSpriteSheet.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:BlockSpriteSheet/MarioSpriteSheet.png
-
 #begin BackgroundElements.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -372,4 +360,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:StarItem.png
+
+#begin BlockSpriteSheet/MarioSpriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:BlockSpriteSheet/MarioSpriteSheet.png
 

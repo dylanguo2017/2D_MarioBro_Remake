@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Game1",
-    "\\Game1\\Content"
+    "\\Game1\\Content",
+    "\\Game1\\Controllers",
+    "\\Game1\\Mario",
+    "\\Game1\\obj",
+    "\\Game1\\Properties"
   ],
-  "SelectedNode": "\\Game1.sln",
+  "SelectedNode": "\\Game1\\Mario\\MarioPositionDic.cs",
   "PreviewInSolutionExplorer": false
 }
