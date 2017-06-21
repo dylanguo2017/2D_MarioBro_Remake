@@ -1,8 +1,8 @@
-﻿using Game.Sprites;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections;
+using System.Collections.Generic;
 
 
 namespace Game
@@ -11,29 +11,6 @@ namespace Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        public ISprite star;
-        public ISprite greenMushroom;
-        public ISprite redMushroom;
-        public ISprite coin;
-        public ISprite fireFlower;
-
-        public ISprite goomba;
-        public ISprite koopa;
-
-        public ISprite oneCloud;
-        public ISprite threeClouds;
-        public ISprite threeBushes;
-        public ISprite smallMountain;
-        public ISprite bigMountain;
-
-        public ISprite diamondBlock;
-        public ISprite brickBlock;
-        public ISprite crackBlock;
-        public ISprite pipe;
-        public ISprite usedBlock;
-        public ISprite invisibleBlock;
-        public ISprite questionMarkBlock;
 
         public MarioStateClass marioState;
 
@@ -62,7 +39,7 @@ namespace Game
 
         public Texture2D invisibleBlockSprite;
         public Texture2D usedBlockSprite;
-        public Texture2D pipeSprite;
+        public Texture2D pipeBlockSprite;
         public Texture2D crackBlockSprite;
         public Texture2D brickBlockSprite;
         public Texture2D diamondBlockSprite;
@@ -89,7 +66,7 @@ namespace Game
         private int animationModifier;
         private int starDuration;
         
-        public ArrayList list;
+        public List<ISprite> list;
         private ICollisionDetector collisionDetector;
 
         public Game()
@@ -184,15 +161,15 @@ namespace Game
             diamondBlockSprite = Content.Load<Texture2D>("DiamondBlock");
             brickBlockSprite = Content.Load<Texture2D>("BrickBlock");
             crackBlockSprite = Content.Load<Texture2D>("CrackBlock");
-            pipeSprite = Content.Load<Texture2D>("Pipe");
+            pipeBlockSprite = Content.Load<Texture2D>("PipeBlock");
             invisibleBlockSprite = Content.Load<Texture2D>("InvisibleBlock");
             usedBlockSprite = Content.Load<Texture2D>("UsedBlock");
 
-            marioSprites = this.Content.Load<Texture2D>("BlockSpriteSheet/MarioSpriteSheet");
+            marioSprites = this.Content.Load<Texture2D>("SpriteSheets/Mario");
 
             mario = new SmallMario(marioState, marioSprites);
 
-            list = Level.Load(this);
+            list = Level.LoadList(this);
         }
 
         protected override void UnloadContent()

@@ -20,10 +20,12 @@ namespace Game
             currentFrame = 12;
             marioState.curStat = MarioStateClass.marioStatus.dead;
         }
+
         public MarioStateClass.marioStatus currentStatus()
         {
             return marioState.curStat;
         }
+
         public void Update()
         {
 

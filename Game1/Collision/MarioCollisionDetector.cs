@@ -1,13 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Game
 {
     class MarioCollisionDetector : ICollisionDetector
     {
         private Game myGame;
-        private ArrayList marioCollisionList;
+        private List<ISprite> marioCollisionList;
         private Rectangle marioRec;
         private Rectangle objectRec;
         private String marioCollidesFromHorizontalSide;
@@ -17,7 +17,7 @@ namespace Game
         public MarioCollisionDetector(Game game)
         {
             myGame = game;
-            marioCollisionList = new ArrayList();
+            marioCollisionList = new List<ISprite>();
         }
 
         public void Update()
@@ -39,34 +39,15 @@ namespace Game
                 {
                     MarioCollidesFrom();
                     Type(gameObject);
-                    
-                    marioCollisionHandler.HandleCollison(myGame.mario, gameObject, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
 
                     ISprite sprite = gameObject as ISprite;
-                    if (!sprite.type.Contains("Item") && !sprite.type.Contains("BgElement") && sprite.visible == true)
+                    if (!sprite.type.Contains("BgElement"))
                     {
-                        if (marioCollidesFromHorizontalSide.Equals("none"))
-                        {
-                            if (marioRec.Right > objectRec.Right)
-                            {
-                                myGame.marioState.left = false;
-                            }
-                            if (marioRec.Left < objectRec.Left)
-                            {
-                                myGame.marioState.right = false;
-                            }
-                        }
+                        marioCollisionHandler.HandleCollison(myGame.mario, gameObject, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
 
-                        if (marioCollidesFromVerticalSide.Equals("none"))
+                        if (!sprite.type.Contains("Item") && sprite.visible == true)
                         {
-                            if (marioRec.Bottom > objectRec.Bottom)
-                            {
-                                myGame.marioState.up = false;
-                            }
-                            if (marioRec.Top < objectRec.Top)
-                            {
-                                myGame.marioState.down = false;
-                            }
+                            DisableMarioMovement();
                         }
                     }
                 }
@@ -112,6 +93,33 @@ namespace Game
             else if (sprite.type.Contains("Enemy"))
             {
                 marioCollisionHandler = new MarioEnemyCollisionHandler(myGame);
+            }
+        }
+
+        private void DisableMarioMovement()
+        {
+            if (marioCollidesFromHorizontalSide.Equals("none"))
+            {
+                if (marioRec.Right > objectRec.Right)
+                {
+                    myGame.marioState.left = false;
+                }
+                if (marioRec.Left < objectRec.Left)
+                {
+                    myGame.marioState.right = false;
+                }
+            }
+
+            if (marioCollidesFromVerticalSide.Equals("none"))
+            {
+                if (marioRec.Bottom > objectRec.Bottom)
+                {
+                    myGame.marioState.up = false;
+                }
+                if (marioRec.Top < objectRec.Top)
+                {
+                    myGame.marioState.down = false;
+                }
             }
         }
 

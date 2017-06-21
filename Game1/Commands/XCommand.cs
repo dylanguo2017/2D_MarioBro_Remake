@@ -13,8 +13,7 @@ namespace Game
 
         public void Execute()
         {
-            myGame.brickBlock.texture = myGame.invisibleBlockSprite;
-            myGame.brickBlock.columns = 1;
+            Level.ReloadList(myGame.list, myGame.invisibleBlockSprite, "BrickBlock", 1);
         }
     }
 }

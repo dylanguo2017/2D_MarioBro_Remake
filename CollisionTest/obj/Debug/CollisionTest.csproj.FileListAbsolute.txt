@@ -214,37 +214,6 @@ C:\Users\Shiny Patel\Source\Workspaces\Group4cse3902\RefactoredProject\Collision
 C:\Users\Shiny Patel\Source\Workspaces\Group4cse3902\RefactoredProject\CollisionTest\bin\Debug\SharpDX.Direct3D9.xml
 C:\Users\Shiny Patel\Source\Workspaces\Group4cse3902\RefactoredProject\CollisionTest\obj\Debug\CollisionTest.dll
 C:\Users\Shiny Patel\Source\Workspaces\Group4cse3902\RefactoredProject\CollisionTest\obj\Debug\CollisionTest.pdb
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\CollisionTest.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\CollisionTest.pdb
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Game1.exe
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\MonoGame.Framework.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.MediaFoundation.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XAudio2.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.DXGI.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D11.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct2D1.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInput.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D9.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Game1.pdb
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\MonoGame.Framework.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.MediaFoundation.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XAudio2.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.DXGI.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D11.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct2D1.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInput.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D9.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.dll
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.pdb
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.csprojResolveAssemblyReference.cache
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.dll
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.pdb
@@ -277,33 +246,35 @@ C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D11.
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct2D1.xml
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInput.xml
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D9.xml
-E:\Group4_3902\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-E:\Group4_3902\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-E:\Group4_3902\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-E:\Group4_3902\CollisionTest\bin\Debug\CollisionTest.dll
-E:\Group4_3902\CollisionTest\bin\Debug\CollisionTest.pdb
-E:\Group4_3902\CollisionTest\bin\Debug\Game1.exe
-E:\Group4_3902\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
-E:\Group4_3902\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
-E:\Group4_3902\CollisionTest\bin\Debug\MonoGame.Framework.dll
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.MediaFoundation.dll
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.dll
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.XAudio2.dll
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.DXGI.dll
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.Direct3D11.dll
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.Direct2D1.dll
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.XInput.dll
-E:\Group4_3902\CollisionTest\bin\Debug\Game1.pdb
-E:\Group4_3902\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
-E:\Group4_3902\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-E:\Group4_3902\CollisionTest\bin\Debug\MonoGame.Framework.xml
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.MediaFoundation.xml
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.xml
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.XAudio2.xml
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.DXGI.xml
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.Direct3D11.xml
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.Direct2D1.xml
-E:\Group4_3902\CollisionTest\bin\Debug\SharpDX.XInput.xml
-E:\Group4_3902\CollisionTest\obj\Debug\CollisionTest.csprojResolveAssemblyReference.cache
-E:\Group4_3902\CollisionTest\obj\Debug\CollisionTest.dll
-E:\Group4_3902\CollisionTest\obj\Debug\CollisionTest.pdb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\CollisionTest.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\CollisionTest.pdb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Game1.exe
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\MonoGame.Framework.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XAudio2.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.DXGI.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct2D1.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInput.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Game1.pdb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\MonoGame.Framework.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XAudio2.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.DXGI.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D11.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct2D1.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInput.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D9.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.csprojResolveAssemblyReference.cache
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.dll
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.pdb

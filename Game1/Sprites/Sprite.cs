@@ -54,8 +54,14 @@ namespace Game
             return destinationRectangle;
         }
         
-        public virtual void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
+        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
         {
+            this.texture = texture;
+            this.rows = rows;
+            this.columns = columns;
+            this.currentFrame = 0;
+            totalFrames = this.rows * this.columns;
+            type = texture.Name.ToString();
         }
 
     }

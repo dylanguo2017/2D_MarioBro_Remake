@@ -1,6 +1,4 @@
-﻿using Game.Sprites;
-
-namespace Game
+﻿namespace Game
 {
     class CCommand : ICommand
     {
@@ -13,7 +11,8 @@ namespace Game
 
         public void Execute()
         {
-            myGame.invisibleBlock.texture = myGame.usedBlockSprite;
+            myGame.list = Level.ReloadList(myGame.list, myGame.usedBlockSprite, "InvisibleBlock", 1);
         }
+
     }
 }

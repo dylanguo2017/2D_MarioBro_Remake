@@ -13,7 +13,7 @@ namespace Game
 
         public void Execute()
         {
-            myGame.questionMarkBlock.ToggleSpriteSheet(myGame.usedBlockSprite, 1, 1);
+            Level.ReloadList(myGame.list, myGame.usedBlockSprite, "QuestionMarkBlock", 1);
         }
     }
 }

@@ -26,10 +26,12 @@ namespace Game
             marioState.curStat = MarioStateClass.marioStatus.fire;
             marioState.star = false;
         }
+
         public MarioStateClass.marioStatus currentStatus()
         {
             return marioState.curStat;
         }
+
         public void Update()
         {
             if (marioState.move && marioState.facingLeft)
