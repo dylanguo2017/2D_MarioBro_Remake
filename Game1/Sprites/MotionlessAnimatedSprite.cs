@@ -22,16 +22,6 @@ namespace Game.Sprites
                 currentFrame = 0;
             }
         }
-
-        public override void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrames = this.rows * this.columns;
-            type = texture.Name.ToString();
-        }
-
+        
     }
 }

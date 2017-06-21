@@ -1,6 +1,6 @@
 ﻿using Game.Sprites;
+using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -128,5 +128,24 @@ namespace Game
             return list;
         }
 
+        public static List<ISprite> ReloadList(List<ISprite> list, Texture2D texture, String type, int columns)
+        {
+            List<ISprite> reloadList = new List<ISprite>();
+            foreach (ISprite gameObject in list)
+            {
+                if (gameObject.type.Equals(type))
+                {
+                    ISprite modifiedGameObject = gameObject;
+                    modifiedGameObject.ToggleSpriteSheet(texture, 1, 1);
+                    reloadList.Add(modifiedGameObject);
+                }
+                else
+                {
+                    reloadList.Add(gameObject);
+                }
+            }
+            list = new List<ISprite>(reloadList);
+            return list;
+        }
     }
 }
