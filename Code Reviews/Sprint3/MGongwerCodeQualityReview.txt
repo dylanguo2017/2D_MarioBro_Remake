@@ -1,0 +1,11 @@
+﻿Author: Morgan Gongwer
+Date: 6/20/2017
+Sprint 3
+Name of the .cs file being reviewed: Level.cs
+Author of the .cs file being reviewed: Dylan Guo
+Number of minutes taken to complete the review: 35
+
+The code has high cohesion. Everything in this class is related since only level loading happens. Each line in the file is read and dealt with accordingly. The code also has decent coupling. Changing a specific if statement in the class doesn't affect the rest of the code. However, it is dependent on what goes on in the Game class since it generates the objects based off the sprite sheets loaded in Game.cs. It is independent in the fact that it works with just the file called to it and uses specific rows and columns from the file and no where else. The code is maintainable because the names of the objects are easy to understand and every type of object in the if/else if is set up the same. The reusability is also fairly high as generating more objects just requires a new else if and changing the string it equals in the csv file and calling the appropriate sprite sheet from the game class. 
+
+Hypothetical change:
+	We could try to scale down on the if/else if statements by creating an ILevel interface and having separate classes for each type of loading and putting just a few if/else if statements in eacch of those. For example having LevelItems class, LevelBlocks class, LevelEnemies class and LevelBackground class. They each then have their specific if statements for each string read into the file.
