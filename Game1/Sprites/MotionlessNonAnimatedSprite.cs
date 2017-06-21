@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game.Sprites
 {
-    class MotionlessNonAnimatedSprite : Sprite
+    public class MotionlessNonAnimatedSprite : Sprite
     {
         private Sprite sprite;
 

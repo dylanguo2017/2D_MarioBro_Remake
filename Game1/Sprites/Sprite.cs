@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    class Sprite : ISprite
+    public class Sprite : ISprite
     {
         public Texture2D texture { get; set; }
         public int rows { get; set; }

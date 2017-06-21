@@ -252,5 +252,6 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.D
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game.csprojResolveAssemblyReference.cache
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.exe
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.pdb
