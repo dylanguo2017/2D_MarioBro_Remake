@@ -30,6 +30,7 @@ namespace Game.Sprites
             this.columns = columns;
             this.currentFrame = 0;
             totalFrames = this.rows * this.columns;
+            type = texture.Name.ToString();
         }
 
     }
