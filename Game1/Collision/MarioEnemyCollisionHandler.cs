@@ -11,7 +11,7 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollison(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
         {
             ISprite enemy = gameObject as ISprite;
             if(!enemy.type.Contains("Dead"))

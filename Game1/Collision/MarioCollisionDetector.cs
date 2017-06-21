@@ -43,7 +43,7 @@ namespace Game
                     ISprite sprite = gameObject as ISprite;
                     if (!sprite.type.Contains("BgElement"))
                     {
-                        marioCollisionHandler.HandleCollison(myGame.mario, gameObject, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
+                        marioCollisionHandler.HandleCollision(myGame.mario, gameObject, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
 
                         if (!sprite.type.Contains("Item") && sprite.visible == true)
                         {

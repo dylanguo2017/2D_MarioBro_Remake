@@ -2,8 +2,8 @@
 
 namespace Game
 {
-    interface ICollisionResponse
+    public interface ICollisionResponse
     {
-        void HandleCollison(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide);
+        void HandleCollision(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide);
     }
 }
