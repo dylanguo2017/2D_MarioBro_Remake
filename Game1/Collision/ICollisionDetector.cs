@@ -1,6 +1,6 @@
 ﻿namespace Game
 {
-    interface ICollisionDetector
+    public interface ICollisionDetector
     {
         void Update();
     }

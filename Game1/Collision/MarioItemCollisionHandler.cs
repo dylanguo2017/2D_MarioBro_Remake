@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    class MarioItemCollisionHandler : ICollisionResponse
+    public class MarioItemCollisionHandler : ICollisionResponse
     {
         private Game myGame;
 
@@ -11,7 +11,7 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollison(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
         {
             ISprite item = gameObject as ISprite;
             if (item.type.Contains("Item"))

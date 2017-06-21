@@ -12,7 +12,7 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollison(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
         {
             ISprite block = gameObject as ISprite;
             if (marioCollidesFromVerticalSide.Equals("bottom"))
