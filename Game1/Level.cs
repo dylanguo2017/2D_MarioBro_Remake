@@ -8,7 +8,7 @@ namespace Game
 {
     public static class Level
     {
-        public static List<ISprite> Load(Game myGame)
+        public static List<ISprite> LoadList(Game myGame)
         {
             List<ISprite> list = new List<ISprite>();
             StreamReader levelFile = new StreamReader(
@@ -57,7 +57,7 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("pipe"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.pipeSprite, 1, 1, positionColumn * 16, positionRow * 16);
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.pipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("star"))

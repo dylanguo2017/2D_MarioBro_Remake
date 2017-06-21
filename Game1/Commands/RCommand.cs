@@ -23,7 +23,7 @@ namespace Game
 
             myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
 
-            myGame.list = Level.Load(myGame);
+            myGame.list = Level.LoadList(myGame);
         }
     }
 }
