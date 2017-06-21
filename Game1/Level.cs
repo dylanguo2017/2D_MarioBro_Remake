@@ -136,7 +136,7 @@ namespace Game
                 if (gameObject.type.Equals(type))
                 {
                     ISprite modifiedGameObject = gameObject;
-                    modifiedGameObject.ToggleSpriteSheet(texture, 1, 1);
+                    modifiedGameObject.ToggleSpriteSheet(texture, 1, columns);
                     reloadList.Add(modifiedGameObject);
                 }
                 else

@@ -26,10 +26,12 @@ namespace Game
             marioState.curStat = MarioStateClass.marioStatus.large;
             marioState.star = false;
         }
+
         public MarioStateClass.marioStatus currentStatus()
         {
             return marioState.curStat;
         }
+
         public void Update()
         {
             //update is only for moving. this is a template logic, still needs fixing

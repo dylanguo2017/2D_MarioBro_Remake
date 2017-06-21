@@ -24,12 +24,15 @@ namespace Game
             leftFacingCurrentFrame = 63;
             rightFacingCurrentFrame = 56;
             marioState.star = true;
+            marioState.curStat = MarioStateClass.marioStatus.large;
             duration = 10;
         }
+
         public MarioStateClass.marioStatus currentStatus()
         {
             return marioState.curStat;
         }
+
         public void Update()
         {
 

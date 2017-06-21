@@ -8,8 +8,6 @@ namespace Game
         public Boolean crouch;
         public Boolean jump;
         public Boolean move;
-
-
         public Boolean up;
         public Boolean down;
         public Boolean left;
@@ -89,6 +87,7 @@ namespace Game
             }
 
         }
+
         public void moveL()
         {
             if (left && !(curStat.Equals(marioStatus.dead)))

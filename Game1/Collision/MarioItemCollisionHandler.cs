@@ -18,6 +18,7 @@ namespace Game
             {
                 item.visible = false;
             }
+
             if (item.type.Equals("StarItem"))
             {
                 if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
@@ -31,11 +32,26 @@ namespace Game
             }
             else if (item.type.Equals("RedMushroomItem"))
             {
-                myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
+                if (myGame.marioState.star)
+                {
+                    myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+                }
+                else
+                {
+                    myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
+                }
             }
             else if (item.type.Equals("FireFlowerItem"))
             {
-                myGame.mario = new FireMario(myGame.marioState, myGame.marioSprites);
+                if (myGame.marioState.star)
+                {
+                    myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+                    myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
+                }
+                else
+                {
+                    myGame.mario = new FireMario(myGame.marioState, myGame.marioSprites);
+                }
             }
         }
     }

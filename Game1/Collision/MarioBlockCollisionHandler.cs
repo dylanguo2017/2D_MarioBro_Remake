@@ -28,6 +28,10 @@ namespace Game
                         block.visible = false;
                     }
                 }
+                else if (block.type.Equals("InvisibleBlock"))
+                {
+                    block.texture = myGame.usedBlockSprite;
+                }
             }
         }
     }
