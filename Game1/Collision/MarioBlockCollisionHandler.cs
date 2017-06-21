@@ -3,7 +3,7 @@ using System;
 
 namespace Game
 {
-    class MarioBlockCollisionHandler : ICollisionResponse
+    public class MarioBlockCollisionHandler : ICollisionResponse
     {
         private Game myGame;
 

@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    class MarioEnemyCollisionHandler : ICollisionResponse
+    public class MarioEnemyCollisionHandler : ICollisionResponse
     {
         private Game myGame;
 
