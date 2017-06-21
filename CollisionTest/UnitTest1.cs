@@ -16,8 +16,10 @@ namespace CollisionTest
         public void TestMethod1()
         {
             testState.curStat=
-            Game.SmallMario sm=new Game.SmallMario(testState,myGame.marioSprites);
-            Assert.AreEqual(sm.currentStatus(),testState.curStat);
+            Game.LargeMario largeMario = new Game.LargeMario(testState,myGame.marioSprites);
+            Game.ISprite fireFlower = new Game.ISprite mygame.fireFlowerItem();
+            
+            Assert.AreEqual(myGame.marioState, CollisionTest(LargeMario, fireFlower));
            
             
         }
