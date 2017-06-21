@@ -1,0 +1,15 @@
+Author: Shiny Patel
+Date: 6/20/2017
+Sprint#: 3
+.cs file reviewed: MarioStateClass.cs
+author of cs file: Rezeki Utomo
+# of minutes taken to complete the review: 20
+
+Specific comments on readibility: 
+MarioStateClass has low cohesion, in addition to the Mario states it also handles
+Mario movement for up, down, left and right in their respective move methods.
+The class has negligible number of dependencies and as such also has loose coupling. It
+is not dependent on any other class or interface for its functionality. 
+
+Hypothetical Change:
+Create a separate class for handling Mario movement to increase cohesion.

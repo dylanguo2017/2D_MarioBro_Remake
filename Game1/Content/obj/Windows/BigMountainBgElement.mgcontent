@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/BigMountainBgElement.png</SourceFile>
-  <SourceTime>2017-06-20T19:18:25.170363-04:00</SourceTime>
+  <SourceTime>2017-06-20T23:15:57.4588148-04:00</SourceTime>
   <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/BigMountainBgElement.xnb</DestFile>
-  <DestTime>2017-06-20T19:20:27.3996997-04:00</DestTime>
+  <DestTime>2017-06-20T23:16:45.1172291-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

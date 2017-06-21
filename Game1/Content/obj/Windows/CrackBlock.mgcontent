@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/CrackBlock.png</SourceFile>
-  <SourceTime>2017-06-20T12:52:05.5590513-04:00</SourceTime>
+  <SourceTime>2017-06-20T23:15:57.4608149-04:00</SourceTime>
   <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/CrackBlock.xnb</DestFile>
-  <DestTime>2017-06-20T19:20:27.3486827-04:00</DestTime>
+  <DestTime>2017-06-20T23:16:45.0782014-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -273,6 +273,5 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direc
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct2D1.xml
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInput.xml
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.MediaFoundation.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.csprojResolveAssemblyReference.cache
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.dll
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\CollisionTest\obj\Debug\CollisionTest.pdb
