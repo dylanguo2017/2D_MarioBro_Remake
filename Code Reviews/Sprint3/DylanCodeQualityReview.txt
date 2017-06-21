@@ -1,0 +1,12 @@
+Author: Dylan Guo
+Date: 6/20/2017
+Sprint 3
+Name of .cs: MarioCollisionDetector.cs
+Author of the .cs file being reviewed: Shiny Patel
+Comment:
+high coupling was observed, the method CollisionDetection should only dealing with
+returning type of collision, side of collision. CollisionDetection should not cope with
+behavioral features of the objects involved which should be taken care of be collision handler outside
+of collision detection class.
+
+probably need to change the code of the collision detector soon.
