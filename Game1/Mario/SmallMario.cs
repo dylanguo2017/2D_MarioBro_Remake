@@ -5,9 +5,9 @@ namespace Game
 {
     public class SmallMario : IMario
     {
-        private MarioStateClass marioState;
+        public MarioStateClass marioState;
 
-        private Texture2D texture;
+        public Texture2D texture;
 
         MarioPositionDic marioPosition = new MarioPositionDic();
 

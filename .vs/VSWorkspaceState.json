@@ -1,13 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\CollisionTest",
     "\\Game1",
-    "\\Game1\\Content",
-    "\\Game1\\Controllers",
-    "\\Game1\\Mario",
-    "\\Game1\\obj",
-    "\\Game1\\Properties"
+    "\\Game1\\Content\\BlockSpriteSheet"
   ],
-  "SelectedNode": "\\Game1\\Mario\\MarioPositionDic.cs",
+  "SelectedNode": "\\Game1\\Game.cs",
   "PreviewInSolutionExplorer": false
 }

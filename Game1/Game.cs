@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections;
 
+
 namespace Game
 {
     public class Game : Microsoft.Xna.Framework.Game
@@ -95,6 +96,7 @@ namespace Game
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
         }
 
         protected override void Initialize()
