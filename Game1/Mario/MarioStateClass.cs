@@ -46,8 +46,8 @@ namespace Game
             crouch = crch;
             jump = jmp;
             move = mv;
-            xCoor = 300;
-            yCoor = 300;
+            xCoor = 48;
+            yCoor = 432;
             left = true;
             right = true;
             up = true;
@@ -127,7 +127,7 @@ namespace Game
 
                 if (jump)
                 {
-                    if (yCoor < 300)
+                    if (yCoor < 432)
                     {
                         yCoor++;
                     }

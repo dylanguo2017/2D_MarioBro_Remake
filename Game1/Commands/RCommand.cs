@@ -18,8 +18,8 @@ namespace Game
             myGame.marioState.jump = false;
             myGame.marioState.crouch = false;
             myGame.marioState.move = false;
-            myGame.marioState.XCoor = 300;
-            myGame.marioState.YCoor = 300;
+            myGame.marioState.XCoor = 48;
+            myGame.marioState.YCoor = 432;
 
             myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
 

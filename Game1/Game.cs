@@ -26,9 +26,12 @@ namespace Game
 
         public Texture2D oneCloudBgElement;
         public Texture2D threeCloudsBgElement;
+        public Texture2D oneBushBgElement;
         public Texture2D threeBushesBgElement;
         public Texture2D smallMountainBgElement;
         public Texture2D bigMountainBgElement;
+        public Texture2D smallCastle;
+        public Texture2D flagpoleElement;
 
         public Texture2D goombaEnemy;
         public Texture2D koopaEnemy;
@@ -36,11 +39,16 @@ namespace Game
         public Texture2D koopaEnemyDead;
 
         public Texture2D marioSprites;
+        public Texture2D fireballSprite;
+        public Texture2D titleScreen;
 
         public Texture2D invisibleBlockSprite;
         public Texture2D usedBlockSprite;
-        public Texture2D pipeBlockSprite;
+        public Texture2D smallPipeBlockSprite;
+        public Texture2D mediumPipeBlockSprite;
+        public Texture2D bigPipeBlockSprite;
         public Texture2D crackBlockSprite;
+        public Texture2D halfCrackBlockSprite;
         public Texture2D brickBlockSprite;
         public Texture2D diamondBlockSprite;
         public Texture2D questionMarkBlockSprite;
@@ -148,10 +156,13 @@ namespace Game
 
             oneCloudBgElement = Content.Load<Texture2D>("1CloudBgElement");
             threeCloudsBgElement = Content.Load<Texture2D>("3CloudsBgElement");
+            oneBushBgElement = Content.Load<Texture2D>("1BushElement");
             threeBushesBgElement = Content.Load<Texture2D>("3BushesBgElement");
             smallMountainBgElement = Content.Load<Texture2D>("SmallMountainBgElement");
             bigMountainBgElement = Content.Load<Texture2D>("BigMountainBgElement");
-        
+            smallCastle = Content.Load<Texture2D>("smallCastle");
+            flagpoleElement = Content.Load<Texture2D>("flagPole");
+
             goombaEnemy = Content.Load<Texture2D>("GoombaEnemy");
             koopaEnemy = Content.Load<Texture2D>("KoopaEnemy");
             goombaEnemyDead = Content.Load<Texture2D>("GoombaEnemyDead");
@@ -161,10 +172,14 @@ namespace Game
             diamondBlockSprite = Content.Load<Texture2D>("DiamondBlock");
             brickBlockSprite = Content.Load<Texture2D>("BrickBlock");
             crackBlockSprite = Content.Load<Texture2D>("CrackBlock");
-            pipeBlockSprite = Content.Load<Texture2D>("PipeBlock");
+            halfCrackBlockSprite = Content.Load<Texture2D>("halfCrackBlock");
+            smallPipeBlockSprite = Content.Load<Texture2D>("PipeBlock");
+            mediumPipeBlockSprite = Content.Load<Texture2D>("medPipe");
+            bigPipeBlockSprite = Content.Load<Texture2D>("bgPipe");
             invisibleBlockSprite = Content.Load<Texture2D>("InvisibleBlock");
             usedBlockSprite = Content.Load<Texture2D>("UsedBlock");
 
+            titleScreen = this.Content.Load<Texture2D>("titleScreen");
             marioSprites = this.Content.Load<Texture2D>("SpriteSheets/Mario");
 
             mario = new SmallMario(marioState, marioSprites);

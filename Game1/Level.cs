@@ -13,7 +13,7 @@ namespace Game
             List<ISprite> list = new List<ISprite>();
             StreamReader levelFile = new StreamReader(
          Path.Combine(Directory.GetCurrentDirectory(),
-                      "Content", "Levels", "TLevel1-1.txt")
+                      "Content", "Levels", "Level1-1.txt")
          );
             String inComingLine;
             int positionRow = 0;
@@ -33,6 +33,11 @@ namespace Game
                     else if (target[positionColumn].Equals("crack"))
                     {
                         ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.crackBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("halfCrack"))
+                    {
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.halfCrackBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("diamond"))
@@ -55,9 +60,19 @@ namespace Game
                         ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.invisibleBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("pipe"))
+                    else if (target[positionColumn].Equals("smallPipe"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.pipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.smallPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("mediumPipe"))
+                    {
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.mediumPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("bigPipe"))
+                    {
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.bigPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("star"))
@@ -68,16 +83,6 @@ namespace Game
                     else if (target[positionColumn].Equals("coin"))
                     {
                         ISprite gameObject = new MotionlessAnimatedSprite(myGame.coinItem, 1, 4, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("goomba"))
-                    {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame.goombaEnemy, 1, 2, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("koopa"))
-                    {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame.koopaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("flower"))
@@ -95,6 +100,16 @@ namespace Game
                         ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.greenMushroomItem, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                     }
+                    else if (target[positionColumn].Equals("goomba"))
+                    {
+                        ISprite gameObject = new MotionlessAnimatedSprite(myGame.goombaEnemy, 1, 2, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("koopa"))
+                    {
+                        ISprite gameObject = new MotionlessAnimatedSprite(myGame.koopaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
                     else if (target[positionColumn].Equals("oneCloud"))
                     {
                         ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.oneCloudBgElement, 1, 1, positionColumn * 16, positionRow * 16);
@@ -103,6 +118,11 @@ namespace Game
                     else if (target[positionColumn].Equals("threeClouds"))
                     {
                         ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.threeCloudsBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("oneBush"))
+                    {
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.oneBushBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("threeBushes"))
@@ -120,6 +140,22 @@ namespace Game
                         ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.bigMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                     }
+                    else if (target[positionColumn].Equals("smallCastle"))
+                    {
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.smallCastle, 1, 1, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("flagpole"))
+                    {
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("title"))
+                    {
+                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.titleScreen, 1, 1, positionColumn * 16, positionRow * 16);
+                        list.Add(gameObject);
+                    }
+
                     positionColumn++;
                 }
                 positionRow++;

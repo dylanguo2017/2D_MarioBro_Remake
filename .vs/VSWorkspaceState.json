@@ -1,12 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Code Reviews",
-    "\\Code Reviews\\Sprint3",
-    "\\CollisionTest",
     "\\Game1",
-    "\\Game1\\Mario"
+    "\\Game1\\Content",
+    "\\Game1\\Controllers",
+    "\\Game1\\Mario",
+    "\\Game1\\obj",
+    "\\Game1\\Properties"
   ],
-  "SelectedNode": "\\Game1\\Mario\\MarioStateClass.cs",
+  "SelectedNode": "\\Game.sln",
   "PreviewInSolutionExplorer": false
 }
