@@ -15,28 +15,29 @@ namespace Game
         public enum marioStatus { large, fire, small, dead};
         public marioStatus curStat;
         public bool star;
-        private int xCoor;
+        public Boolean inv;
+        private Physics marioPhys;
+
         public int XCoor
         {
             get
             {
-                return xCoor;
+                return marioPhys.XCoor;
             }
             set
             {
-                xCoor = value;
+                marioPhys.XCoor = value;
             }
         }
-        public int yCoor;
         public int YCoor
         {
             get
             {
-                return yCoor;
+                return marioPhys.YCoor;
             }
             set
             {
-                yCoor = value;
+                marioPhys.YCoor = value;
             }
         }
 
@@ -46,14 +47,14 @@ namespace Game
             crouch = crch;
             jump = jmp;
             move = mv;
-            xCoor = 48;
-            yCoor = 432;
+            marioPhys = new Physics(48, 432);
             left = true;
             right = true;
             up = true;
             down = true;
             curStat = marioStatus.small;
             star = false;
+            inv = false;
         }
 
         public void moveR()
@@ -71,13 +72,13 @@ namespace Game
                     {
                         move = true;
                         crouch = false;
-                        xCoor++;
+                        marioPhys.XCoor++;
                     }
                 }
                 else if (jump)
                 {
                     move = false;
-                    xCoor++;
+                    marioPhys.XCoor++;
                     facingLeft = false;
                 }
                 else
@@ -103,7 +104,7 @@ namespace Game
                     {
                         move = true;
                         crouch = false;
-                        xCoor--;
+                        marioPhys.XCoor--;
                     }
 
                 }
@@ -111,7 +112,7 @@ namespace Game
                 {
                     move = false;
                     facingLeft = true;
-                    xCoor--;
+                    marioPhys.XCoor--;
                 }
                 else
                 {
@@ -127,9 +128,9 @@ namespace Game
 
                 if (jump)
                 {
-                    if (yCoor < 432)
+                    if (marioPhys.YCoor < 432)
                     {
-                        yCoor++;
+                        marioPhys.YCoor++;
                     }
                     else
                     {
@@ -156,7 +157,7 @@ namespace Game
                 else
                 {
                     jump = true;
-                    yCoor--;
+                    marioPhys.YCoor--;
                 }
             }
         }

@@ -15,6 +15,7 @@ namespace Game
         private int leftFacingCurrentFrame;
 
         private Rectangle destinationRectangle;
+        private int invCtr;
 
         public SmallMario(MarioStateClass mainState, Texture2D spriteSheet)
         {
@@ -25,6 +26,7 @@ namespace Game
             leftFacingCurrentFrame = 7;
             marioState.curStat = MarioStateClass.marioStatus.small;
             marioState.star = false;
+            invCtr = 0;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -34,6 +36,20 @@ namespace Game
 
         public void Update()
         {
+            if (marioState.inv && invCtr == 0)
+            {
+                invCtr = 10;
+            }
+            if (invCtr > 0)
+            {
+                invCtr--;
+                if (invCtr == 0)
+                {
+                    marioState.inv = false;
+                }
+                System.Diagnostics.Debug.WriteLine("TIME:"+invCtr);
+            }
+           
             if (marioState.move && marioState.facingLeft && !marioState.jump)
             {
                 leftFacingCurrentFrame++;
@@ -57,10 +73,15 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
+
+            if (invCtr % 2 == 1)
+            {
+                return;
+            }
             int width = 17;
             int height = 17;
             Rectangle sourceRectangle;
-
+            
             if (!marioState.facingLeft)
             {
                 if (marioState.move)

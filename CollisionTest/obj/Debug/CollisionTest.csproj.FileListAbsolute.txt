@@ -233,7 +233,6 @@ C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.DXGI.dll
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D11.dll
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct2D1.dll
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInput.dll
-C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D9.dll
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Game1.pdb
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
@@ -245,7 +244,6 @@ C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.DXGI.xml
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D11.xml
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct2D1.xml
 C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.XInput.xml
-C:\Users\utomo\Source\Repos\Mario4.0\CollisionTest\bin\Debug\SharpDX.Direct3D9.xml
 C:\Users\Admin\Source\Repos\Mario4.02\CollisionTest\obj\Debug\CollisionTest.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Source\Repos\Mario4.02\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Admin\Source\Repos\Mario4.02\CollisionTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll

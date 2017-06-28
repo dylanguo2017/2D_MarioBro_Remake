@@ -15,6 +15,7 @@ namespace Game
         private int leftFacingCurrentFrame;
 
         private Rectangle destinationRectangle;
+        private int invCtr;
 
         public LargeMario(MarioStateClass mainState, Texture2D spriteSheet)
         {
@@ -25,6 +26,7 @@ namespace Game
             leftFacingCurrentFrame = 21;
             marioState.curStat = MarioStateClass.marioStatus.large;
             marioState.star = false;
+            invCtr = 0;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -34,7 +36,20 @@ namespace Game
 
         public void Update()
         {
-            //update is only for moving. this is a template logic, still needs fixing
+            if (marioState.inv && invCtr == 0)
+            {
+                invCtr = 10;
+            }
+            if (invCtr > 0)
+            {
+                invCtr--;
+                if (invCtr == 0)
+                {
+                    marioState.inv = false;
+                }
+                System.Diagnostics.Debug.WriteLine("TIME:" + invCtr);
+            }
+            
             if (marioState.move && marioState.facingLeft)
             {
                 leftFacingCurrentFrame++;
@@ -53,6 +68,10 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (invCtr % 2 == 1)
+            {
+                return;
+            }
             int width = 17;
             int height = 33;
             Rectangle sourceRectangle;

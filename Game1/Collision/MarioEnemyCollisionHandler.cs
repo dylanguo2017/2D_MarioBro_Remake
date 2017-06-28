@@ -22,7 +22,7 @@ namespace Game
                 }
                 else
                 {
-                    if ((marioCollidesFromVerticalSide.Equals("bottom") || marioCollidesFromHorizontalSide.Equals("left") || marioCollidesFromHorizontalSide.Equals("right")))
+                    if (((marioCollidesFromVerticalSide.Equals("bottom") || marioCollidesFromHorizontalSide.Equals("left") || marioCollidesFromHorizontalSide.Equals("right"))) && !myGame.marioState.inv)
                     {
                         if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
                         {
@@ -30,14 +30,16 @@ namespace Game
                         }
                         else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
                         {
+                            myGame.marioState.inv = true;
                             myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
                         }
                         else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.fire))
                         {
+                            myGame.marioState.inv = true;
                             myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
                         }
                     }
-                    else
+                    else if (marioCollidesFromVerticalSide.Equals("top"))
                     {
                         KillEnemy(enemy);
                     }
