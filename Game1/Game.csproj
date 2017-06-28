@@ -46,8 +46,12 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Collision\EnemyCollisionHandler.cs" />
+    <Compile Include="Collision\EnemyCollisionDetector.cs" />
     <Compile Include="Collision\ICollisionDetector.cs" />
     <Compile Include="Collision\ICollisionResponse.cs" />
+    <Compile Include="Collision\ItemCollisionDetector.cs" />
+    <Compile Include="Collision\ItemCollisionHandler.cs" />
     <Compile Include="Collision\MarioBlockCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionDetector.cs" />
     <Compile Include="Collision\MarioEnemyCollisionHandler.cs" />

@@ -77,6 +77,11 @@ namespace Game
         public List<ISprite> list;
         private ICollisionDetector collisionDetector;
 
+        // change to ICollisionDetector
+        private EnemyCollisionDetector enemyCollisionDetector;
+        private ItemCollisionDetector itemCollisionDetector;
+
+
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -89,6 +94,9 @@ namespace Game
             contrl = new ArrayList();
             
             collisionDetector = new MarioCollisionDetector(this);
+
+            enemyCollisionDetector = new EnemyCollisionDetector(this);
+            itemCollisionDetector = new ItemCollisionDetector(this);
 
             IController keyboard = new KeyboardController();
             IController gmPad = new GamepadController();
@@ -196,6 +204,10 @@ namespace Game
         protected override void Update(GameTime gameTime)
         {
             collisionDetector.Update();
+
+            enemyCollisionDetector.Update();
+            //itemCollisionDetector.Update();
+
             if (marioState.star)
             {
                 starDuration--;
