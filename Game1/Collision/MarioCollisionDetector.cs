@@ -37,46 +37,49 @@ namespace Game
 
                 if (marioRec.Intersects(objectRec))
                 {
-                    MarioCollidesFrom();
-                    Type(gameObject);
 
                     ISprite sprite = gameObject as ISprite;
                     if (!sprite.type.Contains("BgElement"))
                     {
-                        marioCollisionHandler.HandleCollision(myGame.mario, gameObject, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
-
                         if (!sprite.type.Contains("Item") && sprite.visible == true)
                         {
-                            DisableMarioMovement();
+                            MarioMovement();
+                            Type(gameObject);
+                            marioCollisionHandler.HandleCollision(myGame.mario, gameObject, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
+
                         }
                     }
                 }
             }
         }
 
-        private void MarioCollidesFrom()
+        private void MarioMovement()
         {
             marioCollidesFromHorizontalSide = "none";
-            if (marioRec.Left > objectRec.Left && marioRec.Left > objectRec.Right - 2)
+            marioCollidesFromVerticalSide = "none";
+            
+            if (marioRec.Left > objectRec.Right - 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
             {
                 marioCollidesFromHorizontalSide = "right";
+                myGame.marioState.left = false;
             }
-
-            if (marioRec.Right < objectRec.Right && marioRec.Right < objectRec.Left + 2)
+            else if (marioRec.Right < objectRec.Left + 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
             {
                 marioCollidesFromHorizontalSide = "left";
+                myGame.marioState.right = false;
             }
 
-            marioCollidesFromVerticalSide = "none";
-            if (marioRec.Bottom > objectRec.Bottom && marioRec.Top > objectRec.Bottom - 2)
+            if (marioRec.Bottom > objectRec.Bottom && marioRec.Top > objectRec.Bottom - 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
                 marioCollidesFromVerticalSide = "bottom";
+                myGame.marioState.up = false;
             }
-
-            if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2)
+            else if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
                 marioCollidesFromVerticalSide = "top";
+                myGame.marioState.down = false;
             }
+
         }
         
         private void Type(IObject gameObject)
@@ -95,33 +98,6 @@ namespace Game
                 marioCollisionHandler = new MarioEnemyCollisionHandler(myGame);
             }
         }
-
-        private void DisableMarioMovement()
-        {
-            if (marioCollidesFromHorizontalSide.Equals("none"))
-            {
-                if (marioRec.Right > objectRec.Right)
-                {
-                    myGame.marioState.left = false;
-                }
-                if (marioRec.Left < objectRec.Left)
-                {
-                    myGame.marioState.right = false;
-                }
-            }
-
-            if (marioCollidesFromVerticalSide.Equals("none"))
-            {
-                if (marioRec.Bottom > objectRec.Bottom)
-                {
-                    myGame.marioState.up = false;
-                }
-                if (marioRec.Top < objectRec.Top)
-                {
-                    myGame.marioState.down = false;
-                }
-            }
-        }
-
+        
     }
 }
