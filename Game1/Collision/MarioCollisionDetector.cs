@@ -31,29 +31,28 @@ namespace Game
             myGame.marioState.up = true;
             myGame.marioState.down = true;
             
-            foreach (IObject gameObject in marioCollisionList)
+            foreach (ISprite sprite in marioCollisionList)
             {
-                objectRec = gameObject.DestinationRectangle();
+                objectRec = sprite.DestinationRectangle();
 
                 if (marioRec.Intersects(objectRec))
                 {
-
-                    ISprite sprite = gameObject as ISprite;
                     if (!sprite.type.Contains("BgElement"))
                     {
+                        CollidesFrom();
+                        Type(sprite);
+                        marioCollisionHandler.HandleCollision(myGame.mario, sprite, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
+                        // move logic for disabling mario movement in its handler classes
                         if (!sprite.type.Contains("Item") && sprite.visible == true)
                         {
-                            MarioMovement();
-                            Type(gameObject);
-                            marioCollisionHandler.HandleCollision(myGame.mario, gameObject, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
-
+                            DisableMovement();
                         }
                     }
                 }
             }
         }
 
-        private void MarioMovement()
+        public void CollidesFrom()
         {
             marioCollidesFromHorizontalSide = "none";
             marioCollidesFromVerticalSide = "none";
@@ -61,30 +60,25 @@ namespace Game
             if (marioRec.Left > objectRec.Right - 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
             {
                 marioCollidesFromHorizontalSide = "right";
-                myGame.marioState.left = false;
             }
             else if (marioRec.Right < objectRec.Left + 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
             {
                 marioCollidesFromHorizontalSide = "left";
-                myGame.marioState.right = false;
             }
 
             if (marioRec.Bottom > objectRec.Bottom && marioRec.Top > objectRec.Bottom - 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
                 marioCollidesFromVerticalSide = "bottom";
-                myGame.marioState.up = false;
             }
             else if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
                 marioCollidesFromVerticalSide = "top";
-                myGame.marioState.down = false;
             }
 
         }
-        
-        private void Type(IObject gameObject)
+
+        private void Type(ISprite sprite)
         {
-            ISprite sprite = gameObject as ISprite;
             if (sprite.type.Contains("Block"))
             {
                 marioCollisionHandler = new MarioBlockCollisionHandler(myGame);
@@ -98,6 +92,27 @@ namespace Game
                 marioCollisionHandler = new MarioEnemyCollisionHandler(myGame);
             }
         }
-        
+
+        private void DisableMovement()
+        {
+            if(marioCollidesFromHorizontalSide.Equals("right"))
+            {
+                myGame.marioState.left = false;
+            }
+            else if (marioCollidesFromHorizontalSide.Equals("left"))
+            {
+                myGame.marioState.right = false;
+            }
+
+            if (marioCollidesFromVerticalSide.Equals("bottom"))
+            {
+                myGame.marioState.up = false;
+            }
+            else if (marioCollidesFromVerticalSide.Equals("top"))
+            {
+                myGame.marioState.down = false;
+            }
+        }
+
     }
 }
