@@ -47,8 +47,7 @@ namespace Game
         public Texture2D smallPipeBlockSprite;
         public Texture2D mediumPipeBlockSprite;
         public Texture2D bigPipeBlockSprite;
-        public Texture2D crackBlockSprite;
-        public Texture2D halfCrackBlockSprite;
+        public Texture2D crackBlockSprite;       
         public Texture2D brickBlockSprite;
         public Texture2D diamondBlockSprite;
         public Texture2D questionMarkBlockSprite;
@@ -179,8 +178,7 @@ namespace Game
             questionMarkBlockSprite = Content.Load<Texture2D>("QuestionMarkBlock");
             diamondBlockSprite = Content.Load<Texture2D>("DiamondBlock");
             brickBlockSprite = Content.Load<Texture2D>("BrickBlock");
-            crackBlockSprite = Content.Load<Texture2D>("CrackBlock");
-            halfCrackBlockSprite = Content.Load<Texture2D>("halfCrackBlock");
+            crackBlockSprite = Content.Load<Texture2D>("CrackBlock");           
             smallPipeBlockSprite = Content.Load<Texture2D>("PipeBlock");
             mediumPipeBlockSprite = Content.Load<Texture2D>("medPipe");
             bigPipeBlockSprite = Content.Load<Texture2D>("bgPipe");

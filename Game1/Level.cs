@@ -34,12 +34,7 @@ namespace Game
                     {
                         ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.crackBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("halfCrack"))
-                    {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.halfCrackBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                    }
+                    }                    
                     else if (target[positionColumn].Equals("diamond"))
                     {
                         ISprite gameObject = new MotionlessNonAnimatedSprite(myGame.diamondBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
