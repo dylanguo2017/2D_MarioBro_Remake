@@ -44,10 +44,9 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+                destinationRectangle = new Rectangle((int)location.X - myGame.camera.GetOffset(), (int)location.Y, width, height);
 
-                spriteBatch.Begin();
-                destinationRectangle = new Rectangle(destinationRectangle.X - myGame.camera.GetOffset(), destinationRectangle.Y, width, height);
+                spriteBatch.Begin();               
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
                 spriteBatch.End();
             }
