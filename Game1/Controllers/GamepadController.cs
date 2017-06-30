@@ -9,7 +9,7 @@ namespace Game
     {
         private Dictionary<Buttons, ICommand> controllerMappings;
 
-        Buttons[] exist = new Buttons[5] { Buttons.LeftThumbstickUp, Buttons.LeftThumbstickDown, Buttons.LeftThumbstickLeft, Buttons.LeftThumbstickRight, Buttons.A };
+        Buttons[] exist = new Buttons[6] { Buttons.LeftThumbstickUp, Buttons.LeftThumbstickDown, Buttons.LeftThumbstickLeft, Buttons.LeftThumbstickRight, Buttons.A, Buttons.B };
 
         public GamepadController()
         {
@@ -54,6 +54,10 @@ namespace Game
             if (currentState.IsButtonDown(exist[4]))
             {
                 controllerMappings[exist[4]].Execute();
+            }
+            if (currentState.IsButtonDown(exist[5]))
+            {
+                controllerMappings[exist[5]].Execute();
             }
         }
     }
