@@ -31,15 +31,14 @@ namespace Game
 
         public int GetOffset()
         {
-            int maxOffset = 300;
+            int maxOffset = 400;
             
             marioPosition = myGame.marioState.XCoor;
-
-            offset = 0;
 
             if (marioPosition - offset > maxOffset)
             {
                 offset = marioPosition - maxOffset;
+                System.Diagnostics.Debug.WriteLine(offset);
             }
             
             

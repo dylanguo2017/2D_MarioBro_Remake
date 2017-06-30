@@ -16,6 +16,7 @@ namespace Game
 
         private Rectangle destinationRectangle;
         private int invCtr;
+        
 
         public SmallMario(MarioStateClass mainState, Texture2D spriteSheet)
         {
@@ -90,13 +91,12 @@ namespace Game
                     if (!marioState.jump)
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.marioPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+                       
                     }
                     else
                     {
-                        //RIGHT FACING JUMP + MOVE :Same as right jump (THIS IS HERE FOR THE NEXT SPRINT IMLPEMENTATION)
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+                        
                     }
                 }
                 else
@@ -105,12 +105,12 @@ namespace Game
                     if (!marioState.jump)
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[0].X, (int)this.marioPosition.PositionArr[0].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+                        
                     }
                     else
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+                       
                     }
                 }
 
@@ -122,13 +122,12 @@ namespace Game
                     if (!marioState.jump)
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.marioPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+                       
                     }
                     else
                     {
-                        //LEFT FACING JUMP + MOVE: Same as left jump (THIS IS HERE FOR THE NEXT SPRINT IMLPEMENTATION)
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[11].X, (int)this.marioPosition.PositionArr[11].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+                        
                     }
                 }
                 else
@@ -136,17 +135,24 @@ namespace Game
                     if (!marioState.jump)
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[6].X, (int)this.marioPosition.PositionArr[6].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+                       
                     }
                     else
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[11].X, (int)this.marioPosition.PositionArr[11].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+                      
                     }
                 }
 
             }
 
+             
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            {
+                marioState.offset = marioState.XCoor - 400;
+            } 
+
+            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, width, height);
             spriteBatch.Begin();            
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();

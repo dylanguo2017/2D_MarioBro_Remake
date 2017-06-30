@@ -37,7 +37,12 @@ namespace Game
             int height = 17;
 
             Rectangle sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[currentFrame].X, (int)this.marioPosition.PositionArr[currentFrame].Y, width, height);
-            destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
+
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            {
+                marioState.offset = marioState.XCoor - 400;
+            }
+            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, width, height);
 
             spriteBatch.Begin();
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

@@ -246,12 +246,13 @@ namespace Game
             
             if (animationModifier % 20 == 0)
             {
+                mario.Update();
                 foreach (ISprite sprite in list)
                 {
                     sprite.Update();
                 }
                 
-                mario.Update();
+               
             }
             base.Update(gameTime);
         }
