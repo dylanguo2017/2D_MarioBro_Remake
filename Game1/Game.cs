@@ -76,7 +76,10 @@ namespace Game
         private int starDuration;
         
         public List<ISprite> list;
+        public List<Fireball> fireBalls;
+        public int fbDelay;
         private ICollisionDetector collisionDetector;
+        private ICollisionDetector projColDet;
 
         // change to ICollisionDetector
         private EnemyCollisionDetector enemyCollisionDetector;
@@ -101,6 +104,7 @@ namespace Game
             enemyCollisionDetector = new EnemyCollisionDetector(this);
             itemCollisionDetector = new ItemCollisionDetector(this);
 
+            
             IController keyboard = new KeyboardController();
             IController gmPad = new GamepadController();
 
@@ -149,6 +153,9 @@ namespace Game
             gmPad.RegisterCommand(Buttons.B, xCmd);
 
             marioState = new MarioStateClass(false, false, false, false);
+            fireBalls = new List<Fireball>();
+            fbDelay = 0;
+            projColDet = new ProjectileCollisionDetector(this, fireBalls);
 
             animationModifier = 0;
             starDuration = 500;
@@ -193,6 +200,7 @@ namespace Game
 
             titleScreen = this.Content.Load<Texture2D>("titleScreen");
             marioSprites = this.Content.Load<Texture2D>("SpriteSheets/Mario");
+            fireballSprite = Content.Load<Texture2D>("fireball");
 
             mario = new SmallMario(marioState, marioSprites);
 
@@ -207,8 +215,13 @@ namespace Game
 
         protected override void Update(GameTime gameTime)
         {
+            if(fbDelay > 0)
+            {
+                fbDelay--;
+            }
             
             collisionDetector.Update();
+            projColDet.Update();
 
             //itemCollisionDetector.Update();
 
@@ -244,6 +257,14 @@ namespace Game
             }
 
             mario.Update();
+            if (fireBalls.Count != 0)
+            {
+                foreach (Fireball fBalls in fireBalls)
+                {
+                    fBalls.Update();
+                }
+            }
+
             if (animationModifier % 20 == 0)
             {
                 foreach (ISprite sprite in list)
@@ -264,6 +285,14 @@ namespace Game
             foreach (ISprite sprite in list)
             {
                 sprite.Draw(spriteBatch);
+            }
+
+            if (fireBalls.Count != 0)
+            {
+                foreach (Fireball fBalls in fireBalls)
+                {
+                    fBalls.Draw(spriteBatch);
+                }
             }
 
             mario.Draw(spriteBatch);
