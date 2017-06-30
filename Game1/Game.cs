@@ -242,7 +242,7 @@ namespace Game
                 }
             }
 
-            
+            mario.Update();
             if (animationModifier % 20 == 0)
             {
                 foreach (ISprite sprite in list)
@@ -250,8 +250,6 @@ namespace Game
                     enemyCollisionDetector.Update();
                     sprite.Update();
                 }
-                
-                mario.Update();
             }
             base.Update(gameTime);
         }

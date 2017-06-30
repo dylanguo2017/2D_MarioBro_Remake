@@ -13,7 +13,15 @@ namespace Game
         private String marioCollidesFromHorizontalSide;
         private String marioCollidesFromVerticalSide;
         private ICollisionResponse marioCollisionHandler;
-        
+        private int differenceCoor = 0;
+        public int dCoor
+        {
+            get
+            {
+                return differenceCoor;
+            }
+        }
+
         public MarioCollisionDetector(Game game)
         {
             myGame = game;
@@ -70,9 +78,10 @@ namespace Game
             {
                 marioCollidesFromVerticalSide = "bottom";
             }
-            else if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
+            else if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2  && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
                 marioCollidesFromVerticalSide = "top";
+                
             }
 
         }

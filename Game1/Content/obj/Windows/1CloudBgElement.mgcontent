@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/1CloudBgElement.png</SourceFile>
-  <SourceTime>2017-06-20T23:15:57.4568125-04:00</SourceTime>
-  <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/1CloudBgElement.xnb</DestFile>
-  <DestTime>2017-06-30T12:14:44.2691044-04:00</DestTime>
+  <SourceFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/1CloudBgElement.png</SourceFile>
+  <SourceTime>2017-06-20T17:38:40.8267734-04:00</SourceTime>
+  <DestFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/bin/Windows/1CloudBgElement.xnb</DestFile>
+  <DestTime>2017-06-30T00:30:57.9401196-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

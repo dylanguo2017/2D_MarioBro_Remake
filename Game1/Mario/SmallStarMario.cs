@@ -16,7 +16,8 @@ namespace Game
         private int duration;
         private Rectangle destinationRectangle;
         private bool altColor;
-       
+        private int animMod;
+
 
         public SmallStarMario(MarioStateClass mainState, Texture2D spriteSheet)
         {
@@ -29,6 +30,7 @@ namespace Game
             marioState.curStat = MarioStateClass.marioStatus.small;
             duration = 10;
             altColor = false;
+            animMod = 0;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -38,23 +40,28 @@ namespace Game
 
         public void Update()
         {
-            if (marioState.move && marioState.facingLeft && !marioState.jump)
+            animMod++;
+            if (animMod % 20 == 0)
             {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 52)
+                if (marioState.move && marioState.facingLeft && !marioState.jump)
                 {
-                    leftFacingCurrentFrame = 50;
+                    leftFacingCurrentFrame++;
+                    if (leftFacingCurrentFrame == 52)
+                    {
+                        leftFacingCurrentFrame = 50;
+                    }
                 }
-            }
-            else if (marioState.move && !marioState.facingLeft && !marioState.jump)
-            {
-                rightFacingCurrentFrame++;
-                if (rightFacingCurrentFrame == 46)
+                else if (marioState.move && !marioState.facingLeft && !marioState.jump)
                 {
-                    rightFacingCurrentFrame = 44;
+                    rightFacingCurrentFrame++;
+                    if (rightFacingCurrentFrame == 46)
+                    {
+                        rightFacingCurrentFrame = 44;
+                    }
                 }
+                altColor = !altColor;
             }
-            altColor = !altColor;
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -70,11 +77,9 @@ namespace Game
                     if (!marioState.jump)
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.marioPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
                     }
                     else
                     {
-                        //RIGHT FACING JUMP + MOVE :Same as right jump
                         if (altColor)
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[48].X, (int)this.marioPosition.PositionArr[48].Y, width, height);
@@ -83,13 +88,12 @@ namespace Game
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
                         }
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
                     }
                 }
                 else
                 {
 
-                    if (!marioState.jump)//right facing idle
+                    if (!marioState.jump)
                     {
                         if (altColor)
                         {
@@ -99,9 +103,8 @@ namespace Game
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[0].X, (int)this.marioPosition.PositionArr[0].Y, width, height);
                         }
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
                     }
-                    else// right jump
+                    else
                     {
                         if (altColor)
                         {
@@ -111,7 +114,6 @@ namespace Game
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
                         }
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
                     }
                 }
 
@@ -123,11 +125,9 @@ namespace Game
                     if (!marioState.jump)
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.marioPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
                     }
                     else
                     {
-                        //LEFT FACING JUMP + MOVE: Same as left jump 
                         if (altColor)
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[54].X, (int)this.marioPosition.PositionArr[54].Y, width, height);
@@ -136,12 +136,11 @@ namespace Game
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[11].X, (int)this.marioPosition.PositionArr[11].Y, width, height);
                         }
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
                     }
                 }
                 else
                 {
-                    if (!marioState.jump)//left facing idle
+                    if (!marioState.jump)
                     {
                         if (altColor)
                         {
@@ -151,7 +150,6 @@ namespace Game
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[6].X, (int)this.marioPosition.PositionArr[6].Y, width, height);
                         }
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
                     }
                     else
                     {
@@ -163,11 +161,15 @@ namespace Game
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[11].X, (int)this.marioPosition.PositionArr[11].Y, width, height);
                         }
-                        destinationRectangle = new Rectangle(marioState.XCoor, marioState.YCoor, width, height);
                     }
                 }
 
             }
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            {
+                marioState.offset = marioState.XCoor - 400;
+            }
+            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, width, height);
 
             spriteBatch.Begin();
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

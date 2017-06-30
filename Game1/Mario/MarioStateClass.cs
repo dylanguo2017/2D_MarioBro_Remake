@@ -17,6 +17,8 @@ namespace Game
         public bool star;
         public Boolean inv;
         public Physics marioPhys;
+        public int offset = 0;
+        public int jmpCtr = 0;
 
         public int XCoor
         {
@@ -77,7 +79,7 @@ namespace Game
                 }
                 else if (jump)
                 {
-                    move = false;
+                    move = true;
                     marioPhys.XCoor++;
                     facingLeft = false;
                 }
@@ -110,7 +112,7 @@ namespace Game
                 }
                 else if (jump)
                 {
-                    move = false;
+                    move = true;
                     facingLeft = true;
                     marioPhys.XCoor--;
                 }
@@ -149,15 +151,16 @@ namespace Game
         {
             if (up && !(curStat.Equals(marioStatus.dead)))
             {
-
                 if (crouch)
                 {
                     crouch = false;
                 }
-                else
+                else if (jmpCtr > 0)
                 {
+                    jmpCtr--;
+                    marioPhys.falling = true;
                     jump = true;
-                    marioPhys.YCoor--;
+                    marioPhys.yVel = -1;
                 }
             }
         }
