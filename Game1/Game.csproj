@@ -78,7 +78,6 @@
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
-    <Compile Include="Enemies\AbstractEnemy.cs" />
     <Compile Include="Enemies\GoombaEnemy.cs" />
     <Compile Include="Enemies\GoombaPositionDic.cs" />
     <Compile Include="Enemies\IEnemy.cs" />

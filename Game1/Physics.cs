@@ -5,7 +5,6 @@ namespace Game
     public class Physics
     {
         private Boolean falling;
-        private int fallTime;
         private int xCoor;
         public int XCoor
         {
@@ -19,6 +18,8 @@ namespace Game
             }
         }
         public int yCoor;
+        public int yVel = 5;
+        public int yAcc = 1;
         public int YCoor
         {
             get
@@ -36,21 +37,23 @@ namespace Game
             xCoor = inX;
             yCoor = inY;
             falling = false;
-            fallTime = -1;
         }
 
-        public void Falls()
+        public void DontFall()
         {
-            falling = true;
-            fallTime = 0;
+            falling = false;
         }
         
         public void Update()
         {
             if (falling)
             {
-                yCoor = yCoor - fallTime * fallTime;
+                yCoor = yCoor + yVel;
+                yVel += yAcc;
             }
+            System.Diagnostics.Debug.WriteLine("Ycoor" + yCoor);
+            System.Diagnostics.Debug.WriteLine("stat" + falling);
+            falling = true;
         }
     }
 }

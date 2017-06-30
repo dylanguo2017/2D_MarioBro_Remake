@@ -16,7 +16,7 @@ namespace Game
         public marioStatus curStat;
         public bool star;
         public Boolean inv;
-        private Physics marioPhys;
+        public Physics marioPhys;
 
         public int XCoor
         {

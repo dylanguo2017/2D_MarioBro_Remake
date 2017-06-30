@@ -34,6 +34,7 @@ namespace Game
 
         public void Update()
         {
+            marioState.marioPhys.Update();
             if (marioState.move && marioState.facingLeft)
             {
                 leftFacingCurrentFrame++;

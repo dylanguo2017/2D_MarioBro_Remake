@@ -36,6 +36,7 @@ namespace Game
 
         public void Update()
         {
+            marioState.marioPhys.Update();
             if (marioState.inv && invCtr == 0)
             {
                 invCtr = 10;
