@@ -15,11 +15,13 @@ namespace Game
         {
             if (enemyCollidesFrom.Equals("left"))
             {
-                // enemy bounces back to the right
+                //System.Diagnostics.Debug.WriteLine("change to left");
+                enemy.right = false;
             }
             else if (enemyCollidesFrom.Equals("right"))
             {
-                // enemy bounces back to the left
+                //System.Diagnostics.Debug.WriteLine("change to right");
+                enemy.right = true;
             }
         }
 

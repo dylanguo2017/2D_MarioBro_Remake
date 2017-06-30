@@ -8,8 +8,11 @@ namespace Game
 {
     public static class Level
     {
+        public static List<ISprite> enemyList = new List<ISprite>();
+
         public static List<ISprite> LoadList(Game myGame)
         {
+            enemyList = new List<ISprite>();
             List<ISprite> list = new List<ISprite>();
             StreamReader levelFile = new StreamReader(
          Path.Combine(Directory.GetCurrentDirectory(),
@@ -97,13 +100,15 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("goomba"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.goombaEnemy, 1, 2, positionColumn * 16, positionRow * 16);
+                        ISprite gameObject = new MovingAnimatedSprite(myGame, myGame.goombaEnemy, 1, 2, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
+                        enemyList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("koopa"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.koopaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
+                        ISprite gameObject = new MovingAnimatedSprite(myGame, myGame.koopaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
+                        enemyList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("oneCloud"))
                     {
@@ -178,5 +183,12 @@ namespace Game
             list = new List<ISprite>(reloadList);
             return list;
         }
+
+
+        public static List<ISprite> EnemyList()
+        {
+            return enemyList;
+        }
+
     }
 }
