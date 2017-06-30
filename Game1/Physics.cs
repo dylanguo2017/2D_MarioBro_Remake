@@ -48,7 +48,7 @@ namespace Game
         
         public void Update()
         {
-            if (falling)
+            if (falling && yVel < 1)
             {        
                 yVel += yAcc;
             }
