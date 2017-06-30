@@ -13,7 +13,7 @@ namespace Game
 
         public void Execute()
         {
-            Level.ReloadList(myGame.list, myGame.usedBlockSprite, "QuestionMarkBlock", 1);
+            myGame.marioState.moveUp();
         }
     }
 }

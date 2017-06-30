@@ -14,6 +14,8 @@ namespace Game
 
         public MarioStateClass marioState;
 
+        public Camera camera;
+
         public IMario mario;
         
         private ArrayList contrl;
@@ -91,7 +93,9 @@ namespace Game
         protected override void Initialize()
         {   
             contrl = new ArrayList();
-            
+
+            camera = new Camera(this);
+
             collisionDetector = new MarioCollisionDetector(this);
 
             enemyCollisionDetector = new EnemyCollisionDetector(this);
@@ -141,6 +145,7 @@ namespace Game
             gmPad.RegisterCommand(Buttons.LeftThumbstickLeft, aCmd);
             gmPad.RegisterCommand(Buttons.LeftThumbstickDown, sCmd);
             gmPad.RegisterCommand(Buttons.LeftThumbstickRight, dCmd);
+            gmPad.RegisterCommand(Buttons.A, zCmd);
 
             marioState = new MarioStateClass(false, false, false, false);
 
@@ -255,13 +260,15 @@ namespace Game
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+           // spriteBatch.Begin();
             foreach (ISprite sprite in list)
             {
                 sprite.Draw(spriteBatch);
             }
 
             mario.Draw(spriteBatch);
-                        
+            //spriteBatch.End();
+
             base.Draw(gameTime);
         }
 

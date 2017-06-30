@@ -15,8 +15,10 @@ namespace Game
         public Boolean visible { get; set; }
         private Rectangle destinationRectangle;
         public String type { get; set; }
+        private Game myGame;
 
-        public Sprite(Texture2D texture, int rows, int columns)
+       
+        public Sprite(Game game, Texture2D texture, int rows, int columns)
         {
             this.texture = texture;
             this.rows = rows;
@@ -25,6 +27,7 @@ namespace Game
             totalFrames = this.rows * this.columns;
             type = "";
             visible = true;
+            myGame = game;
         }
 
         public virtual void Update()
@@ -44,6 +47,7 @@ namespace Game
                 destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
                 spriteBatch.Begin();
+                destinationRectangle = new Rectangle(destinationRectangle.X - myGame.camera.GetOffset(), destinationRectangle.Y, width, height);
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
                 spriteBatch.End();
             }

@@ -46,6 +46,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Camera.cs" />
     <Compile Include="Collision\EnemyCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionDetector.cs" />
     <Compile Include="Collision\ICollisionDetector.cs" />
@@ -77,6 +78,12 @@
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
+    <Compile Include="Enemies\AbstractEnemy.cs" />
+    <Compile Include="Enemies\GoombaEnemy.cs" />
+    <Compile Include="Enemies\GoombaPositionDic.cs" />
+    <Compile Include="Enemies\IEnemy.cs" />
+    <Compile Include="Enemies\KoopaEnemy.cs" />
+    <Compile Include="Enemies\KoopaPositionDic.cs" />
     <Compile Include="IObject.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Mario\MarioPositionDic.cs" />
@@ -113,6 +120,7 @@
     <None Include="app.manifest" />
     <None Include="Content\Levels\Level1-1.csv" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

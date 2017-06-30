@@ -146,10 +146,10 @@ namespace Game
 
             }
 
-            spriteBatch.Begin();
+            spriteBatch.Begin();            
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
-        }
+    }
 
         public Rectangle DestinationRectangle()
         {
