@@ -33,6 +33,10 @@ namespace Game
                     block.texture = myGame.usedBlockSprite;
                 }
             }
+            else if (marioCollidesFromVerticalSide.Equals("top"))
+            {
+                myGame.marioState.marioPhys.DontFall();
+            }
         }
     }
 }

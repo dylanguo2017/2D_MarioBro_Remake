@@ -201,6 +201,7 @@ namespace Game
 
         protected override void Update(GameTime gameTime)
         {
+            
             collisionDetector.Update();
 
             enemyCollisionDetector.Update();
@@ -237,7 +238,7 @@ namespace Game
                 }
             }
 
-
+            
             if (animationModifier % 20 == 0)
             {
                 foreach (ISprite sprite in list)
