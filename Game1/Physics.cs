@@ -6,6 +6,7 @@ namespace Game
     {
         public Boolean falling;
         private int xCoor;
+        public int xVel;
         public int XCoor
         {
             get
@@ -38,6 +39,7 @@ namespace Game
             yCoor = inY;
             falling = false;
             yVel = 0;
+            xVel = 0;
         }
 
         public void DontFall()
@@ -52,6 +54,8 @@ namespace Game
             {        
                 yVel += yAcc;
             }
+            xCoor = xCoor + xVel;
+            xVel = 0;
             yCoor = yCoor + yVel;
             falling = true;
         }

@@ -13,7 +13,12 @@ namespace Game
 
         public void Execute()
         {
-            Level.ReloadList(myGame.list, myGame.invisibleBlockSprite, "BrickBlock", 1);
+            if(myGame.fbDelay == 0 && myGame.marioState.curStat == MarioStateClass.marioStatus.fire)
+            {
+                Fireball newBall = new Fireball(myGame.marioState, myGame.fireballSprite);
+                myGame.fireBalls.Add(newBall);
+                myGame.fbDelay = 40;
+            }
         }
     }
 }

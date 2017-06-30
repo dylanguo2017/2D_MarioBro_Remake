@@ -74,13 +74,13 @@ namespace Game
                     {
                         move = true;
                         crouch = false;
-                        marioPhys.XCoor++;
+                        marioPhys.xVel = 1;
                     }
                 }
                 else if (jump)
                 {
                     move = true;
-                    marioPhys.XCoor++;
+                    marioPhys.xVel = 1;
                     facingLeft = false;
                 }
                 else
@@ -106,7 +106,7 @@ namespace Game
                     {
                         move = true;
                         crouch = false;
-                        marioPhys.XCoor--;
+                        marioPhys.xVel = -1;
                     }
 
                 }
@@ -114,7 +114,7 @@ namespace Game
                 {
                     move = true;
                     facingLeft = true;
-                    marioPhys.XCoor--;
+                    marioPhys.xVel = -1;
                 }
                 else
                 {
