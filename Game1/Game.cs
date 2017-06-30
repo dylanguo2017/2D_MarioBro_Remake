@@ -243,16 +243,13 @@ namespace Game
                 }
             }
 
-            
+            mario.Update();
             if (animationModifier % 20 == 0)
             {
-                mario.Update();
                 foreach (ISprite sprite in list)
                 {
                     sprite.Update();
                 }
-                
-               
             }
             base.Update(gameTime);
         }

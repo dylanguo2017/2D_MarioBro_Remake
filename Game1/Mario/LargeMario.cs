@@ -16,6 +16,7 @@ namespace Game
 
         private Rectangle destinationRectangle;
         private int invCtr;
+        private int animMod;
 
 
         public LargeMario(MarioStateClass mainState, Texture2D spriteSheet)
@@ -28,6 +29,7 @@ namespace Game
             marioState.curStat = MarioStateClass.marioStatus.large;
             marioState.star = false;
             invCtr = 0;
+            animMod = 0;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -37,33 +39,37 @@ namespace Game
 
         public void Update()
         {
+            animMod++;
             if (marioState.inv && invCtr == 0)
             {
                 invCtr = 10;
             }
-            if (invCtr > 0)
+
+            marioState.marioPhys.Update();
+            if (animMod % 20 == 0)
             {
-                invCtr--;
-                if (invCtr == 0)
+                if (invCtr > 0)
                 {
-                    marioState.inv = false;
+                    invCtr--;
+                    if (invCtr == 0)
+                    {
+                        marioState.inv = false;
+                    }
                 }
-                System.Diagnostics.Debug.WriteLine("TIME:" + invCtr);
-            }
-            
-            if (marioState.move && marioState.facingLeft)
-            {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 23)
-                    leftFacingCurrentFrame = 21;
-            }
-            else if (marioState.move && !marioState.facingLeft)
-            {
-                rightFacingCurrentFrame++;
+                if (marioState.move && marioState.facingLeft)
+                {
+                    leftFacingCurrentFrame++;
+                    if (leftFacingCurrentFrame == 23)
+                        leftFacingCurrentFrame = 21;
+                }
+                else if (marioState.move && !marioState.facingLeft)
+                {
+                    rightFacingCurrentFrame++;
 
-                if (rightFacingCurrentFrame == 16)
-                    rightFacingCurrentFrame = 14;
+                    if (rightFacingCurrentFrame == 16)
+                        rightFacingCurrentFrame = 14;
 
+                }
             }
         }
 

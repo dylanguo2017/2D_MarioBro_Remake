@@ -16,6 +16,7 @@ namespace Game
 
         private Rectangle destinationRectangle;
         private int invCtr;
+        private int animMod;
         
 
         public SmallMario(MarioStateClass mainState, Texture2D spriteSheet)
@@ -28,6 +29,7 @@ namespace Game
             marioState.curStat = MarioStateClass.marioStatus.small;
             marioState.star = false;
             invCtr = 0;
+            animMod = 0;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -37,40 +39,44 @@ namespace Game
 
         public void Update()
         {
+            animMod++;
+            if (marioState.marioPhys.falling)
+            {
+                marioState.jump = true;
+            }
             marioState.marioPhys.Update();
             if (marioState.inv && invCtr == 0)
             {
                 invCtr = 10;
             }
-            if (invCtr > 0)
-            {
-                invCtr--;
-                if (invCtr == 0)
-                {
-                    marioState.inv = false;
-                }
-                System.Diagnostics.Debug.WriteLine("TIME:"+invCtr);
-            }
-           
-            if (marioState.move && marioState.facingLeft && !marioState.jump)
-            {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 9)
-                {
-                    leftFacingCurrentFrame = 7;
-                }
-            }
-            else if (marioState.move && !marioState.facingLeft && !marioState.jump)
-            {
 
-                rightFacingCurrentFrame++;
-                if (rightFacingCurrentFrame == 3)
+            if(animMod % 20 == 0)
+            {
+                if (invCtr > 0)
                 {
-                    rightFacingCurrentFrame = 1;
+                    invCtr--;
+                    if (invCtr == 0)
+                    {
+                        marioState.inv = false;
+                    }
                 }
-
+                if (marioState.move && marioState.facingLeft && !marioState.jump)
+                {
+                    leftFacingCurrentFrame++;
+                    if (leftFacingCurrentFrame == 9)
+                    {
+                        leftFacingCurrentFrame = 7;
+                    }
+                }
+                else if (marioState.move && !marioState.facingLeft && !marioState.jump)
+                {
+                    rightFacingCurrentFrame++;
+                    if (rightFacingCurrentFrame == 3)
+                    {
+                        rightFacingCurrentFrame = 1;
+                    }
+                }
             }
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

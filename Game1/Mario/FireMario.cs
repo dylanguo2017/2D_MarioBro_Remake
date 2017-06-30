@@ -15,6 +15,7 @@ namespace Game
         private int leftFacingCurrentFrame;
 
         private Rectangle destinationRectangle;
+        private int animMod;
 
         public FireMario(MarioStateClass mainState, Texture2D spriteSheet)
         {
@@ -25,6 +26,7 @@ namespace Game
             rightFacingCurrentFrame = 28;
             marioState.curStat = MarioStateClass.marioStatus.fire;
             marioState.star = false;
+            animMod = 0;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -34,19 +36,23 @@ namespace Game
 
         public void Update()
         {
+            animMod++;
+            if (animMod % 20 == 0)
+            {
+                if (marioState.move && marioState.facingLeft)
+                {
+                    leftFacingCurrentFrame++;
+                    if (leftFacingCurrentFrame == 38)
+                        leftFacingCurrentFrame = 36;
+                }
+                else if (marioState.move && !marioState.facingLeft)
+                {
+                    rightFacingCurrentFrame++;
+                    if (rightFacingCurrentFrame == 30)
+                        rightFacingCurrentFrame = 28;
+                }
+            }
             marioState.marioPhys.Update();
-            if (marioState.move && marioState.facingLeft)
-            {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 38)
-                    leftFacingCurrentFrame = 36;
-            }
-            else if (marioState.move && !marioState.facingLeft)
-            {
-                rightFacingCurrentFrame++;
-                if (rightFacingCurrentFrame == 30)
-                    rightFacingCurrentFrame = 28;
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

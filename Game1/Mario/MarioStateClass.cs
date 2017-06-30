@@ -150,7 +150,6 @@ namespace Game
         {
             if (up && !(curStat.Equals(marioStatus.dead)))
             {
-
                 if (crouch)
                 {
                     crouch = false;
@@ -158,7 +157,7 @@ namespace Game
                 else
                 {
                     jump = true;
-                    marioPhys.YCoor--;
+                    marioPhys.yVel = -1;
                 }
             }
         }

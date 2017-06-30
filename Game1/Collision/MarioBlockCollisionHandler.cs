@@ -36,6 +36,7 @@ namespace Game
             else if (marioCollidesFromVerticalSide.Equals("top"))
             {
                 myGame.marioState.marioPhys.DontFall();
+                myGame.marioState.jump = false;
             }
         }
     }
