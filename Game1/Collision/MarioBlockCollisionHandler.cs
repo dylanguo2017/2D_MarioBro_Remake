@@ -36,6 +36,7 @@ namespace Game
             else if (marioCollidesFromVerticalSide.Equals("top"))
             {
                 myGame.marioState.marioPhys.DontFall();
+                //System.Diagnostics.Debug.WriteLine("fall in pits of hell");
             }
         }
     }

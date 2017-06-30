@@ -23,34 +23,33 @@ namespace Game
 
         public void Update()
         {
+            enemyList = Level.EnemyList();
             enemyCollisionList = myGame.list;
-
-            foreach (ISprite sprite in enemyCollisionList)
-            {
-                if (sprite.type.Contains("Enemy"))
-                {
-                    enemyList.Add(sprite);
-                }
-            }
-
+            
             foreach (ISprite enemy in enemyList)
             {
                 enemyRec = enemy.DestinationRectangle();
+                foreach (ISprite sprite in enemyCollisionList)
+                {
+                    {
+                        objectRec = sprite.DestinationRectangle();
 
-                //foreach (ISprite sprite in enemyCollisionList)
-                //{
-                //    objectRec = sprite.DestinationRectangle();
+                        if (enemyRec.Intersects(objectRec))
+                        {
+                            if (!sprite.type.Contains("BgElement"))
+                            {
+                                if (enemyRec.Center != objectRec.Center)
+                                {
+                                    CollidesFrom();
+                                    enemyCollisionHandler = new EnemyCollisionHandler(myGame);
+                                    enemyCollisionHandler.HandleCollision(enemy, enemyCollidesFrom);
+                                }
+                            }
+                        }
+                    }
 
-                    //if (enemyRec.Intersects(objectRec))
-                    //{
-                    //    if (!sprite.type.Contains("BgElement"))
-                    //    {
-                    //        //CollidesFrom();
-                    //        //enemyCollisionHandler = new EnemyCollisionHandler(myGame);
-                    //        //enemyCollisionHandler.HandleCollision(enemy, enemyCollidesFrom);
-                    //    }
-                    //}
-                //}
+
+                }
             }
         }
 

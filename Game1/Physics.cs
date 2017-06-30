@@ -48,8 +48,8 @@ namespace Game
         {
             if (falling)
             {
-                yCoor = yCoor + yVel;
-                yVel += yAcc;
+                yCoor = yCoor + 1;
+                //yVel += yAcc;
             }
             System.Diagnostics.Debug.WriteLine("Ycoor" + yCoor);
             System.Diagnostics.Debug.WriteLine("stat" + falling);

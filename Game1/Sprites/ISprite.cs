@@ -11,6 +11,7 @@ namespace Game
         String type { get; set; }
         Boolean visible { get; set; }
         int currentFrame { get; set; }
+        Boolean right { get; set; }
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void ToggleSpriteSheet(Texture2D texture, int rows, int columns);
