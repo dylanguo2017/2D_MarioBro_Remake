@@ -16,8 +16,9 @@ namespace Game
         private Rectangle destinationRectangle;
         public String type { get; set; }
         private Game myGame;
+        public Boolean right { get; set; }
 
-       
+
         public Sprite(Game game, Texture2D texture, int rows, int columns)
         {
             this.texture = texture;
@@ -28,6 +29,7 @@ namespace Game
             type = "";
             visible = true;
             myGame = game;
+            this.right = true;
         }
 
         public virtual void Update()
@@ -65,6 +67,7 @@ namespace Game
             this.currentFrame = 0;
             totalFrames = this.rows * this.columns;
             type = texture.Name.ToString();
+            this.right = true;
         }
 
     }

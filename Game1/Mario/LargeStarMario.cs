@@ -15,7 +15,8 @@ namespace Game
         private int leftFacingCurrentFrame;
         public int duration;
         private Rectangle destinationRectangle;
-        
+        private int animMod;
+
 
         public LargeStarMario(MarioStateClass mainState, Texture2D spriteSheet)
         {
@@ -27,6 +28,7 @@ namespace Game
             marioState.star = true;
             marioState.curStat = MarioStateClass.marioStatus.large;
             duration = 10;
+            animMod = 0;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -36,19 +38,23 @@ namespace Game
 
         public void Update()
         {
+            animMod++;
+            if (animMod % 20 == 0)
+            {
+                if (marioState.move && marioState.facingLeft)
+                {
+                    leftFacingCurrentFrame++;
+                    if (leftFacingCurrentFrame == 65)
+                        leftFacingCurrentFrame = 63;
+                }
+                else if (marioState.move && !marioState.facingLeft)
+                {
+                    rightFacingCurrentFrame++;
+                    if (rightFacingCurrentFrame == 58)
+                        rightFacingCurrentFrame = 56;
+                }
+            }
 
-            if (marioState.move && marioState.facingLeft)
-            {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 65)
-                    leftFacingCurrentFrame = 63;
-            }
-            else if (marioState.move && !marioState.facingLeft)
-            {
-                rightFacingCurrentFrame++;
-                if (rightFacingCurrentFrame == 58)
-                    rightFacingCurrentFrame = 56;
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -4,7 +4,7 @@ namespace Game
 {
     public class Physics
     {
-        private Boolean falling;
+        public Boolean falling;
         private int xCoor;
         public int XCoor
         {
@@ -17,14 +17,14 @@ namespace Game
                 xCoor = value;
             }
         }
-        public int yCoor;
-        public int yVel = 5;
-        public int yAcc = 1;
+        public double yCoor;
+        public double yVel;
+        public double yAcc = 0.02;
         public int YCoor
         {
             get
             {
-                return yCoor;
+                return (int)yCoor;
             }
             set
             {
@@ -37,22 +37,22 @@ namespace Game
             xCoor = inX;
             yCoor = inY;
             falling = false;
+            yVel = 0;
         }
 
         public void DontFall()
         {
             falling = false;
+            yVel = 0;
         }
         
         public void Update()
         {
-            if (falling)
-            {
-                //yCoor = yCoor + yVel;
+            if (falling && yVel < 1)
+            {        
                 yVel += yAcc;
             }
-            //System.Diagnostics.Debug.WriteLine("Ycoor" + yCoor);
-           // System.Diagnostics.Debug.WriteLine("stat" + falling);
+            yCoor = yCoor + yVel;
             falling = true;
         }
     }

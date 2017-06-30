@@ -18,6 +18,7 @@ namespace Game
         public Boolean inv;
         public Physics marioPhys;
         public int offset = 0;
+        public int jmpCtr = 0;
 
         public int XCoor
         {
@@ -150,15 +151,16 @@ namespace Game
         {
             if (up && !(curStat.Equals(marioStatus.dead)))
             {
-
                 if (crouch)
                 {
                     crouch = false;
                 }
-                else
+                else if (jmpCtr > 0)
                 {
+                    jmpCtr--;
+                    marioPhys.falling = true;
                     jump = true;
-                    marioPhys.YCoor--;
+                    marioPhys.yVel = -1;
                 }
             }
         }

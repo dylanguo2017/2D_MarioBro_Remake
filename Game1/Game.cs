@@ -209,7 +209,6 @@ namespace Game
             
             collisionDetector.Update();
 
-            enemyCollisionDetector.Update();
             //itemCollisionDetector.Update();
 
             if (marioState.star)
@@ -243,16 +242,14 @@ namespace Game
                 }
             }
 
-            
+            mario.Update();
             if (animationModifier % 20 == 0)
             {
-                mario.Update();
                 foreach (ISprite sprite in list)
                 {
+                    enemyCollisionDetector.Update();
                     sprite.Update();
                 }
-                
-               
             }
             base.Update(gameTime);
         }

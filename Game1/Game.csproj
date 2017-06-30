@@ -101,6 +101,7 @@
     <Compile Include="Sprites\ISprite.cs" />
     <Compile Include="Sprites\MotionlessAnimatedSprite.cs" />
     <Compile Include="Sprites\MotionlessNonAnimatedSprite.cs" />
+    <Compile Include="Sprites\MovingAnimatedSprite.cs" />
     <Compile Include="Sprites\Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
