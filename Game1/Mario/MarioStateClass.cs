@@ -74,13 +74,13 @@ namespace Game
                     {
                         move = true;
                         crouch = false;
-                        marioPhys.XCoor++;
+                        marioPhys.xVel = 1;
                     }
                 }
                 else if (jump)
                 {
                     move = true;
-                    marioPhys.XCoor++;
+                    marioPhys.xVel = 1;
                     facingLeft = false;
                 }
                 else
@@ -106,7 +106,7 @@ namespace Game
                     {
                         move = true;
                         crouch = false;
-                        marioPhys.XCoor--;
+                        marioPhys.xVel = -1;
                     }
 
                 }
@@ -114,7 +114,7 @@ namespace Game
                 {
                     move = true;
                     facingLeft = true;
-                    marioPhys.XCoor--;
+                    marioPhys.xVel = -1;
                 }
                 else
                 {
@@ -125,21 +125,9 @@ namespace Game
 
         public void moveDown()
         {
-            if (down && !(curStat.Equals(marioStatus.dead)))
+            if (!curStat.Equals(marioStatus.dead) && !curStat.Equals(marioStatus.small))
             {
-
-                if (jump)
-                {
-                    if (marioPhys.YCoor < 432)
-                    {
-                        marioPhys.YCoor++;
-                    }
-                    else
-                    {
-                        jump = false;
-                    }
-                }
-                else
+                if (!jump)
                 {
                     crouch = true;
                     move = false;
