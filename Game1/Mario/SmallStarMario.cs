@@ -61,7 +61,7 @@ namespace Game
                 }
                 altColor = !altColor;
             }
-
+            marioState.marioPhys.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
