@@ -43,6 +43,7 @@ namespace Game
                                 CollidesFrom();
                                 Type(sprite);
                                 projectileCollisionHandler.HandleCollision(fBalls, sprite, projectileCollidesFromHorizontalSide, projectileCollidesFromVerticalSide);
+
                             }
                         }
                     }

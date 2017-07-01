@@ -17,6 +17,8 @@ namespace Game
             ISprite block = gameObject as ISprite;
             if (marioCollidesFromVerticalSide.Equals("bottom"))
             {
+                myGame.marioState.up = false;
+                myGame.marioState.marioPhys.yVel = 0;
                 if (block.type.Equals("QuestionMarkBlock"))
                 {
                     block.ToggleSpriteSheet(myGame.usedBlockSprite, 1, 1);

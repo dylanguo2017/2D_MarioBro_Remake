@@ -24,7 +24,7 @@ namespace Game
             {
                 currentFrame = 0;
             }
-            System.Diagnostics.Debug.WriteLine("I m " + right);
+            
             if (right.Equals(true))
             {
                 moveRight(); 
