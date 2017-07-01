@@ -11,9 +11,9 @@ namespace Game
     public class Fireball
     {
         public Physics ballPhys;
-        Texture2D texture;
-        Boolean deleted;
-        Boolean left = false;
+        private Texture2D texture;
+        public Boolean deleted;
+        private Boolean left = false;
 
         Rectangle sourceRectangle, destinationRectangle;
         public int XCoor
