@@ -150,6 +150,7 @@ namespace Game
             gmPad.RegisterCommand(Buttons.LeftThumbstickDown, sCmd);
             gmPad.RegisterCommand(Buttons.LeftThumbstickRight, dCmd);
             gmPad.RegisterCommand(Buttons.A, zCmd);
+            gmPad.RegisterCommand(Buttons.B, xCmd);
 
             marioState = new MarioStateClass(false, false, false, false);
             fireBalls = new List<Fireball>();
