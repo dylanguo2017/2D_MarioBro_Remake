@@ -31,7 +31,6 @@
             if (marioPosition - offset > maxOffset)
             {
                 offset = marioPosition - maxOffset;
-                System.Diagnostics.Debug.WriteLine(offset);
             }
             
             
