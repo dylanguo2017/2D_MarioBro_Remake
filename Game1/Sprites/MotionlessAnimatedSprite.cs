@@ -39,6 +39,7 @@ namespace Game.Sprites
                     timer = 0;
                     hit = false;
                     BumpDown();
+                    myGame.marioState.marioPhys.YCoor += 2;
                 }
             }
         }
