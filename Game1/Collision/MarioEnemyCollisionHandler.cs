@@ -19,6 +19,7 @@ namespace Game
                 if (myGame.marioState.star)
                 {
                     KillEnemy(enemy);
+                    enemy.visible = false;
                 }
                 else
                 {
@@ -42,6 +43,7 @@ namespace Game
                     else if (marioCollidesFromVerticalSide.Equals("top"))
                     {
                         KillEnemy(enemy);
+                        enemy.visible = false;
                     }
                 }
             }
