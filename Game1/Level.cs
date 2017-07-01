@@ -58,6 +58,26 @@ namespace Game
                         list.Add(gameObject);
                         itemCollisionList.Add(gameObject);
                     }
+                    else if (target[positionColumn].Equals("questionRedMushroom"))
+                    {
+                        //make question block draw a red mushroom on top when hit
+                    }
+                    else if (target[positionColumn].Equals("questionGreenMushroom"))
+                    {
+                        //make question block draw a green mushroom on top when hit
+                    }
+                    else if (target[positionColumn].Equals("questionStar"))
+                    {
+                        //make question block draw a star on top when hit
+                    }
+                    else if (target[positionColumn].Equals("questionCoin"))
+                    {
+                        //make question block gain a coin for mario when hit
+                    }
+                    else if (target[positionColumn].Equals("questionFlower"))
+                    {
+                        //make question block draw a fire flower on top when hit
+                    }
                     else if (target[positionColumn].Equals("used"))
                     {
                         ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.usedBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
