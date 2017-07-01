@@ -24,8 +24,8 @@ namespace Game
         public void Update()
         {
             enemyList = Level.EnemyList();
-            enemyCollisionList = myGame.list;
-            /*
+            enemyCollisionList = Level.EnemyCollisionList();
+            
             foreach (ISprite enemy in enemyList)
             {
                 enemyRec = enemy.DestinationRectangle();
@@ -50,7 +50,7 @@ namespace Game
 
 
                 }
-            }*/
+            }
         }
 
         public void CollidesFrom()

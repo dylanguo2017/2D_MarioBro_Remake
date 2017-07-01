@@ -223,7 +223,7 @@ namespace Game
             collisionDetector.Update();
             projColDet.Update();
 
-            //itemCollisionDetector.Update();
+
 
             if (marioState.star)
             {
@@ -269,6 +269,7 @@ namespace Game
             {
                 foreach (ISprite sprite in list)
                 {
+                    itemCollisionDetector.Update();
                     enemyCollisionDetector.Update();
                     sprite.Update();
                 }

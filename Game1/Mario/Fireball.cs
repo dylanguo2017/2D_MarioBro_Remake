@@ -11,9 +11,10 @@ namespace Game
     public class Fireball
     {
         public Physics ballPhys;
-        Texture2D texture;
-        Boolean deleted;
-        Boolean left = false;
+        private Texture2D texture;
+        public Boolean deleted;
+        private Boolean left = false;
+        private int offset = 0;
 
         Rectangle sourceRectangle, destinationRectangle;
         public int XCoor
@@ -41,6 +42,7 @@ namespace Game
 
         public Fireball(MarioStateClass mainState, Texture2D spriteSheet)
         {
+
             texture = spriteSheet;
             if (mainState.facingLeft)
             {
@@ -52,7 +54,7 @@ namespace Game
                 ballPhys = new Physics(mainState.XCoor + 8, mainState.YCoor);
                 ballPhys.xVel = 1;
             }
-
+            offset = mainState.offset;
             deleted = false;
      
         }
@@ -83,7 +85,7 @@ namespace Game
             if (!deleted)
             {
                 sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
-                destinationRectangle = new Rectangle(ballPhys.XCoor, ballPhys.YCoor, texture.Width, texture.Height);
+                destinationRectangle = new Rectangle(ballPhys.XCoor - offset, ballPhys.YCoor, texture.Width, texture.Height);
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
                 spriteBatch.End();
