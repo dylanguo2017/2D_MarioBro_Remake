@@ -12,6 +12,7 @@ namespace Game
         public static List<ISprite> itemList = new List<ISprite>();
 
         public static List<ISprite> enemyCollisionList = new List<ISprite>();
+        public static List<ISprite> itemCollisionList = new List<ISprite>();
 
         public static List<ISprite> LoadList(Game myGame)
         {
@@ -37,6 +38,7 @@ namespace Game
                     {
                         ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.brickBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
+                        itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("crack"))
                     {
@@ -47,11 +49,14 @@ namespace Game
                     {
                         ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.diamondBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
+                        enemyCollisionList.Add(gameObject);
+                        itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("question"))
                     {
                         ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.questionMarkBlockSprite, 1, 3, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
+                        itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("used"))
                     {
@@ -68,18 +73,21 @@ namespace Game
                         ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.smallPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                         enemyCollisionList.Add(gameObject);
+                        itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("mediumPipe"))
                     {
                         ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.mediumPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                         enemyCollisionList.Add(gameObject);
+                        itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("bigPipe"))
                     {
                         ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.bigPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
                         list.Add(gameObject);
                         enemyCollisionList.Add(gameObject);
+                        itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("star"))
                     {
@@ -210,5 +218,9 @@ namespace Game
             return enemyCollisionList;
         }
 
+        public static List<ISprite> ItemCollisionList()
+        {
+            return itemCollisionList;
+        }
     }
 }

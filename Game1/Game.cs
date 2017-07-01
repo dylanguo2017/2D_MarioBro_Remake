@@ -269,7 +269,7 @@ namespace Game
             {
                 foreach (ISprite sprite in list)
                 {
-                    //itemCollisionDetector.Update();
+                    itemCollisionDetector.Update();
                     enemyCollisionDetector.Update();
                     sprite.Update();
                 }
