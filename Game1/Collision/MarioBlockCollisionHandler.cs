@@ -19,13 +19,29 @@ namespace Game
             {
                 if (block.type.Equals("QuestionMarkBlock"))
                 {
-                    block.ToggleSpriteSheet(myGame.usedBlockSprite, 1, 1);
+                    MotionlessAnimatedSprite questionMarkBlock = block as MotionlessAnimatedSprite;
+
+                    if (!questionMarkBlock.hit)
+                    {
+                        questionMarkBlock.ToggleSpriteSheet(myGame.usedBlockSprite, 1, 1);
+                        questionMarkBlock.BumpBlock();
+                    }
+
                 }
                 else if (block.type.Equals("BrickBlock"))
                 {
                     if (!(myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
                     {
                         block.visible = false;
+                    }
+                    else
+                    {
+                        MotionlessAnimatedSprite brickBlock = block as MotionlessAnimatedSprite;
+                        if (!brickBlock.hit)
+                        {
+
+                                brickBlock.BumpBlock();
+                        }
                     }
                 }
                 else if (block.type.Equals("InvisibleBlock"))

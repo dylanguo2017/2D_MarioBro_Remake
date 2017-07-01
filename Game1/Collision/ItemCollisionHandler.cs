@@ -15,11 +15,11 @@ namespace Game
         {
             if (itemCollidesFrom.Equals("left"))
             {
-                // item bounces back to the right
+                item.right = false;
             }
             else if (itemCollidesFrom.Equals("right"))
             {
-                // item bounces back to the left
+                item.right = true;
             }
         }
 

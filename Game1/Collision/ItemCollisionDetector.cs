@@ -23,33 +23,32 @@ namespace Game
 
         public void Update()
         {
+            itemList = Level.ItemList();
             itemCollisionList = myGame.list;
 
-            foreach (ISprite sprite in itemCollisionList)
+            foreach (ISprite item in itemList)
             {
-                if (sprite.type.Contains("Item"))
-                {
-                    itemList.Add(sprite);
-                }
-            }
-
-            foreach (ISprite enemy in itemList)
-            {
-                itemRec = enemy.DestinationRectangle();
-
+                itemRec = item.DestinationRectangle();
                 foreach (ISprite sprite in itemCollisionList)
                 {
-                    objectRec = sprite.DestinationRectangle();
-
-                    if (itemRec.Intersects(objectRec))
                     {
-                        if (!sprite.type.Contains("BgElement"))
+                        objectRec = sprite.DestinationRectangle();
+
+                        if (itemRec.Intersects(objectRec))
                         {
-                            CollidesFrom();
-                            itemCollisionHandler = new ItemCollisionHandler(myGame);
-                            itemCollisionHandler.HandleCollision(enemy, itemCollidesFrom);
+                            if (!sprite.type.Contains("BgElement"))
+                            {
+                                if (itemRec.Center != objectRec.Center)
+                                {
+                                    CollidesFrom();
+                                    itemCollisionHandler = new ItemCollisionHandler(myGame);
+                                    itemCollisionHandler.HandleCollision(item, itemCollidesFrom);
+                                }
+                            }
                         }
                     }
+
+
                 }
             }
         }

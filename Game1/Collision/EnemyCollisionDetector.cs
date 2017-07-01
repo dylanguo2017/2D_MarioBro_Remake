@@ -24,7 +24,7 @@ namespace Game
         public void Update()
         {
             enemyList = Level.EnemyList();
-            enemyCollisionList = myGame.list;
+            enemyCollisionList = Level.EnemyCollisionList();
             
             foreach (ISprite enemy in enemyList)
             {
