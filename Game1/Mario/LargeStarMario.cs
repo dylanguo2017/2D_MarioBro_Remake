@@ -54,6 +54,7 @@ namespace Game
                         rightFacingCurrentFrame = 56;
                 }
             }
+            marioState.marioPhys.Update();
 
         }
 
