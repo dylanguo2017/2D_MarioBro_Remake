@@ -89,6 +89,11 @@
     <Compile Include="Enemies\KoopaPositionDic.cs" />
     <Compile Include="IObject.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="Mario\DrawFireMario.cs" />
+    <Compile Include="Mario\DrawLargeMario.cs" />
+    <Compile Include="Mario\DrawLargeStarMario.cs" />
+    <Compile Include="Mario\DrawSmallMario.cs" />
+    <Compile Include="Mario\DrawSmallStarMario.cs" />
     <Compile Include="Mario\Fireball.cs" />
     <Compile Include="Mario\MarioPositionDic.cs" />
     <Compile Include="Game.cs" />
