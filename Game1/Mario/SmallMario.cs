@@ -6,18 +6,37 @@ namespace Game
     public class SmallMario : IMario
     {
         public MarioStateClass marioState;
-
+        public MarioStateClass MarState
+        {
+            get
+            {
+                return marioState;
+            }
+        }
         public Texture2D texture;
 
         MarioPositionDic marioPosition = new MarioPositionDic();
 
         private int rightFacingCurrentFrame;
+        public int RightFrame
+        {
+            get
+            {
+                return rightFacingCurrentFrame;
+            }
+        }
         private int leftFacingCurrentFrame;
-
+        public int LeftFrame
+        {
+            get
+            {
+                return leftFacingCurrentFrame;
+            }
+        }
+        private DrawSmallMario drawMar;
         private Rectangle destinationRectangle;
         private int invCtr;
         private int animMod;
-        
 
         public SmallMario(MarioStateClass mainState, Texture2D spriteSheet)
         {
@@ -30,6 +49,7 @@ namespace Game
             marioState.star = false;
             invCtr = 0;
             animMod = 0;
+            drawMar = new DrawSmallMario(this);
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -81,81 +101,16 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            {
+                marioState.offset = marioState.XCoor - 400;
+            }
             if (invCtr % 2 == 1)
             {
                 return;
             }
-            int width = 17;
-            int height = 17;
-            Rectangle sourceRectangle;
-            
-            if (!marioState.facingLeft)
-            {
-                if (marioState.move)
-                {
-                    if (!marioState.jump)
-                    {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.marioPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
-                       
-                    }
-                    else
-                    {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
-                    }
-                }
-                else
-                {
-
-                    if (!marioState.jump)
-                    {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[0].X, (int)this.marioPosition.PositionArr[0].Y, width, height);
-                    }
-                    else
-                    {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
-                    }
-                }
-
-            }
-            else
-            {
-                if (marioState.move)
-                {
-                    if (!marioState.jump)
-                    {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.marioPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
-                       
-                    }
-                    else
-                    {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[11].X, (int)this.marioPosition.PositionArr[11].Y, width, height);
-                        
-                    }
-                }
-                else
-                {
-                    if (!marioState.jump)
-                    {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[6].X, (int)this.marioPosition.PositionArr[6].Y, width, height);
-                       
-                    }
-                    else
-                    {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[11].X, (int)this.marioPosition.PositionArr[11].Y, width, height);
-                      
-                    }
-                }
-
-            }
-
-             
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
-            {
-                marioState.offset = marioState.XCoor - 400;
-            } 
-
-            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, width, height);
+            Rectangle sourceRectangle = drawMar.giveSource();
+            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, sourceRectangle.Width, sourceRectangle.Height);
             spriteBatch.Begin();            
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
@@ -165,6 +120,5 @@ namespace Game
         {
             return destinationRectangle;
         }
-
     }
 }
