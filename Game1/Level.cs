@@ -1,4 +1,5 @@
-﻿using Game.Sprites;
+﻿using Game.Enemies;
+using Game.Sprites;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ namespace Game
 {
     public static class Level
     {
-        public static List<ISprite> enemyList = new List<ISprite>();
+        public static List<IEnemy> enemyList = new List<IEnemy>();
         public static List<ISprite> itemList = new List<ISprite>();
 
         public static List<ISprite> enemyCollisionList = new List<ISprite>();
@@ -16,7 +17,7 @@ namespace Game
 
         public static List<ISprite> LoadList(Game myGame)
         {
-            enemyList = new List<ISprite>();
+            enemyList = new List<IEnemy>();
             itemList = new List<ISprite>();
             enemyCollisionList = new List<ISprite>();
             List<ISprite> list = new List<ISprite>();
@@ -138,14 +139,14 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("goomba"))
                     {
-                        ISprite gameObject = new MovingAnimatedSprite(myGame, myGame.goombaEnemy, 1, 2, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        IEnemy gameObject = new GoombaEnemy(myGame.goombaEnemy, myGame);
+                       // list.Add(gameObject);
                         enemyList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("koopa"))
                     {
-                        ISprite gameObject = new MovingAnimatedSprite(myGame, myGame.koopaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        IEnemy gameObject = new KoopaEnemy(myGame.koopaEnemy, myGame);
+                        //list.Add(gameObject);
                         enemyList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("oneCloud"))
@@ -223,7 +224,7 @@ namespace Game
         }
 
 
-        public static List<ISprite> EnemyList()
+        public static List<IEnemy> EnemyList()
         {
             return enemyList;
         }

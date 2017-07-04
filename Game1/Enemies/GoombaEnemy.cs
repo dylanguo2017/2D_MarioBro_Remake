@@ -9,6 +9,7 @@ namespace Game.Enemies
         public Texture2D texture;
 
         GoombaPositionDic goombaPosition = new GoombaPositionDic();
+        Physics goombaPhys;
 
         private int rightFacingCurrentFrame;
         private int leftFacingCurrentFrame;
@@ -19,9 +20,12 @@ namespace Game.Enemies
 
         private Rectangle destinationRectangle;
 
-        public GoombaEnemy(Texture2D spriteSheet)
+        private Game myGame;
+
+        public GoombaEnemy(Texture2D spriteSheet, Game game)
         {
             texture = spriteSheet;
+            myGame = game;
 
             move = true;
             left = true;
@@ -29,71 +33,66 @@ namespace Game.Enemies
 
             rightFacingCurrentFrame = 0;
             leftFacingCurrentFrame = 1;
-           
-        }
-        public void Move()
-        {
-            if (move && left)
-            {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 2)
-                {
-                    leftFacingCurrentFrame = 1;
-                }
 
-            }
-            else if (move && right)
-            {
-
-                rightFacingCurrentFrame++;
-                if (rightFacingCurrentFrame == 0)
-                {
-                    rightFacingCurrentFrame = 1;
-                }
-
-            }
+            goombaPhys = new Physics((int)goombaPosition.PositionArr[rightFacingCurrentFrame].X, (int)goombaPosition.PositionArr[rightFacingCurrentFrame].Y);
         }
 
         public void Update()
         {
-            //if(Camera.offset + )
-            if (move && left)
+            if(((myGame.camera.GetOffset() + myGame.camera.width) <= (int)goombaPosition.PositionArr[rightFacingCurrentFrame].X) || 
+                ((myGame.camera.GetOffset() + myGame.camera.width) <= (int)goombaPosition.PositionArr[rightFacingCurrentFrame].X))
             {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 9)
+                if (goombaPhys.falling)
                 {
-                    leftFacingCurrentFrame = 7;
+                    goombaPhys.xVel = -1;
+                }
+                goombaPhys.Update();
+                if (move && left)
+                {
+                    leftFacingCurrentFrame++;
+                    if (leftFacingCurrentFrame == 2)
+                    {
+                        leftFacingCurrentFrame = 1;
+                    }
+
+                }
+                else if (move && right)
+                {
+
+                    rightFacingCurrentFrame++;
+                    if (rightFacingCurrentFrame == 0)
+                    {
+                        rightFacingCurrentFrame = 1;
+                    }
+
                 }
             }
-            else if (move && right)
-            {
-
-                rightFacingCurrentFrame++;
-                if (rightFacingCurrentFrame == 3)
-                {
-                    rightFacingCurrentFrame = 1;
-                }
-
-            }
+            
 
         }
 
-        public void Draw(SpriteBatch spritebatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            int width = 17;
-            int height = 17;
+            int width = 16;
+            int height = 16;
             Rectangle sourceRectangle;
 
-           /* if (move)
+            if (move && right)
             {
-                if (right)
-                {
-                    sourceRectangle = new Rectangle((int)this.goombaPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.goombaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
-                    destinationRectangle = new Rectangle();
+            
+                sourceRectangle = new Rectangle((int)this.goombaPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.goombaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
+   
+            }
+            else
+            {
+                sourceRectangle = new Rectangle((int)this.goombaPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.goombaPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
 
-                }
-            }*/
+            }
+            destinationRectangle = new Rectangle((int)goombaPosition.PositionArr[rightFacingCurrentFrame].X - myGame.camera.GetOffset(), (int)goombaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
 
+            spriteBatch.Begin();
+            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.End();
         }
         public Rectangle DestinationRectangle()
         {

@@ -23,7 +23,7 @@ namespace Game
 
         public void Update()
         {
-            enemyList = Level.EnemyList();
+           /* enemyList = Level.EnemyList();
             enemyCollisionList = Level.EnemyCollisionList();
             
             foreach (ISprite enemy in enemyList)
@@ -50,7 +50,7 @@ namespace Game
 
 
                 }
-            }
+            }*/
         }
 
         public void CollidesFrom()

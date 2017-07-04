@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Game.Enemies;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections;
@@ -76,6 +77,7 @@ namespace Game
         private int starDuration;
         
         public List<ISprite> list;
+        public List<IEnemy> enemyList;
         public List<Fireball> fireBalls;
         public int fbDelay;
         private ICollisionDetector collisionDetector;
@@ -183,8 +185,8 @@ namespace Game
             smallCastle = Content.Load<Texture2D>("smallCastle");
             flagpoleElement = Content.Load<Texture2D>("flagPole");
 
-            goombaEnemy = Content.Load<Texture2D>("GoombaEnemy");
-            koopaEnemy = Content.Load<Texture2D>("KoopaEnemy");
+            goombaEnemy = Content.Load<Texture2D>("goomba");
+            koopaEnemy = Content.Load<Texture2D>("koopa");
             goombaEnemyDead = Content.Load<Texture2D>("GoombaEnemyDead");
             koopaEnemyDead = Content.Load<Texture2D>("KoopaEnemyDead");
 
@@ -205,6 +207,7 @@ namespace Game
             mario = new SmallMario(marioState, marioSprites);
 
             list = Level.LoadList(this);
+            enemyList = Level.EnemyList();
         }
 
         protected override void UnloadContent()
@@ -274,6 +277,10 @@ namespace Game
                     sprite.Update();
                 }
             }
+            foreach (IEnemy enemy in enemyList)
+            {
+                enemy.Update();
+            }
             base.Update(gameTime);
         }
         
@@ -286,6 +293,10 @@ namespace Game
             foreach (ISprite sprite in list)
             {
                 sprite.Draw(spriteBatch);
+            }
+            foreach (IEnemy enemy in enemyList)
+            {
+                enemy.Draw(spriteBatch);
             }
 
             if (fireBalls.Count != 0)

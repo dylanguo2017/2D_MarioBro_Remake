@@ -5,8 +5,7 @@ namespace Game.Enemies
 {
     public interface IEnemy
     {
-        void Move();
-
+        
         void Update();
 
         void Draw(SpriteBatch spritebatch);

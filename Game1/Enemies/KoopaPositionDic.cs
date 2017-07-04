@@ -21,7 +21,7 @@ namespace Game.Enemies
             KoopaPositionVec.Y = 0;
             PositionArr[2] = KoopaPositionVec;
 
-            KoopaPositionVec.X = 90;// left walk
+            KoopaPositionVec.X = 60;// left walk
             KoopaPositionVec.Y = 0;
             PositionArr[3] = KoopaPositionVec;
 

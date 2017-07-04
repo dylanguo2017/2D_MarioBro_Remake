@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/QuestionMarkBlock.png</SourceFile>
-  <SourceTime>2017-06-20T17:38:40.8467987-04:00</SourceTime>
-  <DestFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/bin/Windows/QuestionMarkBlock.xnb</DestFile>
-  <DestTime>2017-06-30T20:50:05.3711867-04:00</DestTime>
+  <SourceFile>C:/Users/Admin/Source/Repos/Mario4.02/Game1/Content/QuestionMarkBlock.png</SourceFile>
+  <SourceTime>2017-06-20T16:47:13.084643-04:00</SourceTime>
+  <DestFile>C:/Users/Admin/Source/Repos/Mario4.02/Game1/Content/bin/Windows/QuestionMarkBlock.xnb</DestFile>
+  <DestTime>2017-07-04T18:52:51.9199389-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
