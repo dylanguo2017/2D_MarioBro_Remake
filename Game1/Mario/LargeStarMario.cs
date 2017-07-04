@@ -16,6 +16,7 @@ namespace Game
         public int duration;
         private Rectangle destinationRectangle;
         private int animMod;
+        private bool altColor;
 
 
         public LargeStarMario(MarioStateClass mainState, Texture2D spriteSheet)
@@ -28,6 +29,7 @@ namespace Game
             marioState.star = true;
             marioState.curStat = MarioStateClass.marioStatus.large;
             duration = 10;
+            altColor = false;
             animMod = 0;
         }
 
@@ -43,16 +45,27 @@ namespace Game
             {
                 if (marioState.move && marioState.facingLeft)
                 {
-                    leftFacingCurrentFrame++;
-                    if (leftFacingCurrentFrame == 65)
+                    if (leftFacingCurrentFrame == 63)
+                    {
+                        leftFacingCurrentFrame = 22;
+                    }
+                    else
+                    {
                         leftFacingCurrentFrame = 63;
+                    }
                 }
                 else if (marioState.move && !marioState.facingLeft)
                 {
-                    rightFacingCurrentFrame++;
-                    if (rightFacingCurrentFrame == 58)
-                        rightFacingCurrentFrame = 56;
+                    if (rightFacingCurrentFrame == 57)
+                    {
+                        rightFacingCurrentFrame = 14;
+                    }  
+                    else
+                    {
+                        rightFacingCurrentFrame = 57;
+                    }
                 }
+                altColor = !altColor;
             }
             marioState.marioPhys.Update();
 
@@ -66,7 +79,6 @@ namespace Game
 
             if (!marioState.facingLeft)
             {
-
                 if (marioState.move)
                 {
                     if (!marioState.jump)
@@ -75,7 +87,14 @@ namespace Game
                     }
                     else
                     {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[60].X, (int)this.marioPosition.PositionArr[60].Y, width, height);
+                        if (altColor)
+                        {
+                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[18].X, (int)this.marioPosition.PositionArr[18].Y, width, height);
+                        }
+                        else
+                        {
+                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[60].X, (int)this.marioPosition.PositionArr[60].Y, width, height);
+                        }
                     }
                 }
                 else
@@ -84,22 +103,42 @@ namespace Game
                     {
                         if (!marioState.jump)
                         {
-                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[55].X, (int)this.marioPosition.PositionArr[55].Y, width, height);
+                            if (altColor)
+                            {
+                                sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[13].X, (int)this.marioPosition.PositionArr[13].Y, width, height);
+                            }
+                            else
+                            {
+                                sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[55].X, (int)this.marioPosition.PositionArr[55].Y, width, height);
+                            }
                         }
                         else
                         {
-                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[60].X, (int)this.marioPosition.PositionArr[60].Y, width, height);
+                            if (altColor)
+                            {
+                                sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[18].X, (int)this.marioPosition.PositionArr[18].Y, width, height);
+                            } 
+                            else
+                            {
+                                sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[60].X, (int)this.marioPosition.PositionArr[60].Y, width, height);
+                            }
                         }
                     }
                     else
                     {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[61].X, (int)this.marioPosition.PositionArr[61].Y, width, height);
+                        if (altColor)
+                        {
+                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[19].X, (int)this.marioPosition.PositionArr[19].Y, width, height);
+                        }
+                        else
+                        {
+                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[61].X, (int)this.marioPosition.PositionArr[61].Y, width, height);
+                        }
                     }
                 }
             }
             else
             {
-
                 if (marioState.move)
                 {
                     if (!marioState.jump)
@@ -108,7 +147,14 @@ namespace Game
                     }
                     else
                     {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[67].X, (int)this.marioPosition.PositionArr[67].Y, width, height);
+                        if (altColor)
+                        {
+                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[25].X, (int)this.marioPosition.PositionArr[25].Y, width, height);
+                        }
+                        else
+                        {
+                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[67].X, (int)this.marioPosition.PositionArr[67].Y, width, height);
+                        }
                     }
                 }
                 else
@@ -117,16 +163,37 @@ namespace Game
                     {
                         if (!marioState.jump)
                         {
-                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[62].X, (int)this.marioPosition.PositionArr[62].Y, width, height);
+                            if (altColor)
+                            {
+                                sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[20].X, (int)this.marioPosition.PositionArr[20].Y, width, height);
+                            }
+                            else
+                            {
+                                sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[62].X, (int)this.marioPosition.PositionArr[62].Y, width, height);
+                            }
                         }
                         else
                         {
-                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[67].X, (int)this.marioPosition.PositionArr[67].Y, width, height);
+                            if (altColor)
+                            {
+                                sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[25].X, (int)this.marioPosition.PositionArr[25].Y, width, height);
+                            }
+                            else
+                            {
+                                sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[67].X, (int)this.marioPosition.PositionArr[67].Y, width, height);
+                            }
                         }
                     }
                     else
                     {
-                        sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[68].X, (int)this.marioPosition.PositionArr[68].Y, width, height);
+                        if (altColor)
+                        {
+                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[26].X, (int)this.marioPosition.PositionArr[26].Y, width, height);
+                        }
+                        else
+                        {
+                            sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[68].X, (int)this.marioPosition.PositionArr[68].Y, width, height);
+                        }
                     }
                 }
             }

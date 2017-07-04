@@ -114,7 +114,6 @@ namespace Game
                     }
                     else
                     {
-
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[19].X, (int)this.marioPosition.PositionArr[19].Y, width, height);
                     }
                 }
@@ -123,7 +122,6 @@ namespace Game
             {
                 if (marioState.move)
                 {
-
                     if (!marioState.jump)
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.marioPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
@@ -137,7 +135,6 @@ namespace Game
                 {
                     if (!marioState.crouch)
                     {
-
                         if (!marioState.jump)
                         {
                             sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[20].X, (int)this.marioPosition.PositionArr[20].Y, width, height);

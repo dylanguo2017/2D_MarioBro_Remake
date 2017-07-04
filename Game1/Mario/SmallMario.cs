@@ -102,7 +102,6 @@ namespace Game
                     else
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
-                        
                     }
                 }
                 else
@@ -111,12 +110,10 @@ namespace Game
                     if (!marioState.jump)
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[0].X, (int)this.marioPosition.PositionArr[0].Y, width, height);
-                        
                     }
                     else
                     {
                         sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
-                       
                     }
                 }
 
