@@ -14,6 +14,7 @@ namespace Game
         private String projectileCollidesFromVerticalSide;
         private ICollisionResponseProjectile projectileCollisionHandler;
         List<Fireball> proj;
+        List<Fireball> toBeRemoved;
 
         public ProjectileCollisionDetector(Game game,List<Fireball> projectile)
         {
@@ -24,6 +25,7 @@ namespace Game
 
         public void Update()
         {
+            toBeRemoved = new List<Fireball>();
             if (proj.Count != 0)
             {
                 foreach (Fireball fBalls in proj)
@@ -45,6 +47,17 @@ namespace Game
                                 projectileCollisionHandler.HandleCollision(fBalls, sprite, projectileCollidesFromHorizontalSide, projectileCollidesFromVerticalSide);
                             }
                         }
+                    }
+                    if (fBalls.deleted)
+                    {
+                        toBeRemoved.Add(fBalls);
+                    }
+                }
+                if (toBeRemoved.Count > 0)
+                {
+                    foreach (Fireball fireB in toBeRemoved)
+                    {
+                        proj.Remove(fireB);
                     }
                 }
             }
