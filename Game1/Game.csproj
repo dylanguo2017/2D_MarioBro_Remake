@@ -93,7 +93,7 @@
     <Compile Include="FlowerItem.cs" />
     <Compile Include="GreenMushroomItem.cs" />
     <Compile Include="IBlock.cs" />
-    <Compile Include="Iitem.cs" />
+    <Compile Include="IItem.cs" />
     <Compile Include="Invisible.cs" />
     <Compile Include="IObject.cs" />
     <Compile Include="Level.cs" />

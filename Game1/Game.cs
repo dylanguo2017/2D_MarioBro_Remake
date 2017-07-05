@@ -87,12 +87,11 @@ namespace Game
         public List<IEnemy> enemyList;
         public List<Fireball> fireBalls;
         public int fbDelay;
-        private ICollisionDetector collisionDetector;
+        private ICollisionDetector marioColDetector;
+        private ICollisionDetector enemyColDetector;
+        private ICollisionDetector itemColDetector;
+
         private ProjectileCollisionDetector projColDet;
-
-        private EnemyCollisionDetector enemyCollisionDetector;
-        private ItemCollisionDetector itemCollisionDetector;
-
 
         public Game()
         {
@@ -107,11 +106,9 @@ namespace Game
 
             camera = new Camera(this);
 
-            collisionDetector = new MarioCollisionDetector(this);
-
-            enemyCollisionDetector = new EnemyCollisionDetector(this);
-            itemCollisionDetector = new ItemCollisionDetector(this);
-
+            marioColDetector = new MarioCollisionDetector(this);
+            enemyColDetector = new EnemyCollisionDetector(this);
+            itemColDetector = new ItemCollisionDetector(this);
             
             IController keyboard = new KeyboardController();
             IController gmPad = new GamepadController();
@@ -235,7 +232,7 @@ namespace Game
                 fbDelay--;
             }
             
-            collisionDetector.Update();
+            marioColDetector.Update();
             projColDet.Update();
 
 
@@ -292,8 +289,8 @@ namespace Game
                 }
                 foreach (ISprite sprite in list)
                 {
-                    //itemCollisionDetector.Update();
-                    enemyCollisionDetector.Update();
+                    itemColDetector.Update();
+                    enemyColDetector.Update();
                     sprite.Update();
                 }
             }

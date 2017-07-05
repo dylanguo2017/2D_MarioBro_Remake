@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    class ItemCollisionHandler /*: ICollisionResponse*/
+    class ItemCollisionHandler 
     {
         private Game myGame;
 
@@ -11,15 +11,15 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollision(ISprite item, String itemCollidesFrom)
+        public void HandleCollision(IItem item, String itemColFrom)
         {
-            if (itemCollidesFrom.Equals("left"))
+            if (itemColFrom.Equals("left"))
             {
-                item.right = false;
+                //item.right = false;
             }
-            else if (itemCollidesFrom.Equals("right"))
+            else if (itemColFrom.Equals("right"))
             {
-                item.right = true;
+                //item.right = true;
             }
         }
 

@@ -4,66 +4,58 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    class ItemCollisionDetector //: ICollisionDetector
+    class ItemCollisionDetector : ICollisionDetector
     {
         private Game myGame;
         private List<IItem> itemList;
-        private List<ISprite> itemCollisionList;
+        private List<IBlock> blockList;
+
         private Rectangle itemRec;
-        private Rectangle objectRec;
-        private String itemCollidesFrom;
-        private /*ICollisionResponse*/ ItemCollisionHandler itemCollisionHandler;
+
+        private String itemColFrom;
+        private ItemCollisionHandler itemColHandler;
 
         public ItemCollisionDetector(Game game)
         {
             myGame = game;
-            itemList = new List<IItem>();
-            itemCollisionList = new List<ISprite>();
         }
 
         public void Update()
         {
-            //itemList = Level.itemList;
-            //itemCollisionList = Level.ItemCollisionList();
+            itemList = Level.itemList;
+            blockList = Level.blockList;
 
-            //foreach (ISprite item in itemList)
-            //{
-            //    itemRec = item.DestinationRectangle();
-            //    foreach (ISprite sprite in itemCollisionList)
-            //    {
-            //        {
-            //            objectRec = sprite.DestinationRectangle();
+            Rectangle blockRec;
+            foreach (IItem item in itemList)
+            {
+                itemRec = item.DestinationRectangle();
 
-            //            if (itemRec.Intersects(objectRec))
-            //            {
-            //                if (!sprite.type.Contains("BgElement"))
-            //                {
-            //                    if (itemRec.Center != objectRec.Center)
-            //                    {
-            //                        CollidesFrom();
-            //                        itemCollisionHandler = new ItemCollisionHandler(myGame);
-            //                        itemCollisionHandler.HandleCollision(item, itemCollidesFrom);
-            //                    }
-            //                }
-            //            }
-            //        }
+                foreach (IBlock block in blockList)
+                {
+                    blockRec = block.DestinationRectangle();
 
+                    if (blockRec.X <= 800 && itemRec.Intersects(blockRec))
+                    {
+                        CollidesFrom(blockRec);
+                        itemColHandler = new ItemCollisionHandler(myGame);
+                        itemColHandler.HandleCollision(item, itemColFrom);
+                    }
+                }
 
-            //    }
-            //}
+            }
         }
 
-        public void CollidesFrom()
+        public void CollidesFrom(Rectangle blockRec)
         {
-            itemCollidesFrom = "none";
+            itemColFrom = "none";
 
-            if (itemRec.Left > objectRec.Right - 2 && ((itemRec.Top <= objectRec.Top && itemRec.Bottom >= objectRec.Top + 2) || (itemRec.Top > objectRec.Top && objectRec.Bottom >= itemRec.Top - 2)))
+            if (itemRec.Left > blockRec.Right - 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
             {
-                itemCollidesFrom = "right";
+                itemColFrom = "right";
             }
-            else if (itemRec.Right < objectRec.Left + 2 && ((itemRec.Top <= objectRec.Top && itemRec.Bottom >= objectRec.Top + 2) || (itemRec.Top > objectRec.Top && objectRec.Bottom >= itemRec.Top - 2)))
+            else if (itemRec.Right < blockRec.Left + 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
             {
-                itemCollidesFrom = "left";
+                itemColFrom = "left";
             }
         }
 
