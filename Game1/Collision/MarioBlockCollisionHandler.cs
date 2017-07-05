@@ -3,7 +3,7 @@ using System;
 
 namespace Game
 {
-    public class MarioBlockCollisionHandler : ICollisionResponse
+    public class MarioBlockCollisionHandler //: ICollisionResponse
     {
         private Game myGame;
 
@@ -12,25 +12,26 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IMario mario, IBlock block, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
         {
-            ISprite block = gameObject as ISprite;
+            
+            //System.Diagnostics.Debug.WriteLine(marioCollidesFromVerticalSide);
             if (marioCollidesFromVerticalSide.Equals("bottom"))
             {
                 myGame.marioState.up = false;
                 myGame.marioState.marioPhys.yVel = 0;
-                if (block.type.Equals("QuestionMarkBlock"))
+                if (block is Question)
                 {
-                    MotionlessAnimatedSprite questionMarkBlock = block as MotionlessAnimatedSprite;
+                    Question question = block as Question;
 
-                    if (!questionMarkBlock.hit)
+                    if (!question.hit)
                     {
-                        questionMarkBlock.ToggleSpriteSheet(myGame.usedBlockSprite, 1, 1);
-                        questionMarkBlock.BumpBlock();
+                        question.ToggleSpriteSheet(myGame.usedBlockSprite, 1, 1);
+                        question.BumpBlock();
                     }
 
                 }
-                else if (block.type.Equals("BrickBlock"))
+                else if (block is Brick)
                 {
                     if (!(myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
                     {
@@ -38,7 +39,7 @@ namespace Game
                     }
                     else
                     {
-                        MotionlessAnimatedSprite brickBlock = block as MotionlessAnimatedSprite;
+                        Brick brickBlock = block as Brick;
                         if (!brickBlock.hit)
                         {
 
@@ -46,13 +47,14 @@ namespace Game
                         }
                     }
                 }
-                else if (block.type.Equals("InvisibleBlock"))
+                else if (block is Invisible)
                 {
                     block.texture = myGame.usedBlockSprite;
                 }
             }
             else if (marioCollidesFromVerticalSide.Equals("top"))
             {
+                System.Diagnostics.Debug.WriteLine("dont fall");
                 myGame.marioState.marioPhys.DontFall();
                 myGame.marioState.jmpCtr = 100;
                 myGame.marioState.jump = false;
