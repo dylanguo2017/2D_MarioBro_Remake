@@ -20,6 +20,7 @@ namespace Game.Enemies
         public Boolean right;
 
         private Rectangle destinationRectangle;
+        private Rectangle sourceRectangle;
 
         private Game myGame;
 
@@ -68,7 +69,6 @@ namespace Game.Enemies
         {
             int width = 16;
             int height = 16;
-            Rectangle sourceRectangle;
 
             if (visible)
             {
@@ -94,6 +94,11 @@ namespace Game.Enemies
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
+        }
+
+        public Rectangle SourceRectangle()
+        {
+            return sourceRectangle;
         }
     }
 }
