@@ -1,9 +1,10 @@
 ﻿using Game.Enemies;
+using Microsoft.Xna.Framework;
 using System;
 
 namespace Game
 {
-    public class MarioEnemyCollisionHandler //: ICollisionResponse
+    public class MarioEnemyCollisionHandler
     {
         private Game myGame;
 
@@ -18,15 +19,7 @@ namespace Game
             {
                 if (myGame.marioState.star)
                 {
-                    if (enemy is GoombaEnemy)
-                    {
-
-                    }
-                    else
-                    {
-
-                    }
-                    enemy.visible = false;
+                    KillEnemy(enemy);
                 }
                 else
                 {
@@ -50,22 +43,25 @@ namespace Game
                     else if (marioCollidesFromVerticalSide.Equals("top"))
                     {
                         KillEnemy(enemy);
-                        enemy.visible = false;
                     }
                 }
             }
         }
 
-        private void KillEnemy(ISprite enemy)
+        private void KillEnemy(IEnemy enemy)
         {
-            if (enemy.type.Equals("GoombaEnemy"))
+            if (enemy is GoombaEnemy)
             {
-                enemy.ToggleSpriteSheet(myGame.goombaEnemyDead, 1, 1);
+                GoombaEnemy goomba = enemy as GoombaEnemy;
+                goomba.sourceRectangle = new Rectangle((int)goomba.goombaPosition.PositionArr[2].X, (int)goomba.goombaPosition.PositionArr[2].Y, 16, 16);
             }
             else
             {
-                enemy.ToggleSpriteSheet(myGame.koopaEnemyDead, 1, 1);
+                KoopaEnemy koopa = enemy as KoopaEnemy;
+                koopa.sourceRectangle = new Rectangle((int)koopa.koopaPosition.PositionArr[9].X, (int)koopa.koopaPosition.PositionArr[9].Y, 16, 16);
             }
+            enemy.visible = false;
         }
+
     }
 }

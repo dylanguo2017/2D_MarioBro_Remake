@@ -13,7 +13,7 @@ namespace Game.Enemies
 
         Rectangle DestinationRectangle();
 
-        Rectangle SourceRectangle();
+        Rectangle sourceRectangle { get; set; }
 
 
     }

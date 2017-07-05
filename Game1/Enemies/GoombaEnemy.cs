@@ -10,7 +10,7 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
 
-        GoombaPositionDic goombaPosition = new GoombaPositionDic();
+        public GoombaPositionDic goombaPosition = new GoombaPositionDic();
 
         private int rightFacingCurrentFrame;
         private int leftFacingCurrentFrame;
@@ -20,7 +20,7 @@ namespace Game.Enemies
         public Boolean right;
 
         private Rectangle destinationRectangle;
-        private Rectangle sourceRectangle;
+        public Rectangle sourceRectangle;
 
         private Game myGame;
 
@@ -96,9 +96,5 @@ namespace Game.Enemies
             return destinationRectangle;
         }
 
-        public Rectangle SourceRectangle()
-        {
-            return sourceRectangle;
-        }
     }
 }
