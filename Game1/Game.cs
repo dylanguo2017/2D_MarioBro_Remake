@@ -72,8 +72,7 @@ namespace Game
         private ICollisionDetector marioColDetector;
         private ICollisionDetector enemyColDetector;
         private ICollisionDetector itemColDetector;
-
-        private ProjectileCollisionDetector projColDet;
+        private ICollisionDetector projColDet;
 
         public Game()
         {

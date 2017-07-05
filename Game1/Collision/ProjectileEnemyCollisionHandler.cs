@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Game.Enemies;
+using Microsoft.Xna.Framework;
+using System;
 
 namespace Game
 {
-    class ProjectileEnemyCollisionHandler : ICollisionResponseProjectile
+    class ProjectileEnemyCollisionHandler
     {
         private Game myGame;
 
@@ -14,25 +12,27 @@ namespace Game
         {
             myGame = game;
         }
-        public void HandleCollision(Fireball fBalls, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IEnemy enemy)
         {
-            ISprite enemy = gameObject as ISprite;
-            if (!enemy.type.Contains("Dead"))
+            if (enemy.visible)
             {
                 KillEnemy(enemy);
             }
         }
 
-        private void KillEnemy(ISprite enemy)
+        private void KillEnemy(IEnemy enemy)
         {
-            if (enemy.type.Equals("GoombaEnemy"))
+            if (enemy is GoombaEnemy)
             {
-                //enemy.ToggleSpriteSheet(myGame.goombaEnemyDead, 1, 1);
+                GoombaEnemy goomba = enemy as GoombaEnemy;
+                goomba.sourceRectangle = new Rectangle((int)goomba.goombaPosition.PositionArr[2].X, (int)goomba.goombaPosition.PositionArr[2].Y, 16, 16);
             }
             else
             {
-                //enemy.ToggleSpriteSheet(myGame.koopaEnemyDead, 1, 1);
+                KoopaEnemy koopa = enemy as KoopaEnemy;
+                koopa.sourceRectangle = new Rectangle((int)koopa.koopaPosition.PositionArr[9].X, (int)koopa.koopaPosition.PositionArr[9].Y, 16, 16);
             }
+            enemy.visible = false;
         }
     }
 
