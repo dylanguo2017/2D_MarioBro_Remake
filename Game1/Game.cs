@@ -219,7 +219,7 @@ namespace Game
 
             list = Level.LoadList(this);
             enemyList = Level.EnemyList();
-            blockList = Level.BlockList();
+            blockList = Level.blockList;
             itemList = Level.ItemList();
         }
 

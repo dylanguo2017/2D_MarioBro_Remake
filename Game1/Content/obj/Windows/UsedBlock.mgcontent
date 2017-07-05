@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/UsedBlock.png</SourceFile>
-  <SourceTime>2017-06-20T15:57:54.4286105-04:00</SourceTime>
-  <DestFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/bin/Windows/UsedBlock.xnb</DestFile>
-  <DestTime>2017-07-04T22:37:03.0170335-04:00</DestTime>
+  <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/UsedBlock.png</SourceFile>
+  <SourceTime>2017-07-05T14:17:51.8869654-04:00</SourceTime>
+  <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/UsedBlock.xnb</DestFile>
+  <DestTime>2017-07-05T14:57:40.8014359-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -7,7 +7,7 @@ namespace Game
     class ItemCollisionDetector : ICollisionDetector
     {
         private Game myGame;
-        private List<ISprite> itemList;
+        private List<IItem> itemList;
         private List<ISprite> itemCollisionList;
         private Rectangle itemRec;
         private Rectangle objectRec;
@@ -17,7 +17,7 @@ namespace Game
         public ItemCollisionDetector(Game game)
         {
             myGame = game;
-            itemList = new List<ISprite>();
+            itemList = new List<IItem>();
             itemCollisionList = new List<ISprite>();
         }
 
