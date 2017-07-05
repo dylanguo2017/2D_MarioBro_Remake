@@ -37,8 +37,7 @@ namespace Game.Enemies
 
         public void Update()
         {
-            if (((myGame.camera.GetOffset() + myGame.camera.width) <= (int)koopaPosition.PositionArr[rightFacingCurrentFrame].X) ||
-                ((myGame.camera.GetOffset() + myGame.camera.width) <= (int)koopaPosition.PositionArr[rightFacingCurrentFrame].X))
+            if ((myGame.camera.GetOffset() + myGame.camera.width) <= destinationRectangle.X)
             {
                
                 if (move && left)
