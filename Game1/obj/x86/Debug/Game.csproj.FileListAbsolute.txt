@@ -375,4 +375,5 @@ C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\goomba.
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\koopa.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\goomba.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\koopa.xnb
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Items.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Tileset.xnb
