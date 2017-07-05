@@ -94,24 +94,17 @@ namespace Game
                         Invisible gameObject = new Invisible(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("smallPipe"))
+                    else if (target[positionColumn].Equals("standardPipe"))
                     {
                         Pipe gameObject = new Pipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                         //enemyCollisionList.Add(gameObject);
-                       // itemCollisionList.Add(gameObject);
+                        // itemCollisionList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("mediumPipe"))
+                    else if (target[positionColumn].Equals("pipeNeck"))
                     {
-                        //ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.mediumPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        //list.Add(gameObject);
-                        //enemyCollisionList.Add(gameObject);
-                        //itemCollisionList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("bigPipe"))
-                    {
-                        //ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.bigPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        //list.Add(gameObject);
+                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
                         //enemyCollisionList.Add(gameObject);
                         //itemCollisionList.Add(gameObject);
                     }
