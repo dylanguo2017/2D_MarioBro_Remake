@@ -19,6 +19,7 @@ namespace Game
         public Boolean visible { get; set; }
         public Boolean hit;
         public int timer;
+        public Boolean used;
 
         public Invisible(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
@@ -32,6 +33,7 @@ namespace Game
             visible = true;
             hit = false;
             timer = 0;
+            used = false;
         }
 
         public void Update()
@@ -41,6 +43,20 @@ namespace Game
 
                 currentFrame = 920;
 
+            }
+            if (hit)
+            {
+                if (timer < 1)
+                {
+                    timer++;
+                }
+                else
+                {
+                    timer = 0;
+                    hit = false;
+                    BumpDown();
+                    myGame.marioState.marioPhys.YCoor += 2;
+                }
             }
 
 
@@ -94,7 +110,7 @@ namespace Game
         public void ChangeToUsed()
         {
             currentFrame = 27;
-
+            used = true;
         }
 
 
