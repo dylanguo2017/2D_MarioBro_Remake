@@ -94,10 +94,10 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("smallPipe"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.smallPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                        enemyCollisionList.Add(gameObject);
-                        itemCollisionList.Add(gameObject);
+                        Pipe gameObject = new Pipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
+                        //enemyCollisionList.Add(gameObject);
+                       // itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("mediumPipe"))
                     {
