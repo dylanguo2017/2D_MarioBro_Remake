@@ -9,7 +9,6 @@ namespace Game.Enemies
         public Texture2D texture;
 
         KoopaPositionDic koopaPosition = new KoopaPositionDic();
-        Physics koopaPhys;
 
         private int rightFacingCurrentFrame;
         private int leftFacingCurrentFrame;
@@ -34,7 +33,6 @@ namespace Game.Enemies
             rightFacingCurrentFrame = 120;
             leftFacingCurrentFrame = 90;
 
-            koopaPhys = new Physics((int)koopaPosition.PositionArr[rightFacingCurrentFrame].X, (int)koopaPosition.PositionArr[rightFacingCurrentFrame].Y);
         }
 
         public void Update()
@@ -42,11 +40,7 @@ namespace Game.Enemies
             if (((myGame.camera.GetOffset() + myGame.camera.width) <= (int)koopaPosition.PositionArr[rightFacingCurrentFrame].X) ||
                 ((myGame.camera.GetOffset() + myGame.camera.width) <= (int)koopaPosition.PositionArr[rightFacingCurrentFrame].X))
             {
-                if (koopaPhys.falling)
-                {
-                    koopaPhys.xVel = -1;
-                }
-                koopaPhys.Update();
+               
                 if (move && left)
                 {
                     leftFacingCurrentFrame++;

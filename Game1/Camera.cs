@@ -6,7 +6,6 @@
         public Game myGame;
         private int marioPosition;
         public int width = 800;
-        private int height = 480;
         public static int offset;
         
         
