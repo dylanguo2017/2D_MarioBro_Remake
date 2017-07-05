@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Game.Enemies;
+using System;
 
 namespace Game
 {
-    public class MarioEnemyCollisionHandler : ICollisionResponse
+    public class MarioEnemyCollisionHandler //: ICollisionResponse
     {
         private Game myGame;
 
@@ -11,14 +12,20 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IMario mario, IEnemy enemy, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
         {
-            ISprite enemy = gameObject as ISprite;
-            if(!enemy.type.Contains("Dead"))
-                {
+            if (!enemy.visible)
+            {
                 if (myGame.marioState.star)
                 {
-                    KillEnemy(enemy);
+                    if (enemy is GoombaEnemy)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
                     enemy.visible = false;
                 }
                 else

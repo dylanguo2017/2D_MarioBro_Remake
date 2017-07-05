@@ -1,18 +1,19 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Game.Enemies;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 
 namespace Game
 {
-    class MarioCollisionDetector : ICollisionDetector
+    class MarioCollisionDetector //: ICollisionDetector
     {
         private Game myGame;
-        private List<ISprite> marioCollisionList;
+        private List<IEnemy> enemyList;
         private Rectangle marioRec;
-        private Rectangle objectRec;
+        private Rectangle enemyRec;
         private String marioCollidesFromHorizontalSide;
         private String marioCollidesFromVerticalSide;
-        private ICollisionResponse marioCollisionHandler;
+        private MarioEnemyCollisionHandler enemyCollisionHandler;
         private int differenceCoor = 0;
         public int dCoor
         {
@@ -25,12 +26,11 @@ namespace Game
         public MarioCollisionDetector(Game game)
         {
             myGame = game;
-            marioCollisionList = new List<ISprite>();
         }
 
         public void Update()
         {
-            marioCollisionList = myGame.list;
+            enemyList = Level.EnemyList();
 
             marioRec = myGame.mario.DestinationRectangle();
             
@@ -39,19 +39,17 @@ namespace Game
             myGame.marioState.up = true;
             myGame.marioState.down = true;
             
-            foreach (ISprite sprite in marioCollisionList)
+            foreach (IEnemy enemy in enemyList)
             {
-                objectRec = sprite.DestinationRectangle();
+                enemyRec = enemy.DestinationRectangle();
 
-                if (objectRec.X <= 800 && marioRec.Intersects(objectRec) && !sprite.type.Contains("BgElement"))
+                if (enemyRec.X <= 800 && marioRec.Intersects(enemyRec))
                 {
                     CollidesFrom();
-                    Type(sprite);
-                    marioCollisionHandler.HandleCollision(myGame.mario, sprite, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
-                    if (!sprite.type.Contains("Item") && sprite.visible == true)
-                    {
+                    //Type(sprite);
+                    enemyCollisionHandler = new MarioEnemyCollisionHandler(myGame);
+                    enemyCollisionHandler.HandleCollision(myGame.mario, enemy, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
                         DisableMovement();
-                    }
                 }
             }
         }
@@ -61,20 +59,20 @@ namespace Game
             marioCollidesFromHorizontalSide = "none";
             marioCollidesFromVerticalSide = "none";
             
-            if (marioRec.Left > objectRec.Right - 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
+            if (marioRec.Left > enemyRec.Right - 2 && ((marioRec.Top <= enemyRec.Top && marioRec.Bottom >= enemyRec.Top + 2) || (marioRec.Top > enemyRec.Top && enemyRec.Bottom >= marioRec.Top - 2)))
             {
                 marioCollidesFromHorizontalSide = "right";
             }
-            else if (marioRec.Right < objectRec.Left + 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
+            else if (marioRec.Right < enemyRec.Left + 2 && ((marioRec.Top <= enemyRec.Top && marioRec.Bottom >= enemyRec.Top + 2) || (marioRec.Top > enemyRec.Top && enemyRec.Bottom >= marioRec.Top - 2)))
             {
                 marioCollidesFromHorizontalSide = "left";
             }
 
-            if (marioRec.Bottom > objectRec.Bottom && marioRec.Top > objectRec.Bottom - 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
+            if (marioRec.Bottom > enemyRec.Bottom && marioRec.Top > enemyRec.Bottom - 2 && ((marioRec.Left <= enemyRec.Left && marioRec.Right >= enemyRec.Left + 2) || (marioRec.Left > enemyRec.Left && enemyRec.Right >= marioRec.Left - 2)))
             {
                 marioCollidesFromVerticalSide = "bottom";
             }
-            else if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2  && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
+            else if (marioRec.Top < enemyRec.Top && marioRec.Bottom < enemyRec.Top + 2  && ((marioRec.Left <= enemyRec.Left && marioRec.Right >= enemyRec.Left + 2) || (marioRec.Left > enemyRec.Left && enemyRec.Right >= marioRec.Left - 2)))
             {
                 marioCollidesFromVerticalSide = "top";
                 
@@ -82,21 +80,21 @@ namespace Game
 
         }
 
-        private void Type(ISprite sprite)
-        {
-            if (sprite.type.Contains("Block"))
-            {
-                marioCollisionHandler = new MarioBlockCollisionHandler(myGame);
-            }
-            else if (sprite.type.Contains("Item"))
-            {
-                marioCollisionHandler = new MarioItemCollisionHandler(myGame);
-            }
-            else if (sprite.type.Contains("Enemy"))
-            {
-                marioCollisionHandler = new MarioEnemyCollisionHandler(myGame);
-            }
-        }
+        //private void Type(ISprite sprite)
+        //{
+        //    if (sprite.type.Contains("Block"))
+        //    {
+        //        marioCollisionHandler = new MarioBlockCollisionHandler(myGame);
+        //    }
+        //    else if (sprite.type.Contains("Item"))
+        //    {
+        //        marioCollisionHandler = new MarioItemCollisionHandler(myGame);
+        //    }
+        //    else if (sprite.type.Contains("Enemy"))
+        //    {
+        //        marioCollisionHandler = new MarioEnemyCollisionHandler(myGame);
+        //    }
+        //}
 
         private void DisableMovement()
         {
