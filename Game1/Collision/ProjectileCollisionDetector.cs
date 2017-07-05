@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Game.Enemies;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 
@@ -8,11 +9,16 @@ namespace Game
     {
         private Game myGame;
         private List<ISprite> projectileCollisionList;
+        private List<IBlock> blockList;
+        private List<IEnemy> enemyList;
+
         private Rectangle projectileRec;
         private Rectangle objectRec;
-        private String projectileCollidesFromHorizontalSide;
-        private String projectileCollidesFromVerticalSide;
-        private ICollisionResponseProjectile projectileCollisionHandler;
+
+        private String projectileColFromHorizontalSide;
+        private String projectileColFromVerticalSide;
+
+        private ICollisionResponseProjectile projectileColHandler;
         List<Fireball> proj;
         List<Fireball> toBeRemoved;
 
@@ -44,7 +50,7 @@ namespace Game
                             {
                                 CollidesFrom();
                                 Type(sprite);
-                                projectileCollisionHandler.HandleCollision(fBalls, sprite, projectileCollidesFromHorizontalSide, projectileCollidesFromVerticalSide);
+                                projectileColHandler.HandleCollision(fBalls, sprite, projectileColFromHorizontalSide, projectileColFromVerticalSide);
                             }
                         }
                     }
@@ -65,25 +71,25 @@ namespace Game
 
         public void CollidesFrom()
         {
-            projectileCollidesFromHorizontalSide = "none";
-            projectileCollidesFromVerticalSide = "none";
+            projectileColFromHorizontalSide = "none";
+            projectileColFromVerticalSide = "none";
 
             if (projectileRec.Left > objectRec.Right - 2 && ((projectileRec.Top <= objectRec.Top && projectileRec.Bottom >= objectRec.Top + 2) || (projectileRec.Top > objectRec.Top && objectRec.Bottom >= projectileRec.Top - 2)))
             {
-                projectileCollidesFromHorizontalSide = "right";
+                projectileColFromHorizontalSide = "right";
             }
             else if (projectileRec.Right < objectRec.Left + 2 && ((projectileRec.Top <= objectRec.Top && projectileRec.Bottom >= objectRec.Top + 2) || (projectileRec.Top > objectRec.Top && objectRec.Bottom >= projectileRec.Top - 2)))
             {
-                projectileCollidesFromHorizontalSide = "left";
+                projectileColFromHorizontalSide = "left";
             }
 
             if (projectileRec.Bottom > objectRec.Bottom && projectileRec.Top > objectRec.Bottom - 2 && ((projectileRec.Left <= objectRec.Left && projectileRec.Right >= objectRec.Left + 2) || (projectileRec.Left > objectRec.Left && objectRec.Right >= projectileRec.Left - 2)))
             {
-                projectileCollidesFromVerticalSide = "bottom";
+                projectileColFromVerticalSide = "bottom";
             }
             else if (projectileRec.Top < objectRec.Top && projectileRec.Bottom < objectRec.Top + 2 && ((projectileRec.Left <= objectRec.Left && projectileRec.Right >= objectRec.Left + 2) || (projectileRec.Left > objectRec.Left && objectRec.Right >= projectileRec.Left - 2)))
             {
-                projectileCollidesFromVerticalSide = "top";
+                projectileColFromVerticalSide = "top";
 
             }
 
@@ -93,11 +99,11 @@ namespace Game
         {
             if (sprite.type.Contains("Block"))
             {
-                projectileCollisionHandler = new ProjectileBlockCollisionHandler(myGame);
+                projectileColHandler = new ProjectileBlockCollisionHandler(myGame);
             }
             else if (sprite.type.Contains("Enemy"))
             {
-                projectileCollisionHandler = new ProjectileEnemyCollisionHandler(myGame);
+                projectileColHandler = new ProjectileEnemyCollisionHandler(myGame);
             }
         }
 
