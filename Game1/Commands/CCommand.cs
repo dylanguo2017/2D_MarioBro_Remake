@@ -11,7 +11,7 @@
 
         public void Execute()
         {
-            myGame.list = Level.ReloadList(myGame.list, myGame.usedBlockSprite, "InvisibleBlock", 1);
+            //myGame.bgList = Level.ReloadList(myGame.bgList, myGame.usedBlockSprite, "InvisibleBlock", 1);
         }
 
     }

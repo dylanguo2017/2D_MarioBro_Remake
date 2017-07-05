@@ -23,8 +23,8 @@ namespace Game
 
         public void Update()
         {
-            enemyList = Level.enemyList;
-            blockList = Level.blockList;
+            blockList = myGame.blockList;
+            enemyList = myGame.enemyList;
 
             Rectangle blockRec;
 

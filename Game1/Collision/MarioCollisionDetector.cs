@@ -31,9 +31,9 @@ namespace Game
 
         public void Update()
         {
-            enemyList = Level.enemyList;
-            blockList = Level.blockList;
-            itemList = Level.itemList;
+            blockList = myGame.blockList;
+            enemyList = myGame.enemyList;
+            itemList = myGame.itemList;
 
             marioRec = myGame.mario.DestinationRectangle();
             

@@ -30,7 +30,7 @@ namespace Game
             {
                 foreach (Fireball fBalls in proj)
                 {
-                    projectileCollisionList = myGame.list;
+                    projectileCollisionList = myGame.bgList;
 
                     projectileRec = fBalls.DestinationRectangle();
 

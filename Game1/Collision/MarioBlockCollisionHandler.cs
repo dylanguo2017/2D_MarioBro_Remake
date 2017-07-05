@@ -33,7 +33,7 @@ namespace Game
                 }
                 else if (block is Invisible)
                 {
-                    block.texture = myGame.usedBlockSprite;
+                    //block.texture = myGame.usedBlockSprite;
                 }
             }
             else if (verticalSide.Equals("top"))

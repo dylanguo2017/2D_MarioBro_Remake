@@ -21,12 +21,6 @@ namespace Game
         
         private ArrayList contrl;
         
-        public Texture2D starItem;
-        public Texture2D greenMushroomItem;
-        public Texture2D redMushroomItem;
-        public Texture2D coinItem;
-        public Texture2D fireFlowerItem;
-
         public Texture2D oneCloudBgElement;
         public Texture2D threeCloudsBgElement;
         public Texture2D oneBushBgElement;
@@ -38,29 +32,18 @@ namespace Game
 
         public Texture2D goombaEnemy;
         public Texture2D koopaEnemy;
-        public Texture2D goombaEnemyDead;
-        public Texture2D koopaEnemyDead;
 
         public Texture2D marioSprites;
         public Texture2D fireballSprite;
         public Texture2D titleScreen;
 
-        public Texture2D invisibleBlockSprite;
-        public Texture2D usedBlockSprite;
-        public Texture2D smallPipeBlockSprite;
-        public Texture2D mediumPipeBlockSprite;
-        public Texture2D bigPipeBlockSprite;
-        public Texture2D crackBlockSprite;       
-        public Texture2D brickBlockSprite;
-        public Texture2D diamondBlockSprite;
-        public Texture2D questionMarkBlockSprite;
-
-
         public Texture2D blockSprite;
         public Texture2D itemSprite;
 
-        public List<IItem> itemList;
         public List<IBlock> blockList;
+        public List<IEnemy> enemyList;
+        public List<IItem> itemList;
+        public List<ISprite> bgList;
 
         private ICommand qtCmd;
         private ICommand wCmd;
@@ -83,10 +66,9 @@ namespace Game
         private int animationModifier;
         private int starDuration;
         
-        public List<ISprite> list;
-        public List<IEnemy> enemyList;
         public List<Fireball> fireBalls;
         public int fbDelay;
+
         private ICollisionDetector marioColDetector;
         private ICollisionDetector enemyColDetector;
         private ICollisionDetector itemColDetector;
@@ -97,7 +79,6 @@ namespace Game
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            
         }
 
         protected override void Initialize()
@@ -176,13 +157,7 @@ namespace Game
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            starItem = Content.Load<Texture2D>("StarItem");
-            greenMushroomItem = Content.Load<Texture2D>("GreenMushroomItem");
-            redMushroomItem = Content.Load<Texture2D>("RedMushroomItem");
-            coinItem = Content.Load<Texture2D>("CoinItem");
-            fireFlowerItem = Content.Load<Texture2D>("FireFlowerItem");
-
+            
             oneCloudBgElement = Content.Load<Texture2D>("1CloudBgElement");
             threeCloudsBgElement = Content.Load<Texture2D>("3CloudsBgElement");
             oneBushBgElement = Content.Load<Texture2D>("1BushElement");
@@ -194,18 +169,6 @@ namespace Game
 
             goombaEnemy = Content.Load<Texture2D>("goomba");
             koopaEnemy = Content.Load<Texture2D>("koopa");
-            goombaEnemyDead = Content.Load<Texture2D>("GoombaEnemyDead");
-            koopaEnemyDead = Content.Load<Texture2D>("KoopaEnemyDead");
-
-            questionMarkBlockSprite = Content.Load<Texture2D>("QuestionMarkBlock");
-            diamondBlockSprite = Content.Load<Texture2D>("DiamondBlock");
-            brickBlockSprite = Content.Load<Texture2D>("BrickBlock");
-            crackBlockSprite = Content.Load<Texture2D>("CrackBlock");           
-            smallPipeBlockSprite = Content.Load<Texture2D>("PipeBlock");
-            mediumPipeBlockSprite = Content.Load<Texture2D>("medPipe");
-            bigPipeBlockSprite = Content.Load<Texture2D>("bgPipe");
-            invisibleBlockSprite = Content.Load<Texture2D>("InvisibleBlock");
-            usedBlockSprite = Content.Load<Texture2D>("UsedBlock");
 
             titleScreen = this.Content.Load<Texture2D>("titleScreen");
             marioSprites = this.Content.Load<Texture2D>("SpriteSheets/Mario");
@@ -213,10 +176,11 @@ namespace Game
 
             mario = new SmallMario(marioState, marioSprites);
 
-            list = Level.LoadList(this);
+            Level.LoadLists(this);
             enemyList = Level.enemyList;
             blockList = Level.blockList;
             itemList = Level.itemList;
+            bgList = Level.bgList;
         }
 
         protected override void UnloadContent()
@@ -231,11 +195,9 @@ namespace Game
             {
                 fbDelay--;
             }
-            
+
             marioColDetector.Update();
             projColDet.Update();
-
-
 
             if (marioState.star)
             {
@@ -283,20 +245,20 @@ namespace Game
                 {
                     block.Update();
                 }
+                foreach (IEnemy enemy in enemyList)
+                {
+                    enemy.Update();
+                    enemyColDetector.Update();
+                }
                 foreach (IItem item in itemList)
                 {
                     item.Update();
-                }
-                foreach (ISprite sprite in list)
-                {
                     itemColDetector.Update();
-                    enemyColDetector.Update();
+                }
+                foreach (ISprite sprite in bgList)
+                {
                     sprite.Update();
                 }
-            }
-            foreach (IEnemy enemy in enemyList)
-            {
-                enemy.Update();
             }
             base.Update(gameTime);
         }
@@ -306,14 +268,21 @@ namespace Game
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-           // spriteBatch.Begin();
-            foreach (ISprite sprite in list)
+            foreach (ISprite sprite in bgList)
             {
                 sprite.Draw(spriteBatch);
+            }
+            foreach (IBlock block in blockList)
+            {
+                block.Draw(spriteBatch);
             }
             foreach (IEnemy enemy in enemyList)
             {
                 enemy.Draw(spriteBatch);
+            }
+            foreach (IItem item in itemList)
+            {
+                item.Draw(spriteBatch);
             }
 
             if (fireBalls.Count != 0)
@@ -323,16 +292,7 @@ namespace Game
                     fBalls.Draw(spriteBatch);
                 }
             }
-            foreach (IBlock block in blockList)
-            {
-                block.Draw(spriteBatch);
-            }
-            foreach (IItem item in itemList)
-            {
-                item.Draw(spriteBatch);
-            }
             mario.Draw(spriteBatch);
-            //spriteBatch.End();
 
             base.Draw(gameTime);
         }

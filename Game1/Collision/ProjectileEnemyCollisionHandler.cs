@@ -27,11 +27,11 @@ namespace Game
         {
             if (enemy.type.Equals("GoombaEnemy"))
             {
-                enemy.ToggleSpriteSheet(myGame.goombaEnemyDead, 1, 1);
+                //enemy.ToggleSpriteSheet(myGame.goombaEnemyDead, 1, 1);
             }
             else
             {
-                enemy.ToggleSpriteSheet(myGame.koopaEnemyDead, 1, 1);
+                //enemy.ToggleSpriteSheet(myGame.koopaEnemyDead, 1, 1);
             }
         }
     }

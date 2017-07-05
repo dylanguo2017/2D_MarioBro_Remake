@@ -23,7 +23,11 @@ namespace Game
 
             myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
 
-            myGame.list = Level.LoadList(myGame);
+            Level.LoadLists(myGame);
+            myGame.enemyList = Level.enemyList;
+            myGame.blockList = Level.blockList;
+            myGame.itemList = Level.itemList;
+            myGame.bgList = Level.bgList;
         }
     }
 }
