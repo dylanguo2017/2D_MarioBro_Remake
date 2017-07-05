@@ -27,10 +27,10 @@ namespace Game
                 {
                     Question question = block as Question;
 
-                    if (!question.hit)
+                    if (!question.used && !question.hit)
                     {
-                        question.ToggleSpriteSheet(myGame.usedBlockSprite, 1, 1);
                         question.BumpBlock();
+                        question.ChangeToUsed();
                     }
 
                 }

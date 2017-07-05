@@ -19,6 +19,7 @@ namespace Game
         public Boolean visible { get; set; }
         public Boolean hit;
         public int timer;
+        public Boolean used;
 
         public Question(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
@@ -32,17 +33,19 @@ namespace Game
             visible = true;
             hit = false;
             timer = 0;
+            used = false;
         }
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == 26)
+            if (currentFrame != 27)
             {
-                currentFrame = 24;
+                currentFrame++;
+                if (currentFrame == 26)
+                {
+                    currentFrame = 24;
+                }
             }
-
-
             if (hit)
             {
                 if (timer < 1)
@@ -57,7 +60,6 @@ namespace Game
                     myGame.marioState.marioPhys.YCoor += 2;
                 }
             }
-
 
         }
 
@@ -97,7 +99,6 @@ namespace Game
         public void BumpBlock()
         {
             hit = true;
-
             drawLocation.Y = drawLocation.Y - 2;
         }
 
@@ -106,6 +107,11 @@ namespace Game
             drawLocation.Y = drawLocation.Y + 2;
         }
 
+        public void ChangeToUsed()
+        {
+            used = true;
+            currentFrame = 27;
+        }
 
 
     }

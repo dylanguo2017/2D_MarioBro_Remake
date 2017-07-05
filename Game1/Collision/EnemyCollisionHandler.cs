@@ -1,10 +1,9 @@
 ﻿using Game.Enemies;
-using Microsoft.Xna.Framework;
 using System;
 
 namespace Game
 {
-    class EnemyCollisionHandler /*: ICollisionResponse*/
+    class EnemyCollisionHandler 
     {
         private Game myGame;
 
@@ -13,14 +12,14 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollision(IEnemy enemy, String enemyCollidesFrom)
+        public void HandleCollision(IEnemy enemy, String enemyColFrom)
         {
-            if (enemyCollidesFrom.Equals("left"))
+            if (enemyColFrom.Equals("left"))
             {
                 enemy.left = true;
                 enemy.right = false;
             }
-            else if (enemyCollidesFrom.Equals("right"))
+            else if (enemyColFrom.Equals("right"))
             {
                 enemy.right = true;
                 enemy.left = false;

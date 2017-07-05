@@ -52,7 +52,6 @@
     <Compile Include="Collision\EnemyCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionDetector.cs" />
     <Compile Include="Collision\ICollisionDetector.cs" />
-    <Compile Include="Collision\ICollisionResponse.cs" />
     <Compile Include="Collision\ICollisionResponseProjectile.cs" />
     <Compile Include="Collision\ItemCollisionDetector.cs" />
     <Compile Include="Collision\ItemCollisionHandler.cs" />

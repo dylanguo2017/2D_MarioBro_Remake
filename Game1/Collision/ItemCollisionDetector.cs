@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    class ItemCollisionDetector : ICollisionDetector
+    class ItemCollisionDetector //: ICollisionDetector
     {
         private Game myGame;
         private List<IItem> itemList;

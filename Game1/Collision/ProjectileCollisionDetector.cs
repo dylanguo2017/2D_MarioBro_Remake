@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    class ProjectileCollisionDetector : ICollisionDetector
+    class ProjectileCollisionDetector
     {
         private Game myGame;
         private List<ISprite> projectileCollisionList;
