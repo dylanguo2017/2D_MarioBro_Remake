@@ -8,6 +8,8 @@ namespace Game.Enemies
     {
         public Texture2D texture;
 
+        public Boolean visible { get; set; }
+
         KoopaPositionDic koopaPosition = new KoopaPositionDic();
 
         private int rightFacingCurrentFrame;
@@ -29,6 +31,7 @@ namespace Game.Enemies
             move = true;
             left = true;
             right = true;
+            visible = true;
 
             rightFacingCurrentFrame = 120;
             leftFacingCurrentFrame = 90;
@@ -37,29 +40,28 @@ namespace Game.Enemies
 
         public void Update()
         {
-            if ((myGame.camera.GetOffset() + myGame.camera.width) <= destinationRectangle.X)
-            {
+            
                
-                if (move && left)
+            if (move && left)
+            {
+                leftFacingCurrentFrame++;
+                if (leftFacingCurrentFrame == 60)
                 {
-                    leftFacingCurrentFrame++;
-                    if (leftFacingCurrentFrame == 60)
-                    {
-                        leftFacingCurrentFrame = 90;
-                    }
-
+                    leftFacingCurrentFrame = 90;
                 }
-                else if (move && right)
-                {
 
-                    rightFacingCurrentFrame++;
-                    if (rightFacingCurrentFrame == 151)
-                    {
-                        rightFacingCurrentFrame = 120;
-                    }
-
-                }
             }
+            else if (move && right)
+            {
+
+                rightFacingCurrentFrame++;
+                if (rightFacingCurrentFrame == 151)
+                {
+                    rightFacingCurrentFrame = 120;
+                }
+
+            }
+            
 
 
         }
@@ -70,22 +72,26 @@ namespace Game.Enemies
             int height = 24;
             Rectangle sourceRectangle;
 
-            if (move && right)
+            if (visible)
             {
+                if (move && right)
+                {
 
-                sourceRectangle = new Rectangle((int)this.koopaPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.koopaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
+                    sourceRectangle = new Rectangle((int)this.koopaPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.koopaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
 
+                }
+                else
+                {
+                    sourceRectangle = new Rectangle((int)this.koopaPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.koopaPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
+
+                }
+                destinationRectangle = new Rectangle((int)koopaPosition.PositionArr[rightFacingCurrentFrame].X - myGame.camera.GetOffset(), (int)koopaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
+
+                spriteBatch.Begin();
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+                spriteBatch.End();
             }
-            else
-            {
-                sourceRectangle = new Rectangle((int)this.koopaPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.koopaPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
-
-            }
-            destinationRectangle = new Rectangle((int)koopaPosition.PositionArr[rightFacingCurrentFrame].X - myGame.camera.GetOffset(), (int)koopaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+            
         }
         public Rectangle DestinationRectangle()
         {
