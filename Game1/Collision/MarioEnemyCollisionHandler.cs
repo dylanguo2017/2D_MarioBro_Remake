@@ -14,7 +14,7 @@ namespace Game
 
         public void HandleCollision(IMario mario, IEnemy enemy, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
         {
-            if (!enemy.visible)
+            if (enemy.visible)
             {
                 if (myGame.marioState.star)
                 {
