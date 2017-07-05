@@ -5,15 +5,21 @@ namespace Game
     public class MarioBlockCollisionHandler
     {
         private Game myGame;
+        private String horizontalSide;
+        private String verticalSide;
 
         public MarioBlockCollisionHandler(Game game)
         {
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IBlock block, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IMario mario, IBlock block, String marioColFromHorizontalSide, String marioColFromVerticalSide)
         {
-            if (marioCollidesFromVerticalSide.Equals("bottom"))
+            horizontalSide = marioColFromHorizontalSide;
+            verticalSide = marioColFromVerticalSide;
+
+            DisableMarioMovement();
+            if (verticalSide.Equals("bottom"))
             {
                 myGame.marioState.up = false;
                 myGame.marioState.marioPhys.yVel = 0;
@@ -48,12 +54,34 @@ namespace Game
                     block.texture = myGame.usedBlockSprite;
                 }
             }
-            else if (marioCollidesFromVerticalSide.Equals("top"))
+            else if (verticalSide.Equals("top"))
             {
                 myGame.marioState.marioPhys.DontFall();
                 myGame.marioState.jmpCtr = 100;
                 myGame.marioState.jump = false;
             }
         }
+
+        private void DisableMarioMovement()
+        {
+            if(horizontalSide.Equals("right"))
+            {
+                myGame.marioState.left = false;
+            }
+            else if (horizontalSide.Equals("left"))
+            {
+                myGame.marioState.right = false;
+            }
+
+            if (verticalSide.Equals("bottom"))
+            {
+                myGame.marioState.up = false;
+            }
+            else if (verticalSide.Equals("top"))
+            {
+                myGame.marioState.down = false;
+            }
+        }
+       
     }
 }

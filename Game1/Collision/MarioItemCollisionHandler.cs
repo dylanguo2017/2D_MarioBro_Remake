@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    public class MarioItemCollisionHandler : ICollisionResponse
+    public class MarioItemCollisionHandler
     {
         private Game myGame;
 
@@ -11,15 +11,11 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IMario mario, IItem item)
         {
-            ISprite item = gameObject as ISprite;
-            if (item.type.Contains("Item"))
-            {
-                item.visible = false;
-            }
+            item.visible = false;
 
-            if (item.type.Equals("StarItem"))
+            if (item is StarItem)
             {
                 if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
                 {
@@ -30,7 +26,7 @@ namespace Game
                     myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
                 }
             }
-            else if (item.type.Equals("RedMushroomItem"))
+            else if (item is RedMushroomItem)
             {
                 if (myGame.marioState.star)
                 {
@@ -41,7 +37,7 @@ namespace Game
                     myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
                 }
             }
-            else if (item.type.Equals("FireFlowerItem"))
+            else if (item is FlowerItem)
             {
                 if (myGame.marioState.star)
                 {

@@ -5,30 +5,24 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    class MarioCollisionDetector //: ICollisionDetector
+    class MarioCollisionDetector : ICollisionDetector
     {
         private Game myGame;
-        private List<IEnemy> enemyList;
         private List<IBlock> blockList;
+        private List<IEnemy> enemyList;
+        private List<IItem> itemList;
 
         private Rectangle marioRec;
-        private Rectangle enemyRec;
         private Rectangle blockRec;
+        private Rectangle enemyRec;
+        private Rectangle itemRec;
 
-        private String marioCollidesFromHorizontalSide;
-        private String marioCollidesFromVerticalSide;
+        private String marioColFromHorizontalSide;
+        private String marioColFromVerticalSide;
 
-        private MarioEnemyCollisionHandler enemyCollisionHandler;
-        private MarioBlockCollisionHandler blockCollisionHandler;
-
-        private int differenceCoor = 0;
-        public int dCoor
-        {
-            get
-            {
-                return differenceCoor;
-            }
-        }
+        private MarioBlockCollisionHandler blockColHandler;
+        private MarioEnemyCollisionHandler enemyColHandler;
+        private MarioItemCollisionHandler itemColHandler;
 
         public MarioCollisionDetector(Game game)
         {
@@ -39,6 +33,7 @@ namespace Game
         {
             enemyList = Level.enemyList;
             blockList = Level.blockList;
+            itemList = Level.itemList;
 
             marioRec = myGame.mario.DestinationRectangle();
             
@@ -47,12 +42,13 @@ namespace Game
             myGame.marioState.up = true;
             myGame.marioState.down = true;
 
-            MarioBlockCollision();
-            MarioEnemyCollision();
+            DetectMarioBlockCol();
+            DetectMarioEnemyCol();
+            DetectMarioItemCol();
         }
 
 
-        private void MarioBlockCollision()
+        private void DetectMarioBlockCol()
         {
             foreach (IBlock block in blockList)
             {
@@ -61,16 +57,14 @@ namespace Game
                 if (blockRec.X <= 800 && marioRec.Intersects(blockRec))
                 {
                     CollidesFrom(blockRec);
-                    DisableMovement();
-                    blockCollisionHandler = new MarioBlockCollisionHandler(myGame);
-                    blockCollisionHandler.HandleCollision(myGame.mario, block, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
+                    blockColHandler = new MarioBlockCollisionHandler(myGame);
+                    blockColHandler.HandleCollision(myGame.mario, block, marioColFromHorizontalSide, marioColFromVerticalSide);
                 }
             }
         }
 
 
-
-        private void MarioEnemyCollision()
+        private void DetectMarioEnemyCol()
         {
             foreach (IEnemy enemy in enemyList)
             {
@@ -79,59 +73,53 @@ namespace Game
                 if (enemyRec.X <= 800 && marioRec.Intersects(enemyRec))
                 {
                     CollidesFrom(enemyRec);
-                    enemyCollisionHandler = new MarioEnemyCollisionHandler(myGame);
-                    enemyCollisionHandler.HandleCollision(myGame.mario, enemy, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
+                    enemyColHandler = new MarioEnemyCollisionHandler(myGame);
+                    enemyColHandler.HandleCollision(myGame.mario, enemy, marioColFromHorizontalSide, marioColFromVerticalSide);
+                }
+            }
+        }
+
+        private void DetectMarioItemCol()
+        {
+            foreach (IItem item in itemList)
+            {
+                itemRec = item.DestinationRectangle();
+
+                if (itemRec.X <= 800 && marioRec.Intersects(itemRec))
+                {
+                    CollidesFrom(itemRec);
+                    itemColHandler = new MarioItemCollisionHandler(myGame);
+                    itemColHandler.HandleCollision(myGame.mario, item);
                 }
             }
         }
         
-
         public void CollidesFrom(Rectangle objectRec)
         {
-            marioCollidesFromHorizontalSide = "none";
-            marioCollidesFromVerticalSide = "none";
+            marioColFromHorizontalSide = "none";
+            marioColFromVerticalSide = "none";
 
             if (marioRec.Left > objectRec.Right - 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
             {
-                marioCollidesFromHorizontalSide = "right";
+                marioColFromHorizontalSide = "right";
             }
             else if (marioRec.Right < objectRec.Left + 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
             {
-                marioCollidesFromHorizontalSide = "left";
+                marioColFromHorizontalSide = "left";
             }
 
             if (marioRec.Bottom > objectRec.Bottom && marioRec.Top > objectRec.Bottom - 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
-                marioCollidesFromVerticalSide = "bottom";
+                marioColFromVerticalSide = "bottom";
             }
             else if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2  && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
-                marioCollidesFromVerticalSide = "top";
+                marioColFromVerticalSide = "top";
                 
             }
 
         }
 
-        public void DisableMovement()
-        {
-            if(marioCollidesFromHorizontalSide.Equals("right"))
-            {
-                myGame.marioState.left = false;
-            }
-            else if (marioCollidesFromHorizontalSide.Equals("left"))
-            {
-                myGame.marioState.right = false;
-            }
-
-            if (marioCollidesFromVerticalSide.Equals("bottom"))
-            {
-                myGame.marioState.up = false;
-            }
-            else if (marioCollidesFromVerticalSide.Equals("top"))
-            {
-                myGame.marioState.down = false;
-            }
-        }
 
     }
 }

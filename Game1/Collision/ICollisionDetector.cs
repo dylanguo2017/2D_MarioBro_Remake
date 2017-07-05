@@ -1,9 +1,10 @@
-﻿namespace Game
+﻿using Microsoft.Xna.Framework;
+
+namespace Game
 {
     public interface ICollisionDetector
     {
-        // add common class members 
         void Update();
-        void CollidesFrom();
+        void CollidesFrom(Rectangle objectRec);
     }
 }

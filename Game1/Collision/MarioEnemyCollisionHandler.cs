@@ -13,7 +13,7 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IEnemy enemy, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(IMario mario, IEnemy enemy, String marioColFromHorizontalSide, String marioColFromVerticalSide)
         {
             if (enemy.visible)
             {
@@ -23,7 +23,7 @@ namespace Game
                 }
                 else
                 {
-                    if (((marioCollidesFromVerticalSide.Equals("bottom") || marioCollidesFromHorizontalSide.Equals("left") || marioCollidesFromHorizontalSide.Equals("right"))) && !myGame.marioState.inv)
+                    if (((marioColFromVerticalSide.Equals("bottom") || marioColFromHorizontalSide.Equals("left") || marioColFromHorizontalSide.Equals("right"))) && !myGame.marioState.inv)
                     {
                         if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
                         {
@@ -40,7 +40,7 @@ namespace Game
                             myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
                         }
                     }
-                    else if (marioCollidesFromVerticalSide.Equals("top"))
+                    else if (marioColFromVerticalSide.Equals("top"))
                     {
                         KillEnemy(enemy);
                     }
