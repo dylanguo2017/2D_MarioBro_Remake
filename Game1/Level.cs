@@ -89,8 +89,8 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("invisible"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.invisibleBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        Invisible gameObject = new Invisible(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("smallPipe"))
                     {
@@ -115,30 +115,30 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("star"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.starItem, 1, 4, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        StarItem gameObject = new StarItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        itemList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("coin"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.coinItem, 1, 4, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        itemList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("flower"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.fireFlowerItem, 1, 4, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        itemList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("redMushroom"))
                     {
-                        ISprite gameObject = new MovingAnimatedSprite(myGame, myGame.redMushroomItem, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
                         itemList.Add(gameObject);
+                        //itemList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("greenMushroom"))
                     {
-                        ISprite gameObject = new MovingAnimatedSprite(myGame, myGame.greenMushroomItem, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
                         itemList.Add(gameObject);
+                        //itemList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("goomba"))
                     {
@@ -232,7 +232,7 @@ namespace Game
             return enemyList;
         }
 
-        public static List<ISprite> ItemList()
+        public static List<IItem> ItemList()
         {
             return itemList;
         }
