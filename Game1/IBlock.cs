@@ -3,7 +3,7 @@ using System;
 using Microsoft.Xna.Framework;
 
 
-namespace Game.Blocks
+namespace Game
 {
     public interface IBlock
     {

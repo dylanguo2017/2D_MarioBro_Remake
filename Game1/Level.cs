@@ -10,7 +10,8 @@ namespace Game
     public static class Level
     {
         public static List<IEnemy> enemyList = new List<IEnemy>();
-        public static List<ISprite> itemList = new List<ISprite>();
+        public static List<IItem> itemList = new List<IItem>();
+        public static List<IBlock> blockList = new List<IBlock>();
 
         public static List<ISprite> enemyCollisionList = new List<ISprite>();
         public static List<ISprite> itemCollisionList = new List<ISprite>();
@@ -18,7 +19,8 @@ namespace Game
         public static List<ISprite> LoadList(Game myGame)
         {
             enemyList = new List<IEnemy>();
-            itemList = new List<ISprite>();
+            itemList = new List<IItem>();
+            blockList = new List<IBlock>();
             enemyCollisionList = new List<ISprite>();
             List<ISprite> list = new List<ISprite>();
             StreamReader levelFile = new StreamReader(
@@ -37,27 +39,28 @@ namespace Game
                 {
                     if (target[positionColumn].Equals("brick"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.brickBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                        itemCollisionList.Add(gameObject);
+                        Brick gameObject = new Brick(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
+                        //list.Add(gameObject);
+                        //itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("crack"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.crackBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        Crack gameObject = new Crack(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
                     }                    
                     else if (target[positionColumn].Equals("diamond"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.diamondBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                        enemyCollisionList.Add(gameObject);
-                        itemCollisionList.Add(gameObject);
+                        Diamond gameObject = new Diamond(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
+                        //enemyCollisionList.Add(gameObject);
+                        //itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("question"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.questionMarkBlockSprite, 1, 3, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                        itemCollisionList.Add(gameObject);
+                        Question gameObject = new Question(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
+                        //itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("questionRedMushroom"))
                     {
@@ -81,8 +84,8 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("used"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.usedBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
+                        Used gameObject = new Used(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("invisible"))
                     {

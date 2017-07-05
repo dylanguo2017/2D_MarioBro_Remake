@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace Game.Items
+namespace Game
 {
     public class FlowerItem : IItem
     {

@@ -55,6 +55,13 @@ namespace Game
         public Texture2D diamondBlockSprite;
         public Texture2D questionMarkBlockSprite;
 
+
+        public Texture2D blockSprite;
+        public Texture2D itemSprite;
+
+        public List<IItem> itemList;
+        public List<IBlock> blockList;
+
         private ICommand qtCmd;
         private ICommand wCmd;
         private ICommand aCmd;
@@ -168,6 +175,10 @@ namespace Game
 
         protected override void LoadContent()
         {
+
+            itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
+            blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             starItem = Content.Load<Texture2D>("StarItem");
@@ -208,6 +219,8 @@ namespace Game
 
             list = Level.LoadList(this);
             enemyList = Level.EnemyList();
+            blockList = Level.BlockList();
+            itemList = Level.ItemList();
         }
 
         protected override void UnloadContent()
@@ -270,6 +283,14 @@ namespace Game
 
             if (animationModifier % 20 == 0)
             {
+                foreach (IBlock block in blockList)
+                {
+                    block.Update();
+                }
+                foreach (IItem item in itemList)
+                {
+                    item.Update();
+                }
                 foreach (ISprite sprite in list)
                 {
                     itemCollisionDetector.Update();
@@ -306,7 +327,14 @@ namespace Game
                     fBalls.Draw(spriteBatch);
                 }
             }
-
+            foreach (IBlock block in blockList)
+            {
+                block.Draw(spriteBatch);
+            }
+            foreach (IItem item in itemList)
+            {
+                item.Draw(spriteBatch);
+            }
             mario.Draw(spriteBatch);
             //spriteBatch.End();
 

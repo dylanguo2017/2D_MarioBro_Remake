@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace Game.Blocks
+namespace Game
 {
     public class Diamond : IBlock
     {

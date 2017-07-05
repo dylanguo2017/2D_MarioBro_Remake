@@ -3,7 +3,7 @@ using System;
 using Microsoft.Xna.Framework;
 
 
-namespace Game.Items
+namespace Game
 {
     public interface IItem 
     {
