@@ -74,8 +74,8 @@ namespace Game.Enemies
             {
                 if (move && right)
                 {
-
-                    sourceRectangle = new Rectangle((int)this.goombaPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.goombaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
+                    
+                    sourceRectangle = new Rectangle((int)goombaPosition.PositionArr[rightFacingCurrentFrame].X, (int)goombaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
 
                 }
                 else

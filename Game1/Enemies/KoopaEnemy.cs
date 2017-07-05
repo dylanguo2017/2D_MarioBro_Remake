@@ -34,8 +34,8 @@ namespace Game.Enemies
             right = true;
             visible = true;
 
-            rightFacingCurrentFrame = 120;
-            leftFacingCurrentFrame = 90;
+            rightFacingCurrentFrame = 0;
+            leftFacingCurrentFrame = 1;
 
         }
 
@@ -45,20 +45,25 @@ namespace Game.Enemies
                
             if (move && left)
             {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 60)
+                if (leftFacingCurrentFrame == 3)
                 {
-                    leftFacingCurrentFrame = 90;
+                    leftFacingCurrentFrame = 1;
+                }
+                else
+                {
+                    leftFacingCurrentFrame = 3;
                 }
 
             }
             else if (move && right)
             {
-
-                rightFacingCurrentFrame++;
-                if (rightFacingCurrentFrame == 151)
+                if (rightFacingCurrentFrame == 0)
                 {
-                    rightFacingCurrentFrame = 120;
+                    rightFacingCurrentFrame = 2;
+                }
+                else
+                {
+                    rightFacingCurrentFrame = 0;
                 }
 
             }
@@ -76,7 +81,7 @@ namespace Game.Enemies
             {
                 if (move && right)
                 {
-
+                    
                     sourceRectangle = new Rectangle((int)this.koopaPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.koopaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
 
                 }
