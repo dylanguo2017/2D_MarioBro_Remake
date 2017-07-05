@@ -25,29 +25,11 @@ namespace Game
                 myGame.marioState.marioPhys.yVel = 0;
                 if (block is Question)
                 {
-                    Question question = block as Question;
-
-                    if (!question.used && !question.hit)
-                    {
-                        question.BumpBlock();
-                        question.ChangeToUsed();
-                    }
-
+                    HandleQuestion(block);
                 }
                 else if (block is Brick)
                 {
-                    if (!(myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
-                    {
-                        block.visible = false;
-                    }
-                    else
-                    {
-                        Brick brickBlock = block as Brick;
-                        if (!brickBlock.hit)
-                        {
-                            brickBlock.BumpBlock();
-                        }
-                    }
+                    HandleBrick(block);
                 }
                 else if (block is Invisible)
                 {
@@ -59,6 +41,34 @@ namespace Game
                 myGame.marioState.marioPhys.DontFall();
                 myGame.marioState.jmpCtr = 100;
                 myGame.marioState.jump = false;
+            }
+        }
+
+
+        private void HandleQuestion(IBlock block)
+        {
+            Question question = block as Question;
+
+            if (!question.used && !question.hit)
+            {
+                question.BumpBlock();
+                question.ChangeToUsed();
+            }
+        }
+
+        private void HandleBrick(IBlock block)
+        {
+            if (!(myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+            {
+                block.visible = false;
+            }
+            else
+            {
+                Brick brickBlock = block as Brick;
+                if (!brickBlock.hit)
+                {
+                    brickBlock.BumpBlock();
+                }
             }
         }
 

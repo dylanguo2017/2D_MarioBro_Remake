@@ -25,20 +25,7 @@ namespace Game
                 {
                     if (((marioColFromVerticalSide.Equals("bottom") || marioColFromHorizontalSide.Equals("left") || marioColFromHorizontalSide.Equals("right"))) && !myGame.marioState.inv)
                     {
-                        if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
-                        {
-                            myGame.mario = new DeadMario(myGame.marioState, myGame.marioSprites);
-                        }
-                        else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
-                        {
-                            myGame.marioState.inv = true;
-                            myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
-                        }
-                        else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.fire))
-                        {
-                            myGame.marioState.inv = true;
-                            myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
-                        }
+                        ChangeMarioState();   
                     }
                     else if (marioColFromVerticalSide.Equals("top"))
                     {
@@ -47,6 +34,7 @@ namespace Game
                 }
             }
         }
+
 
         private void KillEnemy(IEnemy enemy)
         {
@@ -61,6 +49,24 @@ namespace Game
                 koopa.sourceRectangle = new Rectangle((int)koopa.koopaPosition.PositionArr[9].X, (int)koopa.koopaPosition.PositionArr[9].Y, 16, 16);
             }
             enemy.visible = false;
+        }
+
+        private void ChangeMarioState()
+        {
+            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+            {
+                myGame.mario = new DeadMario(myGame.marioState, myGame.marioSprites);
+            }
+            else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
+            {
+                myGame.marioState.inv = true;
+                myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
+            }
+            else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.fire))
+            {
+                myGame.marioState.inv = true;
+                myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
+            }
         }
 
     }

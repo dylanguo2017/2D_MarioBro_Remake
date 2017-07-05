@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Game
+﻿namespace Game
 {
     public class MarioItemCollisionHandler
     {
@@ -17,38 +15,54 @@ namespace Game
 
             if (item is StarItem)
             {
-                if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
-                {
-                    myGame.mario = new SmallStarMario(myGame.marioState, myGame.marioSprites);
-                }
-                else
-                {
-                    myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
-                }
+                HandleStar();
             }
             else if (item is RedMushroomItem)
             {
-                if (myGame.marioState.star)
-                {
-                    myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
-                }
-                else
-                {
-                    myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
-                }
+                HandleRedMushroom();
             }
             else if (item is FlowerItem)
             {
-                if (myGame.marioState.star)
-                {
-                    myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
-                    myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
-                }
-                else
-                {
-                    myGame.mario = new FireMario(myGame.marioState, myGame.marioSprites);
-                }
+                HandleFlower();
             }
         }
+
+        private void HandleStar()
+        {
+            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+            {
+                myGame.mario = new SmallStarMario(myGame.marioState, myGame.marioSprites);
+            }
+            else
+            {
+                myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+            }
+        }
+
+        private void HandleRedMushroom()
+        {
+            if (myGame.marioState.star)
+            {
+                myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+            }
+            else
+            {
+                myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
+            }
+        }
+
+        private void HandleFlower()
+        {
+            if (myGame.marioState.star)
+            {
+                myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+                myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
+            }
+            else
+            {
+                myGame.mario = new FireMario(myGame.marioState, myGame.marioSprites);
+            }
+        }
+
     }
 }
