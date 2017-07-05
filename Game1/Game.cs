@@ -218,9 +218,9 @@ namespace Game
             mario = new SmallMario(marioState, marioSprites);
 
             list = Level.LoadList(this);
-            enemyList = Level.EnemyList();
+            enemyList = Level.enemyList;
             blockList = Level.blockList;
-            itemList = Level.ItemList();
+            itemList = Level.itemList;
         }
 
         protected override void UnloadContent()

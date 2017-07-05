@@ -115,6 +115,7 @@
     <Compile Include="Mario\SmallMario.cs" />
     <Compile Include="Mario\SmallStarMario.cs" />
     <Compile Include="Physics.cs" />
+    <Compile Include="Pipe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />

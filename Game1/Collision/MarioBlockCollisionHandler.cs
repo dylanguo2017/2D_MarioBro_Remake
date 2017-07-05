@@ -1,9 +1,8 @@
-﻿using Game.Sprites;
-using System;
+﻿using System;
 
 namespace Game
 {
-    public class MarioBlockCollisionHandler //: ICollisionResponse
+    public class MarioBlockCollisionHandler
     {
         private Game myGame;
 
@@ -14,8 +13,6 @@ namespace Game
 
         public void HandleCollision(IMario mario, IBlock block, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
         {
-            
-            //System.Diagnostics.Debug.WriteLine(marioCollidesFromVerticalSide);
             if (marioCollidesFromVerticalSide.Equals("bottom"))
             {
                 myGame.marioState.up = false;
@@ -42,8 +39,7 @@ namespace Game
                         Brick brickBlock = block as Brick;
                         if (!brickBlock.hit)
                         {
-
-                                brickBlock.BumpBlock();
+                            brickBlock.BumpBlock();
                         }
                     }
                 }
@@ -54,7 +50,6 @@ namespace Game
             }
             else if (marioCollidesFromVerticalSide.Equals("top"))
             {
-                System.Diagnostics.Debug.WriteLine("dont fall");
                 myGame.marioState.marioPhys.DontFall();
                 myGame.marioState.jmpCtr = 100;
                 myGame.marioState.jump = false;

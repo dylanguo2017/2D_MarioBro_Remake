@@ -9,9 +9,9 @@ namespace Game
 {
     public static class Level
     {
-        public static List<IEnemy> enemyList = new List<IEnemy>();
-        public static List<IItem> itemList = new List<IItem>();
-        public static List<IBlock> blockList = new List<IBlock>();
+        public static List<IEnemy> enemyList;
+        public static List<IItem> itemList;
+        public static List<IBlock> blockList;
 
         public static List<ISprite> enemyCollisionList = new List<ISprite>();
         public static List<ISprite> itemCollisionList = new List<ISprite>();
@@ -21,8 +21,10 @@ namespace Game
             enemyList = new List<IEnemy>();
             itemList = new List<IItem>();
             blockList = new List<IBlock>();
+
             enemyCollisionList = new List<ISprite>();
             List<ISprite> list = new List<ISprite>();
+
             StreamReader levelFile = new StreamReader(
          Path.Combine(Directory.GetCurrentDirectory(),
                       "Content", "Levels", "Level1-1.txt")
@@ -101,17 +103,17 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("mediumPipe"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.mediumPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                        enemyCollisionList.Add(gameObject);
-                        itemCollisionList.Add(gameObject);
+                        //ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.mediumPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
+                        //list.Add(gameObject);
+                        //enemyCollisionList.Add(gameObject);
+                        //itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("bigPipe"))
                     {
-                        ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.bigPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
-                        list.Add(gameObject);
-                        enemyCollisionList.Add(gameObject);
-                        itemCollisionList.Add(gameObject);
+                        //ISprite gameObject = new MotionlessAnimatedSprite(myGame, myGame.bigPipeBlockSprite, 1, 1, positionColumn * 16, positionRow * 16);
+                        //list.Add(gameObject);
+                        //enemyCollisionList.Add(gameObject);
+                        //itemCollisionList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("star"))
                     {
@@ -226,25 +228,5 @@ namespace Game
             return list;
         }
 
-
-        public static List<IEnemy> EnemyList()
-        {
-            return enemyList;
-        }
-
-        public static List<IItem> ItemList()
-        {
-            return itemList;
-        }
-
-        public static List<ISprite> EnemyCollisionList()
-        {
-            return enemyCollisionList;
-        }
-
-        public static List<ISprite> ItemCollisionList()
-        {
-            return itemCollisionList;
-        }
     }
 }

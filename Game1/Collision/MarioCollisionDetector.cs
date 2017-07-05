@@ -10,13 +10,17 @@ namespace Game
         private Game myGame;
         private List<IEnemy> enemyList;
         private List<IBlock> blockList;
+
         private Rectangle marioRec;
         private Rectangle enemyRec;
         private Rectangle blockRec;
+
         private String marioCollidesFromHorizontalSide;
         private String marioCollidesFromVerticalSide;
+
         private MarioEnemyCollisionHandler enemyCollisionHandler;
         private MarioBlockCollisionHandler blockCollisionHandler;
+
         private int differenceCoor = 0;
         public int dCoor
         {
@@ -33,7 +37,7 @@ namespace Game
 
         public void Update()
         {
-            enemyList = Level.EnemyList();
+            enemyList = Level.enemyList;
             blockList = Level.blockList;
 
             marioRec = myGame.mario.DestinationRectangle();
@@ -44,7 +48,7 @@ namespace Game
             myGame.marioState.down = true;
 
             MarioBlockCollision();
-            //MarioEnemyCollision();
+            MarioEnemyCollision();
         }
 
 
@@ -56,9 +60,8 @@ namespace Game
 
                 if (blockRec.X <= 800 && marioRec.Intersects(blockRec))
                 {
-                    CollidesFromWithBlock();
+                    CollidesFrom(blockRec);
                     DisableMovement();
-                    System.Diagnostics.Debug.WriteLine(marioCollidesFromVerticalSide);
                     blockCollisionHandler = new MarioBlockCollisionHandler(myGame);
                     blockCollisionHandler.HandleCollision(myGame.mario, block, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
                 }
@@ -75,71 +78,34 @@ namespace Game
 
                 if (enemyRec.X <= 800 && marioRec.Intersects(enemyRec))
                 {
-                    CollidesFrom();
+                    CollidesFrom(enemyRec);
                     enemyCollisionHandler = new MarioEnemyCollisionHandler(myGame);
                     enemyCollisionHandler.HandleCollision(myGame.mario, enemy, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
                 }
             }
         }
+        
 
-
-        public void CollidesFromWithBlock()
+        public void CollidesFrom(Rectangle objectRec)
         {
             marioCollidesFromHorizontalSide = "none";
             marioCollidesFromVerticalSide = "none";
 
-            System.Diagnostics.Debug.WriteLine("collides from");
-            if (marioRec.Left > blockRec.Right - 2 && ((marioRec.Top <= blockRec.Top && marioRec.Bottom >= blockRec.Top + 2) || (marioRec.Top > blockRec.Top && blockRec.Bottom >= marioRec.Top - 2)))
+            if (marioRec.Left > objectRec.Right - 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
             {
-                System.Diagnostics.Debug.WriteLine("right");
                 marioCollidesFromHorizontalSide = "right";
             }
-            else if (marioRec.Right < blockRec.Left + 2 && ((marioRec.Top <= blockRec.Top && marioRec.Bottom >= blockRec.Top + 2) || (marioRec.Top > blockRec.Top && blockRec.Bottom >= marioRec.Top - 2)))
+            else if (marioRec.Right < objectRec.Left + 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
             {
-                System.Diagnostics.Debug.WriteLine("left");
                 marioCollidesFromHorizontalSide = "left";
             }
 
-            if (marioRec.Bottom > blockRec.Bottom && marioRec.Top > blockRec.Bottom - 2 && ((marioRec.Left <= blockRec.Left && marioRec.Right >= blockRec.Left + 2) || (marioRec.Left > blockRec.Left && blockRec.Right >= marioRec.Left - 2)))
+            if (marioRec.Bottom > objectRec.Bottom && marioRec.Top > objectRec.Bottom - 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
-                System.Diagnostics.Debug.WriteLine("bottom");
                 marioCollidesFromVerticalSide = "bottom";
             }
-            else if (marioRec.Top < blockRec.Top && marioRec.Bottom < blockRec.Top + 2 && ((marioRec.Left <= blockRec.Left && marioRec.Right >= blockRec.Left + 2) || (marioRec.Left > blockRec.Left && blockRec.Right >= blockRec.Left - 2)))
+            else if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2  && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
             {
-                System.Diagnostics.Debug.WriteLine("top");
-                marioCollidesFromVerticalSide = "top";
-
-            }
-
-        }
-
-
-        public void CollidesFrom()
-        {
-            marioCollidesFromHorizontalSide = "none";
-            marioCollidesFromVerticalSide = "none";
-
-            System.Diagnostics.Debug.WriteLine("collides from");
-            if (marioRec.Left > enemyRec.Right - 2 && ((marioRec.Top <= enemyRec.Top && marioRec.Bottom >= enemyRec.Top + 2) || (marioRec.Top > enemyRec.Top && enemyRec.Bottom >= marioRec.Top - 2)))
-            {
-                System.Diagnostics.Debug.WriteLine("right");
-                marioCollidesFromHorizontalSide = "right";
-            }
-            else if (marioRec.Right < enemyRec.Left + 2 && ((marioRec.Top <= enemyRec.Top && marioRec.Bottom >= enemyRec.Top + 2) || (marioRec.Top > enemyRec.Top && enemyRec.Bottom >= marioRec.Top - 2)))
-            {
-                System.Diagnostics.Debug.WriteLine("left");
-                marioCollidesFromHorizontalSide = "left";
-            }
-
-            if (marioRec.Bottom > enemyRec.Bottom && marioRec.Top > enemyRec.Bottom - 2 && ((marioRec.Left <= enemyRec.Left && marioRec.Right >= enemyRec.Left + 2) || (marioRec.Left > enemyRec.Left && enemyRec.Right >= marioRec.Left - 2)))
-            {
-                System.Diagnostics.Debug.WriteLine("bottom");
-                marioCollidesFromVerticalSide = "bottom";
-            }
-            else if (marioRec.Top < enemyRec.Top && marioRec.Bottom < enemyRec.Top + 2  && ((marioRec.Left <= enemyRec.Left && marioRec.Right >= enemyRec.Left + 2) || (marioRec.Left > enemyRec.Left && enemyRec.Right >= marioRec.Left - 2)))
-            {
-                System.Diagnostics.Debug.WriteLine("top");
                 marioCollidesFromVerticalSide = "top";
                 
             }

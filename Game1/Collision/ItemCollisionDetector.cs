@@ -23,34 +23,34 @@ namespace Game
 
         public void Update()
         {
-            itemList = Level.ItemList();
-            itemCollisionList = Level.ItemCollisionList();
+            //itemList = Level.itemList;
+            //itemCollisionList = Level.ItemCollisionList();
 
-            foreach (ISprite item in itemList)
-            {
-                itemRec = item.DestinationRectangle();
-                foreach (ISprite sprite in itemCollisionList)
-                {
-                    {
-                        objectRec = sprite.DestinationRectangle();
+            //foreach (ISprite item in itemList)
+            //{
+            //    itemRec = item.DestinationRectangle();
+            //    foreach (ISprite sprite in itemCollisionList)
+            //    {
+            //        {
+            //            objectRec = sprite.DestinationRectangle();
 
-                        if (itemRec.Intersects(objectRec))
-                        {
-                            if (!sprite.type.Contains("BgElement"))
-                            {
-                                if (itemRec.Center != objectRec.Center)
-                                {
-                                    CollidesFrom();
-                                    itemCollisionHandler = new ItemCollisionHandler(myGame);
-                                    itemCollisionHandler.HandleCollision(item, itemCollidesFrom);
-                                }
-                            }
-                        }
-                    }
+            //            if (itemRec.Intersects(objectRec))
+            //            {
+            //                if (!sprite.type.Contains("BgElement"))
+            //                {
+            //                    if (itemRec.Center != objectRec.Center)
+            //                    {
+            //                        CollidesFrom();
+            //                        itemCollisionHandler = new ItemCollisionHandler(myGame);
+            //                        itemCollisionHandler.HandleCollision(item, itemCollidesFrom);
+            //                    }
+            //                }
+            //            }
+            //        }
 
 
-                }
-            }
+            //    }
+            //}
         }
 
         public void CollidesFrom()
