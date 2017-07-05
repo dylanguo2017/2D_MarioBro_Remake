@@ -9,7 +9,6 @@ namespace Game.Enemies
         public Texture2D texture;
 
         GoombaPositionDic goombaPosition = new GoombaPositionDic();
-        Physics goombaPhys;
 
         private int rightFacingCurrentFrame;
         private int leftFacingCurrentFrame;
@@ -34,7 +33,6 @@ namespace Game.Enemies
             rightFacingCurrentFrame = 0;
             leftFacingCurrentFrame = 1;
 
-            goombaPhys = new Physics((int)goombaPosition.PositionArr[rightFacingCurrentFrame].X, (int)goombaPosition.PositionArr[rightFacingCurrentFrame].Y);
         }
 
         public void Update()
@@ -42,11 +40,7 @@ namespace Game.Enemies
             if(((myGame.camera.GetOffset() + myGame.camera.width) <= (int)goombaPosition.PositionArr[rightFacingCurrentFrame].X) || 
                 ((myGame.camera.GetOffset() + myGame.camera.width) <= (int)goombaPosition.PositionArr[rightFacingCurrentFrame].X))
             {
-                if (goombaPhys.falling)
-                {
-                    goombaPhys.xVel = -1;
-                }
-                goombaPhys.Update();
+               
                 if (move && left)
                 {
                     leftFacingCurrentFrame++;
