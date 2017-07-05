@@ -16,8 +16,8 @@ namespace Game.Enemies
         private int leftFacingCurrentFrame;
 
         public Boolean move;
-        public Boolean left;
-        public Boolean right;
+        public Boolean left { get; set; }
+        public Boolean right { get; set; }
 
         private Rectangle destinationRectangle;
         public Rectangle sourceRectangle { get; set; }

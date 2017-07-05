@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Enemies;
+using Microsoft.Xna.Framework;
+using System;
 
 namespace Game
 {
@@ -11,17 +13,20 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollision(ISprite enemy, String enemyCollidesFrom)
+        public void HandleCollision(IEnemy enemy, String enemyCollidesFrom)
         {
             if (enemyCollidesFrom.Equals("left"))
             {
+                enemy.left = true;
                 enemy.right = false;
             }
             else if (enemyCollidesFrom.Equals("right"))
             {
                 enemy.right = true;
+                enemy.left = false;
             }
         }
+        
 
     }
 }

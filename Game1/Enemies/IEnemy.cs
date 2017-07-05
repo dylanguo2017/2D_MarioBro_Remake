@@ -14,6 +14,8 @@ namespace Game.Enemies
         Rectangle DestinationRectangle();
 
         Rectangle sourceRectangle { get; set; }
+        public Boolean left { get; set; }
+        public Boolean right { get; set; }
 
 
     }
