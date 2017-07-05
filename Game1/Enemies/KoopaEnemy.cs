@@ -20,7 +20,7 @@ namespace Game.Enemies
         public Boolean right;
 
         private Rectangle destinationRectangle;
-        public Rectangle sourceRectangle;
+        public Rectangle sourceRectangle { get; set; }
 
         private Game myGame;
 

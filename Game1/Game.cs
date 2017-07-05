@@ -80,7 +80,7 @@ namespace Game
         public List<IEnemy> enemyList;
         public List<Fireball> fireBalls;
         public int fbDelay;
-        private ICollisionDetector collisionDetector;
+        private MarioCollisionDetector collisionDetector;
         private ICollisionDetector projColDet;
 
         // change to ICollisionDetector

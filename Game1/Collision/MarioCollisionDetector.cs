@@ -38,7 +38,13 @@ namespace Game
             myGame.marioState.right = true;
             myGame.marioState.up = true;
             myGame.marioState.down = true;
-            
+
+            MarioEnemyCollision();
+        }
+       
+
+        private void MarioEnemyCollision()
+        {
             foreach (IEnemy enemy in enemyList)
             {
                 enemyRec = enemy.DestinationRectangle();
@@ -46,13 +52,12 @@ namespace Game
                 if (enemyRec.X <= 800 && marioRec.Intersects(enemyRec))
                 {
                     CollidesFrom();
-                    //Type(sprite);
                     enemyCollisionHandler = new MarioEnemyCollisionHandler(myGame);
                     enemyCollisionHandler.HandleCollision(myGame.mario, enemy, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
-                        DisableMovement();
                 }
             }
         }
+
 
         public void CollidesFrom()
         {
@@ -79,22 +84,6 @@ namespace Game
             }
 
         }
-
-        //private void Type(ISprite sprite)
-        //{
-        //    if (sprite.type.Contains("Block"))
-        //    {
-        //        marioCollisionHandler = new MarioBlockCollisionHandler(myGame);
-        //    }
-        //    else if (sprite.type.Contains("Item"))
-        //    {
-        //        marioCollisionHandler = new MarioItemCollisionHandler(myGame);
-        //    }
-        //    else if (sprite.type.Contains("Enemy"))
-        //    {
-        //        marioCollisionHandler = new MarioEnemyCollisionHandler(myGame);
-        //    }
-        //}
 
         private void DisableMovement()
         {
