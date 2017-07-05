@@ -377,3 +377,7 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\g
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\koopa.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Items.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Tileset.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\goomba.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\koopa.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Items.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Tileset.xnb
