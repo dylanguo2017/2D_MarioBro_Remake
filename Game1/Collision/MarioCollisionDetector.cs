@@ -43,18 +43,14 @@ namespace Game
             {
                 objectRec = sprite.DestinationRectangle();
 
-                if (marioRec.Intersects(objectRec))
+                if (objectRec.X <= 800 && marioRec.Intersects(objectRec) && !sprite.type.Contains("BgElement"))
                 {
-                    if (!sprite.type.Contains("BgElement"))
+                    CollidesFrom();
+                    Type(sprite);
+                    marioCollisionHandler.HandleCollision(myGame.mario, sprite, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
+                    if (!sprite.type.Contains("Item") && sprite.visible == true)
                     {
-                        CollidesFrom();
-                        Type(sprite);
-                        marioCollisionHandler.HandleCollision(myGame.mario, sprite, marioCollidesFromHorizontalSide, marioCollidesFromVerticalSide);
-                        // move logic for disabling mario movement in its handler classes
-                        if (!sprite.type.Contains("Item") && sprite.visible == true)
-                        {
-                            DisableMovement();
-                        }
+                        DisableMovement();
                     }
                 }
             }
