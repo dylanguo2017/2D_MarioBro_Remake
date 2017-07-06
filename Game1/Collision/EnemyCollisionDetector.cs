@@ -53,11 +53,11 @@ namespace Game
 
             if (enemyRec.Left <= blockRec.Right - 2 && ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + 2) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - 2)))
             {
-                enemyColFrom = "left";
+                enemyColFrom = "right";
             }
             else if (enemyRec.Right >= blockRec.Left + 2 && ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + 2) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - 2)))
             {
-                enemyColFrom = "right";
+                enemyColFrom = "left";
             }
         }
         

@@ -16,6 +16,8 @@ namespace Game
         private String itemColFromVerticalSide;
         private ItemCollisionHandler itemColHandler;
 
+        private int diff;
+
         public ItemCollisionDetector(Game game)
         {
             myGame = game;
@@ -39,7 +41,7 @@ namespace Game
                     {
                         CollidesFrom(blockRec);
                         itemColHandler = new ItemCollisionHandler(myGame);
-                        itemColHandler.HandleCollision(item, itemColFromHorizontalSide, itemColFromVerticalSide);
+                        itemColHandler.HandleCollision(item, itemColFromHorizontalSide, itemColFromVerticalSide, diff);
                     }
                 }
 
@@ -53,11 +55,11 @@ namespace Game
 
             if (itemRec.Left <= blockRec.Right - 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
             {
-                itemColFromHorizontalSide = "left";
+                itemColFromHorizontalSide = "right";
             }
             else if (itemRec.Right >= blockRec.Left + 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
             {
-                itemColFromHorizontalSide = "right";
+                itemColFromHorizontalSide = "left";
             }
 
             if (itemRec.Bottom > blockRec.Bottom && itemRec.Top <= blockRec.Bottom - 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
@@ -67,7 +69,7 @@ namespace Game
             else if (itemRec.Top < blockRec.Top && itemRec.Bottom >= blockRec.Top + 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
             {
                 itemColFromVerticalSide = "top";
-
+                diff = itemRec.Bottom - blockRec.Top - 2;
             }
         }
 
