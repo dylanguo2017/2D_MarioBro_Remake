@@ -51,20 +51,20 @@ namespace Game
             itemColFromHorizontalSide = "none";
             itemColFromVerticalSide = "none";
 
-            if (itemRec.Left > blockRec.Right - 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
+            if (itemRec.Left <= blockRec.Right - 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
             {
                 itemColFromHorizontalSide = "left";
             }
-            else if (itemRec.Right < blockRec.Left + 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
+            else if (itemRec.Right >= blockRec.Left + 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
             {
                 itemColFromHorizontalSide = "right";
             }
 
-            if (itemRec.Bottom > blockRec.Bottom && itemRec.Top > blockRec.Bottom - 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
+            if (itemRec.Bottom > blockRec.Bottom && itemRec.Top <= blockRec.Bottom - 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
             {
                 itemColFromVerticalSide = "bottom";
             }
-            else if (itemRec.Top < blockRec.Top && itemRec.Bottom < blockRec.Top + 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
+            else if (itemRec.Top < blockRec.Top && itemRec.Bottom >= blockRec.Top + 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
             {
                 itemColFromVerticalSide = "top";
 
