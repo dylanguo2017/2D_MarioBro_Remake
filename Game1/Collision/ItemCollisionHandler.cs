@@ -39,11 +39,11 @@ namespace Game
 
             if (verticalSide.Equals("top"))
             {
-                star.movingUp = false;
+                star.movingRight = false;
             }
             else if (verticalSide.Equals("bottom"))
             {
-                star.movingUp = true;
+                star.movingRight = true;
             }
         }
 

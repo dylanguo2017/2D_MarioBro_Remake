@@ -11,7 +11,7 @@ namespace Game
         public Point drawLocation;
         private Rectangle destinationRectangle;
 
-        private int moveUpDistance;
+        //private int moveUpDistance;
         public int rows { get; set; }
         public int columns { get; set; }
         public Texture2D texture { get; set; }
@@ -19,7 +19,7 @@ namespace Game
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
         public Boolean movingRight { get; set; }
-        public Boolean movingUp { get; set; }
+        //public Boolean movingUp { get; set; }
 
         public StarItem (Game game, Texture2D texture,int rows, int columns, int pointX, int pointY) 
         {
@@ -30,10 +30,10 @@ namespace Game
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
-            visible = true; 
+            visible = true;
             this.movingRight = true;
-            this.movingUp = true;
-            moveUpDistance = 0;
+            //this.movingUp = true;
+            //moveUpDistance = 0;
         }
 
         public virtual void Update()
@@ -43,23 +43,15 @@ namespace Game
             {
                 currentFrame = 108;
             }
-            if (movingRight.Equals(true))
+
+            if (movingRight && this.destinationRectangle.Y > 350)
             {
-                moveRight();
+                moveRightUp();
             }
             else
             {
-                moveLeft();
-            }
-            if (movingUp.Equals(true)&&(moveUpDistance<=8)) {
-                moveUp();
-                moveUpDistance++;
-            }
-            else
-            {
-                moveDown();
-                if (movingUp.Equals(false)) { moveUpDistance = 0; }
-               
+                movingRight = false;
+                moveRightDown();
             }
 
         }
@@ -94,28 +86,20 @@ namespace Game
             this.columns = columns;
             this.currentFrame = 0;
             totalFrame = this.rows * this.columns;
-            this.movingRight = true;
+            //this.movingRight = true;
         }
 
-        public void moveLeft()
-        {
-            drawLocation.X--;
-        }
-
-        public void moveRight()
+        public void moveRightUp()
         {
             drawLocation.X++;
-        }
-        public void moveUp()
-        {
             drawLocation.Y--;
         }
-        public void moveDown()
+
+        public void moveRightDown()
         {
+            drawLocation.X++;
             drawLocation.Y++;
         }
-
-
 
     }
 }
