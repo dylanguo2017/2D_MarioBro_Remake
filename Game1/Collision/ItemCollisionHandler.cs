@@ -36,14 +36,6 @@ namespace Game
         private void HandleStar(IItem item)
         {
             StarItem star = item as StarItem;
-            if (horizontalSide.Equals("left"))
-            {
-                star.movingRight = true;
-            }
-            else if (horizontalSide.Equals("right"))
-            {
-                star.movingRight = false;
-            }
 
             if (verticalSide.Equals("top"))
             {

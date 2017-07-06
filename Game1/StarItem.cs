@@ -99,20 +99,20 @@ namespace Game
 
         public void moveLeft()
         {
-            drawLocation.X = drawLocation.X - 5;
+            drawLocation.X--;
         }
 
         public void moveRight()
         {
-            drawLocation.X = drawLocation.X + 5;
+            drawLocation.X++;
         }
         public void moveUp()
         {
-            drawLocation.Y = drawLocation.Y - 5;
+            drawLocation.Y--;
         }
         public void moveDown()
         {
-            drawLocation.Y = drawLocation.Y + 5;
+            drawLocation.Y++;
         }
 
 
