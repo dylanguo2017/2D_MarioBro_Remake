@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class Invisible : IBlock
+    public class Diamond : IBlock
     {
 
         private Game myGame;
@@ -19,46 +19,24 @@ namespace Game
         public Boolean visible { get; set; }
         public Boolean hit { get; set; }
         public int timer;
-        public Boolean used;
         
 
-        public Invisible(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public  Diamond(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 920;
+            currentFrame = 33;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
             hit = false;
             timer = 0;
-            used = false;
         }
 
         public void Update()
         {
-            if (currentFrame != 27)
-            {
-
-                currentFrame = 920;
-
-            }
-            if (hit)
-            {
-                if (timer < 1)
-                {
-                    timer++;
-                }
-                else
-                {
-                    timer = 0;
-                    hit = false;
-                    BumpDown();
-                    myGame.marioState.marioPhys.YCoor += 2;
-                }
-            }
 
 
         }
@@ -84,34 +62,6 @@ namespace Game
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
-        }
-
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-
-        }
-
-        public void BumpBlock()
-        {
-            hit = true;
-
-            drawLocation.Y = drawLocation.Y - 2;
-        }
-
-        public void BumpDown()
-        {
-            drawLocation.Y = drawLocation.Y + 2;
-        }
-
-        public void ChangeToUsed()
-        {
-            currentFrame = 27;
-            used = true;
         }
 
 

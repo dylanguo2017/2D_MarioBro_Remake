@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class RedMushroomItem : IItem
+    public class Pipe : IBlock
     {
 
         private Game myGame;
@@ -17,31 +17,27 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
+        public Boolean hit { get; set; }
+        public int timer;
+        
 
-        public RedMushroomItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Pipe(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 0;
+            currentFrame = 264;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingRight = true;
+            hit = false;
+            timer = 0;
         }
 
-        public virtual void Update()
+        public void Update()
         {
-            if (movingRight.Equals(true))
-            {
-                moveRight();
-            }
-            else
-            {
-                moveLeft();
-            }
+
 
         }
 
@@ -54,8 +50,8 @@ namespace Game
                 int row = (int)((float)currentFrame / (float)columns);
                 int column = currentFrame % columns;
 
-                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width*2, height*2);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width*2, height*2);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -68,24 +64,17 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
+
+        public void BumpBlock()
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-            this.movingRight = true;
+            hit = true;
+
+            drawLocation.Y = drawLocation.Y - 2;
         }
 
-        public void moveLeft()
+        public void BumpDown()
         {
-            drawLocation.X--;
-        }
-
-        public void moveRight()
-        {
-            drawLocation.X++;
+            drawLocation.Y = drawLocation.Y + 2;
         }
 
 

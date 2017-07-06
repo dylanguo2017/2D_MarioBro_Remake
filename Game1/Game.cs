@@ -1,5 +1,4 @@
-﻿using Game.Background;
-using Game.Enemies;
+﻿using Game.Enemies;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

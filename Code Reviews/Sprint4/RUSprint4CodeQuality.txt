@@ -1,0 +1,13 @@
+Author: Rezeki Utomo
+Date: 7/5/2017
+Sprint#: 4
+.cs file reviewed: Camera.cs
+author of cs file: Morgan Gongwer
+# of minutes taken to complete the review: 20
+
+Specific comments on readibility: 
+	Cohesion is high in this class as this class only focuses on getting the offset of other
+	objects to be drawn. However, since the camera is relative to mario, this class calls
+	MarioStateClass's data directly; making coupling a bit tight. On top of that, the update
+	method is never used and is empty. It is recommended for future implementation to remove
+	the unused method, or to utilize it somehow. 

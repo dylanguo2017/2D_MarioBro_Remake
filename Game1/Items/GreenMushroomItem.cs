@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class Diamond : IBlock
+    public class GreenMushroomItem : IItem
     {
 
         private Game myGame;
@@ -17,28 +17,31 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean hit { get; set; }
-        public int timer;
-        
+        public Boolean movingRight { get; set; }
 
-        public  Diamond(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public GreenMushroomItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 33;
+            currentFrame = 1;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            hit = false;
-            timer = 0;
+            this.movingRight = true;
         }
 
-        public void Update()
+        public virtual void Update()
         {
-
-
+            if (movingRight.Equals(true))
+            {
+                moveRight();
+            }
+            else
+            {
+                moveLeft();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -64,17 +67,16 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
 
+        public void moveLeft()
+        {
+            drawLocation.X--;
         }
 
-        
+        public void moveRight()
+        {
+            drawLocation.X++;
+        }
 
 
 

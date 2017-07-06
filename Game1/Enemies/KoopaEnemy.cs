@@ -9,7 +9,7 @@ namespace Game.Enemies
         private Game myGame;
         public Point drawLocation;
         private Rectangle destinationRectangle;
-        public Rectangle sourceRectangle { get; set; }
+        private Rectangle sourceRectangle { get; set; }
 
         public int rows { get; set; }
         public int columns { get; set; }
@@ -20,8 +20,8 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
         public Boolean movingLeft { get; set; }
+        public Boolean dead { get; set; }
 
-        public KoopaPositionDic koopaPosition;
         private int timer;
 
         public KoopaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
@@ -34,12 +34,10 @@ namespace Game.Enemies
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingLeft = true;
-            myGame = game;
+            movingLeft = true;
+            dead = false;
             timer = 0;
-
-            koopaPosition = new KoopaPositionDic();
-
+            
         }
 
         public void Update()
@@ -49,7 +47,7 @@ namespace Game.Enemies
             if (movingLeft)
             {
                 currentFrame--;
-                if (currentFrame == 2)
+                if (currentFrame == 1)
                 {
                     currentFrame = 3;
                 }
@@ -57,19 +55,23 @@ namespace Game.Enemies
             else
             {
                 currentFrame++;
-                if (currentFrame == 5)
+                if (currentFrame == 6)
                 {
                     currentFrame = 4;
                 }
 
             }
-            if (movingLeft.Equals(true))
+            if (movingLeft)
             {
                 moveLeft();
             }
             else
             {
                 moveRight();
+            }
+            if (dead)
+            {
+                currentFrame = 8;
             }
 
 
@@ -86,22 +88,15 @@ namespace Game.Enemies
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y - 7, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
                 spriteBatch.End();
             }
         }
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 3;
-            totalFrame = this.rows * this.columns;
-            this.movingLeft = true;
-        }
+
+
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
@@ -125,7 +120,7 @@ namespace Game.Enemies
             }
             else
             {
-                this.visible = false;
+                visible = false;
             }
         }
 

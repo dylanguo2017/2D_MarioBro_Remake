@@ -1,7 +1,4 @@
-﻿using Game.Background;
-using Game.Enemies;
-using Game.Sprites;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Game.Enemies;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -149,47 +146,47 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("oneCloud"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.oneCloudBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.oneCloudBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("threeClouds"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.threeCloudsBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.threeCloudsBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("oneBush"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.oneBushBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.oneBushBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("threeBushes"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.threeBushesBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.threeBushesBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("smallMountain"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.smallMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.smallMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("bigMountain"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.bigMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.bigMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("smallCastle"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.smallCastle, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.smallCastle, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("flagpole"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("title"))
                     {
-                        IBackground gameObject = new Background.Background(myGame, myGame.titleScreen, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new Background(myGame, myGame.titleScreen, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
 

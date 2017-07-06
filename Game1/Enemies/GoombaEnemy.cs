@@ -9,7 +9,7 @@ namespace Game.Enemies
         private Game myGame;
         public Point drawLocation;
         private Rectangle destinationRectangle;
-        public Rectangle sourceRectangle { get; set; }
+        private Rectangle sourceRectangle { get; set; }
 
         public int rows { get; set; }
         public int columns { get; set; }
@@ -20,8 +20,8 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
         public Boolean movingLeft { get; set; }
+        public Boolean dead { get; set; }
 
-        public GoombaPositionDic goombaPosition;
         private int timer;
 
         public GoombaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
@@ -34,10 +34,9 @@ namespace Game.Enemies
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingLeft = true;
-            myGame = game;
+            movingLeft = true;
+            dead = false;
             timer = 0;
-            goombaPosition = new GoombaPositionDic();
 
         }
 
@@ -48,13 +47,17 @@ namespace Game.Enemies
             {
                 currentFrame = 0;
             }
-            if (movingLeft.Equals(true))
+            if (movingLeft)
             {
                 moveLeft();
             }
             else
             {
                 moveRight();
+            }
+            if (dead)
+            {
+                currentFrame = 2;
             }
             
 
@@ -78,16 +81,7 @@ namespace Game.Enemies
             }
               
         }
-
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-            this.movingLeft = true;
-        }
+        
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
@@ -111,7 +105,7 @@ namespace Game.Enemies
             }
             else
             {
-                this.visible = false;
+                visible = false;
             }
         }
 

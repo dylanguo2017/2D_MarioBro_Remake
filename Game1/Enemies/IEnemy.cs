@@ -17,6 +17,7 @@ namespace Game.Enemies
         int totalFrame { get; set; }
 
         Boolean visible { get; set; }
+        Boolean dead { get; set; }
 
         Rectangle DestinationRectangle();
 
@@ -24,9 +25,6 @@ namespace Game.Enemies
 
         void Draw(SpriteBatch spriteBatch);
 
-        void ToggleSpriteSheet(Texture2D texture, int rows, int columns);
-
-        Rectangle sourceRectangle { get; set; }
 
         Boolean movingLeft { get; set; }
         void StartTimer();

@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class Question : IBlock
+    public class Invisible : IBlock
     {
 
         private Game myGame;
@@ -22,12 +22,12 @@ namespace Game
         public Boolean used;
         
 
-        public Question(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Invisible(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 24;
+            currentFrame = 920;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
@@ -35,22 +35,18 @@ namespace Game
             hit = false;
             timer = 0;
             used = false;
-            
         }
 
         public void Update()
         {
             if (currentFrame != 27)
             {
-                currentFrame++;
-                if (currentFrame == 26)
-                {
-                    currentFrame = 24;
-                }
+
+                currentFrame = 920;
+
             }
             if (hit)
             {
-                
                 if (timer < 1)
                 {
                     timer++;
@@ -63,6 +59,7 @@ namespace Game
                     myGame.marioState.marioPhys.YCoor += 2;
                 }
             }
+
 
         }
 
@@ -89,19 +86,10 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-
-        }
-
         public void BumpBlock()
         {
             hit = true;
+
             drawLocation.Y = drawLocation.Y - 2;
         }
 
@@ -112,9 +100,10 @@ namespace Game
 
         public void ChangeToUsed()
         {
-            used = true;
             currentFrame = 27;
+            used = true;
         }
+
 
 
     }

@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class GreenMushroomItem : IItem
+    public class Question : IBlock
     {
 
         private Game myGame;
@@ -17,31 +17,53 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
+        public Boolean hit { get; set; }
+        public int timer;
+        public Boolean used;
+        
 
-        public GreenMushroomItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Question(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 1;
+            currentFrame = 24;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingRight = true;
+            hit = false;
+            timer = 0;
+            used = false;
+            
         }
 
-        public virtual void Update()
+        public void Update()
         {
-            if (movingRight.Equals(true))
+            if (currentFrame != 27)
             {
-                moveRight();
+                currentFrame++;
+                if (currentFrame == 26)
+                {
+                    currentFrame = 24;
+                }
             }
-            else
+            if (hit)
             {
-                moveLeft();
+                
+                if (timer < 1)
+                {
+                    timer++;
+                }
+                else
+                {
+                    timer = 0;
+                    hit = false;
+                    BumpDown();
+                    myGame.marioState.marioPhys.YCoor += 2;
+                }
             }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -67,26 +89,23 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
+
+        public void BumpBlock()
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-            this.movingRight = true;
+            hit = true;
+            drawLocation.Y = drawLocation.Y - 2;
         }
 
-        public void moveLeft()
+        public void BumpDown()
         {
-            drawLocation.X--;
+            drawLocation.Y = drawLocation.Y + 2;
         }
 
-        public void moveRight()
+        public void ChangeToUsed()
         {
-            drawLocation.X++;
+            used = true;
+            currentFrame = 27;
         }
-
 
 
     }

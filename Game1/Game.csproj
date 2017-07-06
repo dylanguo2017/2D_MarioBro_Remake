@@ -46,10 +46,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Background.cs" />
-    <Compile Include="Brick.cs" />
+    <Compile Include="Background\Background.cs" />
+    <Compile Include="Blocks\Brick.cs" />
     <Compile Include="Camera.cs" />
-    <Compile Include="CoinItem.cs" />
+    <Compile Include="Items\CoinItem.cs" />
     <Compile Include="Collision\EnemyCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionDetector.cs" />
     <Compile Include="Collision\ICollisionDetector.cs" />
@@ -83,19 +83,19 @@
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
-    <Compile Include="Crack.cs" />
-    <Compile Include="Diamond.cs" />
+    <Compile Include="Blocks\Crack.cs" />
+    <Compile Include="Blocks\Diamond.cs" />
     <Compile Include="Enemies\GoombaEnemy.cs" />
     <Compile Include="Enemies\GoombaPositionDic.cs" />
     <Compile Include="Enemies\IEnemy.cs" />
     <Compile Include="Enemies\KoopaEnemy.cs" />
     <Compile Include="Enemies\KoopaPositionDic.cs" />
-    <Compile Include="FlowerItem.cs" />
-    <Compile Include="GreenMushroomItem.cs" />
-    <Compile Include="IBackground.cs" />
-    <Compile Include="IBlock.cs" />
-    <Compile Include="IItem.cs" />
-    <Compile Include="Invisible.cs" />
+    <Compile Include="Items\FlowerItem.cs" />
+    <Compile Include="Items\GreenMushroomItem.cs" />
+    <Compile Include="Background\IBackground.cs" />
+    <Compile Include="Blocks\IBlock.cs" />
+    <Compile Include="Items\IItem.cs" />
+    <Compile Include="Blocks\Invisible.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Mario\DrawFireMario.cs" />
     <Compile Include="Mario\DrawLargeMario.cs" />
@@ -114,19 +114,19 @@
     <Compile Include="Mario\SmallMario.cs" />
     <Compile Include="Mario\SmallStarMario.cs" />
     <Compile Include="Physics.cs" />
-    <Compile Include="Pipe.cs" />
-    <Compile Include="PipeNeck.cs" />
+    <Compile Include="Blocks\Pipe.cs" />
+    <Compile Include="Blocks\PipeNeck.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question.cs" />
-    <Compile Include="RedMushroomItem.cs" />
+    <Compile Include="Blocks\Question.cs" />
+    <Compile Include="Items\RedMushroomItem.cs" />
     <Compile Include="Sprites\ISprite.cs" />
     <Compile Include="Sprites\MotionlessAnimatedSprite.cs" />
     <Compile Include="Sprites\MotionlessNonAnimatedSprite.cs" />
     <Compile Include="Sprites\MovingAnimatedSprite.cs" />
     <Compile Include="Sprites\Sprite.cs" />
-    <Compile Include="StarItem.cs" />
-    <Compile Include="Used.cs" />
+    <Compile Include="Items\StarItem.cs" />
+    <Compile Include="Blocks\Used.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
