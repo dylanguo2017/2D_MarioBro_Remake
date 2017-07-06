@@ -20,8 +20,8 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
         public Boolean movingLeft { get; set; }
+        public Boolean dead { get; set; }
 
-        public KoopaPositionDic koopaPosition;
         private int timer;
 
         public KoopaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
@@ -35,11 +35,10 @@ namespace Game.Enemies
             drawLocation = new Point(pointX, pointY);
             visible = true;
             this.movingLeft = true;
+            this.dead = false;
             myGame = game;
             timer = 0;
-
-            koopaPosition = new KoopaPositionDic();
-
+            
         }
 
         public void Update()
@@ -70,6 +69,10 @@ namespace Game.Enemies
             else
             {
                 moveRight();
+            }
+            if (dead)
+            {
+                currentFrame = 8;
             }
 
 

@@ -20,8 +20,8 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
         public Boolean movingLeft { get; set; }
+        public Boolean dead { get; set; }
 
-        public GoombaPositionDic goombaPosition;
         private int timer;
 
         public GoombaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
@@ -35,9 +35,9 @@ namespace Game.Enemies
             drawLocation = new Point(pointX, pointY);
             visible = true;
             this.movingLeft = true;
+            this.dead = false;
             myGame = game;
             timer = 0;
-            goombaPosition = new GoombaPositionDic();
 
         }
 
@@ -55,6 +55,10 @@ namespace Game.Enemies
             else
             {
                 moveRight();
+            }
+            if (dead)
+            {
+                currentFrame = 2;
             }
             
 
