@@ -1,4 +1,4 @@
-﻿using Game.Sprites;
+﻿
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game
@@ -20,6 +20,9 @@ namespace Game
             myGame.marioState.move = false;
             myGame.marioState.XCoor = 48;
             myGame.marioState.YCoor = 432;
+
+            myGame.camera.reset();
+            myGame.marioState.offset = 0;
 
             myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
 

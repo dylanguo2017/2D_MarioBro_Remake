@@ -17,9 +17,10 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean hit;
+        public Boolean hit { get; set; }
         public int timer;
         public Boolean used;
+        
 
         public Question(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
@@ -34,6 +35,7 @@ namespace Game
             hit = false;
             timer = 0;
             used = false;
+            
         }
 
         public void Update()
@@ -48,6 +50,7 @@ namespace Game
             }
             if (hit)
             {
+                
                 if (timer < 1)
                 {
                     timer++;

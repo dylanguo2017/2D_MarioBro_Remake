@@ -42,6 +42,7 @@ namespace Game
         public Texture2D itemSprite;
 
         public List<IBlock> blockList;
+        public List<IBlock> questionBlockList;
         public List<IEnemy> enemyList;
         public List<IItem> itemList;
         public List<IBackground> bgList;
@@ -69,6 +70,7 @@ namespace Game
         
         public List<Fireball> fireBalls;
         public int fbDelay;
+        public int countOfPopItem;
 
         private ICollisionDetector marioColDetector;
         private ICollisionDetector enemyColDetector;
@@ -141,6 +143,8 @@ namespace Game
             marioState = new MarioStateClass(false, false, false, false);
             fireBalls = new List<Fireball>();
             fbDelay = 0;
+
+            countOfPopItem = 0;
             projColDet = new ProjectileCollisionDetector(this, fireBalls);
 
             animationModifier = 0;
@@ -151,13 +155,13 @@ namespace Game
 
 
         protected override void LoadContent()
-        {
+        {   
+
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
-            
 
-            spriteBatch = new SpriteBatch(GraphicsDevice);
             
             oneCloudBgElement = Content.Load<Texture2D>("1CloudBgElement");
             threeCloudsBgElement = Content.Load<Texture2D>("3CloudsBgElement");
@@ -182,7 +186,18 @@ namespace Game
             enemyList = Level.enemyList;
             blockList = Level.blockList;
             itemList = Level.itemList;
+            
             bgList = Level.bgList;
+            foreach(IBlock block in blockList)
+            {
+                if(block is Question)
+                {
+                    
+                    countOfPopItem++;
+                }
+                
+                
+            }
         }
 
         protected override void UnloadContent()
@@ -251,6 +266,10 @@ namespace Game
                 {
                     block.Update();
                 }
+              //  foreach (IBlock block in questionBlockList)
+               // {
+                 //   block.Update();
+              //  }
                 foreach (IEnemy enemy in enemyList)
                 {
                     enemy.Update();
@@ -281,12 +300,25 @@ namespace Game
             }
             foreach (IBlock block in blockList)
             {
+                
                 block.Draw(spriteBatch);
             }
+            
             foreach (IItem item in itemList)
             {
                 item.Draw(spriteBatch);
             }
+            foreach(IBlock block in blockList)
+            {
+                if (block is Question)
+                {
+                    if (block.hit.Equals(true))
+                    {
+                        
+                    }
+                    
+                }
+          }
 
             if (fireBalls.Count != 0)
             {
