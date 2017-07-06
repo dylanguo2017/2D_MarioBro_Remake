@@ -86,11 +86,11 @@ namespace Game
         {
             if(horizontalSide.Equals("right"))
             {
-                myGame.marioState.left = false;
+                myGame.marioState.right = false;
             }
             else if (horizontalSide.Equals("left"))
             {
-                myGame.marioState.right = false;
+                myGame.marioState.left = false;
             }
 
             if (verticalSide.Equals("bottom"))

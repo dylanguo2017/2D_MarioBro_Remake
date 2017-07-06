@@ -38,11 +38,11 @@ namespace Game
             StarItem star = item as StarItem;
             if (horizontalSide.Equals("left"))
             {
-                star.movingRight = false;
+                star.movingRight = true;
             }
             else if (horizontalSide.Equals("right"))
             {
-                star.movingRight = true;
+                star.movingRight = false;
             }
 
             if (verticalSide.Equals("top"))
@@ -60,11 +60,11 @@ namespace Game
             GreenMushroomItem greenMushroom = item as GreenMushroomItem;
             if (horizontalSide.Equals("left"))
             {
-                greenMushroom.movingRight = false;
+                greenMushroom.movingRight = true;
             }
             else if (horizontalSide.Equals("right"))
             {
-                greenMushroom.movingRight = true;
+                greenMushroom.movingRight = false;
             }
 
         }
@@ -74,11 +74,11 @@ namespace Game
             RedMushroomItem redMushroom = item as RedMushroomItem;
             if (horizontalSide.Equals("left"))
             {
-                redMushroom.movingRight = false;
+                redMushroom.movingRight = true;
             }
             else if (horizontalSide.Equals("right"))
             {
-                redMushroom.movingRight = true;
+                redMushroom.movingRight = false;
             }
 
         }
