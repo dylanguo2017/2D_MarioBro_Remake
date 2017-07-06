@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/group4/Game1/Content/bgPipe.png</SourceFile>
-  <SourceTime>2017-07-05T18:24:26.2740716-04:00</SourceTime>
-  <DestFile>E:/group4/Game1/Content/bin/Windows/bgPipe.xnb</DestFile>
-  <DestTime>2017-07-05T20:50:58.291776-04:00</DestTime>
+  <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bgPipe.png</SourceFile>
+  <SourceTime>2017-07-05T19:00:51.3341179-04:00</SourceTime>
+  <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/bgPipe.xnb</DestFile>
+  <DestTime>2017-07-05T21:21:51.2075577-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

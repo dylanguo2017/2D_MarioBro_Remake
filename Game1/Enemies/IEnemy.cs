@@ -29,5 +29,6 @@ namespace Game.Enemies
         Rectangle sourceRectangle { get; set; }
 
         Boolean movingLeft { get; set; }
+        void StartTimer();
     }
 }

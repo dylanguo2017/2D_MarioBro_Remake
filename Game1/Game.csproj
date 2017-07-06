@@ -46,6 +46,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Background\Background.cs" />
     <Compile Include="Brick.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CoinItem.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Enemies\KoopaPositionDic.cs" />
     <Compile Include="FlowerItem.cs" />
     <Compile Include="GreenMushroomItem.cs" />
+    <Compile Include="Background\IBackground.cs" />
     <Compile Include="IBlock.cs" />
     <Compile Include="IItem.cs" />
     <Compile Include="Invisible.cs" />

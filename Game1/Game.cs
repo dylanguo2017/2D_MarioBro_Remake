@@ -1,5 +1,4 @@
-﻿using Game.Background;
-using Game.Enemies;
+﻿using Game.Enemies;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -276,13 +275,13 @@ namespace Game
             {
                 background.Draw(spriteBatch);
             }
-            foreach (IBlock block in blockList)
-            {
-                block.Draw(spriteBatch);
-            }
             foreach (IEnemy enemy in enemyList)
             {
                 enemy.Draw(spriteBatch);
+            }
+            foreach (IBlock block in blockList)
+            {
+                block.Draw(spriteBatch);
             }
             foreach (IItem item in itemList)
             {

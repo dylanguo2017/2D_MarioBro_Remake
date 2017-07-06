@@ -22,6 +22,7 @@ namespace Game.Enemies
         public Boolean movingLeft { get; set; }
 
         public GoombaPositionDic goombaPosition;
+        private int timer;
 
         public GoombaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
@@ -35,7 +36,7 @@ namespace Game.Enemies
             visible = true;
             this.movingLeft = true;
             myGame = game;
-
+            timer = 0;
             goombaPosition = new GoombaPositionDic();
 
         }
@@ -100,6 +101,18 @@ namespace Game.Enemies
         public void moveRight()
         {
             drawLocation.X++;
+        }
+
+        public void StartTimer()
+        {
+            if (timer < 1)
+            {
+                timer++;
+            }
+            else
+            {
+                this.visible = false;
+            }
         }
 
     }

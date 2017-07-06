@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace Game.Background
+namespace Game
 {
-    public class background : IBackground
+    public class Background : IBackground
     {
         public Texture2D texture { get; set; }
         public int rows { get; set; }
@@ -17,7 +17,7 @@ namespace Game.Background
         private Rectangle destinationRectangle;
 
 
-        public background(Game game, Texture2D texture, int rows, int columns, int x, int y)
+        public Background(Game game, Texture2D texture, int rows, int columns, int x, int y)
         {
             this.texture = texture;
             this.rows = rows;
