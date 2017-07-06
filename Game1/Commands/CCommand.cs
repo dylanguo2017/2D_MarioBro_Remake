@@ -16,8 +16,11 @@
                 if(block is Invisible)
                 {
                     Invisible invisible = block as Invisible;
-                    invisible.BumpBlock();
-                    invisible.ChangeToUsed();
+                    if (!invisible.used)
+                    {
+                        invisible.BumpBlock();
+                        invisible.ChangeToUsed();
+                    }
                 }
             }
         }
