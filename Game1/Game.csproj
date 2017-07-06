@@ -120,11 +120,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Blocks\Question.cs" />
     <Compile Include="Items\RedMushroomItem.cs" />
-    <Compile Include="Sprites\ISprite.cs" />
-    <Compile Include="Sprites\MotionlessAnimatedSprite.cs" />
-    <Compile Include="Sprites\MotionlessNonAnimatedSprite.cs" />
-    <Compile Include="Sprites\MovingAnimatedSprite.cs" />
-    <Compile Include="Sprites\Sprite.cs" />
     <Compile Include="Items\StarItem.cs" />
     <Compile Include="Blocks\Used.cs" />
   </ItemGroup>

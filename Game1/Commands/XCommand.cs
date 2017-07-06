@@ -1,5 +1,4 @@
-﻿using Game.Sprites;
-
+﻿
 namespace Game
 {
     class XCommand : ICommand
