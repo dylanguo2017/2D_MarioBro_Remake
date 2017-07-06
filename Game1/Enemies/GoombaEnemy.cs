@@ -59,6 +59,7 @@ namespace Game.Enemies
             if (dead)
             {
                 currentFrame = 2;
+                visible = false;
             }
             
 

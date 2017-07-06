@@ -39,7 +39,7 @@ namespace Game
         private void KillEnemy(IEnemy enemy)
         {
             enemy.dead = true;
-            //enemy.StartTimer();
+           // enemy.StartTimer();
         }
 
         private void ChangeMarioState()
