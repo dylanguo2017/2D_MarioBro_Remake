@@ -5,66 +5,82 @@ namespace Game
     class ItemCollisionHandler 
     {
         private Game myGame;
+        private String horizontalSide;
+        private String verticalSide;
 
         public ItemCollisionHandler(Game game)
         {
             myGame = game;
         }
 
-        public void HandleCollision(IItem item, String itemColFrom)
+        public void HandleCollision(IItem item, String itemColFromHorizontalSide, String itemColFromVerticalSide)
         {
+            horizontalSide = itemColFromHorizontalSide;
+            verticalSide = itemColFromVerticalSide;
+
             if (item is StarItem)
             {
-                HandleStar(item, itemColFrom);
+                HandleStar(item);
             }
             else if (item is GreenMushroomItem)
             {
-                HandleGreenMushroom(item, itemColFrom);
+                HandleGreenMushroom(item);
             }
             else if (item is RedMushroomItem)
             {
-                HandleRedMushroom(item, itemColFrom);
+                HandleRedMushroom(item);
             }
         }
 
 
-        private void HandleStar(IItem item, String itemColFrom)
+        private void HandleStar(IItem item)
         {
             StarItem star = item as StarItem;
-            if (itemColFrom.Equals("left"))
+            if (horizontalSide.Equals("left"))
             {
                 star.movingRight = false;
             }
-            else if (itemColFrom.Equals("right"))
+            else if (horizontalSide.Equals("right"))
             {
                 star.movingRight = true;
             }
+
+            if (verticalSide.Equals("top"))
+            {
+                star.movingUp = true;
+            }
+            else if (verticalSide.Equals("bottom"))
+            {
+                star.movingUp = false;
+            }
         }
 
-        private void HandleGreenMushroom(IItem item, String itemColFrom)
+        private void HandleGreenMushroom(IItem item)
         {
             GreenMushroomItem greenMushroom = item as GreenMushroomItem;
-            if (itemColFrom.Equals("left"))
+            if (horizontalSide.Equals("left"))
             {
                 greenMushroom.movingRight = false;
             }
-            else if (itemColFrom.Equals("right"))
+            else if (horizontalSide.Equals("right"))
             {
                 greenMushroom.movingRight = true;
             }
+
         }
 
-        private void HandleRedMushroom(IItem item, String itemColFrom)
+        private void HandleRedMushroom(IItem item)
         {
             RedMushroomItem redMushroom = item as RedMushroomItem;
-            if (itemColFrom.Equals("left"))
+            if (horizontalSide.Equals("left"))
             {
                 redMushroom.movingRight = false;
             }
-            else if (itemColFrom.Equals("right"))
+            else if (horizontalSide.Equals("right"))
             {
                 redMushroom.movingRight = true;
             }
+
         }
 
 
