@@ -34,9 +34,8 @@ namespace Game.Enemies
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingLeft = true;
-            this.dead = false;
-            myGame = game;
+            movingLeft = true;
+            dead = false;
             timer = 0;
             
         }
@@ -62,7 +61,7 @@ namespace Game.Enemies
                 }
 
             }
-            if (movingLeft.Equals(true))
+            if (movingLeft)
             {
                 moveLeft();
             }
@@ -73,7 +72,6 @@ namespace Game.Enemies
             if (dead)
             {
                 currentFrame = 8;
-                visible = false;
             }
 
 
@@ -129,7 +127,7 @@ namespace Game.Enemies
             }
             else
             {
-                this.visible = false;
+                visible = false;
             }
         }
 
