@@ -1,4 +1,4 @@
-﻿using Game.Sprites;
+﻿
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game
