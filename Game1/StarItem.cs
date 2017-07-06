@@ -18,6 +18,7 @@ namespace Game
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
         public Boolean movingRight { get; set; }
+        public Boolean movingUp { get; set; }
 
         public StarItem (Game game, Texture2D texture,int rows, int columns, int pointX, int pointY) 
         {
@@ -30,6 +31,7 @@ namespace Game
             drawLocation = new Point(pointX, pointY);
             visible = true; 
             this.movingRight = true;
+            this.movingUp = true;
         }
 
         public virtual void Update()
@@ -91,6 +93,14 @@ namespace Game
         public void moveRight()
         {
             drawLocation.X++;
+        }
+        public void moveUp()
+        {
+            drawLocation.Y--;
+        }
+        public void moveDown()
+        {
+            drawLocation.Y++;
         }
 
 
