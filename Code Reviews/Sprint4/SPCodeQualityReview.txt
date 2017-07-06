@@ -1,0 +1,13 @@
+Author: Rezeki Utomo
+Date: 7/5/2017
+Sprint#: 4
+.cs file reviewed: Physics.cs
+author of cs file: Rezeki Utomo
+# of minutes taken to complete the review: 25
+
+Specific comments on readability: 
+	Physics class is not dependent on any other class or interface for its 
+	functionality so it has low number of dependencies. It has high cohesion as 
+	it only deals with an object's x & y coor and their velocities & acclerations.
+	Since it has low number of dependencies, it also has loose coupling. The names
+	of the class members are also self-explanatory.
