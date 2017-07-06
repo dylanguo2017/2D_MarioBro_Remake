@@ -35,5 +35,10 @@
             
             return offset;
         }
+
+        public void reset()
+        {
+            offset = 0;
+        }
     }
 }
