@@ -73,6 +73,7 @@ namespace Game.Enemies
             if (dead)
             {
                 currentFrame = 8;
+                visible = false;
             }
 
 
