@@ -12,7 +12,8 @@ namespace Game
 
         private Rectangle itemRec;
 
-        private String itemColFrom;
+        private String itemColFromHorizontalSide;
+        private String itemColFromVerticalSide;
         private ItemCollisionHandler itemColHandler;
 
         public ItemCollisionDetector(Game game)
@@ -38,7 +39,7 @@ namespace Game
                     {
                         CollidesFrom(blockRec);
                         itemColHandler = new ItemCollisionHandler(myGame);
-                        itemColHandler.HandleCollision(item, itemColFrom);
+                        itemColHandler.HandleCollision(item, itemColFromHorizontalSide, itemColFromVerticalSide);
                     }
                 }
 
@@ -47,15 +48,26 @@ namespace Game
 
         public void CollidesFrom(Rectangle blockRec)
         {
-            itemColFrom = "none";
+            itemColFromHorizontalSide = "none";
+            itemColFromVerticalSide = "none";
 
             if (itemRec.Left > blockRec.Right - 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
             {
-                itemColFrom = "right";
+                itemColFromHorizontalSide = "right";
             }
             else if (itemRec.Right < blockRec.Left + 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
             {
-                itemColFrom = "left";
+                itemColFromHorizontalSide = "left";
+            }
+
+            if (itemRec.Bottom > blockRec.Bottom && itemRec.Top > blockRec.Bottom - 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
+            {
+                itemColFromVerticalSide = "bottom";
+            }
+            else if (itemRec.Top < blockRec.Top && itemRec.Bottom < blockRec.Top + 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
+            {
+                itemColFromVerticalSide = "top";
+
             }
         }
 
