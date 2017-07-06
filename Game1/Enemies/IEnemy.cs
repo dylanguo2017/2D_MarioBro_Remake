@@ -17,6 +17,7 @@ namespace Game.Enemies
         int totalFrame { get; set; }
 
         Boolean visible { get; set; }
+        Boolean dead { get; set; }
 
         Rectangle DestinationRectangle();
 
