@@ -91,21 +91,21 @@ namespace Game
 
         public void Up()
         {
-            drawLocation.Y--;
+            drawLocation.Y = drawLocation.Y - 5;
         }
 
         public void Down()
         {
-            drawLocation.Y++;
+            drawLocation.Y = drawLocation.Y + 5;
         }
 
         public void Left()
         {
-            drawLocation.X--;
+            drawLocation.X = drawLocation.X - 5;
         }
         public void Right()
         {
-            drawLocation.X++;
+            drawLocation.X = drawLocation.X + 5;
         }
 
     }
