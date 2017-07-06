@@ -6,94 +6,100 @@ namespace Game.Enemies
 {
     public class GoombaEnemy :IEnemy
     {
-        public Texture2D texture;
-
-        public Boolean visible { get; set; }
-
-        public GoombaPositionDic goombaPosition = new GoombaPositionDic();
-
-        private int rightFacingCurrentFrame;
-        private int leftFacingCurrentFrame;
-
-        public Boolean move;
-        public Boolean left { get; set; }
-        public Boolean right { get; set; }
-
+        private Game myGame;
+        public Point drawLocation;
         private Rectangle destinationRectangle;
         public Rectangle sourceRectangle { get; set; }
 
-        private Game myGame;
+        public int rows { get; set; }
+        public int columns { get; set; }
+        public int currentFrame { get; set; }
+        public int totalFrame { get; set; }
 
-        public GoombaEnemy(Texture2D spriteSheet, Game game)
+        public Texture2D texture { get; set; }
+
+        public Boolean visible { get; set; }
+        public Boolean movingLeft { get; set; }
+
+        public GoombaPositionDic goombaPosition;
+
+        public GoombaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
-            texture = spriteSheet;
+            this.texture = texture;
+            this.rows = rows;
+            this.columns = columns;
+            currentFrame = 0;
+            totalFrame = this.rows * this.columns;
+            myGame = game;
+            drawLocation = new Point(pointX, pointY);
+            visible = true;
+            this.movingLeft = true;
             myGame = game;
 
-            move = true;
-            left = true;
-            right = true;
-            visible = true;
-
-            rightFacingCurrentFrame = 0;
-            leftFacingCurrentFrame = 1;
+            goombaPosition = new GoombaPositionDic();
 
         }
 
         public void Update()
         {
+            currentFrame++;
+            if (currentFrame == 2)
+            {
+                currentFrame = 0;
+            }
+            if (movingLeft.Equals(true))
+            {
+                moveLeft();
+            }
+            else
+            {
+                moveRight();
+            }
             
-            if (move && left)
-            {
-                leftFacingCurrentFrame++;
-                if (leftFacingCurrentFrame == 2)
-                {
-                    leftFacingCurrentFrame = 1;
-                }
-
-            }
-            else if (move && right)
-            {
-
-                rightFacingCurrentFrame++;
-                if (rightFacingCurrentFrame == 0)
-                {
-                    rightFacingCurrentFrame = 1;
-                }
-
-            }
-           
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int width = 16;
-            int height = 16;
-
             if (visible)
             {
-                if (move && right)
-                {
-                    
-                    sourceRectangle = new Rectangle((int)goombaPosition.PositionArr[rightFacingCurrentFrame].X, (int)goombaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
+                int width = texture.Width / columns;
+                int height = texture.Height / rows;
+                int row = (int)((float)currentFrame / (float)columns);
+                int column = currentFrame % columns;
 
-                }
-                else
-                {
-                    sourceRectangle = new Rectangle((int)this.goombaPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.goombaPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
-
-                }
-                destinationRectangle = new Rectangle((int)goombaPosition.PositionArr[rightFacingCurrentFrame].X - myGame.camera.GetOffset(), (int)goombaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
+                sourceRectangle = new Rectangle(width * column, height * row, width, height);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
                 spriteBatch.End();
             }
-            
+              
+        }
+
+        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
+        {
+            this.texture = texture;
+            this.rows = rows;
+            this.columns = columns;
+            this.currentFrame = 0;
+            totalFrame = this.rows * this.columns;
+            this.movingLeft = true;
         }
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
+        }
+
+        public void moveLeft()
+        {
+            drawLocation.X--;
+        }
+
+        public void moveRight()
+        {
+            drawLocation.X++;
         }
 
     }

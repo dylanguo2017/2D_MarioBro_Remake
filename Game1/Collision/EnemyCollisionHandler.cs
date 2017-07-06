@@ -16,13 +16,13 @@ namespace Game
         {
             if (enemyColFrom.Equals("left"))
             {
-                enemy.left = true;
-                enemy.right = false;
+               // enemy.left = true;
+                //enemy.right = false;
             }
             else if (enemyColFrom.Equals("right"))
             {
-                enemy.right = true;
-                enemy.left = false;
+              //  enemy.right = true;
+               // enemy.left = false;
             }
         }
         

@@ -124,12 +124,12 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("goomba"))
                     {
-                        IEnemy gameObject = new GoombaEnemy(myGame.goombaEnemy, myGame);
+                        IEnemy gameObject = new GoombaEnemy(myGame, myGame.goombaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
                         enemyList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("koopa"))
                     {
-                        IEnemy gameObject = new KoopaEnemy(myGame.koopaEnemy, myGame);
+                        IEnemy gameObject = new KoopaEnemy(myGame, myGame.koopaEnemy, 1, 10, positionColumn * 16, positionRow * 16);
                         enemyList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("oneCloud"))

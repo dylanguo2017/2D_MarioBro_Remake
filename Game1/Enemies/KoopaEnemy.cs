@@ -6,36 +6,38 @@ namespace Game.Enemies
 {
     public class KoopaEnemy : IEnemy
     {
-        public Texture2D texture;
-
-        public Boolean visible { get; set; }
-
-        public KoopaPositionDic koopaPosition = new KoopaPositionDic();
-
-        private int rightFacingCurrentFrame;
-        private int leftFacingCurrentFrame;
-
-        public Boolean move;
-        public Boolean left { get; set; }
-        public Boolean right { get; set; }
-
+        private Game myGame;
+        public Point drawLocation;
         private Rectangle destinationRectangle;
         public Rectangle sourceRectangle { get; set; }
 
-        private Game myGame;
+        public int rows { get; set; }
+        public int columns { get; set; }
+        public int currentFrame { get; set; }
+        public int totalFrame { get; set; }
 
-        public KoopaEnemy(Texture2D spriteSheet, Game game)
+        public Texture2D texture { get; set; }
+
+        public Boolean visible { get; set; }
+        public Boolean movingLeft { get; set; }
+
+        public KoopaPositionDic koopaPosition;
+
+
+        public KoopaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
-            texture = spriteSheet;
+            this.texture = texture;
+            this.rows = rows;
+            this.columns = columns;
+            currentFrame = 3;
+            totalFrame = this.rows * this.columns;
+            myGame = game;
+            drawLocation = new Point(pointX, pointY);
+            visible = true;
+            this.movingLeft = true;
             myGame = game;
 
-            move = true;
-            left = true;
-            right = true;
-            visible = true;
-
-            rightFacingCurrentFrame = 0;
-            leftFacingCurrentFrame = 1;
+            koopaPosition = new KoopaPositionDic();
 
         }
 
@@ -43,64 +45,75 @@ namespace Game.Enemies
         {
             
                
-            if (move && left)
+            if (movingLeft)
             {
-                if (leftFacingCurrentFrame == 3)
+                currentFrame--;
+                if (currentFrame == 2)
                 {
-                    leftFacingCurrentFrame = 1;
+                    currentFrame = 3;
                 }
-                else
+            }
+            else
+            {
+                currentFrame++;
+                if (currentFrame == 5)
                 {
-                    leftFacingCurrentFrame = 3;
+                    currentFrame = 4;
                 }
 
             }
-            else if (move && right)
+            if (movingLeft.Equals(true))
             {
-                if (rightFacingCurrentFrame == 0)
-                {
-                    rightFacingCurrentFrame = 2;
-                }
-                else
-                {
-                    rightFacingCurrentFrame = 0;
-                }
-
+                moveLeft();
             }
-            
+            else
+            {
+                moveRight();
+            }
+
 
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int width = 16;
-            int height = 24;
-
             if (visible)
             {
-                if (move && right)
-                {
-                    
-                    sourceRectangle = new Rectangle((int)this.koopaPosition.PositionArr[rightFacingCurrentFrame].X, (int)this.koopaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
+                int width = texture.Width / columns;
+                int height = texture.Height / rows;
+                int row = (int)((float)currentFrame / (float)columns);
+                int column = currentFrame % columns;
 
-                }
-                else
-                {
-                    sourceRectangle = new Rectangle((int)this.koopaPosition.PositionArr[leftFacingCurrentFrame].X, (int)this.koopaPosition.PositionArr[leftFacingCurrentFrame].Y, width, height);
-
-                }
-                destinationRectangle = new Rectangle((int)koopaPosition.PositionArr[rightFacingCurrentFrame].X - myGame.camera.GetOffset(), (int)koopaPosition.PositionArr[rightFacingCurrentFrame].Y, width, height);
+                sourceRectangle = new Rectangle(width * column, height * row, width, height);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
                 spriteBatch.End();
             }
-            
+        }
+        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
+        {
+            this.texture = texture;
+            this.rows = rows;
+            this.columns = columns;
+            this.currentFrame = 3;
+            totalFrame = this.rows * this.columns;
+            this.movingLeft = true;
         }
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
+        }
+
+        public void moveLeft()
+        {
+            drawLocation.X--;
+        }
+
+        public void moveRight()
+        {
+            drawLocation.X++;
         }
 
     }
