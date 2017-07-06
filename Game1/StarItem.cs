@@ -49,6 +49,13 @@ namespace Game
             {
                 moveLeft();
             }
+            if (movingUp.Equals(true)) {
+                moveUp();
+            }
+            else
+            {
+                moveDown();
+            }
 
         }
 
