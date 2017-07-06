@@ -1,7 +1,7 @@
 ﻿using Game.Enemies;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
+using static Game.Game;
 
 namespace Game
 {
@@ -15,7 +15,8 @@ namespace Game
         private Rectangle blockRec;
         private Rectangle enemyRec;
 
-        private String projColFrom;
+        private sides hColFrom;
+        private sides vColFrom;
 
         private ProjectileBlockCollisionHandler projBlockColHandler;
         private ProjectileEnemyCollisionHandler projEnemyColHandler;
@@ -69,7 +70,8 @@ namespace Game
                 {
                     CollidesFrom(blockRec);
                     projBlockColHandler = new ProjectileBlockCollisionHandler(myGame);
-                    projBlockColHandler.HandleCollision(fBalls, projColFrom);
+                    projBlockColHandler.vColFrom = vColFrom;
+                    projBlockColHandler.HandleCollision(fBalls);
                 }
             }
         }
@@ -91,16 +93,18 @@ namespace Game
 
         public void CollidesFrom(Rectangle objectRec)
         {
-            projColFrom = "none";
+            vColFrom = Game.sides.none;
 
-            if (projRec.Bottom > objectRec.Bottom && projRec.Top > objectRec.Bottom - 2 && ((projRec.Left <= objectRec.Left && projRec.Right >= objectRec.Left + 2) || (projRec.Left > objectRec.Left && objectRec.Right >= projRec.Left - 2)))
+            if ((projRec.Left <= objectRec.Left && projRec.Right >= objectRec.Left + 2) || (projRec.Left > objectRec.Left && objectRec.Right >= projRec.Left - 2))
             {
-                projColFrom = "bottom";
-            }
-            else if (projRec.Top < objectRec.Top && projRec.Bottom < objectRec.Top + 2 && ((projRec.Left <= objectRec.Left && projRec.Right >= objectRec.Left + 2) || (projRec.Left > objectRec.Left && objectRec.Right >= projRec.Left - 2)))
-            {
-                projColFrom = "top";
-
+                if (projRec.Bottom > objectRec.Bottom)
+                {
+                    vColFrom = Game.sides.bottom;
+                }
+                else if (projRec.Top < objectRec.Top)
+                {
+                    vColFrom = Game.sides.top;
+                }
             }
 
         }

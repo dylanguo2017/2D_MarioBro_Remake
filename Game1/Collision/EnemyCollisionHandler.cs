@@ -1,26 +1,27 @@
 ﻿using Game.Enemies;
-using System;
 
 namespace Game
 {
     class EnemyCollisionHandler 
     {
         private Game myGame;
+        public Game.sides hColFrom { get; set; }
+        public Game.sides vColFrom { get; set; }
 
         public EnemyCollisionHandler(Game game)
         {
             myGame = game;
         }
 
-        public void HandleCollision(IEnemy enemy, String enemyColFrom)
+        public void HandleCollision(IEnemy enemy)
         {
-            if (enemyColFrom.Equals("left"))
-            {
-                enemy.movingLeft = false;
-            }
-            else if (enemyColFrom.Equals("right"))
+            if (hColFrom.Equals(Game.sides.left))
             {
                 enemy.movingLeft = true;
+            }
+            else if (hColFrom.Equals(Game.sides.right))
+            {
+                enemy.movingLeft = false;
             }
         }
         

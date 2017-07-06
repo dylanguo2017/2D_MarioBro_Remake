@@ -89,12 +89,12 @@ namespace Game.Enemies
 
         public void moveLeft()
         {
-            drawLocation.X--;
+            drawLocation.X = drawLocation.X - 3;
         }
 
         public void moveRight()
         {
-            drawLocation.X++;
+            drawLocation.X = drawLocation.X + 3;
         }
 
         public void StartTimer()

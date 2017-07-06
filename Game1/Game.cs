@@ -72,7 +72,9 @@ namespace Game
         public int fbDelay;
         public int countOfPopItem;
 
-        private ICollisionDetector marioColDetector;
+        public enum sides { left, right, top, bottom, none };
+
+        public ICollisionDetector marioColDetector;
         private ICollisionDetector enemyColDetector;
         private ICollisionDetector itemColDetector;
         private ICollisionDetector projColDet;

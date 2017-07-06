@@ -1,7 +1,7 @@
 ﻿using Game.Enemies;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
+using static Game.Game;
 
 namespace Game
 {
@@ -13,7 +13,9 @@ namespace Game
 
         private Rectangle enemyRec;
 
-        private String enemyColFrom;
+        private sides hColFrom;
+        private sides vColFrom;
+
         private EnemyCollisionHandler enemyColHandler;
 
         public EnemyCollisionDetector(Game game)
@@ -40,7 +42,8 @@ namespace Game
                     {
                         CollidesFrom(blockRec);
                         enemyColHandler = new EnemyCollisionHandler(myGame);
-                        enemyColHandler.HandleCollision(enemy, enemyColFrom);
+                        enemyColHandler.hColFrom = hColFrom;
+                        enemyColHandler.HandleCollision(enemy);
                     }
 
                 }
@@ -49,15 +52,18 @@ namespace Game
 
         public void CollidesFrom(Rectangle blockRec)
         {
-            enemyColFrom = "none";
+            hColFrom = Game.sides.none;
 
-            if (enemyRec.Left <= blockRec.Right - 2 && ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + 2) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - 2)))
+            if ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + 2) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - 2))
             {
-                enemyColFrom = "right";
-            }
-            else if (enemyRec.Right >= blockRec.Left + 2 && ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + 2) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - 2)))
-            {
-                enemyColFrom = "left";
+                if (enemyRec.Right > blockRec.Right)
+                {
+                    hColFrom = Game.sides.right;
+                }
+                else if (enemyRec.Left < blockRec.Left)
+                {
+                    hColFrom = Game.sides.left;
+                }
             }
         }
         

@@ -1,18 +1,19 @@
 ﻿using Game.Enemies;
-using System;
 
 namespace Game
 {
     public class MarioEnemyCollisionHandler
     {
         private Game myGame;
+        public Game.sides hColFrom { get; set; }
+        public Game.sides vColFrom { get; set; }
 
         public MarioEnemyCollisionHandler(Game game)
         {
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IEnemy enemy, String marioColFromHorizontalSide, String marioColFromVerticalSide)
+        public void HandleCollision(IMario mario, IEnemy enemy)
         {
             if (enemy.visible)
             {
@@ -22,11 +23,11 @@ namespace Game
                 }
                 else
                 {
-                    if (((marioColFromVerticalSide.Equals("bottom") || marioColFromHorizontalSide.Equals("left") || marioColFromHorizontalSide.Equals("right"))) && !myGame.marioState.inv)
+                    if ((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
                     {
                         ChangeMarioState();   
                     }
-                    else if (marioColFromVerticalSide.Equals("top"))
+                    else if (vColFrom.Equals(Game.sides.top))
                     {
                         KillEnemy(enemy);
                     }

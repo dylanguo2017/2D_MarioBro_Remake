@@ -1,25 +1,20 @@
-﻿using System;
-
-namespace Game
+﻿namespace Game
 {
     public class MarioBlockCollisionHandler
     {
         private Game myGame;
-        private String horizontalSide;
-        private String verticalSide;
+        public Game.sides hColFrom { get; set; }
+        public Game.sides vColFrom { get; set; }
 
         public MarioBlockCollisionHandler(Game game)
         {
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IBlock block, String marioColFromHorizontalSide, String marioColFromVerticalSide)
+        public void HandleCollision(IMario mario, IBlock block)
         {
-            horizontalSide = marioColFromHorizontalSide;
-            verticalSide = marioColFromVerticalSide;
-
             DisableMarioMovement();
-            if (verticalSide.Equals("bottom"))
+            if (vColFrom.Equals(Game.sides.bottom))
             {
                 myGame.marioState.marioPhys.yVel = 0;
                 if (block is Question)
@@ -35,7 +30,7 @@ namespace Game
                     HandleInvisible(block);
                 }
             }
-            else if (verticalSide.Equals("top"))
+            else if (vColFrom.Equals(Game.sides.top))
             {
                 myGame.marioState.marioPhys.DontFall();
                 myGame.marioState.jmpCtr = 100;
@@ -83,20 +78,20 @@ namespace Game
 
         private void DisableMarioMovement()
         {
-            if(horizontalSide.Equals("right"))
+            if(hColFrom.Equals(Game.sides.right))
             {
                 myGame.marioState.left = false;
             }
-            else if (horizontalSide.Equals("left"))
+            else if (hColFrom.Equals(Game.sides.left))
             {
                 myGame.marioState.right = false;
             }
 
-            if (verticalSide.Equals("bottom"))
+            if (vColFrom.Equals(Game.sides.bottom))
             {
                 myGame.marioState.up = false;
             }
-            else if (verticalSide.Equals("top"))
+            else if (vColFrom.Equals(Game.sides.top))
             {
                 myGame.marioState.down = false;
             }
