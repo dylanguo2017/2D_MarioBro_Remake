@@ -3,7 +3,7 @@ using System;
 
 namespace Game
 {
-    public interface ISprite : IObject
+    public interface ISprite 
     {
         Texture2D texture { get; set; }
         int rows { get; set; }

@@ -1,53 +1,49 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Game.Enemies;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 
 namespace Game
 {
-    class ProjectileCollisionDetector
+    class ProjectileCollisionDetector : ICollisionDetector
     {
         private Game myGame;
-        private List<ISprite> projectileCollisionList;
-        private Rectangle projectileRec;
-        private Rectangle objectRec;
-        private String projectileCollidesFromHorizontalSide;
-        private String projectileCollidesFromVerticalSide;
-        private ICollisionResponseProjectile projectileCollisionHandler;
+        private List<IBlock> blockList;
+        private List<IEnemy> enemyList;
+
+        private Rectangle projRec;
+        private Rectangle blockRec;
+        private Rectangle enemyRec;
+
+        private String projColFrom;
+
+        private ProjectileBlockCollisionHandler projBlockColHandler;
+        private ProjectileEnemyCollisionHandler projEnemyColHandler;
+
         List<Fireball> proj;
         List<Fireball> toBeRemoved;
 
         public ProjectileCollisionDetector(Game game,List<Fireball> projectile)
         {
             myGame = game;
-            projectileCollisionList = new List<ISprite>();
             proj = projectile;
         }
 
         public void Update()
         {
+            blockList = myGame.blockList;
+            enemyList = myGame.enemyList;
+
             toBeRemoved = new List<Fireball>();
             if (proj.Count != 0)
             {
                 foreach (Fireball fBalls in proj)
                 {
-                    projectileCollisionList = myGame.bgList;
+                    projRec = fBalls.DestinationRectangle();
 
-                    projectileRec = fBalls.DestinationRectangle();
+                    DetectProjBlockCol(fBalls);
+                    DetectProjEnemyCol(fBalls);
 
-                    foreach (ISprite sprite in projectileCollisionList)
-                    {
-                        objectRec = sprite.DestinationRectangle();
-
-                        if (projectileRec.Intersects(objectRec))
-                        {
-                            if (!sprite.type.Contains("BgElement"))
-                            {
-                                CollidesFrom();
-                                Type(sprite);
-                                projectileCollisionHandler.HandleCollision(fBalls, sprite, projectileCollidesFromHorizontalSide, projectileCollidesFromVerticalSide);
-                            }
-                        }
-                    }
                     if (fBalls.deleted)
                     {
                         toBeRemoved.Add(fBalls);
@@ -63,42 +59,50 @@ namespace Game
             }
         }
 
-        public void CollidesFrom()
+        private void DetectProjBlockCol(Fireball fBalls)
         {
-            projectileCollidesFromHorizontalSide = "none";
-            projectileCollidesFromVerticalSide = "none";
-
-            if (projectileRec.Left > objectRec.Right - 2 && ((projectileRec.Top <= objectRec.Top && projectileRec.Bottom >= objectRec.Top + 2) || (projectileRec.Top > objectRec.Top && objectRec.Bottom >= projectileRec.Top - 2)))
+            foreach (IBlock block in blockList)
             {
-                projectileCollidesFromHorizontalSide = "right";
-            }
-            else if (projectileRec.Right < objectRec.Left + 2 && ((projectileRec.Top <= objectRec.Top && projectileRec.Bottom >= objectRec.Top + 2) || (projectileRec.Top > objectRec.Top && objectRec.Bottom >= projectileRec.Top - 2)))
-            {
-                projectileCollidesFromHorizontalSide = "left";
-            }
+                blockRec = block.DestinationRectangle();
 
-            if (projectileRec.Bottom > objectRec.Bottom && projectileRec.Top > objectRec.Bottom - 2 && ((projectileRec.Left <= objectRec.Left && projectileRec.Right >= objectRec.Left + 2) || (projectileRec.Left > objectRec.Left && objectRec.Right >= projectileRec.Left - 2)))
-            {
-                projectileCollidesFromVerticalSide = "bottom";
+                if (blockRec.X <= 800 && projRec.Intersects(blockRec))
+                {
+                    CollidesFrom(blockRec);
+                    projBlockColHandler = new ProjectileBlockCollisionHandler(myGame);
+                    projBlockColHandler.HandleCollision(fBalls, projColFrom);
+                }
             }
-            else if (projectileRec.Top < objectRec.Top && projectileRec.Bottom < objectRec.Top + 2 && ((projectileRec.Left <= objectRec.Left && projectileRec.Right >= objectRec.Left + 2) || (projectileRec.Left > objectRec.Left && objectRec.Right >= projectileRec.Left - 2)))
-            {
-                projectileCollidesFromVerticalSide = "top";
-
-            }
-
         }
 
-        private void Type(ISprite sprite)
+        private void DetectProjEnemyCol(Fireball fBalls)
         {
-            if (sprite.type.Contains("Block"))
+            foreach (IEnemy enemy in enemyList)
             {
-                projectileCollisionHandler = new ProjectileBlockCollisionHandler(myGame);
+                enemyRec = enemy.DestinationRectangle();
+
+                if (enemyRec.X <= 800 && projRec.Intersects(enemyRec))
+                {
+                    CollidesFrom(enemyRec);
+                    projEnemyColHandler = new ProjectileEnemyCollisionHandler(myGame);
+                    projEnemyColHandler.HandleCollision(enemy);
+                }
             }
-            else if (sprite.type.Contains("Enemy"))
+        }
+
+        public void CollidesFrom(Rectangle objectRec)
+        {
+            projColFrom = "none";
+
+            if (projRec.Bottom > objectRec.Bottom && projRec.Top > objectRec.Bottom - 2 && ((projRec.Left <= objectRec.Left && projRec.Right >= objectRec.Left + 2) || (projRec.Left > objectRec.Left && objectRec.Right >= projRec.Left - 2)))
             {
-                projectileCollisionHandler = new ProjectileEnemyCollisionHandler(myGame);
+                projColFrom = "bottom";
             }
+            else if (projRec.Top < objectRec.Top && projRec.Bottom < objectRec.Top + 2 && ((projRec.Left <= objectRec.Left && projRec.Right >= objectRec.Left + 2) || (projRec.Left > objectRec.Left && objectRec.Right >= projRec.Left - 2)))
+            {
+                projColFrom = "top";
+
+            }
+
         }
 
 

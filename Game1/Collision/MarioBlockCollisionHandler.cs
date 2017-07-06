@@ -33,7 +33,7 @@ namespace Game
                 }
                 else if (block is Invisible)
                 {
-                    //block.texture = myGame.usedBlockSprite;
+                    HandleInvisible(block);
                 }
             }
             else if (verticalSide.Equals("top"))
@@ -53,6 +53,16 @@ namespace Game
             {
                 question.BumpBlock();
                 question.ChangeToUsed();
+            }
+        }
+        private void HandleInvisible(IBlock block)
+        {
+            Invisible invisible = block as Invisible;
+
+            if (!invisible.used && !invisible.hit)
+            {
+                invisible.BumpBlock();
+                invisible.ChangeToUsed();
             }
         }
 
