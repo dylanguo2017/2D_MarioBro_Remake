@@ -271,13 +271,13 @@ namespace Game
             {
                 sprite.Draw(spriteBatch);
             }
-            foreach (IBlock block in blockList)
-            {
-                block.Draw(spriteBatch);
-            }
             foreach (IEnemy enemy in enemyList)
             {
                 enemy.Draw(spriteBatch);
+            }
+            foreach (IBlock block in blockList)
+            {
+                block.Draw(spriteBatch);
             }
             foreach (IItem item in itemList)
             {

@@ -48,7 +48,7 @@ namespace Game
                 KoopaEnemy koopa = enemy as KoopaEnemy;
                 koopa.sourceRectangle = new Rectangle((int)koopa.koopaPosition.PositionArr[9].X, (int)koopa.koopaPosition.PositionArr[9].Y, 16, 16);
             }
-            enemy.visible = false;
+            //enemy.StartTimer();
         }
 
         private void ChangeMarioState()
