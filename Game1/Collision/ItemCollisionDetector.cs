@@ -16,8 +16,6 @@ namespace Game
         private String itemColFromVerticalSide;
         private ItemCollisionHandler itemColHandler;
 
-        private int diff;
-
         public ItemCollisionDetector(Game game)
         {
             myGame = game;
@@ -41,7 +39,7 @@ namespace Game
                     {
                         CollidesFrom(blockRec);
                         itemColHandler = new ItemCollisionHandler(myGame);
-                        itemColHandler.HandleCollision(item, itemColFromHorizontalSide, itemColFromVerticalSide, diff);
+                        itemColHandler.HandleCollision(item, itemColFromHorizontalSide, itemColFromVerticalSide);
                     }
                 }
 
@@ -69,7 +67,6 @@ namespace Game
             else if (itemRec.Top < blockRec.Top && itemRec.Bottom >= blockRec.Top + 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
             {
                 itemColFromVerticalSide = "top";
-                diff = itemRec.Bottom - blockRec.Top - 2;
             }
         }
 
