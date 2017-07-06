@@ -47,11 +47,11 @@ namespace Game
 
             if (verticalSide.Equals("top"))
             {
-                // item moves up
+                star.movingUp = true;
             }
             else if (verticalSide.Equals("bottom"))
             {
-                // item moves down
+                star.movingUp = false;
             }
         }
 
@@ -67,14 +67,6 @@ namespace Game
                 greenMushroom.movingRight = true;
             }
 
-            if (verticalSide.Equals("top"))
-            {
-                // item moves up
-            }
-            else if (verticalSide.Equals("bottom"))
-            {
-                // item moves down
-            }
         }
 
         private void HandleRedMushroom(IItem item)
@@ -89,14 +81,6 @@ namespace Game
                 redMushroom.movingRight = true;
             }
 
-            if (verticalSide.Equals("top"))
-            {
-                // item moves up
-            }
-            else if (verticalSide.Equals("bottom"))
-            {
-                // item moves down
-            }
         }
 
 
