@@ -48,7 +48,7 @@ namespace Game.Enemies
             if (movingLeft)
             {
                 currentFrame--;
-                if (currentFrame == 2)
+                if (currentFrame == 1)
                 {
                     currentFrame = 3;
                 }
@@ -56,7 +56,7 @@ namespace Game.Enemies
             else
             {
                 currentFrame++;
-                if (currentFrame == 5)
+                if (currentFrame == 6)
                 {
                     currentFrame = 4;
                 }
@@ -85,7 +85,7 @@ namespace Game.Enemies
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y - 7, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
