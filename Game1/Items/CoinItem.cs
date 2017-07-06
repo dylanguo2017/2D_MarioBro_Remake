@@ -4,36 +4,46 @@ using System;
 
 namespace Game
 {
-    public class Sprite : ISprite
+    public class CoinItem : IItem
     {
-        public Texture2D texture { get; set; }
+
+        private Game myGame;
+        public Point drawLocation;
+        private Rectangle destinationRectangle;
+
         public int rows { get; set; }
         public int columns { get; set; }
+        public Texture2D texture { get; set; }
         public int currentFrame { get; set; }
-        public int totalFrames;
-        public Point location;
+        public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        private Rectangle destinationRectangle;
-        public String type { get; set; }
-        private Game myGame;
-        public Boolean right { get; set; }
+        
 
-
-        public Sprite(Game game, Texture2D texture, int rows, int columns)
+        public CoinItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 0;
-            totalFrames = this.rows * this.columns;
-            type = "";
-            visible = true;
+            currentFrame = 216;
+            totalFrame = this.rows * this.columns;
             myGame = game;
-            this.right = true;
+            drawLocation = new Point(pointX, pointY);
+            visible = true;
+            
         }
 
         public virtual void Update()
         {
+            currentFrame++;
+            if (currentFrame == 219)
+            {
+                currentFrame = 252;
+            }
+            if (currentFrame == 255)
+            {
+                currentFrame = 216;
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -46,9 +56,9 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)location.X - myGame.camera.GetOffset(), (int)location.Y, width, height);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
 
-                spriteBatch.Begin();               
+                spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
                 spriteBatch.End();
             }
@@ -59,16 +69,5 @@ namespace Game
             return destinationRectangle;
         }
         
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrames = this.rows * this.columns;
-            type = texture.Name.ToString();
-            this.right = true;
-        }
-
     }
 }

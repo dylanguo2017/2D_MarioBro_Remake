@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class Used : IBlock
+    public class Diamond : IBlock
     {
 
         private Game myGame;
@@ -20,12 +20,12 @@ namespace Game
         public Boolean hit;
         public int timer;
 
-        public Used(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public  Diamond(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 3;
+            currentFrame = 33;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
@@ -36,7 +36,7 @@ namespace Game
 
         public void Update()
         {
-            
+
 
         }
 
@@ -62,18 +62,6 @@ namespace Game
         {
             return destinationRectangle;
         }
-
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-
-        }
-
-       
 
 
 

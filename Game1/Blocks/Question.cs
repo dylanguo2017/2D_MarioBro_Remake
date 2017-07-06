@@ -86,15 +86,6 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-
-        }
 
         public void BumpBlock()
         {

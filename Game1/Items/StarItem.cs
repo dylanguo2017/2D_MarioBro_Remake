@@ -4,11 +4,11 @@ using System;
 
 namespace Game
 {
-    public class Invisible : IBlock
+    public class StarItem : IItem
     {
-
+        
         private Game myGame;
-        public Point drawLocation;
+        private Point drawLocation;
         private Rectangle destinationRectangle;
 
         public int rows { get; set; }
@@ -17,46 +17,49 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean hit;
-        public int timer;
-        public Boolean used;
+        public Boolean movingRight { get; set; }
+        public Boolean movingUp { get; set; }
 
-        public Invisible(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public StarItem (Game game, Texture2D texture,int rows, int columns, int pointX, int pointY) 
         {
             this.texture = texture;
             this.rows = rows;
-            this.columns = columns;
-            currentFrame = 920;
+            this.columns =columns;
+            currentFrame = 108;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            hit = false;
-            timer = 0;
-            used = false;
+            movingRight = true;
+            movingUp = true;
         }
 
-        public void Update()
+        public virtual void Update()
         {
-            if (currentFrame != 27)
+            currentFrame++;
+            if (currentFrame == 111)
             {
-
-                currentFrame = 920;
-
+                currentFrame = 108;
             }
-            if (hit)
+
+            if (movingRight)
             {
-                if (timer < 1)
-                {
-                    timer++;
-                }
-                else
-                {
-                    timer = 0;
-                    hit = false;
-                    BumpDown();
-                    myGame.marioState.marioPhys.YCoor += 2;
-                }
+                Right();
+            }
+            else
+            {
+                movingRight = false;
+                Left();
+            }
+
+            if (movingUp && destinationRectangle.Y > 300)
+            {
+                Up();
+            }
+            else
+            {
+                movingUp = false;
+                Down();
             }
 
 
@@ -85,35 +88,25 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
 
+        public void Up()
+        {
+            drawLocation.Y--;
         }
 
-        public void BumpBlock()
+        public void Down()
         {
-            hit = true;
-
-            drawLocation.Y = drawLocation.Y - 2;
+            drawLocation.Y++;
         }
 
-        public void BumpDown()
+        public void Left()
         {
-            drawLocation.Y = drawLocation.Y + 2;
+            drawLocation.X--;
         }
-
-        public void ChangeToUsed()
+        public void Right()
         {
-            currentFrame = 27;
-            used = true;
+            drawLocation.X++;
         }
-
-
 
     }
 }

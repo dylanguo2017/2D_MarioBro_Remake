@@ -1,5 +1,4 @@
 ﻿using Game.Enemies;
-using Microsoft.Xna.Framework;
 using System;
 
 namespace Game

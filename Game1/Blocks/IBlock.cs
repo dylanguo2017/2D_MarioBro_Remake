@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace Game
 {
-    public interface IItem 
+    public interface IBlock
     {
         Texture2D texture { get; set; }
 
@@ -16,7 +16,7 @@ namespace Game
         int currentFrame { get; set; }
 
         int totalFrame { get; set; }
-        
+
         Boolean visible { get; set; }
 
         Rectangle DestinationRectangle();
@@ -25,8 +25,7 @@ namespace Game
 
         void Draw(SpriteBatch spriteBatch);
 
-        void ToggleSpriteSheet(Texture2D texture, int rows, int columns);
 
-        
+
     }
 }

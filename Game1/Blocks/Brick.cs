@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class Crack : IBlock
+    public class Brick : IBlock
     {
 
         private Game myGame;
@@ -20,12 +20,12 @@ namespace Game
         public Boolean hit;
         public int timer;
 
-        public Crack(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Brick(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 0;
+            currentFrame = 1;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
@@ -34,8 +34,22 @@ namespace Game
             timer = 0;
         }
 
-        public void Update()
+        public  void Update()
         {
+            if (hit)
+            {
+                if (timer < 1)
+                {
+                    timer++;
+                }
+                else
+                {
+                    timer = 0;
+                    hit = false;
+                    BumpDown();
+                    myGame.marioState.marioPhys.YCoor += 2;
+                }
+            }
 
 
         }
@@ -61,16 +75,6 @@ namespace Game
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
-        }
-
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-
         }
 
         public void BumpBlock()

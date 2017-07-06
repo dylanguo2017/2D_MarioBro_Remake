@@ -4,11 +4,11 @@ using System;
 
 namespace Game
 {
-    public class StarItem : IItem
+    public class Crack : IBlock
     {
-        
+
         private Game myGame;
-        private Point drawLocation;
+        public Point drawLocation;
         private Rectangle destinationRectangle;
 
         public int rows { get; set; }
@@ -17,50 +17,25 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
-        public Boolean movingUp { get; set; }
+        public Boolean hit;
+        public int timer;
 
-        public StarItem (Game game, Texture2D texture,int rows, int columns, int pointX, int pointY) 
+        public Crack(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
-            this.columns =columns;
-            currentFrame = 108;
+            this.columns = columns;
+            currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            movingRight = true;
-            movingUp = true;
+            hit = false;
+            timer = 0;
         }
 
-        public virtual void Update()
+        public void Update()
         {
-            currentFrame++;
-            if (currentFrame == 111)
-            {
-                currentFrame = 108;
-            }
-
-            if (movingRight)
-            {
-                Right();
-            }
-            else
-            {
-                movingRight = false;
-                Left();
-            }
-
-            if (movingUp && destinationRectangle.Y > 300)
-            {
-                Up();
-            }
-            else
-            {
-                movingUp = false;
-                Down();
-            }
 
 
         }
@@ -88,34 +63,20 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
+
+        public void BumpBlock()
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-            this.movingRight = true;
+            hit = true;
+
+            drawLocation.Y = drawLocation.Y - 2;
         }
 
-        public void Up()
+        public void BumpDown()
         {
-            drawLocation.Y--;
+            drawLocation.Y = drawLocation.Y + 2;
         }
 
-        public void Down()
-        {
-            drawLocation.Y++;
-        }
 
-        public void Left()
-        {
-            drawLocation.X--;
-        }
-        public void Right()
-        {
-            drawLocation.X++;
-        }
 
     }
 }

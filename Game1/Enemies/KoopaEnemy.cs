@@ -9,7 +9,7 @@ namespace Game.Enemies
         private Game myGame;
         public Point drawLocation;
         private Rectangle destinationRectangle;
-        public Rectangle sourceRectangle { get; set; }
+        private Rectangle sourceRectangle { get; set; }
 
         public int rows { get; set; }
         public int columns { get; set; }
@@ -95,15 +95,8 @@ namespace Game.Enemies
                 spriteBatch.End();
             }
         }
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 3;
-            totalFrame = this.rows * this.columns;
-            this.movingLeft = true;
-        }
+
+
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;

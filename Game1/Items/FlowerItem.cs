@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class RedMushroomItem : IItem
+    public class FlowerItem : IItem
     {
 
         private Game myGame;
@@ -17,31 +17,29 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
+        
 
-        public RedMushroomItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public FlowerItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 0;
+            currentFrame = 72;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingRight = true;
+            
         }
 
         public virtual void Update()
         {
-            if (movingRight.Equals(true))
+            currentFrame++;
+            if (currentFrame == 75)
             {
-                moveRight();
+                currentFrame = 72;
             }
-            else
-            {
-                moveLeft();
-            }
+            
 
         }
 
@@ -67,28 +65,6 @@ namespace Game
         {
             return destinationRectangle;
         }
-
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-            this.movingRight = true;
-        }
-
-        public void moveLeft()
-        {
-            drawLocation.X--;
-        }
-
-        public void moveRight()
-        {
-            drawLocation.X++;
-        }
-
-
 
     }
 }

@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class CoinItem : IItem
+    public class Used : IBlock
     {
 
         private Game myGame;
@@ -17,32 +17,26 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        
+        public Boolean hit;
+        public int timer;
 
-        public CoinItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Used(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 216;
+            currentFrame = 3;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            
+            hit = false;
+            timer = 0;
         }
 
-        public virtual void Update()
+        public void Update()
         {
-            currentFrame++;
-            if (currentFrame == 219)
-            {
-                currentFrame = 252;
-            }
-            if (currentFrame == 255)
-            {
-                currentFrame = 216;
-            }
+            
 
         }
 
@@ -68,18 +62,6 @@ namespace Game
         {
             return destinationRectangle;
         }
-
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-           
-        }
-
-
 
     }
 }

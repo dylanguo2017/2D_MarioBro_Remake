@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class Brick : IBlock
+    public class PipeNeck : IBlock
     {
 
         private Game myGame;
@@ -20,12 +20,12 @@ namespace Game
         public Boolean hit;
         public int timer;
 
-        public Brick(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public PipeNeck(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 1;
+            currentFrame = 297;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
@@ -34,22 +34,8 @@ namespace Game
             timer = 0;
         }
 
-        public  void Update()
+        public void Update()
         {
-            if (hit)
-            {
-                if (timer < 1)
-                {
-                    timer++;
-                }
-                else
-                {
-                    timer = 0;
-                    hit = false;
-                    BumpDown();
-                    myGame.marioState.marioPhys.YCoor += 2;
-                }
-            }
 
 
         }
@@ -63,8 +49,8 @@ namespace Game
                 int row = (int)((float)currentFrame / (float)columns);
                 int column = currentFrame % columns;
 
-                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width * 2, height );
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width * 2, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -77,15 +63,6 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-            
-        }
 
         public void BumpBlock()
         {

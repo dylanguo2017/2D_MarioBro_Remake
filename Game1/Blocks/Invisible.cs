@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class Pipe : IBlock
+    public class Invisible : IBlock
     {
 
         private Game myGame;
@@ -19,23 +19,45 @@ namespace Game
         public Boolean visible { get; set; }
         public Boolean hit;
         public int timer;
+        public Boolean used;
 
-        public Pipe(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Invisible(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 264;
+            currentFrame = 920;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
             hit = false;
             timer = 0;
+            used = false;
         }
 
         public void Update()
         {
+            if (currentFrame != 27)
+            {
+
+                currentFrame = 920;
+
+            }
+            if (hit)
+            {
+                if (timer < 1)
+                {
+                    timer++;
+                }
+                else
+                {
+                    timer = 0;
+                    hit = false;
+                    BumpDown();
+                    myGame.marioState.marioPhys.YCoor += 2;
+                }
+            }
 
 
         }
@@ -49,8 +71,8 @@ namespace Game
                 int row = (int)((float)currentFrame / (float)columns);
                 int column = currentFrame % columns;
 
-                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width*2, height*2);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width*2, height*2);
+                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -63,16 +85,6 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void ToggleSpriteSheet(Texture2D texture, int rows, int columns)
-        {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            this.currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-
-        }
-
         public void BumpBlock()
         {
             hit = true;
@@ -83,6 +95,12 @@ namespace Game
         public void BumpDown()
         {
             drawLocation.Y = drawLocation.Y + 2;
+        }
+
+        public void ChangeToUsed()
+        {
+            currentFrame = 27;
+            used = true;
         }
 
 
