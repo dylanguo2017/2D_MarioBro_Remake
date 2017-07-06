@@ -21,7 +21,6 @@ namespace Game
             DisableMarioMovement();
             if (verticalSide.Equals("bottom"))
             {
-                myGame.marioState.up = false;
                 myGame.marioState.marioPhys.yVel = 0;
                 if (block is Question)
                 {
@@ -86,11 +85,11 @@ namespace Game
         {
             if(horizontalSide.Equals("right"))
             {
-                myGame.marioState.right = false;
+                myGame.marioState.left = false;
             }
             else if (horizontalSide.Equals("left"))
             {
-                myGame.marioState.left = false;
+                myGame.marioState.right = false;
             }
 
             if (verticalSide.Equals("bottom"))
