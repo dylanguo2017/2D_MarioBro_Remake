@@ -1,4 +1,5 @@
-﻿using Game.Enemies;
+﻿using Game.Background;
+using Game.Enemies;
 using Game.Sprites;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -13,7 +14,7 @@ namespace Game
         public static List<IItem> itemList;
         public static List<IBlock> blockList;
 
-        public static List<ISprite> bgList;
+        public static List<IBackground> bgList;
 
         public static void LoadLists(Game myGame)
         {
@@ -21,7 +22,7 @@ namespace Game
             itemList = new List<IItem>();
             blockList = new List<IBlock>();
 
-            bgList = new List<ISprite>();
+            bgList = new List<IBackground>();
 
             StreamReader levelFile = new StreamReader(
          Path.Combine(Directory.GetCurrentDirectory(),
@@ -134,47 +135,47 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("oneCloud"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.oneCloudBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.oneCloudBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("threeClouds"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.threeCloudsBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.threeCloudsBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("oneBush"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.oneBushBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.oneBushBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("threeBushes"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.threeBushesBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.threeBushesBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("smallMountain"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.smallMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.smallMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("bigMountain"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.bigMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.bigMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("smallCastle"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.smallCastle, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.smallCastle, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("flagpole"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("title"))
                     {
-                        ISprite gameObject = new MotionlessNonAnimatedSprite(myGame, myGame.titleScreen, 1, 1, positionColumn * 16, positionRow * 16);
+                        IBackground gameObject = new background(myGame, myGame.titleScreen, 1, 1, positionColumn * 16, positionRow * 16);
                         bgList.Add(gameObject);
                     }
 

@@ -10,7 +10,8 @@ namespace Game
         private Game myGame;
         public Point drawLocation;
         private Rectangle destinationRectangle;
-       
+
+        private int moveUpDistance;
         public int rows { get; set; }
         public int columns { get; set; }
         public Texture2D texture { get; set; }
@@ -32,6 +33,7 @@ namespace Game
             visible = true; 
             this.movingRight = true;
             this.movingUp = true;
+            moveUpDistance = 0;
         }
 
         public virtual void Update()
@@ -49,12 +51,15 @@ namespace Game
             {
                 moveLeft();
             }
-            if (movingUp.Equals(true)) {
+            if (movingUp.Equals(true)&&(moveUpDistance<=8)) {
                 moveUp();
+                moveUpDistance++;
             }
             else
             {
                 moveDown();
+                if (movingUp.Equals(false)) { moveUpDistance = 0; }
+               
             }
 
         }

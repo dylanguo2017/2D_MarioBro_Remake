@@ -1,4 +1,5 @@
-﻿using Game.Enemies;
+﻿using Game.Background;
+using Game.Enemies;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -27,6 +28,7 @@ namespace Game
         public Texture2D threeBushesBgElement;
         public Texture2D smallMountainBgElement;
         public Texture2D bigMountainBgElement;
+
         public Texture2D smallCastle;
         public Texture2D flagpoleElement;
 
@@ -43,7 +45,7 @@ namespace Game
         public List<IBlock> blockList;
         public List<IEnemy> enemyList;
         public List<IItem> itemList;
-        public List<ISprite> bgList;
+        public List<IBackground> bgList;
 
         private ICommand qtCmd;
         private ICommand wCmd;
@@ -154,6 +156,7 @@ namespace Game
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
+            
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
@@ -163,6 +166,7 @@ namespace Game
             threeBushesBgElement = Content.Load<Texture2D>("3BushesBgElement");
             smallMountainBgElement = Content.Load<Texture2D>("SmallMountainBgElement");
             bigMountainBgElement = Content.Load<Texture2D>("BigMountainBgElement");
+
             smallCastle = Content.Load<Texture2D>("smallCastle");
             flagpoleElement = Content.Load<Texture2D>("flagPole");
 
@@ -240,6 +244,10 @@ namespace Game
 
             if (animationModifier % 20 == 0)
             {
+                foreach (IBackground background in bgList)
+                {
+                    background.Update();
+                }
                 foreach (IBlock block in blockList)
                 {
                     block.Update();
@@ -254,10 +262,7 @@ namespace Game
                     item.Update();
                     itemColDetector.Update();
                 }
-                foreach (ISprite sprite in bgList)
-                {
-                    sprite.Update();
-                }
+                
             }
             base.Update(gameTime);
         }
@@ -267,9 +272,9 @@ namespace Game
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            foreach (ISprite sprite in bgList)
+            foreach (IBackground background in bgList)
             {
-                sprite.Draw(spriteBatch);
+                background.Draw(spriteBatch);
             }
             foreach (IEnemy enemy in enemyList)
             {
