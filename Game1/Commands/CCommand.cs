@@ -11,7 +11,18 @@
 
         public void Execute()
         {
-            //myGame.bgList = Level.ReloadList(myGame.bgList, myGame.usedBlockSprite, "InvisibleBlock", 1);
+            foreach(IBlock block in myGame.blockList)
+            {
+                if(block is Invisible)
+                {
+                    Invisible invisible = block as Invisible;
+                    if (!invisible.used)
+                    {
+                        invisible.BumpBlock();
+                        invisible.ChangeToUsed();
+                    }
+                }
+            }
         }
 
     }

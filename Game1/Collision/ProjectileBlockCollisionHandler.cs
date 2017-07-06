@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game
-{ 
-    public class ProjectileBlockCollisionHandler : ICollisionResponseProjectile
+{
+    public class ProjectileBlockCollisionHandler
     {
         private Game myGame;
 
@@ -15,10 +11,9 @@ namespace Game
             myGame = game;
         }
 
-        public void HandleCollision(Fireball fBalls, IObject gameObject, String marioCollidesFromHorizontalSide, String marioCollidesFromVerticalSide)
+        public void HandleCollision(Fireball fBalls, String projColFrom)
         {
-            ISprite block = gameObject as ISprite;
-            if (marioCollidesFromVerticalSide.Equals("top"))
+            if (projColFrom.Equals("top"))
             {
                 fBalls.Bounce();
             }
