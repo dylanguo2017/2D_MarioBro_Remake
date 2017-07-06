@@ -8,10 +8,9 @@ namespace Game
     {
         
         private Game myGame;
-        public Point drawLocation;
+        private Point drawLocation;
         private Rectangle destinationRectangle;
 
-        //private int moveUpDistance;
         public int rows { get; set; }
         public int columns { get; set; }
         public Texture2D texture { get; set; }
@@ -19,7 +18,7 @@ namespace Game
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
         public Boolean movingRight { get; set; }
-        //public Boolean movingUp { get; set; }
+        public Boolean movingUp { get; set; }
 
         public StarItem (Game game, Texture2D texture,int rows, int columns, int pointX, int pointY) 
         {
@@ -31,9 +30,8 @@ namespace Game
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingRight = true;
-            //this.movingUp = true;
-            //moveUpDistance = 0;
+            movingRight = true;
+            movingUp = true;
         }
 
         public virtual void Update()
@@ -44,15 +42,26 @@ namespace Game
                 currentFrame = 108;
             }
 
-            if (movingRight && this.destinationRectangle.Y > 350)
+            if (movingRight)
             {
-                moveRightUp();
+                Right();
             }
             else
             {
                 movingRight = false;
-                moveRightDown();
+                Left();
             }
+
+            if (movingUp && destinationRectangle.Y > 300)
+            {
+                Up();
+            }
+            else
+            {
+                movingUp = false;
+                Down();
+            }
+
 
         }
 
@@ -86,19 +95,26 @@ namespace Game
             this.columns = columns;
             this.currentFrame = 0;
             totalFrame = this.rows * this.columns;
-            //this.movingRight = true;
+            this.movingRight = true;
         }
 
-        public void moveRightUp()
+        public void Up()
         {
-            drawLocation.X++;
             drawLocation.Y--;
         }
 
-        public void moveRightDown()
+        public void Down()
+        {
+            drawLocation.Y++;
+        }
+
+        public void Left()
+        {
+            drawLocation.X--;
+        }
+        public void Right()
         {
             drawLocation.X++;
-            drawLocation.Y++;
         }
 
     }

@@ -37,13 +37,22 @@ namespace Game
         {
             StarItem star = item as StarItem;
 
-            if (verticalSide.Equals("top"))
+            if (horizontalSide.Equals("left"))
+            {
+                star.movingRight = true;
+            }
+            else if (horizontalSide.Equals("right"))
             {
                 star.movingRight = false;
             }
+
+            if (verticalSide.Equals("top"))
+            {
+                star.movingUp = true;
+            }
             else if (verticalSide.Equals("bottom"))
             {
-                star.movingRight = true;
+                star.movingUp = false;
             }
         }
 
