@@ -17,8 +17,9 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean hit;
+        public Boolean hit { get; set; }
         public int timer;
+        
 
         public Brick(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {

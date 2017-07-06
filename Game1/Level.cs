@@ -13,6 +13,9 @@ namespace Game
         public static List<IEnemy> enemyList;
         public static List<IItem> itemList;
         public static List<IBlock> blockList;
+        
+        public static IItem[] questionItemArray = new IItem[50];
+        public static int countOfPopItem = 0;
 
         public static List<IBackground> bgList;
 
@@ -21,6 +24,7 @@ namespace Game
             enemyList = new List<IEnemy>();
             itemList = new List<IItem>();
             blockList = new List<IBlock>();
+            
 
             bgList = new List<IBackground>();
 
@@ -60,23 +64,33 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("questionRedMushroom"))
                     {
-                        //make question block draw a red mushroom on top when hit
+                        RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        questionItemArray[countOfPopItem] = gameObject;
+                        countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("questionGreenMushroom"))
                     {
-                        //make question block draw a green mushroom on top when hit
+                        GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        questionItemArray[countOfPopItem] = gameObject;
+                        countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("questionStar"))
                     {
-                        //make question block draw a star on top when hit
+                        StarItem gameObject = new StarItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        questionItemArray[countOfPopItem] = gameObject;
+                        countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("questionCoin"))
                     {
-                        //make question block gain a coin for mario when hit
+                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        questionItemArray[countOfPopItem] = gameObject;
+                        countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("questionFlower"))
                     {
-                        //make question block draw a fire flower on top when hit
+                        FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        questionItemArray[countOfPopItem] = gameObject;
+                        countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("used"))
                     {
