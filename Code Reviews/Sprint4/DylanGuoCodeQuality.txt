@@ -1,0 +1,10 @@
+Author: Dylan Guo
+Date: 7/5/2017
+Sprint 4
+Name of the .cs file: ItemCollisionHandler.cs
+Author of the .cs file been reviewed: Shiny Patel
+minutes: 5
+comments: 
+	The methods inside this collision handler contains star handler, mushroom handler and a general HandleCollision.
+	these methods handle all the relavent and possible collisions that will happen between items and blocks and other items.
+	mostly the code is in good condition, further improvement can be made regarding separating this class into several indivisual classes.
