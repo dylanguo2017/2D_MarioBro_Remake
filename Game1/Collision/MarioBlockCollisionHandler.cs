@@ -13,28 +13,31 @@
 
         public void HandleCollision(IMario mario, IBlock block)
         {
-            DisableMarioMovement();
-            if (vColFrom.Equals(Game.sides.bottom))
+            if (block.visible)
             {
-                myGame.marioState.marioPhys.yVel = 0;
-                if (block is Question)
+                DisableMarioMovement();
+                if (vColFrom.Equals(Game.sides.bottom))
                 {
-                    HandleQuestion(block);
+                    myGame.marioState.marioPhys.yVel = 0;
+                    if (block is Question)
+                    {
+                        HandleQuestion(block);
+                    }
+                    else if (block is Brick)
+                    {
+                        HandleBrick(block);
+                    }
+                    else if (block is Invisible)
+                    {
+                        HandleInvisible(block);
+                    }
                 }
-                else if (block is Brick)
+                else if (vColFrom.Equals(Game.sides.top))
                 {
-                    HandleBrick(block);
+                    myGame.marioState.marioPhys.DontFall();
+                    myGame.marioState.jmpCtr = 100;
+                    myGame.marioState.jump = false;
                 }
-                else if (block is Invisible)
-                {
-                    HandleInvisible(block);
-                }
-            }
-            else if (vColFrom.Equals(Game.sides.top))
-            {
-                myGame.marioState.marioPhys.DontFall();
-                myGame.marioState.jmpCtr = 100;
-                myGame.marioState.jump = false;
             }
         }
 
