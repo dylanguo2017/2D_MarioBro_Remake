@@ -11,19 +11,22 @@
 
         public void HandleCollision(IMario mario, IItem item)
         {
-            item.visible = false;
+            if (item.visible)
+            {
+                item.visible = false;
 
-            if (item is StarItem)
-            {
-                HandleStar();
-            }
-            else if (item is RedMushroomItem)
-            {
-                HandleRedMushroom();
-            }
-            else if (item is FlowerItem)
-            {
-                HandleFlower();
+                if (item is StarItem)
+                {
+                    HandleStar();
+                }
+                else if (item is RedMushroomItem)
+                {
+                    HandleRedMushroom();
+                }
+                else if (item is FlowerItem)
+                {
+                    HandleFlower();
+                }
             }
         }
 
