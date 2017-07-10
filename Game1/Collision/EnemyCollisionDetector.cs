@@ -54,6 +54,7 @@ namespace Game
         public void CollidesFrom(Rectangle blockRec)
         {
             hColFrom = Game.sides.none;
+            vColFrom = Game.sides.none;
 
             if ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + 2) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - 2))
             {
