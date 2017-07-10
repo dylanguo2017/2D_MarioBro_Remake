@@ -25,6 +25,15 @@ namespace Game
                 enemy.movingRight = true;
                 enemy.movingLeft = false;
             }
+
+            if (vColFrom.Equals(Game.sides.top))
+            {
+                // enemy is falling down
+            }
+            else if (vColFrom.Equals(Game.sides.bottom))
+            {
+                // enemy is moving up
+            }
         }
         
 

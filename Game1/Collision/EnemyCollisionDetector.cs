@@ -43,6 +43,7 @@ namespace Game
                         CollidesFrom(blockRec);
                         enemyColHandler = new EnemyCollisionHandler(myGame);
                         enemyColHandler.hColFrom = hColFrom;
+                        enemyColHandler.vColFrom = vColFrom;
                         enemyColHandler.HandleCollision(enemy);
                     }
 
@@ -63,6 +64,18 @@ namespace Game
                 else if (enemyRec.Left < blockRec.Left)
                 {
                     hColFrom = Game.sides.left;
+                }
+            }
+
+            if ((enemyRec.Left <= blockRec.Left && enemyRec.Right >= blockRec.Left + 2) || (enemyRec.Left > blockRec.Left && blockRec.Right >= enemyRec.Left - 2))
+            {
+                if (enemyRec.Bottom > blockRec.Bottom)
+                {
+                    vColFrom = Game.sides.bottom;
+                }
+                else if (enemyRec.Top < blockRec.Top)
+                {
+                    vColFrom = Game.sides.top;
                 }
             }
         }
