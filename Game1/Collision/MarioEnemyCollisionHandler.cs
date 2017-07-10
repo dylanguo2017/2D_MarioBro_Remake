@@ -23,13 +23,13 @@ namespace Game
                 }
                 else
                 {
-                    if ((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
-                    {
-                        ChangeMarioState();   
-                    }
-                    else if (vColFrom.Equals(Game.sides.top))
+                    if(vColFrom.Equals(Game.sides.top))
                     {
                         KillEnemy(enemy);
+                    }
+                    else if((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
+                    {
+                        ChangeMarioState();   
                     }
                 }
             }
