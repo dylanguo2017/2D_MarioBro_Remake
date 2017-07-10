@@ -18,9 +18,11 @@ namespace Game
             if (hColFrom.Equals(Game.sides.left))
             {
                 enemy.movingLeft = true;
+                enemy.movingRight = false;
             }
             else if (hColFrom.Equals(Game.sides.right))
             {
+                enemy.movingRight = true;
                 enemy.movingLeft = false;
             }
         }

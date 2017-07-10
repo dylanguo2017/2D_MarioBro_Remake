@@ -17,6 +17,8 @@ namespace Game.Enemies
         int totalFrame { get; set; }
 
         Boolean visible { get; set; }
+        Boolean movingLeft { get; set; }
+        Boolean movingRight { get; set; }
         Boolean dead { get; set; }
 
         Rectangle DestinationRectangle();
@@ -26,7 +28,7 @@ namespace Game.Enemies
         void Draw(SpriteBatch spriteBatch);
 
 
-        Boolean movingLeft { get; set; }
+       
         void StartTimer();
     }
 }

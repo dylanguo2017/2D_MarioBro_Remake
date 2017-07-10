@@ -20,9 +20,12 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
         public Boolean movingLeft { get; set; }
+        public Boolean movingRight { get; set; }
+        public Boolean almostDead { get; set; }
         public Boolean dead { get; set; }
 
         private int timer;
+        private int lifeTimer;
 
         public KoopaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
@@ -35,8 +38,11 @@ namespace Game.Enemies
             drawLocation = new Point(pointX, pointY);
             visible = true;
             movingLeft = true;
+            movingRight = false;
+            almostDead = false;
             dead = false;
             timer = 0;
+            lifeTimer = 0;
             
         }
 
@@ -51,27 +57,25 @@ namespace Game.Enemies
                 {
                     currentFrame = 3;
                 }
+                moveLeft();
             }
-            else
+            else if(movingRight)
             {
                 currentFrame++;
                 if (currentFrame == 6)
                 {
                     currentFrame = 4;
                 }
-
-            }
-            if (movingLeft)
-            {
-                moveLeft();
-            }
-            else
-            {
                 moveRight();
             }
-            if (dead)
+            else if (almostDead)
             {
                 currentFrame = 8;
+                //LifeTimer();
+            }
+            else if (dead)
+            {
+                currentFrame = 9;
             }
 
 
@@ -123,6 +127,18 @@ namespace Game.Enemies
                 visible = false;
             }
         }
+
+       /* public void LifeTimer()
+        {
+            if (currentFrame == 8 && lifeTimer < 4)
+            {
+                lifeTimer++;
+            }
+            else if
+            {
+                visible = false;
+            }
+        }*/
 
     }
 }

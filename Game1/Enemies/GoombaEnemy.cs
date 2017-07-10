@@ -20,6 +20,7 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
         public Boolean movingLeft { get; set; }
+        public Boolean movingRight { get; set; }
         public Boolean dead { get; set; }
 
         private int timer;
@@ -35,6 +36,7 @@ namespace Game.Enemies
             drawLocation = new Point(pointX, pointY);
             visible = true;
             movingLeft = true;
+            movingRight = false;
             dead = false;
             timer = 0;
 
@@ -51,11 +53,11 @@ namespace Game.Enemies
             {
                 moveLeft();
             }
-            else
+            else if(movingRight)
             {
                 moveRight();
             }
-            if (dead)
+            else if (dead)
             {
                 currentFrame = 2;
             }
