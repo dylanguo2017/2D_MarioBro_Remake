@@ -56,21 +56,21 @@ namespace Game
 
         public void MarioDies()
         {
-            myGame.sound.Stop();
+            myGame.sound.state = Game.sounds.none;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/mariodies");
             effect.Play();
         }
 
         public void LevelComplete()
         {
-            myGame.sound.Stop();
+            myGame.sound.state = Game.sounds.none;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/into-the-tunnel");
             effect.Play();
         }
 
         public void IntoTheTunnel()
         {
-            myGame.sound.Stop();
+            myGame.sound.state = Game.sounds.none;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/level-complete");
             effect.Play();
         }

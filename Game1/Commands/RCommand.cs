@@ -32,6 +32,7 @@ namespace Game
             myGame.itemList = Level.itemList;
             myGame.bgList = Level.bgList;
 
+            myGame.sound.Reset();
         }
     }
 }

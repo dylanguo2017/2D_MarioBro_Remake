@@ -70,13 +70,26 @@ namespace Game
                 Stop();
                 gameOver.Play();
             }
+            else
+            {
+                Stop();
+            }
         }
         
-        public void Stop()
+        private void Stop()
         {
             mainTheme.Stop();
             starman.Stop();
             hurry.Stop();
+        }
+
+        public void Reset()
+        {
+            state = Game.sounds.mainTheme;
+            mainTheme.Stop();
+            mainTheme.Play();
+            hurry.Stop();
+            gameOver.Stop();
         }
 
     }

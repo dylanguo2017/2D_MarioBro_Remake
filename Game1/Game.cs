@@ -82,7 +82,7 @@ namespace Game
         public SoundEffects soundEffect;
         public Sounds sound;
 
-        public enum sounds { mainTheme, starman, hurry, gameOver };
+        public enum sounds { mainTheme, starman, hurry, gameOver, none };
 
         public Game()
         {
