@@ -469,18 +469,6 @@
 /processorParam:Quality=Best
 /build:SoundEffects/gameover.wav
 
-#begin SoundEffects/jumpsmall.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/jumpsmall.wav
-
-#begin SoundEffects/mariodie.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/mariodie.wav
-
 #begin SoundEffects/powerup.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -510,4 +498,16 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SoundEffects/break.wav
+
+#begin SoundEffects/jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/jump.wav
+
+#begin SoundEffects/mariodies.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/mariodies.wav
 

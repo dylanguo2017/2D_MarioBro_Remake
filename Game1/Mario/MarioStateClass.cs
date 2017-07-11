@@ -59,7 +59,7 @@ namespace Game
             inv = false;
         }
 
-        public void moveR()
+        public void MoveR()
         {
             if (right && !(curStat.Equals(marioStatus.dead)))
             {
@@ -91,7 +91,7 @@ namespace Game
 
         }
 
-        public void moveL()
+        public void MoveL()
         {
             if (left && !(curStat.Equals(marioStatus.dead)))
             {
@@ -123,7 +123,7 @@ namespace Game
             }
         }
 
-        public void moveDown()
+        public void MoveDown()
         {
             if (!curStat.Equals(marioStatus.dead) && !curStat.Equals(marioStatus.small))
             {

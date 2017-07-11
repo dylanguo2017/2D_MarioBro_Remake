@@ -14,8 +14,8 @@ namespace Game
 
         public void Execute()
         {
-
             myGame.mario = new DeadMario(myGame.marioState, myGame.marioSprites);
+            myGame.soundEffect.MarioDies();
         }
     }
 }

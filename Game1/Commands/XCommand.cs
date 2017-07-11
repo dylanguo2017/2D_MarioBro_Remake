@@ -17,6 +17,7 @@ namespace Game
                 Fireball newBall = new Fireball(myGame.marioState, myGame.fireballSprite);
                 myGame.fireBalls.Add(newBall);
                 myGame.fbDelay = 40;
+                myGame.soundEffect.Fireball();
             }
         }
     }

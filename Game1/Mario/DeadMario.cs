@@ -36,7 +36,7 @@ namespace Game
             int width = 17;
             int height = 17;
 
-            Rectangle sourceRectangle = new Rectangle((int)this.marioPosition.PositionArr[currentFrame].X, (int)this.marioPosition.PositionArr[currentFrame].Y, width, height);
+            Rectangle sourceRectangle = new Rectangle((int)marioPosition.PositionArr[currentFrame].X, (int)marioPosition.PositionArr[currentFrame].Y, width, height);
 
             if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
             {

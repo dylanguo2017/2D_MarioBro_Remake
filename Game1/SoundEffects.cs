@@ -41,5 +41,23 @@ namespace Game
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/coin");
             effect.Play();
         }
+
+        public void Jump()
+        {
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/jump");
+            effect.Play();
+        }
+
+        public void MarioDies()
+        {
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/mariodies");
+            effect.Play();
+        }
+
+        public void Fireball()
+        {
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/fireball");
+            effect.Play();
+        }
     }
 }
