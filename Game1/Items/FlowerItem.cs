@@ -70,7 +70,7 @@ namespace Game
 
             if (myGame.marioState.star)
             {
-                myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+                myGame.mario = new LargeStarMario(myGame);
                 myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
             }
             else

@@ -74,12 +74,15 @@ namespace Game
 
         public enum sides { left, right, top, bottom, none };
 
-        public ICollisionDetector marioColDetector;
+        private ICollisionDetector marioColDetector;
         private ICollisionDetector enemyColDetector;
         private ICollisionDetector itemColDetector;
         private ICollisionDetector projColDet;
 
         public SoundEffects soundEffect;
+        public Sounds sound;
+
+        public enum sounds { mainTheme, starman, hurry, gameOver };
 
         public Game()
         {
@@ -90,6 +93,7 @@ namespace Game
         protected override void Initialize()
         {
             soundEffect = new SoundEffects(this);
+            sound = new Sounds(this);
 
             contrl = new ArrayList();
 
@@ -288,6 +292,7 @@ namespace Game
                 }
                 
             }
+            sound.Update();
             base.Update(gameTime);
         }
         

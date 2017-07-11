@@ -122,7 +122,8 @@
     <Compile Include="Items\RedMushroomItem.cs" />
     <Compile Include="Items\StarItem.cs" />
     <Compile Include="Blocks\Used.cs" />
-    <Compile Include="SoundEffects.cs" />
+    <Compile Include="Sound\SoundEffects.cs" />
+    <Compile Include="Sound\Sounds.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

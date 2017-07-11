@@ -86,7 +86,14 @@ namespace Game
 
             if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
             {
-                myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+                if (myGame.marioState.star)
+                {
+                    myGame.mario = new LargeStarMario(myGame);
+                }
+                else
+                {
+                    myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
+                }
             }
         }
 

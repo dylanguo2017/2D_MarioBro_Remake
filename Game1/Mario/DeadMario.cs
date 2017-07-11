@@ -5,6 +5,7 @@ namespace Game
 {
     public class DeadMario : IMario
     {
+        private Game myGame;
         private MarioStateClass marioState;
         private Texture2D texture;
         MarioPositionDic marioPosition = new MarioPositionDic();
@@ -12,13 +13,16 @@ namespace Game
 
         private Rectangle destinationRectangle;
 
-        public DeadMario(MarioStateClass mainState, Texture2D spriteSheet)
+        public DeadMario(Game game)
         {
-            marioState = mainState;
-            texture = spriteSheet;
+            myGame = game;
+            marioState = myGame.marioState;
+            texture = myGame.marioSprites;
 
             currentFrame = 12;
             marioState.curStat = MarioStateClass.marioStatus.dead;
+
+            myGame.soundEffect.MarioDies();
         }
 
         public MarioStateClass.marioStatus currentStatus()

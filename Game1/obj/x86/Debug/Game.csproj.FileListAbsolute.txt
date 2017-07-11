@@ -367,10 +367,15 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\S
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\jumpsmall.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\mariodie.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\mariodies.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\powerup-appears.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\powerup.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\powerup_appears.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stage-clear.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stage_clear.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\warning.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Sounds\game-over.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Sounds\hurry.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Sounds\starman.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Items.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Mario.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Tileset.xnb
@@ -394,6 +399,8 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.D
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game.csprojResolveAssemblyReference.cache
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.exe
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.pdb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Sounds\main-theme-overworld.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\into-the-tunnel.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\level-complete.xnb

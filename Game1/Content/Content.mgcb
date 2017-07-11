@@ -475,18 +475,6 @@
 /processorParam:Quality=Best
 /build:SoundEffects/powerup.wav
 
-#begin SoundEffects/powerup_appears.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/powerup_appears.wav
-
-#begin SoundEffects/stage_clear.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/stage_clear.wav
-
 #begin SoundEffects/warning.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -505,9 +493,57 @@
 /processorParam:Quality=Best
 /build:SoundEffects/jump.wav
 
+#begin SoundEffects/powerup-appears.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/powerup-appears.wav
+
+#begin SoundEffects/stage-clear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/stage-clear.wav
+
+#begin Sounds/starman.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/starman.wav
+
+#begin Sounds/game-over.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/game-over.wav
+
+#begin Sounds/hurry.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/hurry.wav
+
+#begin Sounds/main-theme-overworld.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/main-theme-overworld.wav
+
 #begin SoundEffects/mariodies.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SoundEffects/mariodies.wav
+
+#begin SoundEffects/into-the-tunnel.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/into-the-tunnel.wav
+
+#begin SoundEffects/level-complete.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/level-complete.wav
 

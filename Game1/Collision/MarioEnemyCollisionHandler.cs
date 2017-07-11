@@ -46,8 +46,7 @@ namespace Game
         {
             if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
             {
-                myGame.mario = new DeadMario(myGame.marioState, myGame.marioSprites);
-                myGame.soundEffect.MarioDies();
+                myGame.mario = new DeadMario(myGame);
             }
             else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
             {
