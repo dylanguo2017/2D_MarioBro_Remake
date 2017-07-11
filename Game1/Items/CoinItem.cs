@@ -69,5 +69,12 @@ namespace Game
             return destinationRectangle;
         }
         
+        public void Collect()
+        {
+            visible = false;
+            myGame.soundEffect.Coin();
+        }
+
+        
     }
 }

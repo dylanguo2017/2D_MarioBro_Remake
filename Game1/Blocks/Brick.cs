@@ -78,11 +78,11 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void BumpBlock()
+        public void BumpUp()
         {
             hit = true;
-
             drawLocation.Y = drawLocation.Y - 2;
+            myGame.soundEffect.Bump();
         }
 
         public void BumpDown()
@@ -90,7 +90,11 @@ namespace Game
             drawLocation.Y = drawLocation.Y + 2;
         }
 
-
+        public void Break()
+        {
+            visible = false;
+            myGame.soundEffect.Break();
+        }
 
     }
 }

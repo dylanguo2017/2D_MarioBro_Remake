@@ -44,24 +44,23 @@ namespace Game
 
             if (movingRight)
             {
-                Right();
+                MoveRight();
             }
             else
             {
                 movingRight = false;
-                Left();
+                MoveLeft();
             }
 
             if (movingUp && destinationRectangle.Y > 300)
             {
-                Up();
+                MoveUp();
             }
             else
             {
                 movingUp = false;
-                Down();
+                MoveDown();
             }
-
 
         }
 
@@ -89,23 +88,39 @@ namespace Game
         }
 
 
-        public void Up()
+        private void MoveUp()
         {
             drawLocation.Y = drawLocation.Y - 5;
         }
 
-        public void Down()
+        private void MoveDown()
         {
             drawLocation.Y = drawLocation.Y + 5;
         }
 
-        public void Left()
+        private void MoveLeft()
         {
             drawLocation.X = drawLocation.X - 5;
         }
-        public void Right()
+
+        private void MoveRight()
         {
             drawLocation.X = drawLocation.X + 5;
+        }
+
+        public void PowerUp()
+        {
+            visible = false;
+            myGame.soundEffect.PowerUp();
+
+            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+            {
+                myGame.mario = new SmallStarMario(myGame.marioState, myGame.marioSprites);
+            }
+            else
+            {
+                myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+            }
         }
 
     }

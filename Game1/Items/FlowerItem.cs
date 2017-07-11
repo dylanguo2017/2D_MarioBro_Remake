@@ -28,8 +28,7 @@ namespace Game
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
-            visible = true;
-            
+            visible = true;            
         }
 
         public virtual void Update()
@@ -39,8 +38,6 @@ namespace Game
             {
                 currentFrame = 72;
             }
-            
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -64,6 +61,22 @@ namespace Game
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
+        }
+
+        public void PowerUp()
+        {
+            visible = false;
+            myGame.soundEffect.PowerUp();
+
+            if (myGame.marioState.star)
+            {
+                myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+                myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
+            }
+            else
+            {
+                myGame.mario = new FireMario(myGame.marioState, myGame.marioSprites);
+            }
         }
 
     }

@@ -79,6 +79,8 @@ namespace Game
         private ICollisionDetector itemColDetector;
         private ICollisionDetector projColDet;
 
+        public SoundEffects soundEffect;
+
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -86,7 +88,9 @@ namespace Game
         }
 
         protected override void Initialize()
-        {   
+        {
+            soundEffect = new SoundEffects(this);
+
             contrl = new ArrayList();
 
             camera = new Camera(this);

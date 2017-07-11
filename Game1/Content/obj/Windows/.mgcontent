@@ -39,5 +39,18 @@
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/koopa.png</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SpriteSheets/Items.png</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SpriteSheets/Tileset.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/1-up.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/bump.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/coin.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/fireball.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/flagpole.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/gameover.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/jumpsmall.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/mariodie.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/powerup.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/powerup_appears.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/stage_clear.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/warning.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/break.wav</File>
   </SourceFiles>
 </SourceFileCollection>

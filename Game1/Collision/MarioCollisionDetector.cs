@@ -58,7 +58,7 @@ namespace Game
 
                 if (blockRec.X <= 800 && marioRec.Intersects(blockRec))
                 {
-                    System.Diagnostics.Debug.WriteLine("block col");
+                    //System.Diagnostics.Debug.WriteLine("block col");
                     CollidesFrom(blockRec);
                     blockColHandler = new MarioBlockCollisionHandler(myGame);
                     blockColHandler.hColFrom = hColFrom;
@@ -94,7 +94,7 @@ namespace Game
 
                 if (itemRec.X <= 800 && marioRec.Intersects(itemRec))
                 {
-                    System.Diagnostics.Debug.WriteLine("item col");
+                    //System.Diagnostics.Debug.WriteLine("item col");
                     CollidesFrom(itemRec);
                     itemColHandler = new MarioItemCollisionHandler(myGame);
                     itemColHandler.HandleCollision(myGame.mario, item);

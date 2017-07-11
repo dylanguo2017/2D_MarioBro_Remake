@@ -50,7 +50,6 @@ namespace Game
             }
             if (hit)
             {
-                
                 if (timer < 1)
                 {
                     timer++;
@@ -90,10 +89,11 @@ namespace Game
         }
 
 
-        public void BumpBlock()
+        public void BumpUp()
         {
             hit = true;
             drawLocation.Y = drawLocation.Y - 2;
+            myGame.soundEffect.Bump();
         }
 
         public void BumpDown()

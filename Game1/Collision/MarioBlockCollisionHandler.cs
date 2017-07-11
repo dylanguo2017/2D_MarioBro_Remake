@@ -48,7 +48,7 @@
 
             if (!question.used && !question.hit)
             {
-                question.BumpBlock();
+                question.BumpUp();
                 question.ChangeToUsed();
             }
         }
@@ -58,23 +58,23 @@
 
             if (!invisible.used && !invisible.hit)
             {
-                invisible.BumpBlock();
+                invisible.BumpUp();
                 invisible.ChangeToUsed();
             }
         }
 
         private void HandleBrick(IBlock block)
         {
+            Brick brick = block as Brick;
             if (!(myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
             {
-                block.visible = false;
+                brick.Break();
             }
             else
             {
-                Brick brickBlock = block as Brick;
-                if (!brickBlock.hit)
+                if (!brick.hit)
                 {
-                    brickBlock.BumpBlock();
+                    brick.BumpUp();
                 }
             }
         }

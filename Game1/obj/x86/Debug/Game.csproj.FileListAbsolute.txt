@@ -381,3 +381,16 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.X
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.exe
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.pdb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\1-up.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\break.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\bump.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\coin.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\fireball.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\flagpole.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\gameover.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\jumpsmall.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\mariodie.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\powerup.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\powerup_appears.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stage_clear.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\warning.xnb

@@ -29,18 +29,18 @@ namespace Game
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingRight = true;
+            movingRight = true;
         }
 
         public virtual void Update()
         {
             if (movingRight.Equals(true))
             {
-                moveRight();
+                MoveRight();
             }
             else
             {
-                moveLeft();
+                MoveLeft();
             }
 
         }
@@ -69,17 +69,26 @@ namespace Game
         }
 
 
-        public void moveLeft()
+        private void MoveLeft()
         {
             drawLocation.X = drawLocation.X - 3;
         }
 
-        public void moveRight()
+        private void MoveRight()
         {
             drawLocation.X = drawLocation.X + 3;
         }
 
+        public void PowerUp()
+        {
+            visible = false;
+            myGame.soundEffect.PowerUp();
 
+            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+            {
+                myGame.mario = new LargeStarMario(myGame.marioState, myGame.marioSprites);
+            }
+        }
 
     }
 }
