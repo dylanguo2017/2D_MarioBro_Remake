@@ -463,23 +463,11 @@
 /processorParam:Quality=Best
 /build:SoundEffects/flagpole.wav
 
-#begin SoundEffects/gameover.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/gameover.wav
-
 #begin SoundEffects/powerup.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SoundEffects/powerup.wav
-
-#begin SoundEffects/warning.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/warning.wav
 
 #begin SoundEffects/break.wav
 /importer:WavImporter
@@ -498,12 +486,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SoundEffects/powerup-appears.wav
-
-#begin SoundEffects/stage-clear.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/stage-clear.wav
 
 #begin Sounds/starman.wav
 /importer:WavImporter

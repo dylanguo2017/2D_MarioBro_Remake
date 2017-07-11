@@ -30,6 +30,13 @@ namespace Game
             effect.Play();
         }
 
+        // call when item pops out of question mark block
+        public void PowerupAppears()
+        {
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/powerup-appears");
+            effect.Play();
+        }
+
         public void PowerUp()
         {
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/powerup");
@@ -42,6 +49,7 @@ namespace Game
             effect.Play();
         }
 
+        // call when Mario jumps
         public void Jump()
         {
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/jump");
@@ -60,7 +68,15 @@ namespace Game
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/mariodies");
             effect.Play();
         }
+        
+        // call when flag comes down
+        public void Flagpole()
+        {
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/flagpole");
+            effect.Play();
+        }
 
+        // call when level complete
         public void LevelComplete()
         {
             myGame.sound.state = Game.sounds.none;
@@ -68,6 +84,7 @@ namespace Game
             effect.Play();
         }
 
+        // call when Mario goes in the tunnel
         public void IntoTheTunnel()
         {
             myGame.sound.state = Game.sounds.none;
