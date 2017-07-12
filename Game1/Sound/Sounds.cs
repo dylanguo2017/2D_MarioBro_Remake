@@ -73,9 +73,15 @@ namespace Game
             {
                 Pause();
             }
+            else if(state.Equals(Game.soundStates.stop))
+            {
+                Stop();
+            }
             else
             {
                 Stop();
+                mainTheme.Play();
+                state = Game.soundStates.mainTheme;
             }
         }
         
@@ -94,13 +100,7 @@ namespace Game
             hurry.Pause();
             gameOver.Pause();
         }
-
-        public void Reset()
-        {
-            state = Game.soundStates.mainTheme;
-            Stop();
-            mainTheme.Play();
-        }
+        
 
 
     }
