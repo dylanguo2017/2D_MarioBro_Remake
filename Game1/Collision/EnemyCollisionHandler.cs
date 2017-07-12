@@ -28,7 +28,7 @@ namespace Game
 
             if (vColFrom.Equals(Game.sides.top))
             {
-                // enemy is falling down
+                enemy.enemyPhys.DontFall();
             }
             else if (vColFrom.Equals(Game.sides.bottom))
             {

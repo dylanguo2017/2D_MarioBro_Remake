@@ -7,7 +7,14 @@ namespace Game.Enemies
     public class GoombaEnemy :IEnemy
     {
         private Game myGame;
-        public Point drawLocation;
+        public Physics GoombaPhys;
+        public Physics enemyPhys
+        {
+            get
+            {
+                return GoombaPhys;
+            }
+        }
         private Rectangle destinationRectangle;
         private Rectangle sourceRectangle { get; set; }
 
@@ -33,7 +40,7 @@ namespace Game.Enemies
             currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            GoombaPhys = new Physics(pointX, pointY);
             visible = true;
             movingLeft = true;
             movingRight = false;
@@ -61,7 +68,7 @@ namespace Game.Enemies
             {
                 currentFrame = 2;
             }
-            
+            GoombaPhys.Update();
 
         }
 
@@ -75,7 +82,7 @@ namespace Game.Enemies
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle((int)GoombaPhys.XCoor - myGame.camera.GetOffset(), (int)GoombaPhys.YCoor, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -91,12 +98,12 @@ namespace Game.Enemies
 
         public void moveLeft()
         {
-            drawLocation.X = drawLocation.X - 3;
+            GoombaPhys.XCoor--;
         }
 
         public void moveRight()
         {
-            drawLocation.X = drawLocation.X + 3;
+            GoombaPhys.XCoor++;
         }
 
         public void StartTimer()

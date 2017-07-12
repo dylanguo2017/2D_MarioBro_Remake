@@ -7,7 +7,6 @@ namespace Game.Enemies
     public class KoopaEnemy : IEnemy
     {
         private Game myGame;
-        public Point drawLocation;
         private Rectangle destinationRectangle;
         private Rectangle sourceRectangle { get; set; }
 
@@ -23,7 +22,14 @@ namespace Game.Enemies
         public Boolean movingRight { get; set; }
         public Boolean almostDead { get; set; }
         public Boolean dead { get; set; }
-
+        public Physics enemyPhys
+        {
+            get
+            {
+                return KoopaPhys;
+            }
+        }
+        private Physics KoopaPhys;
         private int timer;
         private int lifeTimer;
 
@@ -35,7 +41,7 @@ namespace Game.Enemies
             currentFrame = 3;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            KoopaPhys = new Physics(pointX, pointY);
             visible = true;
             movingLeft = true;
             movingRight = false;
@@ -92,7 +98,7 @@ namespace Game.Enemies
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y - 7, width, height);
+                destinationRectangle = new Rectangle((int)KoopaPhys.XCoor - myGame.camera.GetOffset(), (int)KoopaPhys.YCoor - 7, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -108,12 +114,12 @@ namespace Game.Enemies
 
         public void moveLeft()
         {
-            drawLocation.X = drawLocation.X - 3;
+            KoopaPhys.XCoor--;
         }
 
         public void moveRight()
         {
-            drawLocation.X = drawLocation.X + 3;
+            KoopaPhys.XCoor++;
         }
 
         public void StartTimer()

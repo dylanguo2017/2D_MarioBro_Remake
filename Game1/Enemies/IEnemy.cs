@@ -6,6 +6,7 @@ namespace Game.Enemies
 {
     public interface IEnemy
     {
+        Physics enemyPhys { get; }
         Texture2D texture { get; set; }
 
         int rows { get; set; }
