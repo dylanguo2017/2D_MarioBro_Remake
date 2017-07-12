@@ -7,7 +7,7 @@ namespace Game
     {
         private Game myGame;
 
-        public sounds state { private get; set; }
+        public soundStates state { get; set; }
 
         private SoundEffectInstance mainTheme;
         private SoundEffectInstance starman;
@@ -20,7 +20,7 @@ namespace Game
             Load();
             Loop();
             mainTheme.Play();
-            state = Game.sounds.mainTheme;
+            state = Game.soundStates.mainTheme;
         }
 
         private void Load()
@@ -41,34 +41,37 @@ namespace Game
 
         public void Starman()
         {
-            if (state.Equals(Game.sounds.mainTheme))
+            if (state.Equals(Game.soundStates.mainTheme))
             {
-                state = Game.sounds.starman;
+                state = Game.soundStates.starman;
             }
         }
 
         public void Update()
         {
-            if (state.Equals(Game.sounds.mainTheme))
+            if (state.Equals(Game.soundStates.mainTheme))
             {
                 starman.Stop();
                 mainTheme.Resume();
             }
-            else if (state.Equals(Game.sounds.starman))
+            else if (state.Equals(Game.soundStates.starman))
             {
                 mainTheme.Pause();
                 starman.Play();
             }
-            else if (state.Equals(Game.sounds.hurry))
+            else if (state.Equals(Game.soundStates.hurry))
             {
-                mainTheme.Stop();
-                starman.Stop();
+                Stop();
                 hurry.Play();
             }
-            else if (state.Equals(Game.sounds.gameOver))
+            else if (state.Equals(Game.soundStates.gameOver))
             {
                 Stop();
                 gameOver.Play();
+            }
+            else if (state.Equals(Game.soundStates.pause))
+            {
+                Pause();
             }
             else
             {
@@ -81,16 +84,24 @@ namespace Game
             mainTheme.Stop();
             starman.Stop();
             hurry.Stop();
+            gameOver.Stop();
+        }
+
+        private void Pause()
+        {
+            mainTheme.Pause();
+            starman.Pause();
+            hurry.Pause();
+            gameOver.Pause();
         }
 
         public void Reset()
         {
-            state = Game.sounds.mainTheme;
-            mainTheme.Stop();
+            state = Game.soundStates.mainTheme;
+            Stop();
             mainTheme.Play();
-            hurry.Stop();
-            gameOver.Stop();
         }
+
 
     }
 }

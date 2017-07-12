@@ -90,7 +90,7 @@ namespace Game
         public SoundEffects soundEffect;
         public Sounds sound;
 
-        public enum sounds { mainTheme, starman, hurry, gameOver, none };
+        public enum soundStates { mainTheme, starman, hurry, gameOver, pause, stop };
 
         public Game()
         {
@@ -241,6 +241,7 @@ namespace Game
                 starDuration--;
                 if(starDuration < 0)
                 {
+                    sound.state = soundStates.mainTheme;
                     starDuration = 500;
                     if (marioState.curStat.Equals(MarioStateClass.marioStatus.small))
                     {
@@ -304,6 +305,7 @@ namespace Game
                 
             }
             sound.Update();
+            
             base.Update(gameTime);
         }
         

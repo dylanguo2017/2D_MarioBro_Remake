@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Audio;
+using static Game.Game;
 
 namespace Game
 {
@@ -6,6 +7,7 @@ namespace Game
     {
         private Game myGame;
         private SoundEffect effect;
+        private soundStates pausedState;
 
         public SoundEffects(Game game)
         {
@@ -62,9 +64,24 @@ namespace Game
             effect.Play();
         }
 
+        // call when game is paused
+        public void Pause()
+        {
+            pausedState = myGame.sound.state;
+            myGame.sound.state = Game.soundStates.pause;
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/pause");
+            effect.Play();
+        }
+
+        // call when game is resumed
+        public void Resume()
+        {
+            myGame.sound.state = pausedState;
+        }
+
         public void MarioDies()
         {
-            myGame.sound.state = Game.sounds.none;
+            myGame.sound.state = Game.soundStates.stop;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/mariodies");
             effect.Play();
         }
@@ -79,7 +96,7 @@ namespace Game
         // call when level complete
         public void LevelComplete()
         {
-            myGame.sound.state = Game.sounds.none;
+            myGame.sound.state = Game.soundStates.stop;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/into-the-tunnel");
             effect.Play();
         }
@@ -87,7 +104,7 @@ namespace Game
         // call when Mario goes in the tunnel
         public void IntoTheTunnel()
         {
-            myGame.sound.state = Game.sounds.none;
+            myGame.sound.state = Game.soundStates.stop;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/level-complete");
             effect.Play();
         }
