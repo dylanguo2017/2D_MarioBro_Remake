@@ -7,7 +7,7 @@ namespace Game
     {
         private Game myGame;
 
-        public soundStates state { get; set; }
+        public soundStates state;
 
         private SoundEffectInstance mainTheme;
         private SoundEffectInstance starman;
@@ -61,12 +61,15 @@ namespace Game
             }
             else if (state.Equals(Game.soundStates.hurry))
             {
-                Stop();
+                mainTheme.Stop();
+                starman.Stop();
                 hurry.Play();
             }
             else if (state.Equals(Game.soundStates.gameOver))
             {
-                Stop();
+                mainTheme.Stop();
+                starman.Stop();
+                hurry.Stop();
                 gameOver.Play();
             }
             else if (state.Equals(Game.soundStates.pause))
