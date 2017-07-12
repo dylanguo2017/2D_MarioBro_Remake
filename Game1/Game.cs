@@ -64,6 +64,7 @@ namespace Game
         private ICommand adCmd;
         private ICommand alCmd;
         private ICommand arCmd;
+        private ICommand spaceCmd;
 
         private int animationModifier;
         private int starDuration;
@@ -126,6 +127,7 @@ namespace Game
             adCmd = new ADCommand(this);
             alCmd = new ALCommand(this);
             arCmd = new ARCommand(this);
+            spaceCmd = new SpaceCommand(this);
             keyboard.RegisterCommand(Keys.Q, qtCmd);
             keyboard.RegisterCommand(Keys.W, wCmd);
             keyboard.RegisterCommand(Keys.A, aCmd);
@@ -143,6 +145,7 @@ namespace Game
             keyboard.RegisterCommand(Keys.Down, adCmd);
             keyboard.RegisterCommand(Keys.Left, alCmd);
             keyboard.RegisterCommand(Keys.Right, arCmd);
+            keyboard.RegisterCommand(Keys.Space, spaceCmd);
             gmPad.RegisterCommand(Buttons.LeftThumbstickUp, wCmd);
             gmPad.RegisterCommand(Buttons.LeftThumbstickLeft, aCmd);
             gmPad.RegisterCommand(Buttons.LeftThumbstickDown, sCmd);

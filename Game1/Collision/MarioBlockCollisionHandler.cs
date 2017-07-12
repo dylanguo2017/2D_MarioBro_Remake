@@ -37,6 +37,7 @@
                     myGame.marioState.marioPhys.DontFall();
                     myGame.marioState.jmpCtr = 100;
                     myGame.marioState.jump = false;
+                    myGame.marioState.wPress = false;
                 }
             }
         }

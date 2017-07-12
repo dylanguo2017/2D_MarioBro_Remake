@@ -429,3 +429,4 @@ C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Sounds\
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Sounds\starman.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Items.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Tileset.xnb
+C:\Users\utomo\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game.csprojResolveAssemblyReference.cache

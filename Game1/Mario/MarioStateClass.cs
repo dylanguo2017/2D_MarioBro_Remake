@@ -19,6 +19,7 @@ namespace Game
         public Physics marioPhys;
         public int offset = 0;
         public int jmpCtr = 0;
+        public bool wPress = false;
 
         public int XCoor
         {
@@ -149,7 +150,7 @@ namespace Game
                 {
                     crouch = false;
                 }
-                else if (jmpCtr > 0)
+                else if (jmpCtr > 0 && !wPress)
                 {
                     jmpCtr--;
                     marioPhys.falling = true;
