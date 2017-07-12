@@ -51,22 +51,25 @@ namespace Game.Enemies
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == 2)
+            if (myGame.animMod % 20 == 0)
             {
-                currentFrame = 0;
+                currentFrame++;
+                if (currentFrame == 2)
+                {
+                    currentFrame = 0;
+                }
+                else if (dead)
+                {
+                    currentFrame = 2;
+                }
             }
             if (movingLeft)
             {
                 moveLeft();
             }
-            else if(movingRight)
+            else if (movingRight)
             {
                 moveRight();
-            }
-            else if (dead)
-            {
-                currentFrame = 2;
             }
             GoombaPhys.Update();
 

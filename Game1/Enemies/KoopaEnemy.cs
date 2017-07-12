@@ -54,38 +54,38 @@ namespace Game.Enemies
 
         public void Update()
         {
-            
-               
-            if (movingLeft)
+            if(myGame.animMod % 20 == 0)
             {
-                currentFrame--;
-                if (currentFrame == 1)
+                if (movingLeft)
                 {
-                    currentFrame = 3;
+                    currentFrame--;
+                    if (currentFrame == 1)
+                    {
+                        currentFrame = 3;
+                    }
+                    moveLeft();
                 }
-                moveLeft();
-            }
-            else if(movingRight)
-            {
-                currentFrame++;
-                if (currentFrame == 6)
+                else if (movingRight)
                 {
-                    currentFrame = 4;
+                    currentFrame++;
+                    if (currentFrame == 6)
+                    {
+                        currentFrame = 4;
+                    }
+                    moveRight();
                 }
-                moveRight();
-            }
-            else if (almostDead)
-            {
-                currentFrame = 8;
-                //LifeTimer();
-            }
-            else if (dead)
-            {
-                currentFrame = 9;
+                else if (almostDead)
+                {
+                    currentFrame = 8;
+                    //LifeTimer();
+                }
+                else if (dead)
+                {
+                    currentFrame = 9;
+                }
             }
 
-
-
+            KoopaPhys.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)

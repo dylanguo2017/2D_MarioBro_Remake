@@ -67,6 +67,13 @@ namespace Game
         private ICommand spaceCmd;
 
         private int animationModifier;
+        public int animMod
+        {
+            get
+            {
+                return animationModifier;
+            }
+        }
         private int starDuration;
         
         public List<Fireball> fireBalls;
@@ -268,6 +275,11 @@ namespace Game
                     fBalls.Update();
                 }
             }
+            foreach (IEnemy enemy in enemyList)
+            {
+                enemy.Update();
+                enemyColDetector.Update();
+            }
 
             if (animationModifier % 20 == 0)
             {
@@ -283,11 +295,7 @@ namespace Game
                // {
                  //   block.Update();
               //  }
-                foreach (IEnemy enemy in enemyList)
-                {
-                    enemy.Update();
-                    enemyColDetector.Update();
-                }
+
                 foreach (IItem item in itemList)
                 {
                     item.Update();
