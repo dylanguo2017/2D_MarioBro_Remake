@@ -106,7 +106,10 @@ namespace Game
                     {
                         move = true;
                         crouch = false;
-                        marioPhys.xVel = -1;
+                        if (marioPhys.XCoor > offset)
+                        {
+                            marioPhys.xVel = -1;
+                        }
                     }
 
                 }
@@ -114,7 +117,10 @@ namespace Game
                 {
                     move = true;
                     facingLeft = true;
-                    marioPhys.xVel = -1;
+                    if (marioPhys.XCoor > offset)
+                    {
+                        marioPhys.xVel = -1;
+                    }
                 }
                 else
                 {
