@@ -529,3 +529,9 @@
 /processorParam:Quality=Best
 /build:SoundEffects/level-complete.wav
 
+#begin SoundEffects/pause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/pause.wav
+
