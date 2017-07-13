@@ -77,7 +77,6 @@ namespace Game.Enemies
                 else if (almostDead)
                 {
                     currentFrame = 8;
-                    //LifeTimer();
                 }
                 else if (dead)
                 {
@@ -134,17 +133,18 @@ namespace Game.Enemies
             }
         }
 
-       /* public void LifeTimer()
+        public void LifeTimer()
         {
             if (currentFrame == 8 && lifeTimer < 4)
             {
                 lifeTimer++;
             }
-            else if
+            else
             {
-                visible = false;
+                currentFrame = 3;
+                movingLeft = true;
             }
-        }*/
+        }
 
     }
 }

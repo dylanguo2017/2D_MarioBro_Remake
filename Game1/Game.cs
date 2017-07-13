@@ -39,6 +39,7 @@ namespace Game
         public Texture2D titleScreen;
 
         public Texture2D blockSprite;
+        public Texture2D blueBlockSprite;
         public Texture2D itemSprite;
 
         public List<IBlock> blockList;
@@ -181,8 +182,9 @@ namespace Game
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
+            blueBlockSprite = Content.Load<Texture2D>("blueBricks");
 
-            
+
             oneCloudBgElement = Content.Load<Texture2D>("1CloudBgElement");
             threeCloudsBgElement = Content.Load<Texture2D>("3CloudsBgElement");
             oneBushBgElement = Content.Load<Texture2D>("1BushElement");

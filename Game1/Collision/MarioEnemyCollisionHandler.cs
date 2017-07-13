@@ -25,7 +25,31 @@ namespace Game
                 {
                     if(vColFrom.Equals(Game.sides.top))
                     {
-                        KillEnemy(enemy);
+                        if (enemy is KoopaEnemy)
+                        {
+                            KoopaEnemy koopa = enemy as KoopaEnemy;
+                            if (koopa.movingLeft || koopa.movingRight)
+                            {
+                                koopa.almostDead = true;
+                                koopa.movingLeft = false;
+                                koopa.movingRight = false;
+                               // koopa.LifeTimer();
+                            }
+                            else if (koopa.almostDead)
+                            {
+                                koopa.dead = true;
+                                koopa.almostDead = false;
+                                koopa.movingLeft = false;
+                                koopa.movingRight = false;
+                                KillEnemy(koopa);
+                            }
+                            
+                        }
+                        else
+                        {
+                            KillEnemy(enemy);
+                        }
+
                     }
                     else if((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
                     {
