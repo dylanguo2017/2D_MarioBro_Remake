@@ -182,7 +182,7 @@ namespace Game
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
-            blueBlockSprite = Content.Load<Texture2D>("blueBricks");
+            //blueBlockSprite = Content.Load<Texture2D>("blueBricks");
 
 
             oneCloudBgElement = Content.Load<Texture2D>("1CloudBgElement");

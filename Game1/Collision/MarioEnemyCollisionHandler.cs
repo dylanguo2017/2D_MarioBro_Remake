@@ -43,13 +43,12 @@ namespace Game
                                 koopa.movingRight = false;
                                 KillEnemy(koopa);
                             }
-                            
                         }
                         else
                         {
                             KillEnemy(enemy);
                         }
-
+                        myGame.marioState.marioPhys.Bounce();
                     }
                     else if((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
                     {

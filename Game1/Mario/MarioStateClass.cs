@@ -155,7 +155,7 @@ namespace Game
                     jmpCtr--;
                     marioPhys.falling = true;
                     jump = true;
-                    marioPhys.yVel = -1;
+                    marioPhys.yVel = -4;
                 }
             }
         }
