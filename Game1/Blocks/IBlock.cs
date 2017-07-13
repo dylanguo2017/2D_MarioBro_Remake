@@ -28,7 +28,7 @@ namespace Game
 
         void Draw(SpriteBatch spriteBatch);
 
-
+        int DrawLoc { get; }
 
     }
 }

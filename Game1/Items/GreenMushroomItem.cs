@@ -70,12 +70,12 @@ namespace Game
 
         public void MoveLeft()
         {
-            drawLocation.X = drawLocation.X - 3;
+            drawLocation.X = drawLocation.X - 1;
         }
 
         public void MoveRight()
         {
-            drawLocation.X = drawLocation.X + 3;
+            drawLocation.X = drawLocation.X + 1;
         }
 
         public void OneUp()

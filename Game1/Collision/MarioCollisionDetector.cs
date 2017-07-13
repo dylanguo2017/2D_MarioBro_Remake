@@ -29,14 +29,14 @@ namespace Game
             myGame = game;
             hColFrom = sides.none;
             vColFrom = sides.none;
+            blockList = myGame.blockCamList;
+            enemyList = myGame.enemyCamList;
+            
         }
 
         public void Update()
         {
-            blockList = myGame.blockList;
-            enemyList = myGame.enemyList;
             itemList = myGame.itemList;
-
             marioRec = myGame.mario.DestinationRectangle();
             
             myGame.marioState.left = true;

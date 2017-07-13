@@ -33,10 +33,13 @@ namespace Game
 
         public virtual void Update()
         {
-            currentFrame++;
-            if (currentFrame == 75)
+            if (myGame.animMod % 20 == 0)
             {
-                currentFrame = 72;
+                currentFrame++;
+                if (currentFrame == 75)
+                {
+                    currentFrame = 72;
+                }
             }
         }
 

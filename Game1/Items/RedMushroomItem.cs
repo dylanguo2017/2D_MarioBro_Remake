@@ -8,7 +8,8 @@ namespace Game
     {
 
         private Game myGame;
-        public Point drawLocation;
+       
+        public Physics rmPhysics;
         private Rectangle destinationRectangle;
 
         public int rows { get; set; }
@@ -27,7 +28,8 @@ namespace Game
             currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+          
+            rmPhysics = new Physics(pointX, pointY);
             visible = true;
             movingRight = true;
         }
@@ -42,7 +44,7 @@ namespace Game
             {
                 MoveLeft();
             }
-
+            rmPhysics.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -55,7 +57,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle((int)rmPhysics.XCoor - myGame.camera.GetOffset(), (int)rmPhysics.YCoor, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -71,12 +73,12 @@ namespace Game
 
         private void MoveLeft()
         {
-            drawLocation.X = drawLocation.X - 3;
+            rmPhysics.xVel = -1;
         }
 
         private void MoveRight()
         {
-            drawLocation.X = drawLocation.X + 3;
+            rmPhysics.xVel = 1;
         }
 
         public void PowerUp()

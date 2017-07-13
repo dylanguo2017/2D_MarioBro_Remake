@@ -58,12 +58,17 @@ namespace Game.Enemies
                 {
                     currentFrame = 0;
                 }
-                else if (dead)
+            }
+            if (dead)
+            {
+                currentFrame = 2;
+                timer++;
+                if (timer > 20)
                 {
-                    currentFrame = 2;
+                    visible = false;
                 }
             }
-            if (movingLeft)
+            else if (movingLeft)
             {
                 moveLeft();
             }
@@ -111,14 +116,7 @@ namespace Game.Enemies
 
         public void StartTimer()
         {
-            if (timer < 1)
-            {
-                timer++;
-            }
-            else
-            {
-                visible = false;
-            }
+            
         }
 
     }

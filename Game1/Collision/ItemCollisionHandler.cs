@@ -78,6 +78,10 @@ namespace Game
             {
                 redMushroom.movingRight = true;
             }
+            if (vColFrom.Equals(Game.sides.top))
+            {
+                redMushroom.rmPhysics.DontFall();
+            }
 
         }
 

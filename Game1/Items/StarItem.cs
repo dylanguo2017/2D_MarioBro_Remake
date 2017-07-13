@@ -36,12 +36,14 @@ namespace Game
 
         public virtual void Update()
         {
-            currentFrame++;
-            if (currentFrame == 111)
+            if (myGame.animMod % 20 == 0)
             {
-                currentFrame = 108;
+                currentFrame++;
+                if (currentFrame == 111)
+                {
+                    currentFrame = 108;
+                }
             }
-
             if (movingRight)
             {
                 MoveRight();
@@ -61,7 +63,6 @@ namespace Game
                 movingUp = false;
                 MoveDown();
             }
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -90,22 +91,22 @@ namespace Game
 
         private void MoveUp()
         {
-            drawLocation.Y = drawLocation.Y - 5;
+            drawLocation.Y = drawLocation.Y - 1;
         }
 
         private void MoveDown()
         {
-            drawLocation.Y = drawLocation.Y + 5;
+            drawLocation.Y = drawLocation.Y + 1;
         }
 
         private void MoveLeft()
         {
-            drawLocation.X = drawLocation.X - 5;
+            drawLocation.X = drawLocation.X - 1;
         }
 
         private void MoveRight()
         {
-            drawLocation.X = drawLocation.X + 5;
+            drawLocation.X = drawLocation.X + 1;
         }
 
         public void PowerUp()

@@ -34,16 +34,18 @@ namespace Game
 
         public virtual void Update()
         {
-            currentFrame++;
-            if (currentFrame == 219)
+            if(myGame.animMod % 20 == 0)
             {
-                currentFrame = 252;
+                currentFrame++;
+                if (currentFrame == 219)
+                {
+                    currentFrame = 252;
+                }
+                if (currentFrame == 255)
+                {
+                    currentFrame = 216;
+                }
             }
-            if (currentFrame == 255)
-            {
-                currentFrame = 216;
-            }
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
