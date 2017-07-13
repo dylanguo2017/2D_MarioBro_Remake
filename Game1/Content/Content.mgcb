@@ -535,3 +535,15 @@
 /processorParam:Quality=Best
 /build:SoundEffects/pause.wav
 
+#begin SoundEffects/jump-super.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/jump-super.wav
+
+#begin SoundEffects/stomp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/stomp.wav
+

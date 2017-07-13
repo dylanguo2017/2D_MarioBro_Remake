@@ -58,6 +58,20 @@ namespace Game
             effect.Play();
         }
 
+        // call when Mario super jumps
+        public void SuperJump()
+        {
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/jump-super");
+            effect.Play();
+        }
+
+        // call when Mario stomps on enemies
+        public void Stomp()
+        {
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/stomp");
+            effect.Play();
+        }
+
         public void Fireball()
         {
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/fireball");

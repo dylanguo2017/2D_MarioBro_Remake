@@ -25,6 +25,7 @@ namespace Game
                 {
                     if(vColFrom.Equals(Game.sides.top))
                     {
+                        myGame.soundEffect.Stomp();
                         if (enemy is KoopaEnemy)
                         {
                             KoopaEnemy koopa = enemy as KoopaEnemy;
@@ -49,6 +50,7 @@ namespace Game
                             KillEnemy(enemy);
                         }
                         myGame.marioState.marioPhys.Bounce();
+                        myGame.soundEffect.SuperJump();
                     }
                     else if((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
                     {

@@ -427,3 +427,5 @@ C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Sounds\
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Items.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\Tileset.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\pause.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\jump-super.xnb
+C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stomp.xnb
