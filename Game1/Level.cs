@@ -46,8 +46,8 @@ namespace Game
                     }
                     if (target[positionColumn].Equals("blueBrick"))
                     {
-                        blueBrick gameObject = new blueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
+                        //blueBrick gameObject = new blueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        //blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("crack"))
                     {
@@ -56,8 +56,8 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("blueCrack"))
                     {
-                        blueCrack gameObject = new blueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
+                        //blueCrack gameObject = new blueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        //blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("diamond"))
                     {

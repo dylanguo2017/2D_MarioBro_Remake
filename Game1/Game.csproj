@@ -49,7 +49,9 @@
     <Compile Include="Background\Background.cs" />
     <Compile Include="Blocks\Brick.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="CameraObjectDetector.cs" />
     <Compile Include="Commands\SpaceCommand.cs" />
+    <Compile Include="Controllers\KeyBind.cs" />
     <Compile Include="Items\CoinItem.cs" />
     <Compile Include="Collision\EnemyCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionDetector.cs" />

@@ -9,6 +9,13 @@ namespace Game
 
         private Game myGame;
         public Point drawLocation;
+        public int DrawLoc
+        {
+            get
+            {
+                return drawLocation.X;
+            }
+        }
         private Rectangle destinationRectangle;
 
         public int rows { get; set; }

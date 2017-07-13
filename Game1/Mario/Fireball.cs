@@ -65,11 +65,11 @@ namespace Game
             ballPhys.Update();
             if (left)
             {
-                ballPhys.xVel = -1;
+                ballPhys.xVel = -2;
             }
             else
             {
-                ballPhys.xVel = 1;
+                ballPhys.xVel = 2;
             }   
         }
 
@@ -81,7 +81,7 @@ namespace Game
 
         public void Bounce()
         {
-            ballPhys.yVel = -1;
+            ballPhys.Bounce();
         }
 
         public void Draw(SpriteBatch spriteBatch)
