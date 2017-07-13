@@ -50,7 +50,6 @@ namespace Game
                             KillEnemy(enemy);
                         }
                         myGame.marioState.marioPhys.Bounce();
-                        myGame.soundEffect.SuperJump();
                     }
                     else if((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
                     {

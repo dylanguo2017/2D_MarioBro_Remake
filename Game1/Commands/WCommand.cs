@@ -13,7 +13,7 @@
         {
             if (!myGame.marioState.marioPhys.falling)
             {
-                myGame.soundEffect.Jump();
+                myGame.soundEffect.SuperJump();
             }
             myGame.marioState.moveUp();
         }
