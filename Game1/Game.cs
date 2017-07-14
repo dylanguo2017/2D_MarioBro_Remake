@@ -17,7 +17,7 @@ namespace Game
 
         public Camera camera;
         public CameraObjectDetector camObj;
-
+        public ItemSpawn itemSpawn;
         public IMario mario;
         
         private ArrayList contrl;
@@ -94,12 +94,10 @@ namespace Game
         {
             soundEffect = new SoundEffects(this);
             sound = new Sounds(this);
-
             contrl = new ArrayList();
-
             camera = new Camera(this);
             camObj = new CameraObjectDetector(this);
-
+            itemSpawn = new ItemSpawn(this);
 
             marioColDetector = new MarioCollisionDetector(this);
             enemyColDetector = new EnemyCollisionDetector(this);
@@ -212,6 +210,7 @@ namespace Game
                 }
             }
 
+            itemSpawn.Update();
             animationModifier++;
             foreach (IController x in contrl)
             {
@@ -236,6 +235,11 @@ namespace Game
                 enemy.Update();
                 enemyColDetector.Update();
             }
+            foreach (IItem item in itemCamList)
+            {
+                item.Update();
+                itemColDetector.Update();
+            }
 
             if (animationModifier % 20 == 0)
             {
@@ -252,13 +256,6 @@ namespace Game
                 //   block.Update();
                 //  }
 
-                foreach (IItem item in itemList)
-                {
-                    item.Update();
-                    itemColDetector.Update();
-                }
-
-
             }
             sound.Update();
             
@@ -269,7 +266,7 @@ namespace Game
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            itemSpawn.Draw(spriteBatch);
             foreach (IBackground background in bgList)
             {
                 background.Draw(spriteBatch);
@@ -283,7 +280,7 @@ namespace Game
             {
                 enemy.Draw(spriteBatch);
             }
-            foreach (IItem item in itemList)
+            foreach (IItem item in itemCamList)
             {
                 item.Draw(spriteBatch);
             }

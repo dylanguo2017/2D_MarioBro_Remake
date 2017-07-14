@@ -10,6 +10,13 @@ namespace Game
         private Game myGame;
        
         public Physics rmPhysics;
+        public int currentLoc
+        {
+            get
+            {
+                return rmPhysics.XCoor;
+            }
+        }
         private Rectangle destinationRectangle;
 
         public int rows { get; set; }
@@ -19,6 +26,7 @@ namespace Game
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
         public Boolean movingRight { get; set; }
+        public int spawnCtr = 0;
 
         public RedMushroomItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
@@ -57,7 +65,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)rmPhysics.XCoor - myGame.camera.GetOffset(), (int)rmPhysics.YCoor, width, height);
+                destinationRectangle = new Rectangle((int)rmPhysics.XCoor - myGame.camera.GetOffset(), (int)rmPhysics.YCoor-spawnCtr, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

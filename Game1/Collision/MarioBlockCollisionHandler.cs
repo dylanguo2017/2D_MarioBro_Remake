@@ -54,6 +54,7 @@ namespace Game
             {
                 question.BumpUp();
                 question.ChangeToUsed();
+                myGame.itemSpawn.SpawnItem(question.drawLocation);
             }
         }
         private void HandleInvisible(IBlock block)

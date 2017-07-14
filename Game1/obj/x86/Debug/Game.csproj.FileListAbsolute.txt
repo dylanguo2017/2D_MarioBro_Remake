@@ -401,13 +401,10 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.pdb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Sounds\main-theme-overworld.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\into-the-tunnel.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\level-complete.xnb
-C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\gameover.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\jumpsmall.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\mariodie.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\powerup_appears.xnb
-C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stage-clear.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stage_clear.xnb
-C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\warning.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\1-up.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\break.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\bump.xnb
@@ -430,3 +427,7 @@ C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\S
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\jump-super.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stomp.xnb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\kick.xnb
+C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\jump-super.xnb
+C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\kick.xnb
+C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\pause.xnb
+C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stomp.xnb

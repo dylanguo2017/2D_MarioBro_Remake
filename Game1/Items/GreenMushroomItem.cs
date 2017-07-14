@@ -10,6 +10,13 @@ namespace Game
         private Game myGame;
         public Point drawLocation;
         private Rectangle destinationRectangle;
+        public int currentLoc
+        {
+            get
+            {
+                return drawLocation.X;
+            }
+        }
 
         public int rows { get; set; }
         public int columns { get; set; }

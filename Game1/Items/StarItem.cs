@@ -10,7 +10,13 @@ namespace Game
         private Game myGame;
         private Point drawLocation;
         private Rectangle destinationRectangle;
-
+        public int currentLoc
+        {
+            get
+            {
+                return drawLocation.X;
+            }
+        }
         public int rows { get; set; }
         public int columns { get; set; }
         public Texture2D texture { get; set; }

@@ -99,6 +99,7 @@
     <Compile Include="Blocks\IBlock.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Blocks\Invisible.cs" />
+    <Compile Include="Items\ItemSpawn.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Mario\DrawFireMario.cs" />
     <Compile Include="Mario\DrawLargeMario.cs" />
