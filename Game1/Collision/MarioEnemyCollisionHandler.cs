@@ -25,7 +25,6 @@ namespace Game
                 {
                     if(vColFrom.Equals(Game.sides.top))
                     {
-                        myGame.soundEffect.Stomp();
                         if (enemy is KoopaEnemy)
                         {
                             KoopaEnemy koopa = enemy as KoopaEnemy;
@@ -62,6 +61,7 @@ namespace Game
 
         private void KillEnemy(IEnemy enemy)
         {
+            myGame.soundEffect.Stomp();
             enemy.dead = true;
             enemy.StartTimer();
         }

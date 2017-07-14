@@ -63,6 +63,7 @@ namespace Game
                     blockColHandler = new MarioBlockCollisionHandler(myGame);
                     blockColHandler.hColFrom = hColFrom;
                     blockColHandler.vColFrom = vColFrom;
+                    blockColHandler.intersecRec = Rectangle.Intersect(marioRec, blockRec);
                     blockColHandler.HandleCollision(myGame.mario, block);
                 }
             }

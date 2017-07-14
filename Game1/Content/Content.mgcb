@@ -541,6 +541,12 @@
 /processorParam:Quality=Best
 /build:SoundEffects/jump-super.wav
 
+#begin SoundEffects/kick.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/kick.wav
+
 #begin SoundEffects/stomp.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

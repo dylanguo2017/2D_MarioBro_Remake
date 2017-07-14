@@ -1,10 +1,13 @@
-﻿namespace Game
+﻿using Microsoft.Xna.Framework;
+
+namespace Game
 {
     public class MarioBlockCollisionHandler
     {
         private Game myGame;
         public Game.sides hColFrom { get; set; }
         public Game.sides vColFrom { get; set; }
+        public Rectangle intersecRec;
 
         public MarioBlockCollisionHandler(Game game)
         {
@@ -85,19 +88,23 @@
             if(hColFrom.Equals(Game.sides.right))
             {
                 myGame.marioState.left = false;
+                //myGame.marioState.marioPhys.XCoor += intersecRec.Width;
             }
             else if (hColFrom.Equals(Game.sides.left))
             {
                 myGame.marioState.right = false;
+                //myGame.marioState.marioPhys.XCoor -= intersecRec.Width;
             }
 
             if (vColFrom.Equals(Game.sides.bottom))
             {
                 myGame.marioState.up = false;
+                //myGame.marioState.marioPhys.YCoor += intersecRec.Height;
             }
             else if (vColFrom.Equals(Game.sides.top))
             {
                 myGame.marioState.down = false;
+                //myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
             }
         }
        

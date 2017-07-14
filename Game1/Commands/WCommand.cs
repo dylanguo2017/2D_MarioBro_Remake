@@ -11,10 +11,7 @@
 
         public void Execute()
         {
-            if (!myGame.marioState.marioPhys.falling)
-            {
-                myGame.soundEffect.SuperJump();
-            }
+            myGame.soundEffect.Jump();
             myGame.marioState.moveUp();
         }
     }
