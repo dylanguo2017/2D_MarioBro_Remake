@@ -31,6 +31,9 @@ namespace Game
             myGame.blockList = Level.blockList;
             myGame.itemList = Level.itemList;
             myGame.bgList = Level.bgList;
+            myGame.camObj.LoadLevel();
+
+            myGame.sound.state = Game.soundStates.reset;
         }
     }
 }

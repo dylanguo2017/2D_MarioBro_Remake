@@ -43,12 +43,13 @@ namespace Game
             }
         }
         private int animMod;
+        private Game myGame;
 
-
-        public SmallStarMario(MarioStateClass mainState, Texture2D spriteSheet)
+        public SmallStarMario(Game game)
         {
-            marioState = mainState;
-            texture = spriteSheet;
+            myGame = game;
+            marioState = myGame.marioState;
+            texture = myGame.marioSprites;
 
             rightFacingCurrentFrame = 44;
             leftFacingCurrentFrame = 50;
@@ -58,6 +59,8 @@ namespace Game
             altColor = false;
             animMod = 0;
             drawMar = new DrawSmallStarMario(this);
+
+            myGame.sound.Starman();
         }
 
         public MarioStateClass.marioStatus currentStatus()

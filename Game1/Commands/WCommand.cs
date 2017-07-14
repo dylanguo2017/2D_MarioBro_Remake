@@ -11,6 +11,7 @@
 
         public void Execute()
         {
+            myGame.soundEffect.Jump();
             myGame.marioState.moveUp();
         }
     }

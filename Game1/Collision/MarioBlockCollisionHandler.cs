@@ -1,46 +1,47 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
 
 namespace Game
 {
     public class MarioBlockCollisionHandler
     {
         private Game myGame;
-        private String horizontalSide;
-        private String verticalSide;
+        public Game.sides hColFrom { get; set; }
+        public Game.sides vColFrom { get; set; }
+        public Rectangle intersecRec;
 
         public MarioBlockCollisionHandler(Game game)
         {
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IBlock block, String marioColFromHorizontalSide, String marioColFromVerticalSide)
+        public void HandleCollision(IMario mario, IBlock block)
         {
-            horizontalSide = marioColFromHorizontalSide;
-            verticalSide = marioColFromVerticalSide;
-
-            DisableMarioMovement();
-            if (verticalSide.Equals("bottom"))
+            if (block.visible)
             {
-                myGame.marioState.up = false;
-                myGame.marioState.marioPhys.yVel = 0;
-                if (block is Question)
+                DisableMarioMovement();
+                if (vColFrom.Equals(Game.sides.bottom))
                 {
-                    HandleQuestion(block);
+                    myGame.marioState.marioPhys.yVel = 0;
+                    if (block is Question)
+                    {
+                        HandleQuestion(block);
+                    }
+                    else if (block is Brick)
+                    {
+                        HandleBrick(block);
+                    }
+                    else if (block is Invisible)
+                    {
+                        HandleInvisible(block);
+                    }
                 }
-                else if (block is Brick)
+                else if (vColFrom.Equals(Game.sides.top))
                 {
-                    HandleBrick(block);
+                    myGame.marioState.marioPhys.DontFall();
+                    myGame.marioState.jmpCtr = 20;
+                    myGame.marioState.jump = false;
+                    myGame.marioState.wPress = false;
                 }
-                else if (block is Invisible)
-                {
-                    HandleInvisible(block);
-                }
-            }
-            else if (verticalSide.Equals("top"))
-            {
-                myGame.marioState.marioPhys.DontFall();
-                myGame.marioState.jmpCtr = 100;
-                myGame.marioState.jump = false;
             }
         }
 
@@ -51,7 +52,7 @@ namespace Game
 
             if (!question.used && !question.hit)
             {
-                question.BumpBlock();
+                question.BumpUp();
                 question.ChangeToUsed();
             }
         }
@@ -61,45 +62,49 @@ namespace Game
 
             if (!invisible.used && !invisible.hit)
             {
-                invisible.BumpBlock();
+                invisible.BumpUp();
                 invisible.ChangeToUsed();
             }
         }
 
         private void HandleBrick(IBlock block)
         {
+            Brick brick = block as Brick;
             if (!(myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
             {
-                block.visible = false;
+                brick.Break();
             }
             else
             {
-                Brick brickBlock = block as Brick;
-                if (!brickBlock.hit)
+                if (!brick.hit)
                 {
-                    brickBlock.BumpBlock();
+                    brick.BumpUp();
                 }
             }
         }
 
         private void DisableMarioMovement()
         {
-            if(horizontalSide.Equals("right"))
-            {
-                myGame.marioState.right = false;
-            }
-            else if (horizontalSide.Equals("left"))
+            if(hColFrom.Equals(Game.sides.right))
             {
                 myGame.marioState.left = false;
+                //myGame.marioState.marioPhys.XCoor += intersecRec.Width;
+            }
+            else if (hColFrom.Equals(Game.sides.left))
+            {
+                myGame.marioState.right = false;
+                //myGame.marioState.marioPhys.XCoor -= intersecRec.Width;
             }
 
-            if (verticalSide.Equals("bottom"))
+            if (vColFrom.Equals(Game.sides.bottom))
             {
                 myGame.marioState.up = false;
+                //myGame.marioState.marioPhys.YCoor += intersecRec.Height;
             }
-            else if (verticalSide.Equals("top"))
+            else if (vColFrom.Equals(Game.sides.top))
             {
                 myGame.marioState.down = false;
+                //myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
             }
         }
        

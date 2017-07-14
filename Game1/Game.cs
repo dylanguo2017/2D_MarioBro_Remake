@@ -16,6 +16,7 @@ namespace Game
         public MarioStateClass marioState;
 
         public Camera camera;
+        public CameraObjectDetector camObj;
 
         public IMario mario;
         
@@ -39,6 +40,7 @@ namespace Game
         public Texture2D titleScreen;
 
         public Texture2D blockSprite;
+        public Texture2D blueBlockSprite;
         public Texture2D itemSprite;
 
         public List<IBlock> blockList;
@@ -47,35 +49,40 @@ namespace Game
         public List<IItem> itemList;
         public List<IBackground> bgList;
 
-        private ICommand qtCmd;
-        private ICommand wCmd;
-        private ICommand aCmd;
-        private ICommand sCmd;
-        private ICommand dCmd;
-        private ICommand zCmd;
-        private ICommand xCmd;
-        private ICommand cCmd;
-        private ICommand yCmd;
-        private ICommand uCmd;
-        private ICommand iCmd;
-        private ICommand oCmd;
-        private ICommand rCmd;
-        private ICommand auCmd;
-        private ICommand adCmd;
-        private ICommand alCmd;
-        private ICommand arCmd;
+        public List<IBlock> blockCamList;
+        public List<IBlock> questionBlockCamList;
+        public List<IEnemy> enemyCamList;
+        public List<IItem> itemCamList;
+        public List<IBackground> bgCamList;
+
+        public IController keyboard;
+        public IController gmPad;
 
         private int animationModifier;
+        public int animMod
+        {
+            get
+            {
+                return animationModifier;
+            }
+        }
         private int starDuration;
         
         public List<Fireball> fireBalls;
         public int fbDelay;
         public int countOfPopItem;
 
+        public enum sides { left, right, top, bottom, none };
+
         private ICollisionDetector marioColDetector;
         private ICollisionDetector enemyColDetector;
         private ICollisionDetector itemColDetector;
         private ICollisionDetector projColDet;
+
+        public SoundEffects soundEffect;
+        public Sounds sound;
+
+        public enum soundStates { mainTheme, starman, hurry, gameOver, pause, stop, reset };
 
         public Game()
         {
@@ -84,61 +91,26 @@ namespace Game
         }
 
         protected override void Initialize()
-        {   
+        {
+            soundEffect = new SoundEffects(this);
+            sound = new Sounds(this);
+
             contrl = new ArrayList();
 
             camera = new Camera(this);
+            camObj = new CameraObjectDetector(this);
+
 
             marioColDetector = new MarioCollisionDetector(this);
             enemyColDetector = new EnemyCollisionDetector(this);
             itemColDetector = new ItemCollisionDetector(this);
             
-            IController keyboard = new KeyboardController();
-            IController gmPad = new GamepadController();
-
+            keyboard = new KeyboardController();
+            gmPad = new GamepadController();
+            KeyBind keyB = new KeyBind(this);
+            keyB.BindKey();
             contrl.Add(keyboard);
             contrl.Add(gmPad);
-
-            qtCmd = new QuitCommand(this);
-            wCmd = new WCommand(this);
-            aCmd = new ACommand(this);
-            sCmd = new SCommand(this);
-            dCmd = new DCommand(this);
-            zCmd = new ZCommand(this);
-            xCmd = new XCommand(this);
-            cCmd = new CCommand(this);
-            yCmd = new YCommand(this);
-            uCmd = new UCommand(this);
-            iCmd = new ICmd(this);
-            oCmd = new OCommand(this);
-            rCmd = new RCommand(this);
-            auCmd = new AUCommand(this);
-            adCmd = new ADCommand(this);
-            alCmd = new ALCommand(this);
-            arCmd = new ARCommand(this);
-            keyboard.RegisterCommand(Keys.Q, qtCmd);
-            keyboard.RegisterCommand(Keys.W, wCmd);
-            keyboard.RegisterCommand(Keys.A, aCmd);
-            keyboard.RegisterCommand(Keys.S, sCmd);
-            keyboard.RegisterCommand(Keys.D, dCmd);
-            keyboard.RegisterCommand(Keys.Z, zCmd);
-            keyboard.RegisterCommand(Keys.X, xCmd);
-            keyboard.RegisterCommand(Keys.C, cCmd);
-            keyboard.RegisterCommand(Keys.Y, yCmd);
-            keyboard.RegisterCommand(Keys.U, uCmd);
-            keyboard.RegisterCommand(Keys.I, iCmd);
-            keyboard.RegisterCommand(Keys.O, oCmd);
-            keyboard.RegisterCommand(Keys.R, rCmd);
-            keyboard.RegisterCommand(Keys.Up, auCmd);
-            keyboard.RegisterCommand(Keys.Down, adCmd);
-            keyboard.RegisterCommand(Keys.Left, alCmd);
-            keyboard.RegisterCommand(Keys.Right, arCmd);
-            gmPad.RegisterCommand(Buttons.LeftThumbstickUp, wCmd);
-            gmPad.RegisterCommand(Buttons.LeftThumbstickLeft, aCmd);
-            gmPad.RegisterCommand(Buttons.LeftThumbstickDown, sCmd);
-            gmPad.RegisterCommand(Buttons.LeftThumbstickRight, dCmd);
-            gmPad.RegisterCommand(Buttons.A, zCmd);
-            gmPad.RegisterCommand(Buttons.B, xCmd);
 
             marioState = new MarioStateClass(false, false, false, false);
             fireBalls = new List<Fireball>();
@@ -161,8 +133,9 @@ namespace Game
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
+            //blueBlockSprite = Content.Load<Texture2D>("blueBricks");
 
-            
+
             oneCloudBgElement = Content.Load<Texture2D>("1CloudBgElement");
             threeCloudsBgElement = Content.Load<Texture2D>("3CloudsBgElement");
             oneBushBgElement = Content.Load<Texture2D>("1BushElement");
@@ -186,6 +159,7 @@ namespace Game
             enemyList = Level.enemyList;
             blockList = Level.blockList;
             itemList = Level.itemList;
+            camObj.LoadLevel();
             
             bgList = Level.bgList;
             foreach(IBlock block in blockList)
@@ -221,6 +195,7 @@ namespace Game
                 starDuration--;
                 if(starDuration < 0)
                 {
+                    sound.state = soundStates.mainTheme;
                     starDuration = 500;
                     if (marioState.curStat.Equals(MarioStateClass.marioStatus.small))
                     {
@@ -248,12 +223,18 @@ namespace Game
             }
 
             mario.Update();
+            camObj.Update();
             if (fireBalls.Count != 0)
             {
                 foreach (Fireball fBalls in fireBalls)
                 {
                     fBalls.Update();
                 }
+            }
+            foreach (IEnemy enemy in enemyCamList)
+            {
+                enemy.Update();
+                enemyColDetector.Update();
             }
 
             if (animationModifier % 20 == 0)
@@ -262,26 +243,25 @@ namespace Game
                 {
                     background.Update();
                 }
-                foreach (IBlock block in blockList)
+                foreach (IBlock block in blockCamList)
                 {
                     block.Update();
                 }
-              //  foreach (IBlock block in questionBlockList)
-               // {
-                 //   block.Update();
-              //  }
-                foreach (IEnemy enemy in enemyList)
-                {
-                    enemy.Update();
-                    enemyColDetector.Update();
-                }
+                //  foreach (IBlock block in questionBlockList)
+                // {
+                //   block.Update();
+                //  }
+
                 foreach (IItem item in itemList)
                 {
                     item.Update();
                     itemColDetector.Update();
                 }
-                
+
+
             }
+            sound.Update();
+            
             base.Update(gameTime);
         }
         
@@ -294,21 +274,20 @@ namespace Game
             {
                 background.Draw(spriteBatch);
             }
-            foreach (IEnemy enemy in enemyList)
+            foreach (IBlock block in blockCamList)
+            {
+                block.Draw(spriteBatch);
+            }
+
+            foreach (IEnemy enemy in enemyCamList)
             {
                 enemy.Draw(spriteBatch);
             }
-            foreach (IBlock block in blockList)
-            {
-                
-                block.Draw(spriteBatch);
-            }
-            
             foreach (IItem item in itemList)
             {
                 item.Draw(spriteBatch);
             }
-            foreach(IBlock block in blockList)
+            foreach(IBlock block in blockCamList)
             {
                 if (block is Question)
                 {

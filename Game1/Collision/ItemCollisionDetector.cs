@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
+using static Game.Game;
 
 namespace Game
 {
@@ -12,8 +12,9 @@ namespace Game
 
         private Rectangle itemRec;
 
-        private String itemColFromHorizontalSide;
-        private String itemColFromVerticalSide;
+        private sides hColFrom;
+        private sides vColFrom;
+
         private ItemCollisionHandler itemColHandler;
 
         public ItemCollisionDetector(Game game)
@@ -39,7 +40,9 @@ namespace Game
                     {
                         CollidesFrom(blockRec);
                         itemColHandler = new ItemCollisionHandler(myGame);
-                        itemColHandler.HandleCollision(item, itemColFromHorizontalSide, itemColFromVerticalSide);
+                        itemColHandler.hColFrom = hColFrom;
+                        itemColHandler.vColFrom = vColFrom;
+                        itemColHandler.HandleCollision(item);
                     }
                 }
 
@@ -48,26 +51,31 @@ namespace Game
 
         public void CollidesFrom(Rectangle blockRec)
         {
-            itemColFromHorizontalSide = "none";
-            itemColFromVerticalSide = "none";
+            hColFrom = Game.sides.none;
+            vColFrom = Game.sides.none;
 
-            if (itemRec.Left > blockRec.Right - 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
+            if ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2))
             {
-                itemColFromHorizontalSide = "left";
-            }
-            else if (itemRec.Right < blockRec.Left + 2 && ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2)))
-            {
-                itemColFromHorizontalSide = "right";
+                if (itemRec.Right > blockRec.Right)
+                {
+                    hColFrom = Game.sides.right;
+                }
+                else if (itemRec.Left < blockRec.Left)
+                {
+                    hColFrom = Game.sides.left;
+                }
             }
 
-            if (itemRec.Bottom > blockRec.Bottom && itemRec.Top > blockRec.Bottom - 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
+            if ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2))
             {
-                itemColFromVerticalSide = "bottom";
-            }
-            else if (itemRec.Top < blockRec.Top && itemRec.Bottom < blockRec.Top + 2 && ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2)))
-            {
-                itemColFromVerticalSide = "top";
-
+                if (itemRec.Bottom > blockRec.Bottom)
+                {
+                    vColFrom = Game.sides.bottom;
+                }
+                else if (itemRec.Top < blockRec.Top)
+                {
+                    vColFrom = Game.sides.top;
+                }
             }
         }
 

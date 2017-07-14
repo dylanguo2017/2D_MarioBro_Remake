@@ -17,6 +17,7 @@ namespace Game
         private int offset = 0;
 
         Rectangle sourceRectangle, destinationRectangle;
+
         public int XCoor
         {
             get
@@ -28,6 +29,7 @@ namespace Game
                 ballPhys.XCoor = value;
             }
         }
+
         public int YCoor
         {
             get
@@ -63,11 +65,11 @@ namespace Game
             ballPhys.Update();
             if (left)
             {
-                ballPhys.xVel = -1;
+                ballPhys.xVel = -2;
             }
             else
             {
-                ballPhys.xVel = 1;
+                ballPhys.xVel = 2;
             }   
         }
 
@@ -76,10 +78,12 @@ namespace Game
             destinationRectangle = new Rectangle(0, 0, 0, 0);
             deleted = true;
         }
+
         public void Bounce()
         {
-            ballPhys.yVel = -1;
+            ballPhys.Bounce();
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             if (!deleted)

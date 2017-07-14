@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\Game1",
+    "\\Game1\\Collision",
     "\\Game1\\Content",
+    "\\Game1\\Content\\bin",
+    "\\Game1\\Content\\bin\\Windows",
     "\\Game1\\Controllers",
     "\\Game1\\Mario",
     "\\Game1\\obj",
     "\\Game1\\Properties"
   ],
-  "SelectedNode": "\\Game.sln",
+  "SelectedNode": "\\Game1\\Content\\bin\\Windows",
   "PreviewInSolutionExplorer": false
 }

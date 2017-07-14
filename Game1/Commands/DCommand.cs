@@ -11,7 +11,7 @@
 
         public void Execute()
         {
-            myGame.marioState.moveR();
+            myGame.marioState.MoveR();
         }
     }
 }

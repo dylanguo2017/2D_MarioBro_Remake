@@ -5,25 +5,29 @@
 
         public Game myGame;
         private int marioPosition;
-        public int width = 800;
+        private int maxOffset = 400;
         public static int offset;
+        private bool camIn;
         
-        
-
         public Camera(Game game)
         {
             myGame = game;
         }
         
               
-        public void Update()
+        public bool IsInCamera(int xCoor)
         {
-            
+            camIn = false;
+            if (xCoor > myGame.marioState.offset - 16 && xCoor < (myGame.marioState.offset + 800))
+            {
+                camIn = true;
+            }
+            return camIn;
         }
 
         public int GetOffset()
         {
-            int maxOffset = 400;
+
             
             marioPosition = myGame.marioState.XCoor;
 

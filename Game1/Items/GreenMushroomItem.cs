@@ -29,18 +29,18 @@ namespace Game
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            this.movingRight = true;
+            movingRight = true;
         }
 
         public virtual void Update()
         {
             if (movingRight.Equals(true))
             {
-                moveRight();
+                MoveRight();
             }
             else
             {
-                moveLeft();
+                MoveLeft();
             }
         }
 
@@ -68,16 +68,21 @@ namespace Game
         }
 
 
-        public void moveLeft()
+        public void MoveLeft()
         {
-            drawLocation.X--;
+            drawLocation.X = drawLocation.X - 1;
         }
 
-        public void moveRight()
+        public void MoveRight()
         {
-            drawLocation.X++;
+            drawLocation.X = drawLocation.X + 1;
         }
 
+        public void OneUp()
+        {
+            visible = false;
+            myGame.soundEffect.OneUp();
+        }
 
 
     }

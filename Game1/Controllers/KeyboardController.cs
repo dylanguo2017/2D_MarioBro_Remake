@@ -7,6 +7,7 @@ namespace Game
     public class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
+        public bool wDown = false;
         
         Keys[] exist = new Keys[17] {Keys.W,Keys.A,Keys.S,Keys.D,Keys.R, Keys.Y, Keys.U, Keys.I, Keys.O, Keys.Z, Keys.X, Keys.C, Keys.Q, Keys.Up, Keys.Down, Keys.Left, Keys.Right };
 
@@ -41,8 +42,17 @@ namespace Game
                     if (keyB.Equals(key))
                     {
                         controllerMappings[key].Execute();
+                        if (!wDown && keyB.Equals(Keys.W))
+                        {
+                            wDown = true;
+                        }
                     }
                 }
+            }
+            if (wDown && Keyboard.GetState().IsKeyUp(Keys.W))
+            {
+                controllerMappings[Keys.Space].Execute();
+                wDown = false;
             }
         }
     }

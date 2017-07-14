@@ -19,6 +19,7 @@ namespace Game
         public Physics marioPhys;
         public int offset = 0;
         public int jmpCtr = 0;
+        public bool wPress = false;
 
         public int XCoor
         {
@@ -59,7 +60,7 @@ namespace Game
             inv = false;
         }
 
-        public void moveR()
+        public void MoveR()
         {
             if (right && !(curStat.Equals(marioStatus.dead)))
             {
@@ -91,7 +92,7 @@ namespace Game
 
         }
 
-        public void moveL()
+        public void MoveL()
         {
             if (left && !(curStat.Equals(marioStatus.dead)))
             {
@@ -106,7 +107,10 @@ namespace Game
                     {
                         move = true;
                         crouch = false;
-                        marioPhys.xVel = -1;
+                        if (marioPhys.XCoor > offset)
+                        {
+                            marioPhys.xVel = -1;
+                        }
                     }
 
                 }
@@ -114,7 +118,10 @@ namespace Game
                 {
                     move = true;
                     facingLeft = true;
-                    marioPhys.xVel = -1;
+                    if (marioPhys.XCoor > offset)
+                    {
+                        marioPhys.xVel = -1;
+                    }
                 }
                 else
                 {
@@ -123,7 +130,7 @@ namespace Game
             }
         }
 
-        public void moveDown()
+        public void MoveDown()
         {
             if (!curStat.Equals(marioStatus.dead) && !curStat.Equals(marioStatus.small))
             {
@@ -143,12 +150,12 @@ namespace Game
                 {
                     crouch = false;
                 }
-                else if (jmpCtr > 0)
+                else if (jmpCtr > 0 && !wPress)
                 {
                     jmpCtr--;
                     marioPhys.falling = true;
                     jump = true;
-                    marioPhys.yVel = -1;
+                    marioPhys.yVel = -4;
                 }
             }
         }

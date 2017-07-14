@@ -1,7 +1,7 @@
 ﻿using Game.Enemies;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
+using static Game.Game;
 
 namespace Game
 {
@@ -17,8 +17,8 @@ namespace Game
         private Rectangle enemyRec;
         private Rectangle itemRec;
 
-        private String marioColFromHorizontalSide;
-        private String marioColFromVerticalSide;
+        private sides hColFrom;
+        private sides vColFrom;
 
         private MarioBlockCollisionHandler blockColHandler;
         private MarioEnemyCollisionHandler enemyColHandler;
@@ -27,14 +27,16 @@ namespace Game
         public MarioCollisionDetector(Game game)
         {
             myGame = game;
+            hColFrom = sides.none;
+            vColFrom = sides.none;
+            blockList = myGame.blockCamList;
+            enemyList = myGame.enemyCamList;
+            
         }
 
         public void Update()
         {
-            blockList = myGame.blockList;
-            enemyList = myGame.enemyList;
             itemList = myGame.itemList;
-
             marioRec = myGame.mario.DestinationRectangle();
             
             myGame.marioState.left = true;
@@ -56,9 +58,13 @@ namespace Game
 
                 if (blockRec.X <= 800 && marioRec.Intersects(blockRec))
                 {
+                    //System.Diagnostics.Debug.WriteLine("block col");
                     CollidesFrom(blockRec);
                     blockColHandler = new MarioBlockCollisionHandler(myGame);
-                    blockColHandler.HandleCollision(myGame.mario, block, marioColFromHorizontalSide, marioColFromVerticalSide);
+                    blockColHandler.hColFrom = hColFrom;
+                    blockColHandler.vColFrom = vColFrom;
+                    blockColHandler.intersecRec = Rectangle.Intersect(marioRec, blockRec);
+                    blockColHandler.HandleCollision(myGame.mario, block);
                 }
             }
         }
@@ -74,7 +80,9 @@ namespace Game
                 {
                     CollidesFrom(enemyRec);
                     enemyColHandler = new MarioEnemyCollisionHandler(myGame);
-                    enemyColHandler.HandleCollision(myGame.mario, enemy, marioColFromHorizontalSide, marioColFromVerticalSide);
+                    enemyColHandler.hColFrom = hColFrom;
+                    enemyColHandler.vColFrom = vColFrom;
+                    enemyColHandler.HandleCollision(myGame.mario, enemy);
                 }
             }
         }
@@ -87,6 +95,7 @@ namespace Game
 
                 if (itemRec.X <= 800 && marioRec.Intersects(itemRec))
                 {
+                    //System.Diagnostics.Debug.WriteLine("item col");
                     CollidesFrom(itemRec);
                     itemColHandler = new MarioItemCollisionHandler(myGame);
                     itemColHandler.HandleCollision(myGame.mario, item);
@@ -96,26 +105,31 @@ namespace Game
         
         public void CollidesFrom(Rectangle objectRec)
         {
-            marioColFromHorizontalSide = "none";
-            marioColFromVerticalSide = "none";
+            hColFrom = Game.sides.none;
+            vColFrom = Game.sides.none;
 
-            if (marioRec.Left > objectRec.Right - 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
+            if ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2))
             {
-                marioColFromHorizontalSide = "left";
-            }
-            else if (marioRec.Right < objectRec.Left + 2 && ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2)))
-            {
-                marioColFromHorizontalSide = "right";
+                if (marioRec.Right > objectRec.Right)
+                {
+                    hColFrom = Game.sides.right;
+                }
+                else if (marioRec.Left < objectRec.Left)
+                {
+                    hColFrom = Game.sides.left;
+                }
             }
 
-            if (marioRec.Bottom > objectRec.Bottom && marioRec.Top > objectRec.Bottom - 2 && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
+            if ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2))
             {
-                marioColFromVerticalSide = "bottom";
-            }
-            else if (marioRec.Top < objectRec.Top && marioRec.Bottom < objectRec.Top + 2  && ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2)))
-            {
-                marioColFromVerticalSide = "top";
-                
+                if (marioRec.Bottom > objectRec.Bottom)
+                {
+                    vColFrom = Game.sides.bottom;
+                }
+                else if (marioRec.Top < objectRec.Top)
+                {
+                    vColFrom = Game.sides.top;
+                }
             }
 
         }

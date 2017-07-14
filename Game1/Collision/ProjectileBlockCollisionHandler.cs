@@ -1,19 +1,19 @@
-﻿using System;
-
-namespace Game
+﻿namespace Game
 {
     public class ProjectileBlockCollisionHandler
     {
         private Game myGame;
+        public Game.sides hColFrom { get; set; }
+        public Game.sides vColFrom { get; set; }
 
         public ProjectileBlockCollisionHandler(Game game)
         {
             myGame = game;
         }
 
-        public void HandleCollision(Fireball fBalls, String projColFrom)
+        public void HandleCollision(Fireball fBalls)
         {
-            if (projColFrom.Equals("top"))
+            if (vColFrom.Equals(Game.sides.top))
             {
                 fBalls.Bounce();
             }

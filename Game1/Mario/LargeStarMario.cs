@@ -44,12 +44,13 @@ namespace Game
                 return altColor;
             }
         }
+        private Game myGame;
 
-
-        public LargeStarMario(MarioStateClass mainState, Texture2D spriteSheet)
+        public LargeStarMario(Game game)
         {
-            marioState = mainState;
-            texture = spriteSheet;
+            myGame = game;
+            marioState = myGame.marioState;
+            texture = myGame.marioSprites;
 
             leftFacingCurrentFrame = 63;
             rightFacingCurrentFrame = 56;
@@ -59,6 +60,8 @@ namespace Game
             altColor = false;
             animMod = 0;
             drawMar = new DrawLargeStarMario(this);
+
+            myGame.sound.Starman();
         }
 
         public MarioStateClass.marioStatus currentStatus()

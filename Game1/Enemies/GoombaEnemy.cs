@@ -7,7 +7,14 @@ namespace Game.Enemies
     public class GoombaEnemy :IEnemy
     {
         private Game myGame;
-        public Point drawLocation;
+        public Physics GoombaPhys;
+        public Physics enemyPhys
+        {
+            get
+            {
+                return GoombaPhys;
+            }
+        }
         private Rectangle destinationRectangle;
         private Rectangle sourceRectangle { get; set; }
 
@@ -20,6 +27,7 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
         public Boolean movingLeft { get; set; }
+        public Boolean movingRight { get; set; }
         public Boolean dead { get; set; }
 
         private int timer;
@@ -32,9 +40,10 @@ namespace Game.Enemies
             currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            GoombaPhys = new Physics(pointX, pointY);
             visible = true;
             movingLeft = true;
+            movingRight = false;
             dead = false;
             timer = 0;
 
@@ -42,24 +51,32 @@ namespace Game.Enemies
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == 2)
+            if (myGame.animMod % 20 == 0)
             {
-                currentFrame = 0;
-            }
-            if (movingLeft)
-            {
-                moveLeft();
-            }
-            else
-            {
-                moveRight();
+                currentFrame++;
+                if (currentFrame == 2)
+                {
+                    currentFrame = 0;
+                }
             }
             if (dead)
             {
                 currentFrame = 2;
+                timer++;
+                if (timer > 20)
+                {
+                    visible = false;
+                }
             }
-            
+            else if (movingLeft)
+            {
+                moveLeft();
+            }
+            else if (movingRight)
+            {
+                moveRight();
+            }
+            GoombaPhys.Update();
 
         }
 
@@ -73,7 +90,7 @@ namespace Game.Enemies
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle((int)GoombaPhys.XCoor - myGame.camera.GetOffset(), (int)GoombaPhys.YCoor, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -89,24 +106,17 @@ namespace Game.Enemies
 
         public void moveLeft()
         {
-            drawLocation.X--;
+            GoombaPhys.XCoor--;
         }
 
         public void moveRight()
         {
-            drawLocation.X++;
+            GoombaPhys.XCoor++;
         }
 
         public void StartTimer()
         {
-            if (timer < 1)
-            {
-                timer++;
-            }
-            else
-            {
-                visible = false;
-            }
+            
         }
 
     }

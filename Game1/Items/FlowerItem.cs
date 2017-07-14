@@ -28,19 +28,19 @@ namespace Game
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
-            visible = true;
-            
+            visible = true;            
         }
 
         public virtual void Update()
         {
-            currentFrame++;
-            if (currentFrame == 75)
+            if (myGame.animMod % 20 == 0)
             {
-                currentFrame = 72;
+                currentFrame++;
+                if (currentFrame == 75)
+                {
+                    currentFrame = 72;
+                }
             }
-            
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -64,6 +64,22 @@ namespace Game
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
+        }
+
+        public void PowerUp()
+        {
+            visible = false;
+            myGame.soundEffect.PowerUp();
+
+            if (myGame.marioState.star)
+            {
+                myGame.mario = new LargeStarMario(myGame);
+                myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
+            }
+            else
+            {
+                myGame.mario = new FireMario(myGame.marioState, myGame.marioSprites);
+            }
         }
 
     }

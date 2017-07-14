@@ -7,7 +7,6 @@ namespace Game.Enemies
     public class KoopaEnemy : IEnemy
     {
         private Game myGame;
-        public Point drawLocation;
         private Rectangle destinationRectangle;
         private Rectangle sourceRectangle { get; set; }
 
@@ -20,9 +19,19 @@ namespace Game.Enemies
 
         public Boolean visible { get; set; }
         public Boolean movingLeft { get; set; }
+        public Boolean movingRight { get; set; }
+        public Boolean almostDead { get; set; }
         public Boolean dead { get; set; }
-
+        public Physics enemyPhys
+        {
+            get
+            {
+                return KoopaPhys;
+            }
+        }
+        private Physics KoopaPhys;
         private int timer;
+        private int lifeTimer;
 
         public KoopaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
@@ -32,50 +41,50 @@ namespace Game.Enemies
             currentFrame = 3;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            KoopaPhys = new Physics(pointX, pointY);
             visible = true;
             movingLeft = true;
+            movingRight = false;
+            almostDead = false;
             dead = false;
             timer = 0;
+            lifeTimer = 0;
             
         }
 
         public void Update()
         {
-            
-               
-            if (movingLeft)
+            if(myGame.animMod % 20 == 0)
             {
-                currentFrame--;
-                if (currentFrame == 1)
+                if (movingLeft)
                 {
-                    currentFrame = 3;
+                    currentFrame--;
+                    if (currentFrame == 1)
+                    {
+                        currentFrame = 3;
+                    }
+                    moveLeft();
+                }
+                else if (movingRight)
+                {
+                    currentFrame++;
+                    if (currentFrame == 6)
+                    {
+                        currentFrame = 4;
+                    }
+                    moveRight();
+                }
+                else if (almostDead)
+                {
+                    currentFrame = 8;
+                }
+                else if (dead)
+                {
+                    currentFrame = 9;
                 }
             }
-            else
-            {
-                currentFrame++;
-                if (currentFrame == 6)
-                {
-                    currentFrame = 4;
-                }
 
-            }
-            if (movingLeft)
-            {
-                moveLeft();
-            }
-            else
-            {
-                moveRight();
-            }
-            if (dead)
-            {
-                currentFrame = 8;
-            }
-
-
-
+            KoopaPhys.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -88,7 +97,7 @@ namespace Game.Enemies
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y - 7, width, height);
+                destinationRectangle = new Rectangle((int)KoopaPhys.XCoor - myGame.camera.GetOffset(), (int)KoopaPhys.YCoor - 7, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -104,12 +113,12 @@ namespace Game.Enemies
 
         public void moveLeft()
         {
-            drawLocation.X--;
+            KoopaPhys.XCoor--;
         }
 
         public void moveRight()
         {
-            drawLocation.X++;
+            KoopaPhys.XCoor++;
         }
 
         public void StartTimer()
@@ -121,6 +130,19 @@ namespace Game.Enemies
             else
             {
                 visible = false;
+            }
+        }
+
+        public void LifeTimer()
+        {
+            if (currentFrame == 8 && lifeTimer < 4)
+            {
+                lifeTimer++;
+            }
+            else
+            {
+                currentFrame = 3;
+                movingLeft = true;
             }
         }
 

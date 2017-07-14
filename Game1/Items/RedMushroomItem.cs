@@ -8,7 +8,8 @@ namespace Game
     {
 
         private Game myGame;
-        public Point drawLocation;
+       
+        public Physics rmPhysics;
         private Rectangle destinationRectangle;
 
         public int rows { get; set; }
@@ -27,22 +28,23 @@ namespace Game
             currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+          
+            rmPhysics = new Physics(pointX, pointY);
             visible = true;
-            this.movingRight = true;
+            movingRight = true;
         }
 
         public virtual void Update()
         {
             if (movingRight.Equals(true))
             {
-                moveRight();
+                MoveRight();
             }
             else
             {
-                moveLeft();
+                MoveLeft();
             }
-
+            rmPhysics.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -55,7 +57,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle((int)rmPhysics.XCoor - myGame.camera.GetOffset(), (int)rmPhysics.YCoor, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -69,17 +71,33 @@ namespace Game
         }
 
 
-        public void moveLeft()
+        private void MoveLeft()
         {
-            drawLocation.X--;
+            rmPhysics.xVel = -1;
         }
 
-        public void moveRight()
+        private void MoveRight()
         {
-            drawLocation.X++;
+            rmPhysics.xVel = 1;
         }
 
+        public void PowerUp()
+        {
+            visible = false;
+            myGame.soundEffect.PowerUp();
 
+            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+            {
+                if (myGame.marioState.star)
+                {
+                    myGame.mario = new LargeStarMario(myGame);
+                }
+                else
+                {
+                    myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
+                }
+            }
+        }
 
     }
 }

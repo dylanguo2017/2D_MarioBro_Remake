@@ -20,7 +20,7 @@ namespace Game
         }
         public double yCoor;
         public double yVel;
-        public double yAcc = 0.02;
+        public double yAcc = 0.2;
         public int YCoor
         {
             get
@@ -47,10 +47,13 @@ namespace Game
             falling = false;
             yVel = 0;
         }
-        
+        public void Bounce()
+        {
+            yVel = -3;
+        }
         public void Update()
         {
-            if (falling && yVel < 1)
+            if (falling)
             {        
                 yVel += yAcc;
             }

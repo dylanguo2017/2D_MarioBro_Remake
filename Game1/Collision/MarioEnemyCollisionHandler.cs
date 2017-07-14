@@ -1,18 +1,19 @@
 ﻿using Game.Enemies;
-using System;
 
 namespace Game
 {
     public class MarioEnemyCollisionHandler
     {
         private Game myGame;
+        public Game.sides hColFrom { get; set; }
+        public Game.sides vColFrom { get; set; }
 
         public MarioEnemyCollisionHandler(Game game)
         {
             myGame = game;
         }
 
-        public void HandleCollision(IMario mario, IEnemy enemy, String marioColFromHorizontalSide, String marioColFromVerticalSide)
+        public void HandleCollision(IMario mario, IEnemy enemy)
         {
             if (enemy.visible)
             {
@@ -22,13 +23,36 @@ namespace Game
                 }
                 else
                 {
-                    if (((marioColFromVerticalSide.Equals("bottom") || marioColFromHorizontalSide.Equals("left") || marioColFromHorizontalSide.Equals("right"))) && !myGame.marioState.inv)
+                    if(vColFrom.Equals(Game.sides.top))
+                    {
+                        if (enemy is KoopaEnemy)
+                        {
+                            KoopaEnemy koopa = enemy as KoopaEnemy;
+                            if (koopa.movingLeft || koopa.movingRight)
+                            {
+                                koopa.almostDead = true;
+                                koopa.movingLeft = false;
+                                koopa.movingRight = false;
+                               // koopa.LifeTimer();
+                            }
+                            else if (koopa.almostDead)
+                            {
+                                koopa.dead = true;
+                                koopa.almostDead = false;
+                                koopa.movingLeft = false;
+                                koopa.movingRight = false;
+                                KillEnemy(koopa);
+                            }
+                        }
+                        else
+                        {
+                            KillEnemy(enemy);
+                        }
+                        myGame.marioState.marioPhys.Bounce();
+                    }
+                    else if((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
                     {
                         ChangeMarioState();   
-                    }
-                    else if (marioColFromVerticalSide.Equals("top"))
-                    {
-                        KillEnemy(enemy);
                     }
                 }
             }
@@ -37,6 +61,7 @@ namespace Game
 
         private void KillEnemy(IEnemy enemy)
         {
+            myGame.soundEffect.Stomp();
             enemy.dead = true;
             enemy.StartTimer();
         }
@@ -45,7 +70,7 @@ namespace Game
         {
             if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
             {
-                myGame.mario = new DeadMario(myGame.marioState, myGame.marioSprites);
+                myGame.mario = new DeadMario(myGame);
             }
             else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
             {
