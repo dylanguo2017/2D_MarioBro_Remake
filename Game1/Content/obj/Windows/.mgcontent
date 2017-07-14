@@ -45,19 +45,19 @@
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/fireball.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/flagpole.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/powerup.wav</File>
-    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/break.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/jump.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/powerup-appears.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/starman.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/game-over.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/hurry.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/main-theme-overworld.wav</File>
-    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/mariodies.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/into-the-tunnel.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/level-complete.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/pause.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/jump-super.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/kick.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/stomp.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/break.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/mariodies.wav</File>
   </SourceFiles>
 </SourceFileCollection>

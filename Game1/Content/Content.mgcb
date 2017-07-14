@@ -469,12 +469,6 @@
 /processorParam:Quality=Best
 /build:SoundEffects/powerup.wav
 
-#begin SoundEffects/break.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/break.wav
-
 #begin SoundEffects/jump.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -511,12 +505,6 @@
 /processorParam:Quality=Best
 /build:Sounds/main-theme-overworld.wav
 
-#begin SoundEffects/mariodies.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/mariodies.wav
-
 #begin SoundEffects/into-the-tunnel.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -552,4 +540,16 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SoundEffects/stomp.wav
+
+#begin SoundEffects/break.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/break.wav
+
+#begin SoundEffects/mariodies.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/mariodies.wav
 
