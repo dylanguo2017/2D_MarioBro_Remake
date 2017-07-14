@@ -236,11 +236,6 @@ namespace Game
                 enemy.Update();
                 enemyColDetector.Update();
             }
-            foreach (IItem item in itemList)
-            {
-                item.Update();
-                itemColDetector.Update();
-            }
 
             if (animationModifier % 20 == 0)
             {
@@ -252,13 +247,18 @@ namespace Game
                 {
                     block.Update();
                 }
-              //  foreach (IBlock block in questionBlockList)
-               // {
-                 //   block.Update();
-              //  }
+                //  foreach (IBlock block in questionBlockList)
+                // {
+                //   block.Update();
+                //  }
+
+                foreach (IItem item in itemList)
+                {
+                    item.Update();
+                    itemColDetector.Update();
+                }
 
 
-                
             }
             sound.Update();
             

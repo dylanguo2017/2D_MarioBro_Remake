@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/RedMushroomItem.png</SourceFile>
-  <SourceTime>2017-07-05T19:00:51.3184927-04:00</SourceTime>
+  <SourceTime>2017-07-14T13:56:42.50391-04:00</SourceTime>
   <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/RedMushroomItem.xnb</DestFile>
-  <DestTime>2017-07-13T17:50:54.7446036-04:00</DestTime>
+  <DestTime>2017-07-14T14:00:32.0769121-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
