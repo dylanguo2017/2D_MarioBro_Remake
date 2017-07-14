@@ -58,6 +58,9 @@ namespace Game
         public IController keyboard;
         public IController gmPad;
 
+        public bool pause;
+        public Pause paused;
+
         private int animationModifier;
         public int animMod
         {
@@ -109,6 +112,7 @@ namespace Game
             keyB.BindKey();
             contrl.Add(keyboard);
             contrl.Add(gmPad);
+            paused = new Pause(this);
 
             marioState = new MarioStateClass(false, false, false, false);
             fireBalls = new List<Fireball>();
@@ -180,6 +184,11 @@ namespace Game
 
         protected override void Update(GameTime gameTime)
         {
+            paused.Update();
+            if (pause)
+            {
+                return;
+            }
             if(fbDelay > 0)
             {
                 fbDelay--;
@@ -266,6 +275,7 @@ namespace Game
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            paused.Draw(spriteBatch);
             itemSpawn.Draw(spriteBatch);
             foreach (IBackground background in bgList)
             {

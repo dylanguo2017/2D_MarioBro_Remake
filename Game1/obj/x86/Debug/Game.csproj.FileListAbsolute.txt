@@ -431,3 +431,4 @@ C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEf
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\kick.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\pause.xnb
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\SoundEffects\stomp.xnb
+C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\Courier New.xnb

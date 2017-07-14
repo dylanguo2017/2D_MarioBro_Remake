@@ -117,6 +117,7 @@
     <Compile Include="Mario\MarioStateClass.cs" />
     <Compile Include="Mario\SmallMario.cs" />
     <Compile Include="Mario\SmallStarMario.cs" />
+    <Compile Include="Pause.cs" />
     <Compile Include="Physics.cs" />
     <Compile Include="Blocks\Pipe.cs" />
     <Compile Include="Blocks\PipeNeck.cs" />
