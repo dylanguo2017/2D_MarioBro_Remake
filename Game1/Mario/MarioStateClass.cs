@@ -65,100 +65,111 @@ namespace Game
 
         public void MoveR()
         {
-            if (right && !(curStat.Equals(marioStatus.dead)))
+            if (!flagpole)
             {
+                if (right && !(curStat.Equals(marioStatus.dead)))
+                {
 
-                if (facingLeft && move && !jump)
-                {
-                    move = false;
-                }
-                else if (!facingLeft && !move && !jump)
-                {
-                    if (curStat.Equals(marioStatus.small) || !crouch)
+                    if (facingLeft && move && !jump)
+                    {
+                        move = false;
+                    }
+                    else if (!facingLeft && !move && !jump)
+                    {
+                        if (curStat.Equals(marioStatus.small) || !crouch)
+                        {
+                            move = true;
+                            crouch = false;
+                            marioPhys.xVel = 1;
+                        }
+                    }
+                    else if (jump)
                     {
                         move = true;
-                        crouch = false;
                         marioPhys.xVel = 1;
+                        facingLeft = false;
+                    }
+                    else
+                    {
+                        facingLeft = false;
                     }
                 }
-                else if (jump)
-                {
-                    move = true;
-                    marioPhys.xVel = 1;
-                    facingLeft = false;
-                }
-                else
-                {
-                    facingLeft = false;
-                }
             }
-
         }
 
         public void MoveL()
         {
-            if (left && !(curStat.Equals(marioStatus.dead)))
+            if (!flagpole)
             {
+                if (left && !(curStat.Equals(marioStatus.dead)))
+                {
 
-                if (!facingLeft && move && !jump)
-                {
-                    move = false;
-                }
-                else if (facingLeft && !move && !jump)
-                {
-                    if (curStat.Equals(marioStatus.small) || !crouch)
+                    if (!facingLeft && move && !jump)
+                    {
+                        move = false;
+                    }
+                    else if (facingLeft && !move && !jump)
+                    {
+                        if (curStat.Equals(marioStatus.small) || !crouch)
+                        {
+                            move = true;
+                            crouch = false;
+                            if (marioPhys.XCoor > offset)
+                            {
+                                marioPhys.xVel = -1;
+                            }
+                        }
+
+                    }
+                    else if (jump)
                     {
                         move = true;
-                        crouch = false;
+                        facingLeft = true;
                         if (marioPhys.XCoor > offset)
                         {
                             marioPhys.xVel = -1;
                         }
                     }
-
-                }
-                else if (jump)
-                {
-                    move = true;
-                    facingLeft = true;
-                    if (marioPhys.XCoor > offset)
+                    else
                     {
-                        marioPhys.xVel = -1;
+                        facingLeft = true;
                     }
-                }
-                else
-                {
-                    facingLeft = true;
                 }
             }
         }
 
         public void MoveDown()
         {
-            if (!curStat.Equals(marioStatus.dead) && !curStat.Equals(marioStatus.small))
+            if (!flagpole)
             {
-                if (!jump)
+                if (!curStat.Equals(marioStatus.dead) && !curStat.Equals(marioStatus.small))
                 {
-                    crouch = true;
-                    move = false;
+                    if (!jump)
+                    {
+                        crouch = true;
+                        move = false;
+                    }
                 }
             }
         }
 
         public void moveUp()
         {
-            if (up && !(curStat.Equals(marioStatus.dead)))
+            if (!flagpole)
             {
-                if (crouch)
+                if (up && !(curStat.Equals(marioStatus.dead)))
                 {
-                    crouch = false;
-                }
-                else if (jmpCtr > 0 && !wPress)
-                {
-                    jmpCtr--;
-                    marioPhys.falling = true;
-                    jump = true;
-                    marioPhys.yVel = -4;
+                    if (crouch)
+                    {
+                        crouch = false;
+                    }
+                    else if (jmpCtr > 0 && !wPress)
+                    {
+                        jmpCtr--;
+                        marioPhys.falling = true;
+                        jump = true;
+                        marioPhys.yVel = -4;
+                    }
                 }
             }
         }

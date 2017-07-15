@@ -316,8 +316,8 @@ namespace Game
             MarioPositionVec.Y = 27;
             PositionArr[69] = MarioPositionVec;
 
-            MarioPositionVec.X = 386;// big mario flagpole
-            MarioPositionVec.Y = 54;
+            MarioPositionVec.X = 361;// big mario flagpole
+            MarioPositionVec.Y = 87;
             PositionArr[70] = MarioPositionVec;
 
             MarioPositionVec.X = 387;// fire mario flagpole

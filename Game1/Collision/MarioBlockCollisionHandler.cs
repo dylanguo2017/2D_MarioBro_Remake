@@ -40,7 +40,7 @@ namespace Game
                 else if (vColFrom.Equals(Game.sides.top))
                 {
                     myGame.marioState.marioPhys.DontFall();
-                    myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
+                    myGame.marioState.marioPhys.YCoor -= (intersecRec.Height-2);
                     myGame.marioState.jmpCtr = 20;
                     myGame.marioState.jump = false;
                     myGame.marioState.wPress = false;
@@ -97,6 +97,8 @@ namespace Game
             PipeTransition pipe = block as PipeTransition;
             pipe.Update();
 
+            myGame.camera.pipeTransition();
+            //System.Diagnostics.Debug.WriteLine("Handle pipe");
 
         }
         private void DisableMarioMovement()
