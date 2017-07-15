@@ -155,7 +155,7 @@ namespace Game
             marioSprites = this.Content.Load<Texture2D>("SpriteSheets/Mario");
             fireballSprite = Content.Load<Texture2D>("fireball");
 
-            mario = new SmallMario(marioState, marioSprites);
+            mario = new SmallMario(this);
 
             Level.LoadLists(this);
             enemyList = Level.enemyList;
@@ -206,7 +206,7 @@ namespace Game
                     starDuration = 500;
                     if (marioState.curStat.Equals(MarioStateClass.marioStatus.small))
                     {
-                        mario = new SmallMario(marioState, marioSprites);
+                        mario = new SmallMario(this);
                     }
                     else if (marioState.curStat.Equals(MarioStateClass.marioStatus.large))
                     {

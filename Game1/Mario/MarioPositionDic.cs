@@ -5,7 +5,7 @@ namespace Game
     public class MarioPositionDic
     {
         private Vector2 MarioPositionVec;
-        public Vector2[] PositionArr = new Vector2[69];
+        public Vector2[] PositionArr = new Vector2[100];
 
         public MarioPositionDic()
         {

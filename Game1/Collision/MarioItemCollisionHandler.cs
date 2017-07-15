@@ -38,6 +38,10 @@
                     CoinItem coin = item as CoinItem;
                     coin.Collect();
                 }
+                else if(item is Flagpole)
+                {
+                    myGame.marioState.flagpole = true;
+                }
             }
 
         }

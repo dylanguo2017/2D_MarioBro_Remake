@@ -49,7 +49,7 @@ namespace Game
                         HandlePipeTransition(block);
                     }
                 }
-               
+
             }
         }
 
@@ -96,8 +96,8 @@ namespace Game
         {
             PipeTransition pipe = block as PipeTransition;
             pipe.Update();
-           
-            
+
+
         }
         private void DisableMarioMovement()
         {

@@ -75,7 +75,7 @@ namespace Game
             else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
             {
                 myGame.marioState.inv = true;
-                myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
+                myGame.mario = new SmallMario(myGame);
             }
             else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.fire))
             {
