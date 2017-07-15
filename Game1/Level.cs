@@ -191,8 +191,8 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("flagpole"))
                     {
-                        IBackground gameObject = new Background(myGame, myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
+                        IItem gameObject = new Flagpole(myGame, myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
+                        itemList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("title"))
                     {

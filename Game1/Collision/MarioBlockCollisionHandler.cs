@@ -105,7 +105,7 @@ namespace Game
             else if (vColFrom.Equals(Game.sides.top))
             {
                 myGame.marioState.down = false;
-                //myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
+                myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
             }
         }
        
