@@ -53,6 +53,7 @@
     <Compile Include="Blocks\PipeTransition.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CameraObjectDetector.cs" />
+    <Compile Include="CoinCollector.cs" />
     <Compile Include="Commands\SpaceCommand.cs" />
     <Compile Include="Controllers\KeyBind.cs" />
     <Compile Include="HUD.cs" />
