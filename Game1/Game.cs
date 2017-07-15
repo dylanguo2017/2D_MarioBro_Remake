@@ -10,6 +10,8 @@ namespace Game
     public class Game : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+        GameTime gameTime;
+        
         SpriteBatch spriteBatch;
 
         SpriteFont Font1;
@@ -98,6 +100,7 @@ namespace Game
 
         protected override void Initialize()
         {
+            gameTime = new GameTime();
             soundEffect = new SoundEffects(this);
             sound = new Sounds(this);
             contrl = new ArrayList();
@@ -196,7 +199,8 @@ namespace Game
 
         protected override void Update(GameTime gameTime)
         {
-            hud.Update();
+            
+            hud.Update(gameTime);
             paused.Update();
             if (pause)
             {

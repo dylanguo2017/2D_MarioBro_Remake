@@ -15,6 +15,7 @@ namespace Game
         SpriteFont font1;
         Vector2 marioString;
         Vector2 pointsPos;
+        Vector2 coinString;
         Vector2 coinsPos;
         Vector2 worldString;
         Vector2 levelPos;
@@ -37,6 +38,8 @@ namespace Game
             marioString.Y = 25;
             pointsPos.X = 100;
             pointsPos.Y = 50;
+            coinString.X = 300;
+            coinString.Y = 25;
             coinsPos.X = 300;
             coinsPos.Y = 50;
             worldString.X = 500;
@@ -66,7 +69,7 @@ namespace Game
             spriteBatch.DrawString(font1, pointTotal.ToString(), pointsPos, Color.White);
 
             string coins = "COINS";
-            spriteBatch.DrawString(font1, coins, coinsPos, Color.White);
+            spriteBatch.DrawString(font1, coins, coinString, Color.White);
             
             spriteBatch.DrawString(font1, "x" + numberOfCoins.ToString(), coinsPos, Color.White);
 
