@@ -1,4 +1,5 @@
-﻿using Game.Enemies;
+﻿using Game.Blocks;
+using Game.Enemies;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -114,11 +115,11 @@ namespace Game
                         Pipe gameObject = new Pipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
-                    //else if (target[positionColumn].Equals("standardPipeTransition"))
-                    //{
-                    //    PipeTransition gameObject = new PipeTransition(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                    //    blockList.Add(gameObject);
-                    //}
+                    else if (target[positionColumn].Equals("standardPipeTransition"))
+                    {
+                        PipeTransition gameObject = new PipeTransition(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
+                    }
                     else if (target[positionColumn].Equals("pipeNeck"))
                     {
                         PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
