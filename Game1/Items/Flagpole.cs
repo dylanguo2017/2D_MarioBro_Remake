@@ -4,62 +4,42 @@ using System;
 
 namespace Game
 {
-    public class blueBrick : IBlock
+    public class Flagpole : IItem
     {
 
         private Game myGame;
         public Point drawLocation;
-        public int DrawLoc
+        private Rectangle destinationRectangle;
+        public int currentLoc
         {
             get
             {
                 return drawLocation.X;
             }
         }
-        private Rectangle destinationRectangle;
-
         public int rows { get; set; }
         public int columns { get; set; }
         public Texture2D texture { get; set; }
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean hit { get; set; }
-        public int timer;
 
 
-        public blueBrick(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Flagpole(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 1;
+            currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            hit = false;
-            timer = 0;
+
         }
 
-        public void Update()
+        public virtual void Update()
         {
-            if (hit)
-            {
-                if (timer < 1)
-                {
-                    timer++;
-                }
-                else
-                {
-                    timer = 0;
-                    hit = false;
-                    BumpDown();
-                    myGame.marioState.marioPhys.YCoor += 2;
-                }
-            }
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -85,23 +65,6 @@ namespace Game
             return destinationRectangle;
         }
 
-        public void BumpUp()
-        {
-            hit = true;
-            drawLocation.Y = drawLocation.Y - 2;
-            myGame.soundEffect.Bump();
-        }
-
-        public void BumpDown()
-        {
-            drawLocation.Y = drawLocation.Y + 2;
-        }
-
-        public void Break()
-        {
-            visible = false;
-            myGame.soundEffect.Break();
-        }
 
     }
 }

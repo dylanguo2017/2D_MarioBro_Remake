@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Game.Blocks;
+using Microsoft.Xna.Framework;
 
 namespace Game
 {
@@ -34,6 +35,7 @@ namespace Game
                     {
                         HandleInvisible(block);
                     }
+
                 }
                 else if (vColFrom.Equals(Game.sides.top))
                 {
@@ -42,7 +44,12 @@ namespace Game
                     myGame.marioState.jmpCtr = 20;
                     myGame.marioState.jump = false;
                     myGame.marioState.wPress = false;
+                    if (block is PipeTransition)
+                    {
+                        HandlePipeTransition(block);
+                    }
                 }
+               
             }
         }
 
@@ -85,6 +92,13 @@ namespace Game
             }
         }
 
+        private void HandlePipeTransition(IBlock block)
+        {
+            PipeTransition pipe = block as PipeTransition;
+            pipe.Update();
+           
+            
+        }
         private void DisableMarioMovement()
         {
             if(hColFrom.Equals(Game.sides.right))
@@ -106,7 +120,7 @@ namespace Game
             else if (vColFrom.Equals(Game.sides.top))
             {
                 myGame.marioState.down = false;
-                //myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
+                myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
             }
         }
        

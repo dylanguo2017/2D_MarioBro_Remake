@@ -1,12 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Game
+namespace Game.Blocks
 {
-    public class blueBrick : IBlock
+    public class PipeTransition : IBlock
     {
-
         private Game myGame;
         public Point drawLocation;
         public int DrawLoc
@@ -28,12 +31,12 @@ namespace Game
         public int timer;
 
 
-        public blueBrick(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public PipeTransition(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 1;
+            currentFrame = 264;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
@@ -44,21 +47,8 @@ namespace Game
 
         public void Update()
         {
-            if (hit)
-            {
-                if (timer < 1)
-                {
-                    timer++;
-                }
-                else
-                {
-                    timer = 0;
-                    hit = false;
-                    BumpDown();
-                    myGame.marioState.marioPhys.YCoor += 2;
-                }
-            }
 
+            myGame.camera.pipeTransition();
 
         }
 
@@ -71,8 +61,8 @@ namespace Game
                 int row = (int)((float)currentFrame / (float)columns);
                 int column = currentFrame % columns;
 
-                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width * 2, height * 2);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width * 2, height * 2);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -84,24 +74,5 @@ namespace Game
         {
             return destinationRectangle;
         }
-
-        public void BumpUp()
-        {
-            hit = true;
-            drawLocation.Y = drawLocation.Y - 2;
-            myGame.soundEffect.Bump();
-        }
-
-        public void BumpDown()
-        {
-            drawLocation.Y = drawLocation.Y + 2;
-        }
-
-        public void Break()
-        {
-            visible = false;
-            myGame.soundEffect.Break();
-        }
-
     }
 }
