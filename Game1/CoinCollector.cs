@@ -8,7 +8,7 @@ namespace Game
     {
 
         
-        private static int numberOfCoins;
+        private static int numberOfCoins=0;
 
 
         public static void setToZero()
