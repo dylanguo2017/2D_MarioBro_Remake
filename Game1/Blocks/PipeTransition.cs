@@ -12,6 +12,7 @@ namespace Game.Blocks
     {
         private Game myGame;
         public Point drawLocation;
+
         public int DrawLoc
         {
             get
