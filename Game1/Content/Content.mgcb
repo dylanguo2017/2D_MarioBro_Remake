@@ -457,12 +457,6 @@
 /processorParam:Quality=Best
 /build:SoundEffects/fireball.wav
 
-#begin SoundEffects/flagpole.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/flagpole.wav
-
 #begin SoundEffects/powerup.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -571,4 +565,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:blueBricks.png
+
+#begin SoundEffects/flagpole.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/flagpole.wav
 

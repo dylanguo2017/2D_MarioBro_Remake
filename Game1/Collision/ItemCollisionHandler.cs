@@ -1,12 +1,13 @@
-﻿using System;
+﻿using static Game.Game;
+using System;
 
 namespace Game
 {
     class ItemCollisionHandler 
     {
         private Game myGame;
-        public Game.sides hColFrom { get; set; }
-        public Game.sides vColFrom { get; set; }
+        public sides hColFrom { get; set; }
+        public sides vColFrom { get; set; }
 
         public ItemCollisionHandler(Game game)
         {
@@ -34,20 +35,20 @@ namespace Game
         {
             StarItem star = item as StarItem;
 
-            if (hColFrom.Equals(Game.sides.left))
+            if (hColFrom.Equals(sides.left))
             {
                 star.movingRight = false;
             }
-            else if (hColFrom.Equals(Game.sides.right))
+            else if (hColFrom.Equals(sides.right))
             {
                 star.movingRight = true;
             }
 
-            if (vColFrom.Equals(Game.sides.top))
+            if (vColFrom.Equals(sides.top))
             {
                 star.movingUp = true;
             }
-            else if (vColFrom.Equals(Game.sides.bottom))
+            else if (vColFrom.Equals(sides.bottom))
             {
                 star.movingUp = false;
             }
@@ -56,11 +57,11 @@ namespace Game
         private void HandleGreenMushroom(IItem item)
         {
             GreenMushroomItem greenMushroom = item as GreenMushroomItem;
-            if (hColFrom.Equals(Game.sides.left))
+            if (hColFrom.Equals(sides.left))
             {
                 greenMushroom.movingRight = false;
             }
-            else if (hColFrom.Equals(Game.sides.right))
+            else if (hColFrom.Equals(sides.right))
             {
                 greenMushroom.movingRight = true;
             }
@@ -70,15 +71,15 @@ namespace Game
         private void HandleRedMushroom(IItem item)
         {
             RedMushroomItem redMushroom = item as RedMushroomItem;
-            if (hColFrom.Equals(Game.sides.left))
+            if (hColFrom.Equals(sides.left))
             {
                 redMushroom.movingRight = false;
             }
-            else if (hColFrom.Equals(Game.sides.right))
+            else if (hColFrom.Equals(sides.right))
             {
                 redMushroom.movingRight = true;
             }
-            if (vColFrom.Equals(Game.sides.top))
+            if (vColFrom.Equals(sides.top))
             {
                 redMushroom.rmPhysics.DontFall();
             }

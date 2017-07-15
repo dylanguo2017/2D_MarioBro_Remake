@@ -1,12 +1,13 @@
 ﻿using Game.Enemies;
+using static Game.Game;
 
 namespace Game
 {
     public class MarioEnemyCollisionHandler
     {
         private Game myGame;
-        public Game.sides hColFrom { get; set; }
-        public Game.sides vColFrom { get; set; }
+        public sides hColFrom { get; set; }
+        public sides vColFrom { get; set; }
 
         public MarioEnemyCollisionHandler(Game game)
         {
@@ -23,7 +24,7 @@ namespace Game
                 }
                 else
                 {
-                    if(vColFrom.Equals(Game.sides.top))
+                    if(vColFrom.Equals(sides.top))
                     {
                         if (enemy is KoopaEnemy)
                         {
@@ -50,7 +51,7 @@ namespace Game
                         }
                         myGame.marioState.marioPhys.Bounce();
                     }
-                    else if((hColFrom.Equals(Game.sides.left) || hColFrom.Equals(Game.sides.none) || vColFrom.Equals(Game.sides.bottom)) && !myGame.marioState.inv)
+                    else if((hColFrom.Equals(sides.left) || hColFrom.Equals(sides.none) || vColFrom.Equals(sides.bottom)) && !myGame.marioState.inv)
                     {
                         ChangeMarioState();   
                     }

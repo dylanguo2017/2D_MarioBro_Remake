@@ -1,10 +1,12 @@
-﻿namespace Game
+﻿using static Game.Game;
+
+namespace Game
 {
     public class ProjectileBlockCollisionHandler
     {
         private Game myGame;
-        public Game.sides hColFrom { get; set; }
-        public Game.sides vColFrom { get; set; }
+        public sides hColFrom { get; set; }
+        public sides vColFrom { get; set; }
 
         public ProjectileBlockCollisionHandler(Game game)
         {
@@ -13,7 +15,7 @@
 
         public void HandleCollision(Fireball fBalls)
         {
-            if (vColFrom.Equals(Game.sides.top))
+            if (vColFrom.Equals(sides.top))
             {
                 fBalls.Bounce();
             }

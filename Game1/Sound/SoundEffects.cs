@@ -7,11 +7,12 @@ namespace Game
     {
         private Game myGame;
         private SoundEffect effect;
-        private soundStates pausedState;
+        private bool flag;
 
         public SoundEffects(Game game)
         {
             myGame = game;
+            flag = false;
         }
 
         public void Break()
@@ -31,8 +32,7 @@ namespace Game
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/coin");
             effect.Play();
         }
-
-        // call when item pops out of question mark block
+        
         public void PowerupAppears()
         {
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/powerup-appears");
@@ -86,18 +86,21 @@ namespace Game
             effect.Play();
         }
         
-        // call when flag comes down
         public void Flagpole()
         {
-            effect = myGame.Content.Load<SoundEffect>("SoundEffects/flagpole");
-            effect.Play();
+            if(!flag)
+            {
+                flag = true;
+                effect = myGame.Content.Load<SoundEffect>("SoundEffects/flagpole");
+                effect.Play();
+                LevelComplete();
+            }
         }
 
-        // call when level complete
-        public void LevelComplete()
+        private void LevelComplete()
         {
             myGame.sound.state = soundStates.stop;
-            effect = myGame.Content.Load<SoundEffect>("SoundEffects/into-the-tunnel");
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/level-complete");
             effect.Play();
         }
 
@@ -105,7 +108,7 @@ namespace Game
         public void IntoTheTunnel()
         {
             myGame.sound.state = soundStates.stop;
-            effect = myGame.Content.Load<SoundEffect>("SoundEffects/level-complete");
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/into-the-tunnel");
             effect.Play();
         }
 

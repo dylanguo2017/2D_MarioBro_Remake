@@ -1,13 +1,14 @@
 ﻿using Game.Blocks;
 using Microsoft.Xna.Framework;
+using static Game.Game;
 
 namespace Game
 {
     public class MarioBlockCollisionHandler
     {
         private Game myGame;
-        public Game.sides hColFrom { get; set; }
-        public Game.sides vColFrom { get; set; }
+        public sides hColFrom { get; set; }
+        public sides vColFrom { get; set; }
         public Rectangle intersecRec;
 
         public MarioBlockCollisionHandler(Game game)
@@ -20,7 +21,7 @@ namespace Game
             if (block.visible)
             {
                 DisableMarioMovement();
-                if (vColFrom.Equals(Game.sides.bottom))
+                if (vColFrom.Equals(sides.bottom))
                 {
                     myGame.marioState.marioPhys.yVel = 0;
                     if (block is Question)
@@ -37,7 +38,7 @@ namespace Game
                     }
 
                 }
-                else if (vColFrom.Equals(Game.sides.top))
+                else if (vColFrom.Equals(sides.top))
                 {
                     myGame.marioState.marioPhys.DontFall();
                     myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - 2);
@@ -62,6 +63,7 @@ namespace Game
             {
                 question.BumpUp();
                 question.ChangeToUsed();
+                myGame.soundEffect.PowerupAppears();
                 myGame.itemSpawn.SpawnItem(question.drawLocation);
             }
         }
@@ -103,23 +105,23 @@ namespace Game
         }
         private void DisableMarioMovement()
         {
-            if(hColFrom.Equals(Game.sides.right))
+            if(hColFrom.Equals(sides.right))
             {
                 myGame.marioState.left = false;
                 //myGame.marioState.marioPhys.XCoor += intersecRec.Width;
             }
-            else if (hColFrom.Equals(Game.sides.left))
+            else if (hColFrom.Equals(sides.left))
             {
                 myGame.marioState.right = false;
                 //myGame.marioState.marioPhys.XCoor -= intersecRec.Width;
             }
 
-            if (vColFrom.Equals(Game.sides.bottom))
+            if (vColFrom.Equals(sides.bottom))
             {
                 myGame.marioState.up = false;
                 //myGame.marioState.marioPhys.YCoor += intersecRec.Height;
             }
-            else if (vColFrom.Equals(Game.sides.top))
+            else if (vColFrom.Equals(sides.top))
             {
                 myGame.marioState.down = false;
                 myGame.marioState.marioPhys.YCoor -= intersecRec.Height;

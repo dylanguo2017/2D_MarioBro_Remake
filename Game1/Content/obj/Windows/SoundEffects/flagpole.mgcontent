@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/flagpole.wav</SourceFile>
-  <SourceTime>2017-07-14T13:56:42.5159104-04:00</SourceTime>
+  <SourceTime>2017-07-14T23:09:18.26318-04:00</SourceTime>
   <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/SoundEffects/flagpole.xnb</DestFile>
-  <DestTime>2017-07-14T22:22:38.8127928-04:00</DestTime>
+  <DestTime>2017-07-14T23:09:54.271979-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

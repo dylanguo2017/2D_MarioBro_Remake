@@ -93,17 +93,17 @@ namespace Game
 
         public void CollidesFrom(Rectangle objectRec)
         {
-            vColFrom = Game.sides.none;
+            vColFrom = sides.none;
 
             if ((projRec.Left <= objectRec.Left && projRec.Right >= objectRec.Left + 2) || (projRec.Left > objectRec.Left && objectRec.Right >= projRec.Left - 2))
             {
                 if (projRec.Bottom > objectRec.Bottom)
                 {
-                    vColFrom = Game.sides.bottom;
+                    vColFrom = sides.bottom;
                 }
                 else if (projRec.Top < objectRec.Top)
                 {
-                    vColFrom = Game.sides.top;
+                    vColFrom = sides.top;
                 }
             }
 

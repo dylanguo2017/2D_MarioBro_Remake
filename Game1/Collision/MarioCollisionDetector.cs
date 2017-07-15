@@ -105,18 +105,18 @@ namespace Game
         
         public void CollidesFrom(Rectangle objectRec)
         {
-            hColFrom = Game.sides.none;
-            vColFrom = Game.sides.none;
+            hColFrom = sides.none;
+            vColFrom = sides.none;
 
             if ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2))
             {
                 if (marioRec.Right > objectRec.Right)
                 {
-                    hColFrom = Game.sides.right;
+                    hColFrom = sides.right;
                 }
                 else if (marioRec.Left < objectRec.Left)
                 {
-                    hColFrom = Game.sides.left;
+                    hColFrom = sides.left;
                 }
             }
 
@@ -124,11 +124,11 @@ namespace Game
             {
                 if (marioRec.Bottom > objectRec.Bottom)
                 {
-                    vColFrom = Game.sides.bottom;
+                    vColFrom = sides.bottom;
                 }
                 else if (marioRec.Top < objectRec.Top)
                 {
-                    vColFrom = Game.sides.top;
+                    vColFrom = sides.top;
                 }
             }
 
