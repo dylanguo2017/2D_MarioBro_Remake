@@ -320,7 +320,7 @@ namespace Game
                     }
                     
                 }
-          }
+            }
 
             if (fireBalls.Count != 0)
             {
@@ -337,8 +337,8 @@ namespace Game
             
             Vector2 FontOrigin = Font1.MeasureString(coinOutput) / 2;
             
-            spriteBatch.DrawString(Font1, coinOutput, FontPos, Color.LightGreen,
-                0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
+            //spriteBatch.DrawString(Font1, coinOutput, FontPos, Color.LightGreen,
+            //    0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
 
             base.Draw(gameTime);
         }

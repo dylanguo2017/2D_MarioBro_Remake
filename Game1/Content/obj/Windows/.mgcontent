@@ -4,61 +4,62 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/group4/Game1/Content/GreenMushroomItem.png</File>
-    <File>E:/group4/Game1/Content/RedMushroomItem.png</File>
-    <File>E:/group4/Game1/Content/InvisibleBlock.png</File>
-    <File>E:/group4/Game1/Content/BackgroundElements.png</File>
-    <File>E:/group4/Game1/Content/UsedBlock.png</File>
-    <File>E:/group4/Game1/Content/CrackBlock.png</File>
-    <File>E:/group4/Game1/Content/BrickBlock.png</File>
-    <File>E:/group4/Game1/Content/DiamondBlock.png</File>
-    <File>E:/group4/Game1/Content/CoinItem.png</File>
-    <File>E:/group4/Game1/Content/FireFlowerItem.png</File>
-    <File>E:/group4/Game1/Content/QuestionMarkBlock.png</File>
-    <File>E:/group4/Game1/Content/GoombaEnemy.png</File>
-    <File>E:/group4/Game1/Content/KoopaEnemy.png</File>
-    <File>E:/group4/Game1/Content/3CloudsBgElement.png</File>
-    <File>E:/group4/Game1/Content/3BushesBgElement.png</File>
-    <File>E:/group4/Game1/Content/1CloudBgElement.png</File>
-    <File>E:/group4/Game1/Content/SmallMountainBgElement.png</File>
-    <File>E:/group4/Game1/Content/BigMountainBgElement.png</File>
-    <File>E:/group4/Game1/Content/GoombaEnemyDead.png</File>
-    <File>E:/group4/Game1/Content/KoopaEnemyDead.png</File>
-    <File>E:/group4/Game1/Content/StarItem.png</File>
-    <File>E:/group4/Game1/Content/PipeBlock.png</File>
-    <File>E:/group4/Game1/Content/SpriteSheets/Mario.png</File>
-    <File>E:/group4/Game1/Content/bgPipe.png</File>
-    <File>E:/group4/Game1/Content/fireball.png</File>
-    <File>E:/group4/Game1/Content/flagPole.png</File>
-    <File>E:/group4/Game1/Content/medPipe.png</File>
-    <File>E:/group4/Game1/Content/smallCastle.png</File>
-    <File>E:/group4/Game1/Content/1BushElement.png</File>
-    <File>E:/group4/Game1/Content/halfCrackBlock.png</File>
-    <File>E:/group4/Game1/Content/titleScreen.png</File>
-    <File>E:/group4/Game1/Content/goomba.png</File>
-    <File>E:/group4/Game1/Content/koopa.png</File>
-    <File>E:/group4/Game1/Content/SpriteSheets/Items.png</File>
-    <File>E:/group4/Game1/Content/SpriteSheets/Tileset.png</File>
-    <File>E:/group4/Game1/Content/SoundEffects/1-up.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/bump.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/coin.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/fireball.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/flagpole.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/powerup.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/jump.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/powerup-appears.wav</File>
-    <File>E:/group4/Game1/Content/Sounds/starman.wav</File>
-    <File>E:/group4/Game1/Content/Sounds/game-over.wav</File>
-    <File>E:/group4/Game1/Content/Sounds/hurry.wav</File>
-    <File>E:/group4/Game1/Content/Sounds/main-theme-overworld.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/into-the-tunnel.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/level-complete.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/pause.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/jump-super.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/kick.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/stomp.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/break.wav</File>
-    <File>E:/group4/Game1/Content/SoundEffects/mariodies.wav</File>
-    <File>E:/group4/Game1/Content/blueBricks.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/GreenMushroomItem.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/RedMushroomItem.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/InvisibleBlock.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/BackgroundElements.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/UsedBlock.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/CrackBlock.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/BrickBlock.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/DiamondBlock.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/CoinItem.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/FireFlowerItem.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/QuestionMarkBlock.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/GoombaEnemy.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/KoopaEnemy.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/3CloudsBgElement.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/3BushesBgElement.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/1CloudBgElement.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SmallMountainBgElement.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/BigMountainBgElement.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/GoombaEnemyDead.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/KoopaEnemyDead.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/StarItem.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/PipeBlock.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SpriteSheets/Mario.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bgPipe.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/fireball.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/flagPole.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/medPipe.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/smallCastle.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/1BushElement.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/halfCrackBlock.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/titleScreen.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/goomba.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/koopa.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SpriteSheets/Items.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SpriteSheets/Tileset.png</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/1-up.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/bump.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/coin.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/fireball.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/flagpole.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/powerup.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/jump.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/powerup-appears.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/starman.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/game-over.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/hurry.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/main-theme-overworld.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/into-the-tunnel.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/level-complete.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/pause.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/jump-super.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/kick.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/stomp.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/break.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/mariodies.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Courier New.spritefont</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/blueBricks.png</File>
   </SourceFiles>
 </SourceFileCollection>

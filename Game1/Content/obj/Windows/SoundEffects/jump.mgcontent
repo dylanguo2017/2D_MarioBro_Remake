@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/group4/Game1/Content/SoundEffects/jump.wav</SourceFile>
-  <SourceTime>2017-07-14T16:51:35.6893477-04:00</SourceTime>
-  <DestFile>E:/group4/Game1/Content/bin/Windows/SoundEffects/jump.xnb</DestFile>
-  <DestTime>2017-07-14T20:45:10.2762693-04:00</DestTime>
+  <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/jump.wav</SourceFile>
+  <SourceTime>2017-07-14T13:56:42.6599205-04:00</SourceTime>
+  <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/SoundEffects/jump.xnb</DestFile>
+  <DestTime>2017-07-14T21:08:17.9828675-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
