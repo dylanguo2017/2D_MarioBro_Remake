@@ -89,6 +89,7 @@ namespace Game
         {
             visible = false;
             myGame.soundEffect.OneUp();
+            myGame.hud.gainLife();
         }
 
 
