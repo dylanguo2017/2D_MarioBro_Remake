@@ -40,6 +40,7 @@ namespace Game
                 else if (vColFrom.Equals(Game.sides.top))
                 {
                     myGame.marioState.marioPhys.DontFall();
+                    myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
                     myGame.marioState.jmpCtr = 20;
                     myGame.marioState.jump = false;
                     myGame.marioState.wPress = false;
