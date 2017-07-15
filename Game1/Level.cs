@@ -1,4 +1,5 @@
-﻿using Game.Enemies;
+﻿using Game.Blocks;
+using Game.Enemies;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,21 +45,21 @@ namespace Game
                         Brick gameObject = new Brick(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
-                    //if (target[positionColumn].Equals("blueBrick"))
-                    //{
-                    //    blueBrick gameObject = new blueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
-                    //    blockList.Add(gameObject);
-                    //}
+                    if (target[positionColumn].Equals("blueBrick"))
+                     {
+                        blueBrick gameObject = new blueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
+                    }
                     else if (target[positionColumn].Equals("crack"))
                     {
                         Crack gameObject = new Crack(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
-                    //else if (target[positionColumn].Equals("blueCrack"))
-                    //{
-                    //    blueCrack gameObject = new blueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
-                    //    blockList.Add(gameObject);
-                    //}
+                    else if (target[positionColumn].Equals("blueCrack"))
+                    {
+                        blueCrack gameObject = new blueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
+                    }
                     else if (target[positionColumn].Equals("diamond"))
                     {
                         Diamond gameObject = new Diamond(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
@@ -112,6 +113,11 @@ namespace Game
                     else if (target[positionColumn].Equals("standardPipe"))
                     {
                         Pipe gameObject = new Pipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("standardPipeTransition"))
+                    {
+                        PipeTransition gameObject = new PipeTransition(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("pipeNeck"))

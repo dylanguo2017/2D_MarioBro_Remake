@@ -6,7 +6,8 @@
         public Game myGame;
         private int marioPosition;
         private int maxOffset = 400;
-        public static int offset;
+        public static int offset;        
+        public int pipeTransitionOffset;
         private bool camIn;
         
         public Camera(Game game)
@@ -14,7 +15,18 @@
             myGame = game;
         }
         
-              
+        public void pipeTransition()
+        {
+            if (pipeTransitionOffset == offset)
+            {
+                pipeTransitionOffset = 3728;
+            }
+            else
+            {
+                pipeTransitionOffset = offset;
+            }
+           
+        }
         public bool IsInCamera(int xCoor)
         {
             camIn = false;
