@@ -13,6 +13,9 @@ namespace Game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        SpriteFont Font1;
+        Vector2 FontPos;
+
         public MarioStateClass marioState;
 
         public Camera camera;
@@ -135,6 +138,13 @@ namespace Game
         {   
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            
+            Font1 = Content.Load<SpriteFont>("Courier New");
+
+                     
+            FontPos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2,
+                graphics.GraphicsDevice.Viewport.Height / 2);
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
@@ -320,6 +330,15 @@ namespace Game
                 }
             }
             mario.Draw(spriteBatch);
+
+            
+            string coinOutput = CoinCollector.coinOutput().ToString();
+
+            
+            Vector2 FontOrigin = Font1.MeasureString(coinOutput) / 2;
+            
+            spriteBatch.DrawString(Font1, coinOutput, FontPos, Color.LightGreen,
+                0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
 
             base.Draw(gameTime);
         }
