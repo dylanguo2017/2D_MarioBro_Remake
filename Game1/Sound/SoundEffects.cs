@@ -72,24 +72,16 @@ namespace Game
             effect.Play();
         }
 
-        // call when game is paused
         public void Pause()
         {
-            pausedState = myGame.sound.state;
-            myGame.sound.state = Game.soundStates.pause;
+            myGame.sound.Pause();
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/pause");
             effect.Play();
         }
-
-        // call when game is resumed
-        public void Resume()
-        {
-            myGame.sound.state = pausedState;
-        }
-
+        
         public void MarioDies()
         {
-            myGame.sound.state = Game.soundStates.stop;
+            myGame.sound.state = soundStates.stop;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/mariodies");
             effect.Play();
         }
@@ -104,7 +96,7 @@ namespace Game
         // call when level complete
         public void LevelComplete()
         {
-            myGame.sound.state = Game.soundStates.stop;
+            myGame.sound.state = soundStates.stop;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/into-the-tunnel");
             effect.Play();
         }
@@ -112,7 +104,7 @@ namespace Game
         // call when Mario goes in the tunnel
         public void IntoTheTunnel()
         {
-            myGame.sound.state = Game.soundStates.stop;
+            myGame.sound.state = soundStates.stop;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/level-complete");
             effect.Play();
         }

@@ -1,7 +1,6 @@
 ﻿using Game.Enemies;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -89,7 +88,7 @@ namespace Game
         public SoundEffects soundEffect;
         public Sounds sound;
 
-        public enum soundStates { mainTheme, starman, hurry, gameOver, pause, stop, reset };
+        public enum soundStates { mainTheme, starman, hurry, gameOver, stop, reset };
 
         public Game()
         {

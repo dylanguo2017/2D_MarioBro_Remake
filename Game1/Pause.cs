@@ -30,8 +30,7 @@ namespace Game
                 if (myGame.pause)
                 {
                     placeHol = myGame.sound.state;
-                    myGame.sound.state = Game.soundStates.pause;
-                    myGame.sound.Pause();
+                    myGame.soundEffect.Pause();
                 }
                 else
                 {
