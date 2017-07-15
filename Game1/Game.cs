@@ -13,6 +13,10 @@ namespace Game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        SpriteFont Font1;
+        Vector2 FontPos;
+        
+
         public MarioStateClass marioState;
 
         public Camera camera;
@@ -100,6 +104,8 @@ namespace Game
             camera = new Camera(this);
             camObj = new CameraObjectDetector(this);
 
+            
+
 
             marioColDetector = new MarioCollisionDetector(this);
             enemyColDetector = new EnemyCollisionDetector(this);
@@ -130,6 +136,12 @@ namespace Game
         {   
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+           // Font1 = Content.Load<SpriteFont>("myFont");
+
+                        
+            FontPos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2,
+                graphics.GraphicsDevice.Viewport.Height / 2);
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
@@ -307,6 +319,18 @@ namespace Game
                 }
             }
             mario.Draw(spriteBatch);
+
+
+            // Draw Hello World
+            string coinOutput = CoinCollector.coinOutput().ToString();
+
+            // Find the center of the string
+
+          //  Vector2 FontOrigin = Font1.MeasureString(output) / 2;
+
+            // Draw the string
+          //  spriteBatch.DrawString(Font1, output, FontPos, Color.LightGreen,
+              //  0, FontOrigin, 1.0f, SpriteEffects.None, 0.5f);
 
             base.Draw(gameTime);
         }
