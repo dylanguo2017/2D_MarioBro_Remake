@@ -28,6 +28,13 @@ namespace Game
                     myGame.enemyCamList.Add(enemy);
                 }
             }
+            foreach (IItem item in myGame.itemList)
+            {
+                if (myGame.camera.IsInCamera(item.currentLoc))
+                {
+                    myGame.itemCamList.Add(item);
+                }
+            }
             foreach (IBlock block in myGame.blockList)
             {
                 if (myGame.camera.IsInCamera(block.DrawLoc))
@@ -51,13 +58,13 @@ namespace Game
                         myGame.enemyCamList.Add(enemy);
                     }
                 }
-                //foreach (IItem item in myGame.itemList)
-                //{
-                //    if (myGame.camera.IsInCamera())
-                //    {
-                //        myGame.itemCamList.Add(item);
-                //    }
-                //}
+                foreach (IItem item in myGame.itemList)
+                {
+                    if (myGame.camera.IsInCamera(item.currentLoc))
+                    {
+                        myGame.itemCamList.Add(item);
+                    }
+                }
                 foreach (IBlock block in myGame.blockList)
                 {
                     if (myGame.camera.IsInCamera(block.DrawLoc))

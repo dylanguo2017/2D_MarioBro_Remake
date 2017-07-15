@@ -4,31 +4,28 @@ using System;
 
 namespace Game
 {
-    public class RedMushroomItem : IItem
+    public class Flagpole : IItem
     {
 
         private Game myGame;
-       
-        public Physics rmPhysics;
+        public Point drawLocation;
+        private Rectangle destinationRectangle;
         public int currentLoc
         {
             get
             {
-                return rmPhysics.XCoor;
+                return drawLocation.X;
             }
         }
-        private Rectangle destinationRectangle;
-
         public int rows { get; set; }
         public int columns { get; set; }
         public Texture2D texture { get; set; }
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
-        public int spawnCtr = 0;
 
-        public RedMushroomItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+
+        public Flagpole(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
@@ -36,23 +33,13 @@ namespace Game
             currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
-          
-            rmPhysics = new Physics(pointX, pointY);
+            drawLocation = new Point(pointX, pointY);
             visible = true;
-            movingRight = true;
+
         }
 
         public virtual void Update()
         {
-            if (movingRight.Equals(true))
-            {
-                MoveRight();
-            }
-            else
-            {
-                MoveLeft();
-            }
-            rmPhysics.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -65,7 +52,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)rmPhysics.XCoor - myGame.camera.GetOffset(), (int)rmPhysics.YCoor-spawnCtr, width, height);
+                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -78,34 +65,6 @@ namespace Game
             return destinationRectangle;
         }
 
-
-        private void MoveLeft()
-        {
-            rmPhysics.xVel = -1;
-        }
-
-        private void MoveRight()
-        {
-            rmPhysics.xVel = 1;
-        }
-
-        public void PowerUp()
-        {
-            visible = false;
-            myGame.soundEffect.PowerUp();
-
-            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
-            {
-                if (myGame.marioState.star)
-                {
-                    myGame.mario = new LargeStarMario(myGame);
-                }
-                else
-                {
-                    myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
-                }
-            }
-        }
 
     }
 }

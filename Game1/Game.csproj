@@ -94,12 +94,14 @@
     <Compile Include="Enemies\IEnemy.cs" />
     <Compile Include="Enemies\KoopaEnemy.cs" />
     <Compile Include="Enemies\KoopaPositionDic.cs" />
+    <Compile Include="Items\Flagpole.cs" />
     <Compile Include="Items\FlowerItem.cs" />
     <Compile Include="Items\GreenMushroomItem.cs" />
     <Compile Include="Background\IBackground.cs" />
     <Compile Include="Blocks\IBlock.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Blocks\Invisible.cs" />
+    <Compile Include="Items\ItemSpawn.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Mario\DrawFireMario.cs" />
     <Compile Include="Mario\DrawLargeMario.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="Mario\MarioStateClass.cs" />
     <Compile Include="Mario\SmallMario.cs" />
     <Compile Include="Mario\SmallStarMario.cs" />
+    <Compile Include="Pause.cs" />
     <Compile Include="Physics.cs" />
     <Compile Include="Blocks\Pipe.cs" />
     <Compile Include="Blocks\PipeNeck.cs" />

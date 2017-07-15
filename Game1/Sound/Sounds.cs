@@ -96,7 +96,7 @@ namespace Game
             gameOver.Stop();
         }
 
-        private void Pause()
+        public void Pause()
         {
             mainTheme.Pause();
             starman.Pause();
