@@ -21,6 +21,8 @@ namespace Game
         public int jmpCtr = 0;
         public bool wPress = false;
 
+        public bool flagpole = false;
+
         public int XCoor
         {
             get
@@ -58,6 +60,7 @@ namespace Game
             curStat = marioStatus.small;
             star = false;
             inv = false;
+
         }
 
         public void MoveR()

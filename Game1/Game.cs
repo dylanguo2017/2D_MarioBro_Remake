@@ -60,6 +60,7 @@ namespace Game
 
         public bool pause;
         public Pause paused;
+        public HUD hud;
 
         private int animationModifier;
         public int animMod
@@ -114,6 +115,8 @@ namespace Game
             contrl.Add(gmPad);
             paused = new Pause(this);
 
+            hud = new HUD(this);
+
             marioState = new MarioStateClass(false, false, false, false);
             fireBalls = new List<Fireball>();
             fbDelay = 0;
@@ -135,7 +138,7 @@ namespace Game
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
-            //blueBlockSprite = Content.Load<Texture2D>("blueBricks");
+            blueBlockSprite = Content.Load<Texture2D>("blueBricks");
 
 
             oneCloudBgElement = Content.Load<Texture2D>("1CloudBgElement");
@@ -155,7 +158,7 @@ namespace Game
             marioSprites = this.Content.Load<Texture2D>("SpriteSheets/Mario");
             fireballSprite = Content.Load<Texture2D>("fireball");
 
-            mario = new SmallMario(marioState, marioSprites);
+            mario = new SmallMario(this);
 
             Level.LoadLists(this);
             enemyList = Level.enemyList;
@@ -184,6 +187,7 @@ namespace Game
 
         protected override void Update(GameTime gameTime)
         {
+            hud.Update();
             paused.Update();
             if (pause)
             {
@@ -206,7 +210,7 @@ namespace Game
                     starDuration = 500;
                     if (marioState.curStat.Equals(MarioStateClass.marioStatus.small))
                     {
-                        mario = new SmallMario(marioState, marioSprites);
+                        mario = new SmallMario(this);
                     }
                     else if (marioState.curStat.Equals(MarioStateClass.marioStatus.large))
                     {
@@ -244,11 +248,6 @@ namespace Game
                 enemy.Update();
                 enemyColDetector.Update();
             }
-            foreach (IItem item in itemCamList)
-            {
-                item.Update();
-                itemColDetector.Update();
-            }
 
             if (animationModifier % 20 == 0)
             {
@@ -265,6 +264,12 @@ namespace Game
                 //   block.Update();
                 //  }
 
+                foreach (IItem item in itemCamList)
+                {
+                    item.Update();
+                    itemColDetector.Update();
+                }
+
             }
             sound.Update();
             
@@ -275,6 +280,7 @@ namespace Game
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
             itemSpawn.Draw(spriteBatch);
             foreach (IBackground background in bgList)

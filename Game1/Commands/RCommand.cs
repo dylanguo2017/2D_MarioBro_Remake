@@ -24,7 +24,7 @@ namespace Game
             myGame.camera.reset();
             myGame.marioState.offset = 0;
 
-            myGame.mario = new SmallMario(myGame.marioState, myGame.marioSprites);
+            myGame.mario = new SmallMario(myGame);
 
             Level.LoadLists(myGame);
             myGame.enemyList = Level.enemyList;

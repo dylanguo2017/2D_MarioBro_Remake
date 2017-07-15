@@ -1,9 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game
 {
@@ -12,9 +7,11 @@ namespace Game
         private SmallMario toDraw;
         private Rectangle sourceReturn;
         private MarioPositionDic marioPosition = new MarioPositionDic();
+        private Game myGame;
 
-        public DrawSmallMario(SmallMario sMar)
+        public DrawSmallMario(Game game, SmallMario sMar)
         {
+            myGame = game;
             toDraw = sMar;
         }
 
@@ -23,64 +20,73 @@ namespace Game
             int width = 17;
             int height = 17;
 
-            if (!toDraw.MarState.facingLeft)
+            if (myGame.marioState.flagpole)
             {
-                if (toDraw.MarState.move)
-                {
-                    if (!toDraw.MarState.jump)
-                    {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[toDraw.RightFrame].X, (int)this.marioPosition.PositionArr[toDraw.RightFrame].Y, width, height);
-
-                    }
-                    else
-                    {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
-                    }
-                }
-                else
-                {
-
-                    if (!toDraw.MarState.jump)
-                    {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[0].X, (int)this.marioPosition.PositionArr[0].Y, width, height);
-                    }
-                    else
-                    {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[5].X, (int)this.marioPosition.PositionArr[5].Y, width, height);
-                    }
-                }
-
+                sourceReturn = new Rectangle((int)marioPosition.PositionArr[69].X, (int)marioPosition.PositionArr[69].Y, width, height);
             }
             else
             {
-                if (toDraw.MarState.move)
+                if (!toDraw.MarState.facingLeft)
                 {
-                    if (!toDraw.MarState.jump)
+                    if (toDraw.MarState.move)
                     {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[toDraw.LeftFrame].X, (int)this.marioPosition.PositionArr[toDraw.LeftFrame].Y, width, height);
+                        if (!toDraw.MarState.jump)
+                        {
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[toDraw.RightFrame].X, (int)marioPosition.PositionArr[toDraw.RightFrame].Y, width, height);
 
+                        }
+                        else
+                        {
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[5].X, (int)marioPosition.PositionArr[5].Y, width, height);
+                        }
                     }
                     else
                     {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[11].X, (int)this.marioPosition.PositionArr[11].Y, width, height);
 
+                        if (!toDraw.MarState.jump)
+                        {
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[0].X, (int)marioPosition.PositionArr[0].Y, width, height);
+                        }
+                        else
+                        {
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[5].X, (int)marioPosition.PositionArr[5].Y, width, height);
+                        }
                     }
+
                 }
                 else
                 {
-                    if (!toDraw.MarState.jump)
+                    if (toDraw.MarState.move)
                     {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[6].X, (int)this.marioPosition.PositionArr[6].Y, width, height);
+                        if (!toDraw.MarState.jump)
+                        {
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[toDraw.LeftFrame].X, (int)marioPosition.PositionArr[toDraw.LeftFrame].Y, width, height);
 
+                        }
+                        else
+                        {
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[11].X, (int)marioPosition.PositionArr[11].Y, width, height);
+
+                        }
                     }
                     else
                     {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[11].X, (int)this.marioPosition.PositionArr[11].Y, width, height);
+                        if (!toDraw.MarState.jump)
+                        {
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[6].X, (int)marioPosition.PositionArr[6].Y, width, height);
 
+                        }
+                        else
+                        {
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[11].X, (int)marioPosition.PositionArr[11].Y, width, height);
+
+                        }
                     }
-                }
 
+                }
             }
+
+            
 
             return sourceReturn;
         }

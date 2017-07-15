@@ -5,6 +5,7 @@ namespace Game
 {
     public class SmallMario : IMario
     {
+        private Game myGame;
         public MarioStateClass marioState;
         public MarioStateClass MarState
         {
@@ -38,10 +39,11 @@ namespace Game
         private int invCtr;
         private int animMod;
 
-        public SmallMario(MarioStateClass mainState, Texture2D spriteSheet)
+        public SmallMario(Game game)
         {
-            marioState = mainState;
-            texture = spriteSheet;
+            myGame = game;
+            marioState = myGame.marioState;
+            texture = myGame.marioSprites;
 
             rightFacingCurrentFrame = 1;
             leftFacingCurrentFrame = 7;
@@ -49,7 +51,7 @@ namespace Game
             marioState.star = false;
             invCtr = 0;
             animMod = 0;
-            drawMar = new DrawSmallMario(this);
+            drawMar = new DrawSmallMario(myGame, this);
         }
 
         public MarioStateClass.marioStatus currentStatus()
