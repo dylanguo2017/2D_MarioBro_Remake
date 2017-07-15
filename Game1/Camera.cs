@@ -17,6 +17,7 @@
         
         public void pipeTransition()
         {
+            System.Diagnostics.Debug.WriteLine("camera pipe transition");
             if (pipeTransitionOffset == offset)
             {
                 pipeTransitionOffset = 3728;

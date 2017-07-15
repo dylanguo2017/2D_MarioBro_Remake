@@ -48,8 +48,7 @@ namespace Game.Blocks
 
         public void Update()
         {
-
-            myGame.camera.pipeTransition();
+            //System.Diagnostics.Debug.WriteLine("pipe update");
 
         }
 
