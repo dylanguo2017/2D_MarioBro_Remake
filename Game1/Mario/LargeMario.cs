@@ -97,13 +97,14 @@ namespace Game
             {
                 marioState.offset = marioState.XCoor - 400;
             }
+
+            Rectangle sourceRectangle = drawMar.giveSource();
+
+            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - 16, sourceRectangle.Width, sourceRectangle.Height);
             if (invCtr % 2 == 1)
             {
                 return;
             }
-            Rectangle sourceRectangle = drawMar.giveSource();
-
-            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - 16, sourceRectangle.Width, sourceRectangle.Height);
             spriteBatch.Begin();
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();

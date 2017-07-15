@@ -97,6 +97,7 @@
     <Compile Include="Enemies\IEnemy.cs" />
     <Compile Include="Enemies\KoopaEnemy.cs" />
     <Compile Include="Enemies\KoopaPositionDic.cs" />
+    <Compile Include="Items\Flagpole.cs" />
     <Compile Include="Items\FlowerItem.cs" />
     <Compile Include="Items\GreenMushroomItem.cs" />
     <Compile Include="Background\IBackground.cs" />

@@ -311,6 +311,18 @@ namespace Game
             MarioPositionVec.Y = 207;
             PositionArr[68] = MarioPositionVec;
             // end of big star mario
+            
+            MarioPositionVec.X = 358;// small mario flagpole
+            MarioPositionVec.Y = 27;
+            PositionArr[69] = MarioPositionVec;
+
+            MarioPositionVec.X = 386;// big mario flagpole
+            MarioPositionVec.Y = 54;
+            PositionArr[70] = MarioPositionVec;
+
+            MarioPositionVec.X = 387;// fire mario flagpole
+            MarioPositionVec.Y = 155;
+            PositionArr[71] = MarioPositionVec;
         }
 
     }
