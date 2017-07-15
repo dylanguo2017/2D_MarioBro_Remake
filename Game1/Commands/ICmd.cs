@@ -11,7 +11,7 @@
 
         public void Execute()
         {
-            myGame.mario = new FireMario(myGame.marioState, myGame.marioSprites);
+            myGame.mario = new FireMario(myGame);
         }
     }
 }

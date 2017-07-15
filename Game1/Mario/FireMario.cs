@@ -5,6 +5,7 @@ namespace Game
 {
     public class FireMario : IMario
     {
+        private Game myGame;
         private MarioStateClass marioState;
         public MarioStateClass MarState
         {
@@ -35,16 +36,20 @@ namespace Game
         private Rectangle destinationRectangle;
         private int animMod;
 
-        public FireMario(MarioStateClass mainState, Texture2D spriteSheet)
+        public FireMario(Game game)
         {
-            marioState = mainState;
-            texture = spriteSheet;
+            myGame = game;
+            marioState = myGame.marioState;
+            texture = myGame.marioSprites;
+
             leftFacingCurrentFrame = 36;
             rightFacingCurrentFrame = 28;
             marioState.curStat = MarioStateClass.marioStatus.fire;
             marioState.star = false;
             animMod = 0;
-            drawMar = new DrawFireMario(this);
+            drawMar = new DrawFireMario(myGame, this);
+
+            myGame.marioState.flagpole = false;
         }
 
         public MarioStateClass.marioStatus currentStatus()

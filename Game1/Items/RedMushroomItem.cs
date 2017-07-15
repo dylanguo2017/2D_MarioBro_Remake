@@ -102,7 +102,7 @@ namespace Game
                 }
                 else
                 {
-                    myGame.mario = new LargeMario(myGame.marioState, myGame.marioSprites);
+                    myGame.mario = new LargeMario(myGame);
                 }
             }
         }

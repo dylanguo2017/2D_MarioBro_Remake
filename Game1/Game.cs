@@ -214,11 +214,11 @@ namespace Game
                     }
                     else if (marioState.curStat.Equals(MarioStateClass.marioStatus.large))
                     {
-                        mario = new LargeMario(marioState, marioSprites);
+                        mario = new LargeMario(this);
                     }
                     else
                     {
-                        mario = new FireMario(marioState, marioSprites);
+                        mario = new FireMario(this);
                     }
                 }
             }
