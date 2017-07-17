@@ -57,7 +57,7 @@ namespace Game
         }
         public void Update(GameTime gameTime)
         {
-            ElapsedTime = gameTime.ElapsedGameTime;
+            ElapsedTime = gameTime.TotalGameTime;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -86,29 +86,29 @@ namespace Game
             spriteBatch.End();
         }
 
-        public int addCoin()
+        public void addCoin()
         {
-           return numberOfCoins++;
+           numberOfCoins++;
         }
 
-        public int increasePoints(int amount)
+        public void increasePoints(int amount)
         {
-            return (pointTotal + amount);
+             pointTotal = pointTotal + amount;
         }
 
-        public int decreasePoints(int amount)
+        public void decreasePoints(int amount)
         {
-            return (pointTotal - amount);
+            pointTotal = pointTotal - amount;
         }
 
-        public int looseLife()
+        public void looseLife()
         {
-            return lives--;
+            lives--;
         }
 
-        public int gainLife()
+        public void gainLife()
         {
-            return lives++;
+            lives++;
         }
     }
     

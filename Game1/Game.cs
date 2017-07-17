@@ -100,6 +100,8 @@ namespace Game
 
         protected override void Initialize()
         {
+            hud = new HUD(this);
+
             gameTime = new GameTime();
             soundEffect = new SoundEffects(this);
             sound = new Sounds(this);
@@ -119,8 +121,6 @@ namespace Game
             contrl.Add(keyboard);
             contrl.Add(gmPad);
             paused = new Pause(this);
-
-            hud = new HUD(this);
 
             marioState = new MarioStateClass(false, false, false, false);
             fireBalls = new List<Fireball>();
