@@ -261,7 +261,11 @@ namespace Game
                 enemy.Update();
                 enemyColDetector.Update();
             }
-
+            foreach (IItem item in itemCamList)
+            {
+                item.Update();
+                itemColDetector.Update();
+            }
             if (animationModifier % 20 == 0)
             {
                 foreach (IBackground background in bgList)
@@ -277,11 +281,7 @@ namespace Game
                 //   block.Update();
                 //  }
 
-                foreach (IItem item in itemCamList)
-                {
-                    item.Update();
-                    itemColDetector.Update();
-                }
+
 
             }
             sound.Update();

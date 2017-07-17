@@ -32,8 +32,8 @@ namespace Game
 
         public void Update()
         {
-            blockList = myGame.blockList;
-            enemyList = myGame.enemyList;
+            blockList = myGame.blockCamList;
+            enemyList = myGame.enemyCamList;
 
             toBeRemoved = new List<Fireball>();
             if (proj.Count != 0)

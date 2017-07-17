@@ -21,55 +21,126 @@ namespace Game
             myGame.enemyCamList.Clear();
             myGame.itemCamList.Clear();
             myGame.blockCamList.Clear();
-            foreach (IEnemy enemy in myGame.enemyList)
+            IEnemy curEnemy = myGame.enemyList[0];
+            while (myGame.camera.IsInCamera(curEnemy.enemyPhys.XCoor))
             {
-                if (myGame.camera.IsInCamera(enemy.enemyPhys.XCoor))
-                {
-                    myGame.enemyCamList.Add(enemy);
-                }
+                myGame.enemyList.RemoveAt(0);
+                myGame.enemyCamList.Add(curEnemy);
+                curEnemy = myGame.enemyList[0];
             }
-            foreach (IItem item in myGame.itemList)
+
+            IBlock curBlock = myGame.blockList[0];
+            while (myGame.camera.IsInCamera(curBlock.DrawLoc))
             {
-                if (myGame.camera.IsInCamera(item.currentLoc))
-                {
-                    myGame.itemCamList.Add(item);
-                }
+                myGame.blockList.RemoveAt(0);
+                myGame.blockCamList.Add(curBlock);
+                curBlock = myGame.blockList[0];
             }
-            foreach (IBlock block in myGame.blockList)
+
+            IItem curItem = myGame.itemList[0];
+            while (myGame.camera.IsInCamera(curItem.currentLoc))
             {
-                if (myGame.camera.IsInCamera(block.DrawLoc))
-                {
-                    myGame.blockCamList.Add(block);
-                }
+                myGame.itemList.RemoveAt(0);
+                myGame.itemCamList.Add(curItem);
+                curItem = myGame.itemList[0];
             }
         }
         public void Update()
         {
             if (camLoc != myGame.marioState.offset)
             {
-                myGame.enemyCamList.Clear();
-                myGame.itemCamList.Clear();
-                myGame.blockCamList.Clear();
+                if(myGame.enemyList.Count > 0)
+                {
+                    IEnemy curEnemy = myGame.enemyList[0];
+                    while (myGame.camera.IsInCamera(curEnemy.enemyPhys.XCoor))
+                    {
+                        myGame.enemyList.RemoveAt(0);
+                        myGame.enemyCamList.Add(curEnemy);
+                        if (myGame.enemyList.Count > 0)
+                        {
+                            curEnemy = myGame.enemyList[0];
+                        }
+                        else
+                            break;
+                    }
+                }
 
-                foreach (IEnemy enemy in myGame.enemyList)
+                if (myGame.blockList.Count > 0)
                 {
-                    if (myGame.camera.IsInCamera(enemy.enemyPhys.XCoor))
+                    IBlock curBlock = myGame.blockList[0];
+                    while (myGame.camera.IsInCamera(curBlock.DrawLoc))
                     {
-                        myGame.enemyCamList.Add(enemy);
+                        myGame.blockList.RemoveAt(0);
+                        myGame.blockCamList.Add(curBlock);
+                        if (myGame.blockList.Count > 0)
+                        {
+                            curBlock = myGame.blockList[0];
+                        }
+                        else
+                            break;
                     }
                 }
-                foreach (IItem item in myGame.itemList)
+
+                if (myGame.itemList.Count > 0)
                 {
-                    if (myGame.camera.IsInCamera(item.currentLoc))
+                    IItem curItem = myGame.itemList[0];
+                    while (myGame.camera.IsInCamera(curItem.currentLoc))
                     {
-                        myGame.itemCamList.Add(item);
+                        myGame.itemList.RemoveAt(0);
+                        myGame.itemCamList.Add(curItem);
+                        if (myGame.itemList.Count > 0)
+                        {
+                            curItem = myGame.itemList[0];
+                        }
+                        else
+                            break;
                     }
                 }
-                foreach (IBlock block in myGame.blockList)
+
+                if (myGame.enemyCamList.Count > 0)
                 {
-                    if (myGame.camera.IsInCamera(block.DrawLoc))
+                    IEnemy camEnemy = myGame.enemyCamList[0];
+                    while (!myGame.camera.IsInCamera(camEnemy.enemyPhys.XCoor))
                     {
-                        myGame.blockCamList.Add(block);
+                        myGame.enemyCamList.RemoveAt(0);
+                        if (myGame.enemyCamList.Count > 0)
+                        {
+                            camEnemy = myGame.enemyCamList[0];
+                        }
+                        else
+                            break;
+                    }
+                }
+
+
+                if (myGame.blockCamList.Count > 0)
+                {
+                    IBlock camBlock = myGame.blockCamList[0];
+                    while (!myGame.camera.IsInCamera(camBlock.DrawLoc))
+                    {
+                        myGame.blockCamList.RemoveAt(0);
+                        if (myGame.blockCamList.Count > 0)
+                        {
+                            camBlock = myGame.blockCamList[0];
+                        }
+                        else
+                            break;
+                    }
+                }
+
+
+                if (myGame.itemCamList.Count > 0)
+                {
+                    IItem camItem = myGame.itemCamList[0];
+                    while (!myGame.camera.IsInCamera(camItem.currentLoc))
+                    {
+                        myGame.itemCamList.RemoveAt(0);
+                        if (myGame.itemCamList.Count > 0)
+                        {
+                            camItem = myGame.itemCamList[0];
+                        }
+                        else
+                            break;   
                     }
                 }
                 camLoc = myGame.marioState.offset;

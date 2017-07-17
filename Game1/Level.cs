@@ -1,6 +1,7 @@
 ﻿using Game.Blocks;
 using Game.Enemies;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -211,8 +212,55 @@ namespace Game
                 positionRow++;
             }
             levelFile.Close();
+            IComparer<IBlock> blockComp = new BlockComparer<IBlock>();
+            IComparer<IItem> itemComp = new ItemComparer<IItem>();
+            IComparer<IEnemy> enemyComp = new EnemyComparer<IEnemy>();
+            blockList.Sort(blockComp);
+            itemList.Sort(itemComp);
+            enemyList.Sort(enemyComp);
         }
         
-
+        private class BlockComparer<T> : IComparer<T>
+        {
+            int IComparer<T>.Compare(T  a, T b)
+            {
+                IBlock b1 = (IBlock)a;
+                IBlock b2 = (IBlock)b;
+                if (b1.DrawLoc > b2.DrawLoc)
+                    return 1;
+                if (b1.DrawLoc < b2.DrawLoc)
+                    return -1;
+                else
+                    return 0;
+            }
+        }
+        private class ItemComparer<T> : IComparer<T>
+        {
+            int IComparer<T>.Compare(T a, T b)
+            {
+                IItem b1 = (IItem)a;
+                IItem b2 = (IItem)b;
+                if (b1.currentLoc > b2.currentLoc)
+                    return 1;
+                if (b1.currentLoc < b2.currentLoc)
+                    return -1;
+                else
+                    return 0;
+            }
+        }
+        private class EnemyComparer<T> : IComparer<T>
+        {
+            int IComparer<T>.Compare(T a, T b)
+            {
+                IEnemy b1 = (IEnemy)a;
+                IEnemy b2 = (IEnemy)b;
+                if (b1.enemyPhys.XCoor > b2.enemyPhys.XCoor)
+                    return 1;
+                if (b1.enemyPhys.XCoor < b2.enemyPhys.XCoor)
+                    return -1;
+                else
+                    return 0;
+            }
+        }
     }
 }

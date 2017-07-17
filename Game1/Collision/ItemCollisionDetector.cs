@@ -24,8 +24,8 @@ namespace Game
 
         public void Update()
         {
-            blockList = myGame.blockList;
-            itemList = myGame.itemList;
+            blockList = myGame.blockCamList;
+            itemList = myGame.itemCamList;
 
             Rectangle blockRec;
             foreach (IItem item in itemList)
