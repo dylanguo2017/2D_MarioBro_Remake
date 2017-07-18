@@ -1,4 +1,5 @@
-﻿
+﻿using static Game.Utility;
+
 namespace Game
 {
     class XCommand : ICommand
@@ -12,7 +13,7 @@ namespace Game
 
         public void Execute()
         {
-            if(myGame.fbDelay == 0 && myGame.marioState.curStat == MarioStateClass.marioStatus.fire)
+            if(myGame.fbDelay == zero && myGame.marioState.curStat == MarioStateClass.marioStatus.fire)
             {
                 Fireball newBall = new Fireball(myGame.marioState, myGame.fireballSprite);
                 myGame.fireBalls.Add(newBall);

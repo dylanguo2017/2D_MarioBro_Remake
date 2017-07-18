@@ -1,7 +1,4 @@
-﻿
-using Microsoft.Xna.Framework.Graphics;
-
-namespace Game
+﻿namespace Game
 {
     class RCommand : ICommand
     {

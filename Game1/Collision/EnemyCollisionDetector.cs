@@ -56,7 +56,7 @@ namespace Game
             hColFrom = sides.none;
             vColFrom = sides.none;
 
-            if ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + 2) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - 2))
+            if ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + two) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - two))
             {
                 if (enemyRec.Right > blockRec.Right)
                 {
@@ -68,7 +68,7 @@ namespace Game
                 }
             }
 
-            if ((enemyRec.Left <= blockRec.Left && enemyRec.Right >= blockRec.Left + 2) || (enemyRec.Left > blockRec.Left && blockRec.Right >= enemyRec.Left - 2))
+            if ((enemyRec.Left <= blockRec.Left && enemyRec.Right >= blockRec.Left + two) || (enemyRec.Left > blockRec.Left && blockRec.Right >= enemyRec.Left - two))
             {
                 if (enemyRec.Bottom > blockRec.Bottom)
                 {

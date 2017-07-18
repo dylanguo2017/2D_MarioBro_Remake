@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using static Game.Utility;
 
 namespace Game
 {
@@ -9,7 +10,7 @@ namespace Game
     {
         private Dictionary<Buttons, ICommand> controllerMappings;
 
-        Buttons[] exist = new Buttons[6] { Buttons.LeftThumbstickUp, Buttons.LeftThumbstickDown, Buttons.LeftThumbstickLeft, Buttons.LeftThumbstickRight, Buttons.A, Buttons.B };
+        Buttons[] exist = new Buttons[six] { Buttons.LeftThumbstickUp, Buttons.LeftThumbstickDown, Buttons.LeftThumbstickLeft, Buttons.LeftThumbstickRight, Buttons.A, Buttons.B };
 
         public GamepadController()
         {
@@ -35,29 +36,29 @@ namespace Game
         {
             GamePadState currentState = GamePad.GetState(PlayerIndex.One);
 
-            if (currentState.IsButtonDown(exist[0]))
+            if (currentState.IsButtonDown(exist[zero]))
             {
-                controllerMappings[exist[0]].Execute();
+                controllerMappings[exist[zero]].Execute();
             }
-            if (currentState.IsButtonDown(exist[1]))
+            if (currentState.IsButtonDown(exist[one]))
             {
-                controllerMappings[exist[1]].Execute();
+                controllerMappings[exist[one]].Execute();
             }
-            if (currentState.IsButtonDown(exist[2]))
+            if (currentState.IsButtonDown(exist[two]))
             {
-                controllerMappings[exist[2]].Execute();
+                controllerMappings[exist[two]].Execute();
             }
-            if (currentState.IsButtonDown(exist[3]))
+            if (currentState.IsButtonDown(exist[three]))
             {
-                controllerMappings[exist[3]].Execute();
+                controllerMappings[exist[three]].Execute();
             }
-            if (currentState.IsButtonDown(exist[4]))
+            if (currentState.IsButtonDown(exist[four]))
             {
-                controllerMappings[exist[4]].Execute();
+                controllerMappings[exist[four]].Execute();
             }
-            if (currentState.IsButtonDown(exist[5]))
+            if (currentState.IsButtonDown(exist[five]))
             {
-                controllerMappings[exist[5]].Execute();
+                controllerMappings[exist[five]].Execute();
             }
         }
     }

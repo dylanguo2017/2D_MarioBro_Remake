@@ -61,11 +61,11 @@ namespace Game
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)rmPhysics.XCoor - myGame.camera.GetOffset(), (int)rmPhysics.YCoor-spawnCtr, width, height);
+                destinationRectangle = new Rectangle(rmPhysics.XCoor - myGame.camera.GetOffset(), rmPhysics.YCoor-spawnCtr, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
