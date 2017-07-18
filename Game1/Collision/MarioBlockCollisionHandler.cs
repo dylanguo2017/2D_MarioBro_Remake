@@ -45,7 +45,7 @@ namespace Game
                     myGame.marioState.jmpCtr = 20;
                     myGame.marioState.jump = false;
                     myGame.marioState.wPress = false;
-                    if (block is PipeTransition)
+                    if (block is PipeTransition && myGame.marioState.crouch)
                     {
                         HandlePipeTransition(block);
                     }
@@ -98,6 +98,7 @@ namespace Game
         {
             PipeTransition pipe = block as PipeTransition;
             pipe.Update();
+            Transition.StartTransition();
 
             myGame.camera.pipeTransition();
 

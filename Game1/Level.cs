@@ -12,7 +12,11 @@ namespace Game
         public static List<IEnemy> enemyList;
         public static List<IItem> itemList;
         public static List<IBlock> blockList;
-        
+
+        public static List<IEnemy> enemyPipeList;
+        public static List<IItem> itemPipeList;
+        public static List<IBlock> blockPipeList;
+
         public static IItem[] questionItemArray = new IItem[50];
         public static int countOfPopItem = 0;
 
@@ -23,7 +27,10 @@ namespace Game
             enemyList = new List<IEnemy>();
             itemList = new List<IItem>();
             blockList = new List<IBlock>();
-            
+
+            enemyPipeList = new List<IEnemy>();
+            itemPipeList = new List<IItem>();
+            blockPipeList = new List<IBlock>();
 
             bgList = new List<IBackground>();
 
@@ -37,7 +44,7 @@ namespace Game
                     "Content", "Levels", "Level1-1BONUS.txt")
                     );
 
-          String inComingLine;
+            String inComingLine;
             int positionRow = 0;
 
             while (!levelFile.EndOfStream)
@@ -52,19 +59,10 @@ namespace Game
                         Brick gameObject = new Brick(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
-                    if (target[positionColumn].Equals("blueBrick"))
-                    {
-                        blueBrick gameObject = new blueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
+
                     else if (target[positionColumn].Equals("crack"))
                     {
                         Crack gameObject = new Crack(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("blueCrack"))
-                    {
-                        blueCrack gameObject = new blueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("diamond"))
@@ -222,13 +220,60 @@ namespace Game
                 }
                 positionRow++;
             }
+
+            positionRow = 0;
+            while (!bonusLevelFile.EndOfStream)
+            {
+                inComingLine = bonusLevelFile.ReadLine();
+                String[] target = inComingLine.Split(',');
+                int positionColumn = 0;
+
+                while (positionColumn < target.Length)
+                {
+                    if (target[positionColumn].Equals("blueBrick"))
+                    {
+                        blueBrick gameObject = new blueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        blockPipeList.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("blueCrack"))
+                    {
+                        blueCrack gameObject = new blueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        blockPipeList.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("coin"))
+                    {
+                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        itemPipeList.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("goomba"))
+                    {
+                        IEnemy gameObject = new GoombaEnemy(myGame, myGame.goombaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
+                        enemyPipeList.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("koopa"))
+                    {
+                        IEnemy gameObject = new KoopaEnemy(myGame, myGame.koopaEnemy, 1, 10, positionColumn * 16, positionRow * 16);
+                        enemyPipeList.Add(gameObject);
+                    }
+                    positionColumn++;
+                }
+                positionRow++;
+            }
             levelFile.Close();
+            bonusLevelFile.Close();
             IComparer<IBlock> blockComp = new BlockComparer<IBlock>();
             IComparer<IItem> itemComp = new ItemComparer<IItem>();
             IComparer<IEnemy> enemyComp = new EnemyComparer<IEnemy>();
             blockList.Sort(blockComp);
             itemList.Sort(itemComp);
             enemyList.Sort(enemyComp);
+            blockPipeList.Sort(blockComp);
+            itemPipeList.Sort(itemComp);
+            enemyPipeList.Sort(enemyComp);
+
+            //TESTING ONLY BELOW THIS PT
+            for (int i = 0; i < 19; i++)
+                System.Diagnostics.Debug.WriteLine("OBJECT NAME: " + itemPipeList[i].texture.ToString() + "    LOCATION:" + itemPipeList[i].currentLoc + "      OBJ #:"+i);
         }
         
         private class BlockComparer<T> : IComparer<T>

@@ -62,5 +62,10 @@ namespace Game
             yCoor = yCoor + yVel;
             falling = true;
         }
+        public void Spawn(int x, int y)
+        {
+            xCoor = x;
+            yCoor = y;
+        }
     }
 }

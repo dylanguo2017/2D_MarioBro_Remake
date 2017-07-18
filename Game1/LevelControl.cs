@@ -113,15 +113,7 @@ namespace Game
         public void DrawPipe(SpriteBatch spriteBatch)
         {
             myGame.GraphicsDevice.Clear(Color.Black);
-        }
-        public void DrawNormal(SpriteBatch spriteBatch)
-        {
-            myGame.GraphicsDevice.Clear(Color.CornflowerBlue);
-            myGame.itemSpawn.Draw(spriteBatch);
-            foreach (IBackground background in myGame.bgList)
-            {
-                background.Draw(spriteBatch);
-            }
+            myGame.mario.Draw(spriteBatch);
             foreach (IBlock block in myGame.blockCamList)
             {
                 block.Draw(spriteBatch);
@@ -142,7 +134,39 @@ namespace Game
                     fBalls.Draw(spriteBatch);
                 }
             }
+            
+        }
+        public void DrawNormal(SpriteBatch spriteBatch)
+        {
+            myGame.GraphicsDevice.Clear(Color.CornflowerBlue);
+            myGame.itemSpawn.Draw(spriteBatch);
+            
+            foreach (IBackground background in myGame.bgList)
+            {
+                background.Draw(spriteBatch);
+            }
             myGame.mario.Draw(spriteBatch);
+            foreach (IBlock block in myGame.blockCamList)
+            {
+                block.Draw(spriteBatch);
+            }
+
+            foreach (Enemies.IEnemy enemy in myGame.enemyCamList)
+            {
+                enemy.Draw(spriteBatch);
+            }
+            foreach (IItem item in myGame.itemCamList)
+            {
+                item.Draw(spriteBatch);
+            }
+            if (myGame.fireBalls.Count != zero)
+            {
+                foreach (Fireball fBalls in myGame.fireBalls)
+                {
+                    fBalls.Draw(spriteBatch);
+                }
+            }
+            
         }
     }
 }
