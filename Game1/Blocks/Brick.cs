@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game
 {
@@ -46,7 +47,7 @@ namespace Game
         {
             if (hit)
             {
-                if (timer < 1)
+                if (timer < one)
                 {
                     timer++;
                 }
@@ -55,7 +56,7 @@ namespace Game
                     timer = 0;
                     hit = false;
                     BumpDown();
-                    myGame.marioState.marioPhys.YCoor += 2;
+                    myGame.marioState.marioPhys.YCoor += two;
                 }
             }
 
@@ -68,11 +69,11 @@ namespace Game
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -88,13 +89,13 @@ namespace Game
         public void BumpUp()
         {
             hit = true;
-            drawLocation.Y = drawLocation.Y - 2;
+            drawLocation.Y = drawLocation.Y - two;
             myGame.soundEffect.Bump();
         }
 
         public void BumpDown()
         {
-            drawLocation.Y = drawLocation.Y + 2;
+            drawLocation.Y = drawLocation.Y + two;
         }
 
         public void Break()

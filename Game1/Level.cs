@@ -64,7 +64,7 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("blueCrack"))
                     {
-                        blueCrack gameObject = new blueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        BlueCrack gameObject = new BlueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("diamond"))

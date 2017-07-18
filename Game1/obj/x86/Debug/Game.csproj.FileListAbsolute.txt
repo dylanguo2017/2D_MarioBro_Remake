@@ -463,4 +463,3 @@ E:\group4\Game1\obj\x86\Debug\Game.csprojResolveAssemblyReference.cache
 E:\group4\Game1\obj\x86\Debug\Game1.exe
 E:\group4\Game1\obj\x86\Debug\Game1.pdb
 C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\Content\test.xnb
-C:\Users\Shiny Patel\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game.csprojResolveAssemblyReference.cache

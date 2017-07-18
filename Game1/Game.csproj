@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Background\Background.cs" />
     <Compile Include="Blocks\BlueBrick.cs" />
-    <Compile Include="Blocks\blueCrack.cs" />
+    <Compile Include="Blocks\BlueCrack.cs" />
     <Compile Include="Blocks\Brick.cs" />
     <Compile Include="Blocks\PipeTransition.cs" />
     <Compile Include="Camera.cs" />
