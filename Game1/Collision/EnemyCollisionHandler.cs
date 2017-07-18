@@ -1,4 +1,4 @@
-﻿using static Game.Game;
+﻿using static Game.Utility;
 using Game.Enemies;
 
 namespace Game

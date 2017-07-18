@@ -1,4 +1,6 @@
-﻿namespace Game
+﻿using static Game.Utility;
+
+namespace Game
 {
     public class Camera
     {
@@ -31,7 +33,7 @@
         public bool IsInCamera(int xCoor)
         {
             camIn = false;
-            if (xCoor > myGame.marioState.offset - 16 && xCoor < (myGame.marioState.offset + 800))
+            if (xCoor > myGame.marioState.offset - sixteen && xCoor < (myGame.marioState.offset + screenWidth))
             {
                 camIn = true;
             }

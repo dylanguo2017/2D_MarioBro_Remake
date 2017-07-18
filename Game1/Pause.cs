@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using static Game.Game;
+using static Game.Utility;
 
 namespace Game
 {
@@ -24,7 +25,7 @@ namespace Game
         public void Update()
         {
             KeyboardState asd = Keyboard.GetState();
-            if (asd.IsKeyDown(Keys.P) && delay == 0)
+            if (asd.IsKeyDown(Keys.P) && delay == zero)
             {
                 delay = 10;
                 myGame.pause = !myGame.pause;
@@ -38,7 +39,7 @@ namespace Game
                     myGame.sound.state = placeHol;
                 }
             }
-            if(delay > 0)
+            if(delay > zero)
             {
                 delay--;
             }

@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections;
 using System.Collections.Generic;
 
-
 namespace Game
 {
     public class Game : Microsoft.Xna.Framework.Game
@@ -86,8 +85,6 @@ namespace Game
         public int fbDelay;
         public int countOfPopItem;
 
-        public enum sides { left, right, top, bottom, none };
-
         public ICollisionDetector marioColDetector;
         public ICollisionDetector enemyColDetector;
         public ICollisionDetector itemColDetector;
@@ -95,8 +92,6 @@ namespace Game
 
         public SoundEffects soundEffect;
         public Sounds sound;
-
-        public enum soundStates { mainTheme, starman, hurry, gameOver, stop, reset };
 
         public Game()
         {
@@ -173,8 +168,8 @@ namespace Game
             goombaEnemy = Content.Load<Texture2D>("goomba");
             koopaEnemy = Content.Load<Texture2D>("koopa");
 
-            titleScreen = this.Content.Load<Texture2D>("titleScreen");
-            marioSprites = this.Content.Load<Texture2D>("SpriteSheets/Mario");
+            titleScreen = Content.Load<Texture2D>("titleScreen");
+            marioSprites = Content.Load<Texture2D>("SpriteSheets/Mario");
             fireballSprite = Content.Load<Texture2D>("fireball");
 
             mario = new SmallMario(this);

@@ -1,7 +1,7 @@
 ﻿using Game.Enemies;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using static Game.Game;
+using static Game.Utility;
 
 namespace Game
 {

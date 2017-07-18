@@ -1,5 +1,5 @@
 ﻿using Game.Enemies;
-using static Game.Game;
+using static Game.Utility;
 
 namespace Game
 {

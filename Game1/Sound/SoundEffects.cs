@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Audio;
-using static Game.Game;
+using static Game.Utility;
 
 namespace Game
 {

@@ -1,4 +1,6 @@
-﻿namespace Game
+﻿using static Game.Utility;
+
+namespace Game
 {
     public class Transition
     {
@@ -38,11 +40,11 @@
             myGame.marioState.right = false;
             myGame.marioState.up = false;
             myGame.marioState.down = false;
-            if (myGame.animMod % 4 == 0)
+            if (myGame.animMod % four == zero)
             {
                 myGame.marioState.marioPhys.YCoor++;
                 sinking--;
-                if(sinking == 0)
+                if(sinking == zero)
                 {
                     transition = false;
                 }

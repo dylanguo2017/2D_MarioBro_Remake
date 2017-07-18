@@ -1,6 +1,6 @@
 ﻿using Game.Blocks;
 using Microsoft.Xna.Framework;
-using static Game.Game;
+using static Game.Utility;
 
 namespace Game
 {
