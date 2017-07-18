@@ -33,7 +33,6 @@ namespace Game
             }
             else if (vColFrom.Equals(sides.bottom))
             {
-                // enemy is moving up
             }
         }
         

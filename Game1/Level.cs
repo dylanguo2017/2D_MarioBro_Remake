@@ -54,7 +54,7 @@ namespace Game
                     }
                     if (target[positionColumn].Equals("blueBrick"))
                     {
-                        blueBrick gameObject = new blueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        BlueBrick gameObject = new BlueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("crack"))

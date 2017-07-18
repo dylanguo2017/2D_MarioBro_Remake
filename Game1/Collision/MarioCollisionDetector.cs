@@ -106,7 +106,7 @@ namespace Game
             hColFrom = sides.none;
             vColFrom = sides.none;
 
-            if ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + 2) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - 2))
+            if ((marioRec.Top <= objectRec.Top && marioRec.Bottom >= objectRec.Top + two) || (marioRec.Top > objectRec.Top && objectRec.Bottom >= marioRec.Top - two))
             {
                 if (marioRec.Right > objectRec.Right)
                 {
@@ -118,7 +118,7 @@ namespace Game
                 }
             }
 
-            if ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + 2) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - 2))
+            if ((marioRec.Left <= objectRec.Left && marioRec.Right >= objectRec.Left + two) || (marioRec.Left > objectRec.Left && objectRec.Right >= marioRec.Left - two))
             {
                 if (marioRec.Bottom > objectRec.Bottom)
                 {

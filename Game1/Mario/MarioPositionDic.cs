@@ -7,7 +7,7 @@ namespace Game
     {
         private Vector2 MarioPositionVec;
         private int idx = 0;
-        public Vector2[] PositionArr = new Vector2[posDicMax];
+        public Vector2[] PositionArr = new Vector2[hundred];
 
         public MarioPositionDic()
         {

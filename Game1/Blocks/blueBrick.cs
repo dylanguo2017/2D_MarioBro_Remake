@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class blueBrick : IBlock
+    public class BlueBrick : IBlock
     {
 
         private Game myGame;
@@ -28,7 +28,7 @@ namespace Game
         public int timer;
 
 
-        public blueBrick(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public BlueBrick(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;

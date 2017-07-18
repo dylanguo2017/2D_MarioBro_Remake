@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game.Enemies
 {
@@ -51,10 +52,10 @@ namespace Game.Enemies
 
         public void Update()
         {
-            if (myGame.animMod % 20 == 0)
+            if (myGame.animMod % twenty == zero)
             {
                 currentFrame++;
-                if (currentFrame == 2)
+                if (currentFrame == two)
                 {
                     currentFrame = 0;
                 }
@@ -63,7 +64,7 @@ namespace Game.Enemies
             {
                 currentFrame = 2;
                 timer++;
-                if (timer > 20)
+                if (timer > twenty)
                 {
                     visible = false;
                 }
@@ -86,11 +87,11 @@ namespace Game.Enemies
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)GoombaPhys.XCoor - myGame.camera.GetOffset(), (int)GoombaPhys.YCoor, width, height);
+                destinationRectangle = new Rectangle(GoombaPhys.XCoor - myGame.camera.GetOffset(), GoombaPhys.YCoor, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

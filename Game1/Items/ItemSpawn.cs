@@ -1,13 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Game.Utility;
 
 namespace Game
-{ 
+{
     public class ItemSpawn
     {
         private Game myGame;
@@ -21,7 +18,7 @@ namespace Game
         }
         public void SpawnItem(Point spawnLoc)
         {
-            RedMushroomItem spawnThis = new RedMushroomItem(myGame, myGame.itemSprite, 21, 36, spawnLoc.X, spawnLoc.Y);
+            RedMushroomItem spawnThis = new RedMushroomItem(myGame, myGame.itemSprite, twentyOne, thirtySix, spawnLoc.X, spawnLoc.Y);
             spawnItem.Add(spawnThis);
         }
         public void Update()
@@ -31,13 +28,13 @@ namespace Game
                 foreach (RedMushroomItem spawnIt in spawnItem)
                 {
                     spawnIt.spawnCtr++;
-                    if (spawnIt.spawnCtr > 16)
+                    if (spawnIt.spawnCtr > sixteen)
                     {
                         spawned.Add(spawnIt);
                     }
                 }
             }
-            if(spawned.Count != 0)
+            if(spawned.Count != zero)
             {
                 foreach (RedMushroomItem spawnIt in spawned)
                 {

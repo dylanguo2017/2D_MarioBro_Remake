@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game
 {
@@ -40,14 +41,14 @@ namespace Game
 
         public virtual void Update()
         {
-            if(myGame.animMod % 20 == 0)
+            if(myGame.animMod % twenty == zero)
             {
                 currentFrame++;
-                if (currentFrame == 219)
+                if (currentFrame == twoHundredNineteen)
                 {
                     currentFrame = 252;
                 }
-                if (currentFrame == 255)
+                if (currentFrame == twoHundredFiftyFive)
                 {
                     currentFrame = 216;
                 }
@@ -60,11 +61,11 @@ namespace Game
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

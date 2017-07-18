@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game.Enemies
 {
@@ -54,12 +55,12 @@ namespace Game.Enemies
 
         public void Update()
         {
-            if(myGame.animMod % 20 == 0)
+            if(myGame.animMod % twenty == zero)
             {
                 if (movingLeft)
                 {
                     currentFrame--;
-                    if (currentFrame == 1)
+                    if (currentFrame == one)
                     {
                         currentFrame = 3;
                     }
@@ -68,7 +69,7 @@ namespace Game.Enemies
                 else if (movingRight)
                 {
                     currentFrame++;
-                    if (currentFrame == 6)
+                    if (currentFrame == six)
                     {
                         currentFrame = 4;
                     }
@@ -93,11 +94,11 @@ namespace Game.Enemies
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)KoopaPhys.XCoor - myGame.camera.GetOffset(), (int)KoopaPhys.YCoor - 7, width, height);
+                destinationRectangle = new Rectangle(KoopaPhys.XCoor - myGame.camera.GetOffset(), KoopaPhys.YCoor - seven, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

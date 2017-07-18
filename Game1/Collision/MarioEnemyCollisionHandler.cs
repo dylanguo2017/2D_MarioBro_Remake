@@ -65,7 +65,7 @@ namespace Game
             myGame.soundEffect.Stomp();
             enemy.dead = true;
             enemy.StartTimer();
-            myGame.hud.increasePoints(100);
+            myGame.hud.increasePoints(hundred);
         }
 
         private void ChangeMarioState()
@@ -74,19 +74,19 @@ namespace Game
             {
                 myGame.mario = new DeadMario(myGame);
                 myGame.hud.looseLife();
-                myGame.hud.decreasePoints(100);
+                myGame.hud.decreasePoints(hundred);
             }
             else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
             {
                 myGame.marioState.inv = true;
                 myGame.mario = new SmallMario(myGame);
-                myGame.hud.decreasePoints(50);
+                myGame.hud.decreasePoints(fifty);
             }
             else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.fire))
             {
                 myGame.marioState.inv = true;
                 myGame.mario = new LargeMario(myGame);
-                myGame.hud.decreasePoints(50);
+                myGame.hud.decreasePoints(fifty);
             }
         }
 

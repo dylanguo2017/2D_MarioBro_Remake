@@ -36,7 +36,7 @@ namespace Game
             enemyList = myGame.enemyCamList;
 
             toBeRemoved = new List<Fireball>();
-            if (proj.Count != 0)
+            if (proj.Count != zero)
             {
                 foreach (Fireball fBalls in proj)
                 {
@@ -50,7 +50,7 @@ namespace Game
                         toBeRemoved.Add(fBalls);
                     }
                 }
-                if (toBeRemoved.Count > 0)
+                if (toBeRemoved.Count > zero)
                 {
                     foreach (Fireball fireB in toBeRemoved)
                     {
