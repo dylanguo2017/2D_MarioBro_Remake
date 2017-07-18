@@ -129,8 +129,8 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("popPipe"))
                     {
-                        popPipe gameObject = new popPipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
+                       // popPipe gameObject = new popPipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                       // blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("pipeNeck"))
                     {
