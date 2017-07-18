@@ -52,6 +52,9 @@ namespace Game
             myGame.enemyCamList.Clear();
             myGame.itemCamList.Clear();
             myGame.blockCamList.Clear();
+            myGame.marioState.offset = 0;
+            myGame.camera.reset();
+            myGame.marioState.marioPhys.Spawn(32, 10);
             if (myGame.enemyPipeList.Count > zero)
             {
                 IEnemy curEnemy = myGame.enemyPipeList[zero];
@@ -89,6 +92,8 @@ namespace Game
         }
         public void ReloadLevel()
         {
+            myGame.marioState.offset = 2532;
+            Camera.offset = 2532;
             if (myGame.enemyList.Count > zero)
             {
                 IEnemy curEnemy = myGame.enemyList[zero];
@@ -115,6 +120,8 @@ namespace Game
             }
 
             LoadLevel();
+            //IBlock popPipe = myGame.blockCamList.Find()
+            //myGame.marioState.marioPhys.Spawn(popPipe.DrawLoc, );
         }
         public void Update()
         {

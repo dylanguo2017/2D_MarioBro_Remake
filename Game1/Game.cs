@@ -178,6 +178,9 @@ namespace Game
             enemyList = Level.enemyList;
             blockList = Level.blockList;
             itemList = Level.itemList;
+            enemyPipeList = Level.enemyPipeList;
+            blockPipeList = Level.blockPipeList;
+            itemPipeList = Level.itemPipeList;
             camObj.LoadLevel();
             
             bgList = Level.bgList;
