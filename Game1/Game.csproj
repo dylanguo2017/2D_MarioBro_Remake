@@ -135,6 +135,7 @@
     <Compile Include="Blocks\Used.cs" />
     <Compile Include="Sound\SoundEffects.cs" />
     <Compile Include="Sound\Sounds.cs" />
+    <Compile Include="Transition.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

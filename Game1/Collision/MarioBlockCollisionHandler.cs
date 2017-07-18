@@ -41,7 +41,7 @@ namespace Game
                 else if (vColFrom.Equals(sides.top))
                 {
                     myGame.marioState.marioPhys.DontFall();
-                    myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - 2);
+                    myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - 1);
                     myGame.marioState.jmpCtr = 20;
                     myGame.marioState.jump = false;
                     myGame.marioState.wPress = false;
@@ -124,7 +124,6 @@ namespace Game
             else if (vColFrom.Equals(sides.top))
             {
                 myGame.marioState.down = false;
-                myGame.marioState.marioPhys.YCoor -= intersecRec.Height;
             }
         }
        

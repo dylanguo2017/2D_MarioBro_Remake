@@ -7,26 +7,27 @@ namespace Game
     {
 
         public Game myGame;
+        public Transition trans;
 
         public LevelControl(Game game)
         {
             myGame = game;
+            trans = new Transition(game);
         }
 
         public void Update()
         {
             myGame.paused.Update();
             if (myGame.pause)
-            {
                 return;
-            }
             if (myGame.fbDelay > 0)
-            {
                 myGame.fbDelay--;
-            }
+            
+            if(!trans.transitioning)
+                myGame.marioColDetector.Update();
 
-            myGame.marioColDetector.Update();
             myGame.projColDet.Update();
+            trans.Update();
             foreach (IController x in myGame.contrl)
             {
                 if (x.isConnected())
@@ -57,11 +58,9 @@ namespace Game
                     }
                 }
             }
-
+            if (!trans.transitioning)
+                myGame.mario.Update();
             myGame.itemSpawn.Update();
-            
-
-            myGame.mario.Update();
             myGame.camObj.Update();
             if (myGame.fireBalls.Count != 0)
             {
