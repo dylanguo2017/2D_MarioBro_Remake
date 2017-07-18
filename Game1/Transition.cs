@@ -6,12 +6,20 @@ namespace Game
     {
         public Game myGame;
         private static bool transition = false;
+        private static bool transBack = false;
         private int sinking;
         public bool transitioning
         {
             get
             {
                 return transition;
+            }
+        }
+        public bool transitioningB
+        {
+            get
+            {
+                return transBack;
             }
         }
 
@@ -31,6 +39,12 @@ namespace Game
                     myGame.camObj.LoadPipe();
                     myGame.pipeLevel = true;
                 }
+            }
+            if (transBack)
+            {
+                myGame.camObj.ReloadLevel();
+                myGame.pipeLevel = false;
+                transBack = false;
             }
         }
 
@@ -53,6 +67,10 @@ namespace Game
         public static void StartTransition()
         {
             transition = true;
+        }
+        public static void EndTransition()
+        {
+            transBack = true;
         }
     }
 }

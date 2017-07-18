@@ -270,8 +270,8 @@ namespace Game
             enemyPipeList.Sort(enemyComp);
 
             //TESTING ONLY BELOW THIS PT
-            for (int i = 0; i < 19; i++)
-                System.Diagnostics.Debug.WriteLine("OBJECT NAME: " + itemPipeList[i].texture.ToString() + "    LOCATION:" + itemPipeList[i].currentLoc + "      OBJ #:"+i);
+            //for (int i = 0; i < 576; i++)
+            //    System.Diagnostics.Debug.WriteLine("OBJECT NAME: " + blockList[i].texture.ToString() + "    LOCATION:" + blockList[i].DrawLoc + "      OBJ #:"+i);
         }
         
         private class BlockComparer<T> : IComparer<T>

@@ -50,10 +50,21 @@ namespace Game
                         HandlePipeTransition(block);
                     }
                 }
+                else if (hColFrom.Equals(sides.left))
+                {
+                    if (block is SidePipe)
+                    {
+                        HandleSidePipe(block);
+                    }
+                }
 
             }
         }
 
+        private void HandleSidePipe(IBlock block)
+        {
+            Transition.EndTransition();
+        }
 
         private void HandleQuestion(IBlock block)
         {
