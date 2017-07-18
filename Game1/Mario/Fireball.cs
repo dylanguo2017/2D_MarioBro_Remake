@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Game.Utility;
 
 namespace Game
 {
@@ -48,12 +45,12 @@ namespace Game
             texture = spriteSheet;
             if (mainState.facingLeft)
             {
-                ballPhys = new Physics(mainState.XCoor - 8, mainState.YCoor);
+                ballPhys = new Physics(mainState.XCoor - eight, mainState.YCoor);
                 ballPhys.xVel = -1;
                 left = true;
             } else
             {
-                ballPhys = new Physics(mainState.XCoor + 8, mainState.YCoor);
+                ballPhys = new Physics(mainState.XCoor + eight, mainState.YCoor);
                 ballPhys.xVel = 1;
             }
             offset = mainState.offset;
@@ -75,7 +72,7 @@ namespace Game
 
         public void Delete()
         {
-            destinationRectangle = new Rectangle(0, 0, 0, 0);
+            destinationRectangle = new Rectangle(zero, zero, zero, zero);
             deleted = true;
         }
 
@@ -88,7 +85,7 @@ namespace Game
         {
             if (!deleted)
             {
-                sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
+                sourceRectangle = new Rectangle(zero, zero, texture.Width, texture.Height);
                 destinationRectangle = new Rectangle(ballPhys.XCoor - offset, ballPhys.YCoor, texture.Width, texture.Height);
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

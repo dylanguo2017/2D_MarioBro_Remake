@@ -11,7 +11,7 @@ namespace Game
 
         public MarioPositionDic()
         {
-            //Small mario facing right, the first one is idle mario facing right
+            //Small mario facing right, the first one is idle mario facing right.
 
             MarioPositionVec = new Vector2(211, 0); // [0] small right face idle
             PositionArr[idx++] = MarioPositionVec;
@@ -46,152 +46,118 @@ namespace Game
             MarioPositionVec = new Vector2(89, 0);  // [9] small left run 3
             PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 60;
-            MarioPositionVec.Y = 0;
-            PositionArr[10] = MarioPositionVec;
+            MarioPositionVec = new Vector2(60, 0);
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 29;// this one is small mario left jumping.
-            MarioPositionVec.Y = 0;
-            PositionArr[11] = MarioPositionVec;
+            MarioPositionVec = new Vector2(29, 0); // [11] small mario left jumping
+            PositionArr[idx++] = MarioPositionVec;
             // End of small mario facing right.
 
 
             // this one is small DEAD mario.
-            MarioPositionVec.X = 0;
-            MarioPositionVec.Y = 16;
-            PositionArr[12] = MarioPositionVec;
+            MarioPositionVec = new Vector2(0, 16);
+            PositionArr[idx++] = MarioPositionVec;
             // Dead mario end.
 
             //Big mario facing right, the first one is Big idle mario facing right.
-            MarioPositionVec.X = 209;// big face right idle
-            MarioPositionVec.Y = 52;
-            PositionArr[13] = MarioPositionVec;
+            MarioPositionVec = new Vector2(209, 52);
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 239;// right big run 1
-            MarioPositionVec.Y = 52;
-            PositionArr[14] = MarioPositionVec;
+            MarioPositionVec = new Vector2(239, 52); // [14] right big run 1
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 270;// right big run 2
-            MarioPositionVec.Y = 52;
-            PositionArr[15] = MarioPositionVec;
+            MarioPositionVec = new Vector2(270, 52); // [15] right big run 2
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 299;// right big run 3
-            MarioPositionVec.Y = 53;
-            PositionArr[16] = MarioPositionVec;
+            MarioPositionVec = new Vector2(299, 53); // [16] right big run 3
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 329;// right brake
-            MarioPositionVec.Y = 52;
-            PositionArr[17] = MarioPositionVec;
+            MarioPositionVec = new Vector2(329, 52); // [17] right brake
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 359;// this one is big mario right jumping.
-            MarioPositionVec.Y = 52;
-            PositionArr[18] = MarioPositionVec;
+            MarioPositionVec = new Vector2(359, 52); // [18] big mario right jumping
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 389;//this is big mario right crunch
-            MarioPositionVec.Y = 47;
-            PositionArr[19] = MarioPositionVec;
+            MarioPositionVec = new Vector2(389, 47); // [19] big mario right crunch
+            PositionArr[idx++] = MarioPositionVec;
             // End of big mario facing right.
 
 
             //Big mario facing left, the first one is big idle mario facing left.
-            MarioPositionVec.X = 180;// big face left idel
-            MarioPositionVec.Y = 52;
-            PositionArr[20] = MarioPositionVec;
+            MarioPositionVec = new Vector2(180, 52); // [20] big face left idle
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 150;// big left run 1
-            MarioPositionVec.Y = 52;
-            PositionArr[21] = MarioPositionVec;
+            MarioPositionVec = new Vector2(150, 52); // [21] big left run 1
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 121;// big left run 2
-            MarioPositionVec.Y = 52;
-            PositionArr[22] = MarioPositionVec;
+            MarioPositionVec = new Vector2(121, 52); // [22] big left run 2
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 90;// big left run 3
-            MarioPositionVec.Y = 53;
-            PositionArr[23] = MarioPositionVec;
+            MarioPositionVec = new Vector2(90, 53); // [23] big left run 3
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 60;// big left brake
-            MarioPositionVec.Y = 52;
-            PositionArr[24] = MarioPositionVec;
+            MarioPositionVec = new Vector2(60, 52); // [24] big left brake
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 30;// this one is Big mario left jumping.
-            MarioPositionVec.Y = 52;
-            PositionArr[25] = MarioPositionVec;
+            MarioPositionVec = new Vector2(30, 52); // [25] big mario left jumping
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 0;//this is big mario left crunch
-            MarioPositionVec.Y = 47;
-            PositionArr[26] = MarioPositionVec;
+            MarioPositionVec = new Vector2(0, 47); // [26] big mario left crunch
+            PositionArr[idx++] = MarioPositionVec;
             // End of Big mario facing left.
 
 
-
             //Fire mario facing right, the first one is Fire idle mario facing right.
-            MarioPositionVec.X = 209;// Fire right idle
-            MarioPositionVec.Y = 122;
-            PositionArr[27] = MarioPositionVec;
+            MarioPositionVec = new Vector2(209, 122); // [27] fire right idle
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 237;// fire right run1
-            MarioPositionVec.Y = 122;
-            PositionArr[28] = MarioPositionVec;
+            MarioPositionVec = new Vector2(237, 122); // [28] fire right run 1
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 263;// fire right run 2
-            MarioPositionVec.Y = 122;
-            PositionArr[29] = MarioPositionVec;
+            MarioPositionVec = new Vector2(263, 122); // [29] fire right run 2
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 287;// fire right run3
-            MarioPositionVec.Y = 123;
-            PositionArr[30] = MarioPositionVec;
+            MarioPositionVec = new Vector2(287, 123); // [30] fire right run 3
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 312;// right fire throw fireball
-            MarioPositionVec.Y = 123;
-            PositionArr[31] = MarioPositionVec;
+            MarioPositionVec = new Vector2(312, 123); // [31] right fire throw fireball
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 337;// fire right brake
-            MarioPositionVec.Y = 122;
-            PositionArr[32] = MarioPositionVec;
+            MarioPositionVec = new Vector2(337, 122); // [32] fire right brake
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 362;// this one is fire mario right jumping.
-            MarioPositionVec.Y = 122;
-            PositionArr[33] = MarioPositionVec;
+            MarioPositionVec = new Vector2(362, 122); // [33] fire mario right jumping
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 389;//this is fire mario right crunch
-            MarioPositionVec.Y = 118;
-            PositionArr[34] = MarioPositionVec;
+            MarioPositionVec = new Vector2(389, 118); // [34] fire mario right crunch
+            PositionArr[idx++] = MarioPositionVec;
             // End of Fire mario facing right.
 
 
             //Fire mario facing left, the first one is Fire idle mario facing left.
-            MarioPositionVec.X = 180;// fire left idle
-            MarioPositionVec.Y = 122;
-            PositionArr[35] = MarioPositionVec;
+            MarioPositionVec = new Vector2(180, 122); // [35] fire left idle
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 152;// fire left run1 
-            MarioPositionVec.Y = 122;
-            PositionArr[36] = MarioPositionVec;
+            MarioPositionVec = new Vector2(152, 122); // [36] fire left run1 
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 128;// fire left run 2
-            MarioPositionVec.Y = 122;
-            PositionArr[37] = MarioPositionVec;
+            MarioPositionVec = new Vector2(128, 122); // [37] fire left run 2
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 102;// fire left run3
-            MarioPositionVec.Y = 123;
-            PositionArr[38] = MarioPositionVec;
+            MarioPositionVec = new Vector2(102, 123); // [38] fire left run 3
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 77;// fire left throw fireball
-            MarioPositionVec.Y = 123;
-            PositionArr[39] = MarioPositionVec;
+            MarioPositionVec = new Vector2(77, 123); // [39] fire left throw fireball
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 52;// fire left brake
-            MarioPositionVec.Y = 122;
-            PositionArr[40] = MarioPositionVec;
+            MarioPositionVec = new Vector2(52, 122); // [40] fire left brake
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 27;// fire left jumping 
-            MarioPositionVec.Y = 122;
-            PositionArr[41] = MarioPositionVec;
+            MarioPositionVec = new Vector2(27, 122); // [41] fire left jumping 
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 0;// this one is fire mario left crouch
-            MarioPositionVec.Y = 118;
-            PositionArr[42] = MarioPositionVec;
+            MarioPositionVec = new Vector2(0, 118); // [42] fire mario left crouch
+            PositionArr[idx++] = MarioPositionVec;
             // End of Big mario facing left.
 
             //start of star small mario facing right 
