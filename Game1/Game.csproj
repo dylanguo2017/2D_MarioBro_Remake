@@ -106,6 +106,7 @@
     <Compile Include="Blocks\Invisible.cs" />
     <Compile Include="Items\ItemSpawn.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="LevelControl.cs" />
     <Compile Include="Mario\DrawFireMario.cs" />
     <Compile Include="Mario\DrawLargeMario.cs" />
     <Compile Include="Mario\DrawLargeStarMario.cs" />

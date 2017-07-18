@@ -24,7 +24,7 @@ namespace Game
         public ItemSpawn itemSpawn;
         public IMario mario;
         
-        private ArrayList contrl;
+        public ArrayList contrl;
         
         public Texture2D oneCloudBgElement;
         public Texture2D threeCloudsBgElement;
@@ -53,6 +53,10 @@ namespace Game
         public List<IItem> itemList;
         public List<IBackground> bgList;
 
+        public List<IBlock> blockPipeList;
+        public List<IEnemy> enemyPipeList;
+        public List<IItem> itemPipeList;
+
         public List<IBlock> blockCamList;
         public List<IBlock> questionBlockCamList;
         public List<IEnemy> enemyCamList;
@@ -63,9 +67,11 @@ namespace Game
         public IController gmPad;
 
         public bool pause;
+        public bool pipeLevel;
         public Pause paused;
         public HUD hud;
-
+        public LevelControl lvCtrl;
+        
         private int animationModifier;
         public int animMod
         {
@@ -74,7 +80,7 @@ namespace Game
                 return animationModifier;
             }
         }
-        private int starDuration;
+        public int starDuration;
         
         public List<Fireball> fireBalls;
         public int fbDelay;
@@ -82,10 +88,10 @@ namespace Game
 
         public enum sides { left, right, top, bottom, none };
 
-        private ICollisionDetector marioColDetector;
-        private ICollisionDetector enemyColDetector;
-        private ICollisionDetector itemColDetector;
-        private ICollisionDetector projColDet;
+        public ICollisionDetector marioColDetector;
+        public ICollisionDetector enemyColDetector;
+        public ICollisionDetector itemColDetector;
+        public ICollisionDetector projColDet;
 
         public SoundEffects soundEffect;
         public Sounds sound;
@@ -109,6 +115,7 @@ namespace Game
             camera = new Camera(this);
             camObj = new CameraObjectDetector(this);
             itemSpawn = new ItemSpawn(this);
+            lvCtrl = new LevelControl(this);
 
             marioColDetector = new MarioCollisionDetector(this);
             enemyColDetector = new EnemyCollisionDetector(this);
@@ -201,118 +208,22 @@ namespace Game
         {
             
             hud.Update(gameTime);
-            paused.Update();
-            if (pause)
-            {
-                return;
-            }
-            if(fbDelay > 0)
-            {
-                fbDelay--;
-            }
-
-            marioColDetector.Update();
-            projColDet.Update();
-
-            if (marioState.star)
-            {
-                starDuration--;
-                if(starDuration < 0)
-                {
-                    sound.state = soundStates.mainTheme;
-                    starDuration = 500;
-                    if (marioState.curStat.Equals(MarioStateClass.marioStatus.small))
-                    {
-                        mario = new SmallMario(this);
-                    }
-                    else if (marioState.curStat.Equals(MarioStateClass.marioStatus.large))
-                    {
-                        mario = new LargeMario(this);
-                    }
-                    else
-                    {
-                        mario = new FireMario(this);
-                    }
-                }
-            }
-
-            itemSpawn.Update();
-            animationModifier++;
-            foreach (IController x in contrl)
-            {
-                if (x.isConnected())
-                {
-                    marioState.move = false;
-                    x.Update();
-                }
-            }
-
-            mario.Update();
-            camObj.Update();
-            if (fireBalls.Count != 0)
-            {
-                foreach (Fireball fBalls in fireBalls)
-                {
-                    fBalls.Update();
-                }
-            }
-            foreach (IEnemy enemy in enemyCamList)
-            {
-                enemy.Update();
-                enemyColDetector.Update();
-            }
-            foreach (IItem item in itemCamList)
-            {
-                item.Update();
-                itemColDetector.Update();
-            }
-            if (animationModifier % 20 == 0)
-            {
-                foreach (IBackground background in bgList)
-                {
-                    background.Update();
-                }
-                foreach (IBlock block in blockCamList)
-                {
-                    block.Update();
-                }
-                //  foreach (IBlock block in questionBlockList)
-                // {
-                //   block.Update();
-                //  }
-
-
-
-            }
-            sound.Update();
             
+            animationModifier++;
+
+            lvCtrl.Update();
+
             base.Update(gameTime);
         }
         
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            
             hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
-            itemSpawn.Draw(spriteBatch);
-            foreach (IBackground background in bgList)
-            {
-                background.Draw(spriteBatch);
-            }
-            foreach (IBlock block in blockCamList)
-            {
-                block.Draw(spriteBatch);
-            }
+            lvCtrl.Draw(spriteBatch);
 
-            foreach (IEnemy enemy in enemyCamList)
-            {
-                enemy.Draw(spriteBatch);
-            }
-            foreach (IItem item in itemCamList)
-            {
-                item.Draw(spriteBatch);
-            }
             foreach(IBlock block in blockCamList)
             {
                 if (block is Question)
@@ -325,15 +236,6 @@ namespace Game
                 }
           }
 
-            if (fireBalls.Count != 0)
-            {
-                foreach (Fireball fBalls in fireBalls)
-                {
-                    fBalls.Draw(spriteBatch);
-                }
-            }
-            mario.Draw(spriteBatch);
-            
             base.Draw(gameTime);
         }
 
