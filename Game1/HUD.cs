@@ -21,7 +21,6 @@ namespace Game
         Vector2 levelPos;
         Vector2 timeString;
         Vector2 timePos;
-    
 
         public int numberOfCoins;
         public int pointTotal;
@@ -95,9 +94,7 @@ namespace Game
 
             string time = "TIME";
             spriteBatch.DrawString(font1, time, timeString, Color.White);
-
-          //  spriteBatch.DrawString(font1, ElapsedTime.ToString(), timePos, Color.White);
-           spriteBatch.DrawString(font1, levelTime.ToString(), timePos, Color.White);
+            spriteBatch.DrawString(font1, levelTime.ToString(), timePos, Color.White);
 
             spriteBatch.End();
         }

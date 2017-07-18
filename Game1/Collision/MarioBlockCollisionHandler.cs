@@ -96,11 +96,7 @@ namespace Game
 
         private void HandlePipeTransition(IBlock block)
         {
-            PipeTransition pipe = block as PipeTransition;
-            pipe.Update();
             Transition.StartTransition();
-
-            myGame.camera.pipeTransition();
 
         }
         private void DisableMarioMovement()
