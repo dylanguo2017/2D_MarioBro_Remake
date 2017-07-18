@@ -21,11 +21,13 @@ namespace Game
         Vector2 levelPos;
         Vector2 timeString;
         Vector2 timePos;
+    
 
         public int numberOfCoins;
         public int pointTotal;
         public int lives;
-
+        public int levelTime;
+        private int delay;
 
         public TimeSpan ElapsedTime { get; set; }
 
@@ -54,10 +56,23 @@ namespace Game
             numberOfCoins = 0;
             pointTotal = 0;
             lives = 3;
+            levelTime = 400;
+            delay = 50;
         }
         public void Update(GameTime gameTime)
         {
             ElapsedTime = gameTime.TotalGameTime;
+
+            if(delay > 0)
+            {
+                delay--;
+            }
+            else
+            {
+                levelTime--;
+                delay = 50;
+            }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -81,8 +96,9 @@ namespace Game
             string time = "TIME";
             spriteBatch.DrawString(font1, time, timeString, Color.White);
 
-            spriteBatch.DrawString(font1, ElapsedTime.ToString(), timePos, Color.White);
-            
+          //  spriteBatch.DrawString(font1, ElapsedTime.ToString(), timePos, Color.White);
+           spriteBatch.DrawString(font1, levelTime.ToString(), timePos, Color.White);
+
             spriteBatch.End();
         }
 
@@ -110,6 +126,8 @@ namespace Game
         {
             lives++;
         }
+        
+
     }
     
 }
