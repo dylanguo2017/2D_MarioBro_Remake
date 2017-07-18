@@ -232,12 +232,12 @@ namespace Game
                 {
                     if (target[positionColumn].Equals("blueBrick"))
                     {
-                        blueBrick gameObject = new blueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        BlueBrick gameObject = new BlueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
                         blockPipeList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("blueCrack"))
                     {
-                        blueCrack gameObject = new blueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
+                        BlueCrack gameObject = new BlueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
                         blockPipeList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("coin"))
