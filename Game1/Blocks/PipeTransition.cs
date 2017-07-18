@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Game.Utility;
 
 namespace Game.Blocks
 {
@@ -48,7 +45,6 @@ namespace Game.Blocks
 
         public void Update()
         {
-            //System.Diagnostics.Debug.WriteLine("pipe update");
 
         }
 
@@ -58,11 +54,11 @@ namespace Game.Blocks
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
-                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width * 2, height * 2);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width * 2, height * 2);
+                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width * two, height * two);
+                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width * two, height * two);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

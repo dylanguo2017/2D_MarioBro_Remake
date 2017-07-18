@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Game.Utility;
 
 namespace Game
 {
@@ -72,11 +73,11 @@ namespace Game
         public void Update()
         {
             animMod++;
-            if (animMod % 20 == 0)
+            if (animMod % twenty == 0)
             {
                 if (marioState.move && marioState.facingLeft)
                 {
-                    if (leftFacingCurrentFrame == 63)
+                    if (leftFacingCurrentFrame == sixtyThree)
                     {
                         leftFacingCurrentFrame = 22;
                     }
@@ -87,7 +88,7 @@ namespace Game
                 }
                 else if (marioState.move && !marioState.facingLeft)
                 {
-                    if (rightFacingCurrentFrame == 57)
+                    if (rightFacingCurrentFrame == fiftySeven)
                     {
                         rightFacingCurrentFrame = 14;
                     }  
@@ -105,12 +106,12 @@ namespace Game
         public void Draw(SpriteBatch spriteBatch)
         {
             
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
             {
-                marioState.offset = marioState.XCoor - 400;
+                marioState.offset = marioState.XCoor - fourHundred;
             }
             Rectangle sourceRectangle = drawMar.giveSource();
-            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - 16, sourceRectangle.Width, sourceRectangle.Height);
+            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
             spriteBatch.Begin();
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();

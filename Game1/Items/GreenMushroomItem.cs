@@ -57,11 +57,11 @@ namespace Game
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -77,12 +77,12 @@ namespace Game
 
         public void MoveLeft()
         {
-            drawLocation.X = drawLocation.X - 1;
+            drawLocation.X--;
         }
 
         public void MoveRight()
         {
-            drawLocation.X = drawLocation.X + 1;
+            drawLocation.X++;
         }
 
         public void OneUp()

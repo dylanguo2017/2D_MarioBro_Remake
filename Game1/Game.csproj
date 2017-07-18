@@ -47,8 +47,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Background\Background.cs" />
-    <Compile Include="Blocks\blueBrick.cs" />
-    <Compile Include="Blocks\blueCrack.cs" />
+    <Compile Include="Blocks\BlueBrick.cs" />
+    <Compile Include="Blocks\BlueCrack.cs" />
     <Compile Include="Blocks\Brick.cs" />
     <Compile Include="Blocks\PipeTransition.cs" />
     <Compile Include="Blocks\SidePipe.cs" />
@@ -94,10 +94,8 @@
     <Compile Include="Blocks\Crack.cs" />
     <Compile Include="Blocks\Diamond.cs" />
     <Compile Include="Enemies\GoombaEnemy.cs" />
-    <Compile Include="Enemies\GoombaPositionDic.cs" />
     <Compile Include="Enemies\IEnemy.cs" />
     <Compile Include="Enemies\KoopaEnemy.cs" />
-    <Compile Include="Enemies\KoopaPositionDic.cs" />
     <Compile Include="Items\Flagpole.cs" />
     <Compile Include="Items\FlowerItem.cs" />
     <Compile Include="Items\GreenMushroomItem.cs" />
@@ -137,6 +135,7 @@
     <Compile Include="Sound\SoundEffects.cs" />
     <Compile Include="Sound\Sounds.cs" />
     <Compile Include="Transition.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

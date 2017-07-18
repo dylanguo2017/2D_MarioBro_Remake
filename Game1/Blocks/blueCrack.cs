@@ -4,7 +4,7 @@ using System;
 
 namespace Game
 {
-    public class blueCrack : IBlock
+    public class BlueCrack : IBlock
     {
 
         private Game myGame;
@@ -28,7 +28,7 @@ namespace Game
         public int timer;
 
 
-        public blueCrack(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public BlueCrack(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
@@ -54,11 +54,11 @@ namespace Game
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

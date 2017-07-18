@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Game.Utility;
 
 namespace Game
 {
@@ -60,18 +61,18 @@ namespace Game
         public void Update()
         {
             animMod++;
-            if (animMod % 20 == 0)
+            if (animMod % twenty == zero)
             {
                 if (marioState.move && marioState.facingLeft)
                 {
                     leftFacingCurrentFrame++;
-                    if (leftFacingCurrentFrame == 38)
+                    if (leftFacingCurrentFrame == thirtyEight)
                         leftFacingCurrentFrame = 36;
                 }
                 else if (marioState.move && !marioState.facingLeft)
                 {
                     rightFacingCurrentFrame++;
-                    if (rightFacingCurrentFrame == 30)
+                    if (rightFacingCurrentFrame == thirty)
                         rightFacingCurrentFrame = 28;
                 }
             }
@@ -82,11 +83,11 @@ namespace Game
         {
             Rectangle sourceRectangle = drawMar.giveSource();
 
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
             {
-                marioState.offset = marioState.XCoor - 400;
+                marioState.offset = marioState.XCoor - fourHundred;
             }
-            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - 16, sourceRectangle.Width, sourceRectangle.Height);
+            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
 
             spriteBatch.Begin();
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

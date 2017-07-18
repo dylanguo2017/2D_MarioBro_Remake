@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Game.Utility;
 
 namespace Game
 {
@@ -69,17 +70,17 @@ namespace Game
                 marioState.jump = true;
             }
             marioState.marioPhys.Update();
-            if (marioState.inv && invCtr == 0)
+            if (marioState.inv && invCtr == zero)
             {
                 invCtr = 10;
             }
 
-            if(animMod % 20 == 0)
+            if(animMod % twenty == zero)
             {
-                if (invCtr > 0)
+                if (invCtr > zero)
                 {
                     invCtr--;
-                    if (invCtr == 0)
+                    if (invCtr == zero)
                     {
                         marioState.inv = false;
                     }
@@ -87,7 +88,7 @@ namespace Game
                 if (marioState.move && marioState.facingLeft && !marioState.jump)
                 {
                     leftFacingCurrentFrame++;
-                    if (leftFacingCurrentFrame == 9)
+                    if (leftFacingCurrentFrame == nine)
                     {
                         leftFacingCurrentFrame = 7;
                     }
@@ -95,7 +96,7 @@ namespace Game
                 else if (marioState.move && !marioState.facingLeft && !marioState.jump)
                 {
                     rightFacingCurrentFrame++;
-                    if (rightFacingCurrentFrame == 3)
+                    if (rightFacingCurrentFrame == three)
                     {
                         rightFacingCurrentFrame = 1;
                     }
@@ -105,14 +106,14 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
             {
-                marioState.offset = marioState.XCoor - 400;
+                marioState.offset = marioState.XCoor - fourHundred;
             }
 
             Rectangle sourceRectangle = drawMar.giveSource();
             destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, sourceRectangle.Width, sourceRectangle.Height);
-            if (invCtr % 2 == 1)
+            if (invCtr % two == one)
             {
                 return;
             }

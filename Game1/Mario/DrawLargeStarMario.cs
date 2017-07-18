@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Game.Utility;
 
 namespace Game
 {
@@ -29,17 +25,17 @@ namespace Game
                 {
                     if (!toDraw.MarState.jump)
                     {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[toDraw.RightFrame].X, (int)this.marioPosition.PositionArr[toDraw.RightFrame].Y, width, height);
+                        sourceReturn = new Rectangle((int)marioPosition.PositionArr[toDraw.RightFrame].X, (int)marioPosition.PositionArr[toDraw.RightFrame].Y, width, height);
                     }
                     else
                     {
                         if (toDraw.AltColor)
                         {
-                            sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[18].X, (int)this.marioPosition.PositionArr[18].Y, width, height);
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[eighteen].X, (int)marioPosition.PositionArr[eighteen].Y, width, height);
                         }
                         else
                         {
-                            sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[60].X, (int)this.marioPosition.PositionArr[60].Y, width, height);
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[sixty].X, (int)marioPosition.PositionArr[sixty].Y, width, height);
                         }
                     }
                 }
@@ -51,22 +47,22 @@ namespace Game
                         {
                             if (toDraw.AltColor)
                             {
-                                sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[13].X, (int)this.marioPosition.PositionArr[13].Y, width, height);
+                                sourceReturn = new Rectangle((int)marioPosition.PositionArr[thirteen].X, (int)marioPosition.PositionArr[thirteen].Y, width, height);
                             }
                             else
                             {
-                                sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[55].X, (int)this.marioPosition.PositionArr[55].Y, width, height);
+                                sourceReturn = new Rectangle((int)marioPosition.PositionArr[fiftyFive].X, (int)marioPosition.PositionArr[fiftyFive].Y, width, height);
                             }
                         }
                         else
                         {
                             if (toDraw.AltColor)
                             {
-                                sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[18].X, (int)this.marioPosition.PositionArr[18].Y, width, height);
+                                sourceReturn = new Rectangle((int)marioPosition.PositionArr[eighteen].X, (int)marioPosition.PositionArr[eighteen].Y, width, height);
                             }
                             else
                             {
-                                sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[60].X, (int)this.marioPosition.PositionArr[60].Y, width, height);
+                                sourceReturn = new Rectangle((int)marioPosition.PositionArr[sixty].X, (int)marioPosition.PositionArr[sixty].Y, width, height);
                             }
                         }
                     }
@@ -74,11 +70,11 @@ namespace Game
                     {
                         if (toDraw.AltColor)
                         {
-                            sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[19].X, (int)this.marioPosition.PositionArr[19].Y, width, height);
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[nineteen].X, (int)marioPosition.PositionArr[nineteen].Y, width, height);
                         }
                         else
                         {
-                            sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[61].X, (int)this.marioPosition.PositionArr[61].Y, width, height);
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[sixtyOne].X, (int)marioPosition.PositionArr[sixtyOne].Y, width, height);
                         }
                     }
                 }
@@ -89,17 +85,17 @@ namespace Game
                 {
                     if (!toDraw.MarState.jump)
                     {
-                        sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[toDraw.LeftFrame].X, (int)this.marioPosition.PositionArr[toDraw.LeftFrame].Y, width, height);
+                        sourceReturn = new Rectangle((int)marioPosition.PositionArr[toDraw.LeftFrame].X, (int)marioPosition.PositionArr[toDraw.LeftFrame].Y, width, height);
                     }
                     else
                     {
                         if (toDraw.AltColor)
                         {
-                            sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[25].X, (int)this.marioPosition.PositionArr[25].Y, width, height);
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[twentyFive].X, (int)marioPosition.PositionArr[twentyFive].Y, width, height);
                         }
                         else
                         {
-                            sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[67].X, (int)this.marioPosition.PositionArr[67].Y, width, height);
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[sixtySeven].X, (int)marioPosition.PositionArr[sixtySeven].Y, width, height);
                         }
                     }
                 }
@@ -111,22 +107,22 @@ namespace Game
                         {
                             if (toDraw.AltColor)
                             {
-                                sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[20].X, (int)this.marioPosition.PositionArr[20].Y, width, height);
+                                sourceReturn = new Rectangle((int)marioPosition.PositionArr[twenty].X, (int)marioPosition.PositionArr[twenty].Y, width, height);
                             }
                             else
                             {
-                                sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[62].X, (int)this.marioPosition.PositionArr[62].Y, width, height);
+                                sourceReturn = new Rectangle((int)marioPosition.PositionArr[sixtyTwo].X, (int)marioPosition.PositionArr[sixtyTwo].Y, width, height);
                             }
                         }
                         else
                         {
                             if (toDraw.AltColor)
                             {
-                                sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[25].X, (int)this.marioPosition.PositionArr[25].Y, width, height);
+                                sourceReturn = new Rectangle((int)marioPosition.PositionArr[twentyFive].X, (int)marioPosition.PositionArr[twentyFive].Y, width, height);
                             }
                             else
                             {
-                                sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[67].X, (int)this.marioPosition.PositionArr[67].Y, width, height);
+                                sourceReturn = new Rectangle((int)marioPosition.PositionArr[sixtySeven].X, (int)marioPosition.PositionArr[sixtySeven].Y, width, height);
                             }
                         }
                     }
@@ -134,11 +130,11 @@ namespace Game
                     {
                         if (toDraw.AltColor)
                         {
-                            sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[26].X, (int)this.marioPosition.PositionArr[26].Y, width, height);
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[twentySix].X, (int)marioPosition.PositionArr[twentySix].Y, width, height);
                         }
                         else
                         {
-                            sourceReturn = new Rectangle((int)this.marioPosition.PositionArr[68].X, (int)this.marioPosition.PositionArr[68].Y, width, height);
+                            sourceReturn = new Rectangle((int)marioPosition.PositionArr[sixtyEight].X, (int)marioPosition.PositionArr[sixtyEight].Y, width, height);
                         }
                     }
                 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using static Game.Utility;
 
 namespace Game
 {
@@ -9,7 +10,7 @@ namespace Game
         private Dictionary<Keys, ICommand> controllerMappings;
         public bool wDown = false;
         
-        Keys[] exist = new Keys[17] {Keys.W,Keys.A,Keys.S,Keys.D,Keys.R, Keys.Y, Keys.U, Keys.I, Keys.O, Keys.Z, Keys.X, Keys.C, Keys.Q, Keys.Up, Keys.Down, Keys.Left, Keys.Right };
+        Keys[] exist = new Keys[seventeen] {Keys.W,Keys.A,Keys.S,Keys.D,Keys.R, Keys.Y, Keys.U, Keys.I, Keys.O, Keys.Z, Keys.X, Keys.C, Keys.Q, Keys.Up, Keys.Down, Keys.Left, Keys.Right };
 
         public KeyboardController()
         {

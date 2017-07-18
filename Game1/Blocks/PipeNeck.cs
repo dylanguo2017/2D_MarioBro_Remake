@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game
 {
@@ -54,11 +55,11 @@ namespace Game
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width * 2, height );
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width * 2, height);
+                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width * two, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -76,12 +77,12 @@ namespace Game
         {
             hit = true;
 
-            drawLocation.Y = drawLocation.Y - 2;
+            drawLocation.Y -= two;
         }
 
         public void BumpDown()
         {
-            drawLocation.Y = drawLocation.Y + 2;
+            drawLocation.Y += two;
         }
 
 

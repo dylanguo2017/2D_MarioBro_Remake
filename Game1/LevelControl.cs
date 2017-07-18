@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Game.Utility;
 
 namespace Game
 {
@@ -20,7 +21,7 @@ namespace Game
             myGame.paused.Update();
             if (myGame.pause)
                 return;
-            if (myGame.fbDelay > 0)
+            if (myGame.fbDelay > zero)
                 myGame.fbDelay--;
             
             if(!trans.transitioning)
@@ -40,9 +41,9 @@ namespace Game
             if (myGame.marioState.star)
             {
                 myGame.starDuration--;
-                if (myGame.starDuration < 0)
+                if (myGame.starDuration < zero)
                 {
-                    myGame.sound.state = Game.soundStates.mainTheme;
+                    myGame.sound.state = Utility.soundStates.mainTheme;
                     myGame.starDuration = 500;
                     if (myGame.marioState.curStat.Equals(MarioStateClass.marioStatus.small))
                     {
@@ -62,7 +63,7 @@ namespace Game
                 myGame.mario.Update();
             myGame.itemSpawn.Update();
             myGame.camObj.Update();
-            if (myGame.fireBalls.Count != 0)
+            if (myGame.fireBalls.Count != zero)
             {
                 foreach (Fireball fBalls in myGame.fireBalls)
                 {
@@ -79,7 +80,7 @@ namespace Game
                 item.Update();
                 myGame.itemColDetector.Update();
             }
-            if (myGame.animMod % 20 == 0)
+            if (myGame.animMod % twenty == zero)
             {
                 foreach (IBackground background in myGame.bgList)
                 {
@@ -112,15 +113,7 @@ namespace Game
         public void DrawPipe(SpriteBatch spriteBatch)
         {
             myGame.GraphicsDevice.Clear(Color.Black);
-        }
-        public void DrawNormal(SpriteBatch spriteBatch)
-        {
-            myGame.GraphicsDevice.Clear(Color.CornflowerBlue);
-            myGame.itemSpawn.Draw(spriteBatch);
-            foreach (IBackground background in myGame.bgList)
-            {
-                background.Draw(spriteBatch);
-            }
+            myGame.mario.Draw(spriteBatch);
             foreach (IBlock block in myGame.blockCamList)
             {
                 block.Draw(spriteBatch);
@@ -134,14 +127,46 @@ namespace Game
             {
                 item.Draw(spriteBatch);
             }
-            if (myGame.fireBalls.Count != 0)
+            if (myGame.fireBalls.Count != zero)
             {
                 foreach (Fireball fBalls in myGame.fireBalls)
                 {
                     fBalls.Draw(spriteBatch);
                 }
             }
+            
+        }
+        public void DrawNormal(SpriteBatch spriteBatch)
+        {
+            myGame.GraphicsDevice.Clear(Color.CornflowerBlue);
+            myGame.itemSpawn.Draw(spriteBatch);
+            
+            foreach (IBackground background in myGame.bgList)
+            {
+                background.Draw(spriteBatch);
+            }
             myGame.mario.Draw(spriteBatch);
+            foreach (IBlock block in myGame.blockCamList)
+            {
+                block.Draw(spriteBatch);
+            }
+
+            foreach (Enemies.IEnemy enemy in myGame.enemyCamList)
+            {
+                enemy.Draw(spriteBatch);
+            }
+            foreach (IItem item in myGame.itemCamList)
+            {
+                item.Draw(spriteBatch);
+            }
+            if (myGame.fireBalls.Count != zero)
+            {
+                foreach (Fireball fBalls in myGame.fireBalls)
+                {
+                    fBalls.Draw(spriteBatch);
+                }
+            }
+            
         }
     }
 }

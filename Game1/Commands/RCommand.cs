@@ -1,7 +1,4 @@
-﻿
-using Microsoft.Xna.Framework.Graphics;
-
-namespace Game
+﻿namespace Game
 {
     class RCommand : ICommand
     {
@@ -33,7 +30,7 @@ namespace Game
             myGame.bgList = Level.bgList;
             myGame.camObj.LoadLevel();
 
-            myGame.sound.state = Game.soundStates.reset;
+            myGame.sound.state = Utility.soundStates.reset;
         }
     }
 }

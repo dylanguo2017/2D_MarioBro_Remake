@@ -1,6 +1,6 @@
 ﻿using Game.Blocks;
 using Microsoft.Xna.Framework;
-using static Game.Game;
+using static Game.Utility;
 
 namespace Game
 {
@@ -41,11 +41,11 @@ namespace Game
                 else if (vColFrom.Equals(sides.top))
                 {
                     myGame.marioState.marioPhys.DontFall();
-                    myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - 1);
+                    myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - one);
                     myGame.marioState.jmpCtr = 20;
                     myGame.marioState.jump = false;
                     myGame.marioState.wPress = false;
-                    if (block is PipeTransition)
+                    if (block is PipeTransition && myGame.marioState.crouch)
                     {
                         HandlePipeTransition(block);
                     }
@@ -98,6 +98,7 @@ namespace Game
         {
             PipeTransition pipe = block as PipeTransition;
             pipe.Update();
+            Transition.StartTransition();
 
             myGame.camera.pipeTransition();
 

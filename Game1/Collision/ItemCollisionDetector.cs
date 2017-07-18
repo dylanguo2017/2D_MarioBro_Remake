@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using static Game.Game;
+using static Game.Utility;
 
 namespace Game
 {
@@ -54,7 +54,7 @@ namespace Game
             hColFrom = sides.none;
             vColFrom = sides.none;
 
-            if ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2))
+            if ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + two) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - two))
             {
                 if (itemRec.Right > blockRec.Right)
                 {
@@ -66,7 +66,7 @@ namespace Game
                 }
             }
 
-            if ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + 2) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - 2))
+            if ((itemRec.Left <= blockRec.Left && itemRec.Right >= blockRec.Left + two) || (itemRec.Left > blockRec.Left && blockRec.Right >= itemRec.Left - two))
             {
                 if (itemRec.Bottom > blockRec.Bottom)
                 {
