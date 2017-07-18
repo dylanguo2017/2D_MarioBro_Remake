@@ -17,9 +17,6 @@ namespace Game
         public static List<IItem> itemPipeList;
         public static List<IBlock> blockPipeList;
 
-        public static IItem[] questionItemArray = new IItem[50];
-        public static int countOfPopItem = 0;
-
         public static List<IBackground> bgList;
 
         public static void LoadLists(Game myGame)
@@ -77,33 +74,33 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("questionRedMushroom"))
                     {
-                        RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        questionItemArray[countOfPopItem] = gameObject;
-                        countOfPopItem++;
+                        //RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        //questionItemArray[countOfPopItem] = gameObject;
+                        //countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("questionGreenMushroom"))
                     {
-                        GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        questionItemArray[countOfPopItem] = gameObject;
-                        countOfPopItem++;
+                        //GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        //questionItemArray[countOfPopItem] = gameObject;
+                        //countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("questionStar"))
                     {
-                        StarItem gameObject = new StarItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        questionItemArray[countOfPopItem] = gameObject;
-                        countOfPopItem++;
+                        //StarItem gameObject = new StarItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        //questionItemArray[countOfPopItem] = gameObject;
+                        //countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("questionCoin"))
                     {
-                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        questionItemArray[countOfPopItem] = gameObject;
-                        countOfPopItem++;
+                        //CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        //questionItemArray[countOfPopItem] = gameObject;
+                        //countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("questionFlower"))
                     {
-                        FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        questionItemArray[countOfPopItem] = gameObject;
-                        countOfPopItem++;
+                        //FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
+                        //questionItemArray[countOfPopItem] = gameObject;
+                        //countOfPopItem++;
                     }
                     else if (target[positionColumn].Equals("used"))
                     {
@@ -127,8 +124,8 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("popPipe"))
                     {
-                       // popPipe gameObject = new popPipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                       // blockList.Add(gameObject);
+                        popPipe gameObject = new popPipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("pipeNeck"))
                     {
@@ -254,6 +251,11 @@ namespace Game
                     {
                         IEnemy gameObject = new KoopaEnemy(myGame, myGame.koopaEnemy, 1, 10, positionColumn * 16, positionRow * 16);
                         enemyPipeList.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("pipeNeck"))
+                    {
+                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockPipeList.Add(gameObject);
                     }
                     positionColumn++;
                 }

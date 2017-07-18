@@ -55,6 +55,7 @@ namespace Game
             myGame.marioState.offset = 0;
             myGame.camera.reset();
             myGame.marioState.marioPhys.Spawn(32, 10);
+            myGame.marioState.crouch = false;
             if (myGame.enemyPipeList.Count > zero)
             {
                 IEnemy curEnemy = myGame.enemyPipeList[zero];
