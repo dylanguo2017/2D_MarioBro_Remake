@@ -8,7 +8,7 @@ blueBrick,,,,,,,,,,,,,,pipeNeck
 blueBrick,,,,,,,,,,,,,,pipeNeck
 blueBrick,,,,coin,coin,coin,coin,coin,coin,coin,,,,pipeNeck
 blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,,pipeNeck
-blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,,
-blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,,
+blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,sidePipe,pipeNeck
+blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,,pipeNeck
 blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack
 blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack
