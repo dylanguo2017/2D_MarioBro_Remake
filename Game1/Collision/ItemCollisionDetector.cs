@@ -24,8 +24,8 @@ namespace Game
 
         public void Update()
         {
-            blockList = myGame.blockList;
-            itemList = myGame.itemList;
+            blockList = myGame.blockCamList;
+            itemList = myGame.itemCamList;
 
             Rectangle blockRec;
             foreach (IItem item in itemList)
@@ -36,7 +36,7 @@ namespace Game
                 {
                     blockRec = block.DestinationRectangle();
 
-                    if (blockRec.X <= 800 && itemRec.Intersects(blockRec))
+                    if (itemRec.Intersects(blockRec))
                     {
                         CollidesFrom(blockRec);
                         itemColHandler = new ItemCollisionHandler(myGame);
@@ -51,18 +51,18 @@ namespace Game
 
         public void CollidesFrom(Rectangle blockRec)
         {
-            hColFrom = Game.sides.none;
-            vColFrom = Game.sides.none;
+            hColFrom = sides.none;
+            vColFrom = sides.none;
 
             if ((itemRec.Top <= blockRec.Top && itemRec.Bottom >= blockRec.Top + 2) || (itemRec.Top > blockRec.Top && blockRec.Bottom >= itemRec.Top - 2))
             {
                 if (itemRec.Right > blockRec.Right)
                 {
-                    hColFrom = Game.sides.right;
+                    hColFrom = sides.right;
                 }
                 else if (itemRec.Left < blockRec.Left)
                 {
-                    hColFrom = Game.sides.left;
+                    hColFrom = sides.left;
                 }
             }
 
@@ -70,11 +70,11 @@ namespace Game
             {
                 if (itemRec.Bottom > blockRec.Bottom)
                 {
-                    vColFrom = Game.sides.bottom;
+                    vColFrom = sides.bottom;
                 }
                 else if (itemRec.Top < blockRec.Top)
                 {
-                    vColFrom = Game.sides.top;
+                    vColFrom = sides.top;
                 }
             }
         }

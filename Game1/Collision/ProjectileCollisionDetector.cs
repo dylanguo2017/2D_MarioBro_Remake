@@ -32,8 +32,8 @@ namespace Game
 
         public void Update()
         {
-            blockList = myGame.blockList;
-            enemyList = myGame.enemyList;
+            blockList = myGame.blockCamList;
+            enemyList = myGame.enemyCamList;
 
             toBeRemoved = new List<Fireball>();
             if (proj.Count != 0)
@@ -66,7 +66,7 @@ namespace Game
             {
                 blockRec = block.DestinationRectangle();
 
-                if (blockRec.X <= 800 && projRec.Intersects(blockRec))
+                if (projRec.Intersects(blockRec))
                 {
                     CollidesFrom(blockRec);
                     projBlockColHandler = new ProjectileBlockCollisionHandler(myGame);
@@ -82,7 +82,7 @@ namespace Game
             {
                 enemyRec = enemy.DestinationRectangle();
 
-                if (enemyRec.X <= 800 && projRec.Intersects(enemyRec))
+                if (projRec.Intersects(enemyRec))
                 {
                     CollidesFrom(enemyRec);
                     projEnemyColHandler = new ProjectileEnemyCollisionHandler(myGame);
@@ -93,17 +93,17 @@ namespace Game
 
         public void CollidesFrom(Rectangle objectRec)
         {
-            vColFrom = Game.sides.none;
+            vColFrom = sides.none;
 
             if ((projRec.Left <= objectRec.Left && projRec.Right >= objectRec.Left + 2) || (projRec.Left > objectRec.Left && objectRec.Right >= projRec.Left - 2))
             {
                 if (projRec.Bottom > objectRec.Bottom)
                 {
-                    vColFrom = Game.sides.bottom;
+                    vColFrom = sides.bottom;
                 }
                 else if (projRec.Top < objectRec.Top)
                 {
-                    vColFrom = Game.sides.top;
+                    vColFrom = sides.top;
                 }
             }
 

@@ -1,0 +1,14 @@
+blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,,pipeNeck
+blueBrick,,,,,,,,,,,,,,pipeNeck
+blueBrick,,,,,,,,,,,,,,pipeNeck
+blueBrick,,,,,coin,coin,coin,coin,coin,,,,,pipeNeck
+blueBrick,,,,,,,,,,,,,,pipeNeck
+blueBrick,,,,coin,coin,coin,coin,coin,coin,coin,,,,pipeNeck
+blueBrick,,,,,,,,,,,,,,pipeNeck
+blueBrick,,,,,,,,,,,,,,pipeNeck
+blueBrick,,,,coin,coin,coin,coin,coin,coin,coin,,,,pipeNeck
+blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,,pipeNeck
+blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,,
+blueBrick,,,,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,blueBrick,,,,
+blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack
+blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack,blueCrack

@@ -81,7 +81,7 @@ namespace Game
         {
             visible = false;
             myGame.soundEffect.Coin();
-            CoinCollector.increment();
+            myGame.hud.addCoin();
         }
 
         

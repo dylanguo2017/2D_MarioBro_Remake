@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using static Game.Game;
 
 namespace Game
 {
     public class Pause
     {
         public Game myGame;
-        private Game.soundStates placeHol;
+        private soundStates placeHol;
         private int delay = 0;
         SpriteFont font1;
         Vector2 fontPos;
@@ -30,8 +31,7 @@ namespace Game
                 if (myGame.pause)
                 {
                     placeHol = myGame.sound.state;
-                    myGame.sound.state = Game.soundStates.pause;
-                    myGame.sound.Pause();
+                    myGame.soundEffect.Pause();
                 }
                 else
                 {
@@ -43,6 +43,7 @@ namespace Game
                 delay--;
             }
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             if (myGame.pause)

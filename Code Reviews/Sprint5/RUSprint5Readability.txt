@@ -1,0 +1,11 @@
+Author: Rezeki Utomo
+Date: 7/14/2017
+Sprint#: 5
+.cs file reviewed: Sounds.cs
+author of cs file: Shiny Patel
+# of minutes taken to complete the review: 20
+
+Specific comments on readibility: 
+	Code is very readable as everything has a clear purpose. Each variable is named well so that
+	the reader would know instantly what kind of sound the variable has. Other than that, function
+	names are also named correctly.

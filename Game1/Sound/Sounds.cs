@@ -20,7 +20,7 @@ namespace Game
             Load();
             Loop();
             mainTheme.Play();
-            state = Game.soundStates.mainTheme;
+            state = soundStates.mainTheme;
         }
 
         private void Load()
@@ -41,42 +41,38 @@ namespace Game
 
         public void Starman()
         {
-            if (state.Equals(Game.soundStates.mainTheme))
+            if (state.Equals(soundStates.mainTheme))
             {
-                state = Game.soundStates.starman;
+                state = soundStates.starman;
             }
         }
 
         public void Update()
         {
-            if (state.Equals(Game.soundStates.mainTheme))
+            if (state.Equals(soundStates.mainTheme))
             {
                 starman.Stop();
                 mainTheme.Resume();
             }
-            else if (state.Equals(Game.soundStates.starman))
+            else if (state.Equals(soundStates.starman))
             {
                 mainTheme.Pause();
                 starman.Play();
             }
-            else if (state.Equals(Game.soundStates.hurry))
+            else if (state.Equals(soundStates.hurry))
             {
                 mainTheme.Stop();
                 starman.Stop();
                 hurry.Play();
             }
-            else if (state.Equals(Game.soundStates.gameOver))
+            else if (state.Equals(soundStates.gameOver))
             {
                 mainTheme.Stop();
                 starman.Stop();
                 hurry.Stop();
                 gameOver.Play();
             }
-            else if (state.Equals(Game.soundStates.pause))
-            {
-                Pause();
-            }
-            else if(state.Equals(Game.soundStates.stop))
+            else if(state.Equals(soundStates.stop))
             {
                 Stop();
             }
@@ -84,7 +80,7 @@ namespace Game
             {
                 Stop();
                 mainTheme.Play();
-                state = Game.soundStates.mainTheme;
+                state = soundStates.mainTheme;
             }
         }
         

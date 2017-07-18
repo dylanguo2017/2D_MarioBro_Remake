@@ -7,11 +7,12 @@ namespace Game
     {
         private Game myGame;
         private SoundEffect effect;
-        private soundStates pausedState;
+        private bool flag;
 
         public SoundEffects(Game game)
         {
             myGame = game;
+            flag = false;
         }
 
         public void Break()
@@ -31,8 +32,7 @@ namespace Game
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/coin");
             effect.Play();
         }
-
-        // call when item pops out of question mark block
+        
         public void PowerupAppears()
         {
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/powerup-appears");
@@ -72,48 +72,43 @@ namespace Game
             effect.Play();
         }
 
-        // call when game is paused
         public void Pause()
         {
-            pausedState = myGame.sound.state;
-            myGame.sound.state = Game.soundStates.pause;
+            myGame.sound.Pause();
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/pause");
             effect.Play();
         }
-
-        // call when game is resumed
-        public void Resume()
-        {
-            myGame.sound.state = pausedState;
-        }
-
+        
         public void MarioDies()
         {
-            myGame.sound.state = Game.soundStates.stop;
+            myGame.sound.state = soundStates.stop;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/mariodies");
             effect.Play();
         }
         
-        // call when flag comes down
         public void Flagpole()
         {
-            effect = myGame.Content.Load<SoundEffect>("SoundEffects/flagpole");
-            effect.Play();
+            if(!flag)
+            {
+                flag = true;
+                effect = myGame.Content.Load<SoundEffect>("SoundEffects/flagpole");
+                effect.Play();
+                LevelComplete();
+            }
         }
 
-        // call when level complete
-        public void LevelComplete()
+        private void LevelComplete()
         {
-            myGame.sound.state = Game.soundStates.stop;
-            effect = myGame.Content.Load<SoundEffect>("SoundEffects/into-the-tunnel");
+            myGame.sound.state = soundStates.stop;
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/level-complete");
             effect.Play();
         }
 
         // call when Mario goes in the tunnel
         public void IntoTheTunnel()
         {
-            myGame.sound.state = Game.soundStates.stop;
-            effect = myGame.Content.Load<SoundEffect>("SoundEffects/level-complete");
+            myGame.sound.state = soundStates.stop;
+            effect = myGame.Content.Load<SoundEffect>("SoundEffects/into-the-tunnel");
             effect.Play();
         }
 
