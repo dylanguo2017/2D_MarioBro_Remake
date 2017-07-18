@@ -31,7 +31,13 @@ namespace Game
          Path.Combine(Directory.GetCurrentDirectory(),
                       "Content", "Levels", "Level1-1.txt")
          );
-            String inComingLine;
+
+            StreamReader bonusLevelFile = new StreamReader(
+       Path.Combine(Directory.GetCurrentDirectory(),
+                    "Content", "Levels", "Level1-1BONUS.txt")
+                    );
+
+          String inComingLine;
             int positionRow = 0;
 
             while (!levelFile.EndOfStream)
@@ -120,6 +126,11 @@ namespace Game
                     {
                         PipeTransition gameObject = new PipeTransition(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
+                    }
+                    else if (target[positionColumn].Equals("popPipe"))
+                    {
+                       // popPipe gameObject = new popPipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                       // blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("pipeNeck"))
                     {
