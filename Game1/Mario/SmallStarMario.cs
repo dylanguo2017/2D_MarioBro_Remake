@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Game.Utility;
 
 namespace Game
 {
@@ -71,12 +72,12 @@ namespace Game
         public void Update()
         {
             animMod++;
-            if (animMod % 20 == 0)
+            if (animMod % twenty == zero)
             {
                 if (marioState.move && marioState.facingLeft && !marioState.jump)
                 {
                     leftFacingCurrentFrame++;
-                    if (leftFacingCurrentFrame == 52)
+                    if (leftFacingCurrentFrame == fiftyTwo)
                     {
                         leftFacingCurrentFrame = 50;
                     }
@@ -84,7 +85,7 @@ namespace Game
                 else if (marioState.move && !marioState.facingLeft && !marioState.jump)
                 {
                     rightFacingCurrentFrame++;
-                    if (rightFacingCurrentFrame == 46)
+                    if (rightFacingCurrentFrame == fourtySix)
                     {
                         rightFacingCurrentFrame = 44;
                     }
@@ -96,9 +97,9 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
             {
-                marioState.offset = marioState.XCoor - 400;
+                marioState.offset = marioState.XCoor - fourHundred;
             }
             Rectangle sourceRectangle = drawMar.giveSource();
             destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, sourceRectangle.Width, sourceRectangle.Height);

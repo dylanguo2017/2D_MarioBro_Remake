@@ -1,59 +1,50 @@
 ﻿using Microsoft.Xna.Framework;
+using static Game.Utility;
 
 namespace Game
 {
     public class MarioPositionDic
     {
         private Vector2 MarioPositionVec;
-        public Vector2[] PositionArr = new Vector2[100];
+        private int idx = 0;
+        public Vector2[] PositionArr = new Vector2[posDicMax];
 
         public MarioPositionDic()
         {
-            //Small mario facing right, the first one is idle mario facing right.
+            //Small mario facing right, the first one is idle mario facing right
 
-            MarioPositionVec.X = 211;// small right face idle
-            MarioPositionVec.Y = 0;
-            PositionArr[0] = MarioPositionVec;
+            MarioPositionVec = new Vector2(211, 0); // [0] small right face idle
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 241;// right run 1
-            MarioPositionVec.Y = 0;
-            PositionArr[1] = MarioPositionVec;
+            MarioPositionVec = new Vector2(241, 0); // [1] right run 1
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 272;// right run 2
-            MarioPositionVec.Y = 0;
-            PositionArr[2] = MarioPositionVec;
+            MarioPositionVec = new Vector2(272, 0); // [2] right run 2
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 300;// right run 3
-            MarioPositionVec.Y = 0;
-            PositionArr[3] = MarioPositionVec;
+            MarioPositionVec = new Vector2(300, 0); // [3] right run 3
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 331;
-            MarioPositionVec.Y = 0;
-            PositionArr[4] = MarioPositionVec;
+            MarioPositionVec = new Vector2(331, 0);
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 359;// this one is small mario right jumping.
-            MarioPositionVec.Y = 0;
-            PositionArr[5] = MarioPositionVec;
+            MarioPositionVec = new Vector2(359, 0); // [5] small mario right jumping
+            PositionArr[idx++] = MarioPositionVec;
             // End of small mario facing right.
 
 
-
             //Small mario facing left, the first one is idle mario facing left.
-            MarioPositionVec.X = 181;// small left face idle
-            MarioPositionVec.Y = 0;
-            PositionArr[6] = MarioPositionVec;
+            MarioPositionVec = new Vector2(181, 0); // [6] small left face idle
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 150;// small left run1
-            MarioPositionVec.Y = 0;
-            PositionArr[7] = MarioPositionVec;
+            MarioPositionVec = new Vector2(150, 0); // [7] small left run 1
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 121;// small left run2
-            MarioPositionVec.Y = 0;
-            PositionArr[8] = MarioPositionVec;
+            MarioPositionVec = new Vector2(121, 0); // [8] small left run 2
+            PositionArr[idx++] = MarioPositionVec;
 
-            MarioPositionVec.X = 89;// small left run3
-            MarioPositionVec.Y = 0;
-            PositionArr[9] = MarioPositionVec;
+            MarioPositionVec = new Vector2(89, 0);  // [9] small left run 3
+            PositionArr[idx++] = MarioPositionVec;
 
             MarioPositionVec.X = 60;
             MarioPositionVec.Y = 0;

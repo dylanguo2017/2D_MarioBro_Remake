@@ -1,4 +1,5 @@
 ﻿using System;
+using static Game.Utility;
 
 namespace Game
 {
@@ -52,7 +53,7 @@ namespace Game
             crouch = crch;
             jump = jmp;
             move = mv;
-            marioPhys = new Physics(48, 432);
+            marioPhys = new Physics(fourtyEight, fourHundredThirtyTwo);
             left = true;
             right = true;
             up = true;
@@ -163,7 +164,7 @@ namespace Game
                     {
                         crouch = false;
                     }
-                    else if (jmpCtr > 0 && !wPress)
+                    else if (jmpCtr > zero && !wPress)
                     {
                         jmpCtr--;
                         marioPhys.falling = true;
