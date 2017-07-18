@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/group4/Game1/Content/Courier New.spritefont</SourceFile>
-  <SourceTime>2017-07-14T20:38:21.9283155-04:00</SourceTime>
-  <DestFile>E:/group4/Game1/Content/bin/Windows/Courier New.xnb</DestFile>
-  <DestTime>2017-07-18T14:31:03.9761378-04:00</DestTime>
+  <SourceFile>E:/group4/Game1/Content/test.spritefont</SourceFile>
+  <SourceTime>2017-03-01T10:05:30-05:00</SourceTime>
+  <DestFile>E:/group4/Game1/Content/bin/Windows/test.xnb</DestFile>
+  <DestTime>2017-07-18T14:31:04.0698905-04:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
