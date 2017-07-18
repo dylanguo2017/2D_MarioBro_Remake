@@ -36,7 +36,7 @@ namespace Game
                 {
                     blockRec = block.DestinationRectangle();
 
-                    if (blockRec.X <= 800 && itemRec.Intersects(blockRec))
+                    if (itemRec.Intersects(blockRec))
                     {
                         CollidesFrom(blockRec);
                         itemColHandler = new ItemCollisionHandler(myGame);

@@ -38,7 +38,7 @@ namespace Game
                 {
                     blockRec = block.DestinationRectangle();
 
-                    if (blockRec.X <= 800 && enemyRec.Intersects(blockRec))
+                    if (enemyRec.Intersects(blockRec))
                     {
                         CollidesFrom(blockRec);
                         enemyColHandler = new EnemyCollisionHandler(myGame);

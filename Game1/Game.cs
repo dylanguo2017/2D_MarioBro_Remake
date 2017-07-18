@@ -190,10 +190,8 @@ namespace Game
             {
                 if(block is Question)
                 {
-                    
                     countOfPopItem++;
                 }
-                
                 
             }
         }
@@ -219,7 +217,6 @@ namespace Game
 
         protected override void Draw(GameTime gameTime)
         {
-            
             hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
             lvCtrl.Draw(spriteBatch);
@@ -234,7 +231,7 @@ namespace Game
                     }
                     
                 }
-          }
+            }
 
             base.Draw(gameTime);
         }

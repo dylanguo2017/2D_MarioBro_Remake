@@ -100,7 +100,6 @@ namespace Game
             pipe.Update();
 
             myGame.camera.pipeTransition();
-            //System.Diagnostics.Debug.WriteLine("Handle pipe");
 
         }
         private void DisableMarioMovement()
@@ -108,18 +107,15 @@ namespace Game
             if(hColFrom.Equals(sides.right))
             {
                 myGame.marioState.left = false;
-                //myGame.marioState.marioPhys.XCoor += intersecRec.Width;
             }
             else if (hColFrom.Equals(sides.left))
             {
                 myGame.marioState.right = false;
-                //myGame.marioState.marioPhys.XCoor -= intersecRec.Width;
             }
 
             if (vColFrom.Equals(sides.bottom))
             {
                 myGame.marioState.up = false;
-                //myGame.marioState.marioPhys.YCoor += intersecRec.Height;
             }
             else if (vColFrom.Equals(sides.top))
             {
