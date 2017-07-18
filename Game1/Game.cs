@@ -215,11 +215,11 @@ namespace Game
 
         protected override void Draw(GameTime gameTime)
         {
+
+            lvCtrl.Draw(spriteBatch);
             hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
-            lvCtrl.Draw(spriteBatch);
-
-            foreach(IBlock block in blockCamList)
+            foreach (IBlock block in blockCamList)
             {
                 if (block is Question)
                 {

@@ -17,19 +17,7 @@ namespace Game
             myGame = game;
         }
         
-        public void pipeTransition()
-        {
-            System.Diagnostics.Debug.WriteLine("camera pipe transition");
-            if (pipeTransitionOffset == offset)
-            {
-                pipeTransitionOffset = 3728;
-            }
-            else
-            {
-                pipeTransitionOffset = offset;
-            }
-           
-        }
+
         public bool IsInCamera(int xCoor)
         {
             camIn = false;
