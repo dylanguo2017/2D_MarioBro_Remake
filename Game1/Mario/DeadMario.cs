@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Game.Utility;
 
 namespace Game
 {
@@ -42,9 +43,9 @@ namespace Game
 
             Rectangle sourceRectangle = new Rectangle((int)marioPosition.PositionArr[currentFrame].X, (int)marioPosition.PositionArr[currentFrame].Y, width, height);
 
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > 400)
+            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
             {
-                marioState.offset = marioState.XCoor - 400;
+                marioState.offset = marioState.XCoor - fourHundred;
             }
             destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, width, height);
 
