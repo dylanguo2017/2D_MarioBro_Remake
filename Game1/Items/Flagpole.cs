@@ -11,6 +11,7 @@ namespace Game
         private Game myGame;
         public Point poleLoc;
         private Rectangle poleDestinationRec;
+        public bool flagDown;
         public int currentLoc
         {
             get
@@ -38,11 +39,12 @@ namespace Game
             poleLoc = new Point(pointX, pointY);
             visible = true;
             flagLoc = poleLoc;
+            flagDown = false;
         }
 
         public virtual void Update()
         {
-            if (myGame.marioState.flagpole || myGame.marioState.levelComp)
+            if (flagDown)
             {
                 myGame.soundEffect.Flagpole();
                 if (flagLoc.Y != fourHundredSixteen)

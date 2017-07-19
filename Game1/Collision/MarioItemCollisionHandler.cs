@@ -41,6 +41,8 @@
                 else if(item is Flagpole)
                 {
                     myGame.marioState.flagpole = true;
+                    Flagpole flagPole = item as Flagpole;
+                    flagPole.flagDown = true;
                 }
             }
 
