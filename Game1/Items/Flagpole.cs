@@ -42,7 +42,7 @@ namespace Game
 
         public virtual void Update()
         {
-            if (myGame.marioState.flagpole)
+            if (myGame.marioState.flagpole || myGame.marioState.levelComp)
             {
                 myGame.soundEffect.Flagpole();
                 if (flagLoc.Y != fourHundredSixteen)

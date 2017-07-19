@@ -20,7 +20,7 @@ namespace Game
         {
             if (block.visible)
             {
-                if (myGame.marioState.flagpole)
+                if (myGame.marioState.flagpole || myGame.marioState.levelComp)
                 {
                     if (block is Castle)
                     {
@@ -30,6 +30,7 @@ namespace Game
                     else if(block is Diamond)
                     {
                         myGame.marioState.levelComp = true;
+                        myGame.marioState.flagpole = false;
                         myGame.gameOver.Walk();
                     }
                     else
