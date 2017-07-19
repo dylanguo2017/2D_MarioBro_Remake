@@ -26,7 +26,7 @@ namespace Game
             gameOverPos.Y = 100;
             totalLivesPos.X = 400;
             totalLivesPos.Y = 300;
-            livesPos.X = 550;
+            livesPos.X = 650;
             livesPos.Y = 300;
             
 
@@ -51,21 +51,16 @@ namespace Game
             delay = 100;
         }
 
-        public static void SetDelay()
-        {
-            delay = 100;
-        }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             if (myGame.gameover)
             {
                myGame.GraphicsDevice.Clear(Color.Black);
                 spriteBatch.Begin();
-                string GameOver = "GAME OVER";
+                string GameOver = "GAME   OVER";
                 spriteBatch.DrawString(font1, GameOver, gameOverPos, Color.White);
 
-                string TotalLives = "Lives left:";
+                string TotalLives = "Lives   Left:";
                 spriteBatch.DrawString(font1, TotalLives, totalLivesPos, Color.White);
                 spriteBatch.DrawString(font1, myGame.hud.lives.ToString(), livesPos, Color.White);
 
