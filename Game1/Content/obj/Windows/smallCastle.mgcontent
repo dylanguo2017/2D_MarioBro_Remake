@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Admin/Source/Repos/Mario4.03/Game1/Content/smallCastle.png</SourceFile>
-  <SourceTime>2017-07-04T20:25:42.8147124-04:00</SourceTime>
-  <DestFile>C:/Users/Admin/Source/Repos/Mario4.03/Game1/Content/bin/Windows/smallCastle.xnb</DestFile>
-  <DestTime>2017-07-18T20:11:59.4386958-04:00</DestTime>
+  <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/smallCastle.png</SourceFile>
+  <SourceTime>2017-07-14T13:56:44.5003447-04:00</SourceTime>
+  <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/smallCastle.xnb</DestFile>
+  <DestTime>2017-07-18T19:58:26.9654911-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
