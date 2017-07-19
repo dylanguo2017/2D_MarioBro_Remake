@@ -25,15 +25,17 @@ namespace Game
                     if (block is Castle)
                     {
                         myGame.mario.visible = false;
+                        myGame.marioState.levelComp = false;
                     }
                     else if(block is Diamond)
                     {
                         myGame.marioState.levelComp = true;
-                        myGame.gameOver.WalkIntoTheCastle();
+                        myGame.gameOver.Walk();
                     }
                     else
                     {
-                        myGame.gameOver.WalkIntoTheCastle();
+                        myGame.marioState.MoveR();
+                        myGame.gameOver.Walk();
                     }
                 }
                     DisableMarioMovement();

@@ -42,6 +42,14 @@ namespace Game
 
         public virtual void Update()
         {
+            if (myGame.marioState.flagpole)
+            {
+                myGame.soundEffect.Flagpole();
+                if (flagLoc.Y != fourHundredSixteen)
+                {
+                    flagLoc.Y++;
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -75,16 +83,6 @@ namespace Game
             return poleDestinationRec;
         }
 
-
-        public void FlagDown()
-        {
-            myGame.marioState.flagpole = true;
-            myGame.soundEffect.Flagpole();
-            if (flagLoc.Y != fourHundredSixteen)
-            {
-                flagLoc.Y++;
-            }
-        }
 
     }
 }
