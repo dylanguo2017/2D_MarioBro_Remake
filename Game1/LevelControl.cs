@@ -18,6 +18,12 @@ namespace Game
 
         public void Update()
         {
+            if (myGame.marioState.marioPhys.YCoor > 800 && !myGame.gameover)
+            {
+                myGame.gameover = true;
+                myGame.mario = new DeadMario(myGame);
+            }
+                
             myGame.paused.Update();
             if (myGame.pause)
                 return;

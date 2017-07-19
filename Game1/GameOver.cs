@@ -10,7 +10,7 @@ namespace Game
     public class GameOver
     {
         public Game myGame;
-        private int delay = 0;
+        private static int delay = 0;
         SpriteFont font1;
         Vector2 gameOverPos;
         Vector2 totalLivesPos;
@@ -40,10 +40,16 @@ namespace Game
             }
         }
 
+        public static void SetDelay()
+        {
+            delay = 100;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             if (myGame.gameover)
             {
+                myGame.GraphicsDevice.Clear(Color.Black);
                 spriteBatch.Begin();
                 string GameOver = "GAME OVER";
                 spriteBatch.DrawString(font1, GameOver, gameOverPos, Color.White);
