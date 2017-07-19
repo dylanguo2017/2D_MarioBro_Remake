@@ -40,8 +40,9 @@
                 }
                 else if(item is Flagpole)
                 {
-                    Flagpole flag = item as Flagpole;
-                    flag.FlagDown(); 
+                    myGame.marioState.flagpole = true;
+                    Flagpole flagPole = item as Flagpole;
+                    flagPole.flagDown = true;
                 }
             }
 

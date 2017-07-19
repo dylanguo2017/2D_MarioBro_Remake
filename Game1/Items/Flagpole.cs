@@ -11,6 +11,7 @@ namespace Game
         private Game myGame;
         public Point poleLoc;
         private Rectangle poleDestinationRec;
+        public bool flagDown;
         public int currentLoc
         {
             get
@@ -38,10 +39,19 @@ namespace Game
             poleLoc = new Point(pointX, pointY);
             visible = true;
             flagLoc = poleLoc;
+            flagDown = false;
         }
 
         public virtual void Update()
         {
+            if (flagDown)
+            {
+                myGame.soundEffect.Flagpole();
+                if (flagLoc.Y != fourHundredSixteen)
+                {
+                    flagLoc.Y++;
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -75,16 +85,6 @@ namespace Game
             return poleDestinationRec;
         }
 
-
-        public void FlagDown()
-        {
-            myGame.marioState.flagpole = true;
-            myGame.soundEffect.Flagpole();
-            if (flagLoc.Y != fourHundredSixteen)
-            {
-                flagLoc.Y++;
-            }
-        }
 
     }
 }

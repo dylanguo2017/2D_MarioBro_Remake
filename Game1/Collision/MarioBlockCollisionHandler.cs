@@ -20,20 +20,23 @@ namespace Game
         {
             if (block.visible)
             {
-                if (myGame.marioState.flagpole)
+                if (myGame.marioState.flagpole || myGame.marioState.levelComp)
                 {
                     if (block is Castle)
                     {
                         myGame.mario.visible = false;
+                        myGame.marioState.levelComp = false;
                     }
                     else if(block is Diamond)
                     {
                         myGame.marioState.levelComp = true;
-                        myGame.gameOver.WalkIntoTheCastle();
+                        myGame.marioState.flagpole = false;
+                        myGame.gameOver.Walk();
                     }
                     else
                     {
-                        myGame.gameOver.WalkIntoTheCastle();
+                        myGame.marioState.MoveR();
+                        myGame.gameOver.Walk();
                     }
                 }
                     DisableMarioMovement();
