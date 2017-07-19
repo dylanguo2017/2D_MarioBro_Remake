@@ -1,19 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game.Blocks
 {
-    public class PopPipe : IBlock
+    public class Castle : IBlock
     {
-        private Game myGame;
-        public Point drawLocation;
 
+        private Game myGame;
+        public Point location;
         public int DrawLoc
         {
             get
             {
-                return drawLocation.X;
+                return location.X;
             }
         }
         private Rectangle destinationRectangle;
@@ -26,23 +27,22 @@ namespace Game.Blocks
         public Boolean visible { get; set; }
         public Boolean hit { get; set; }
         public int timer;
+        public Boolean used;
 
-
-        public PopPipe(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Castle(Game game, Texture2D texture, int rows, int columns, int x, int y)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 264;
+            currentFrame = 0;
             totalFrame = this.rows * this.columns;
-            myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            location = new Point(x, y);
+
             visible = true;
-            hit = false;
-            timer = 0;
+            myGame = game;
         }
 
-        public void Update()
+        public virtual void Update()
         {
         }
 
@@ -52,11 +52,11 @@ namespace Game.Blocks
             {
                 int width = texture.Width / columns;
                 int height = texture.Height / rows;
-                int row = (int)((float)currentFrame / (float)columns);
+                int row = currentFrame / columns;
                 int column = currentFrame % columns;
 
-                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width * 2, height * 2);
-                destinationRectangle = new Rectangle((int)drawLocation.X - myGame.camera.GetOffset(), (int)drawLocation.Y, width * 2, height * 2);
+                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+                destinationRectangle = new Rectangle(location.X - myGame.camera.GetOffset(), location.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

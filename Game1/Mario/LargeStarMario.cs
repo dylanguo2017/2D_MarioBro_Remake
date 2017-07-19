@@ -46,6 +46,7 @@ namespace Game
             }
         }
         private Game myGame;
+        public bool visible { get; set; }
 
         public LargeStarMario(Game game)
         {
@@ -63,6 +64,7 @@ namespace Game
             drawMar = new DrawLargeStarMario(this);
 
             myGame.sound.Starman();
+            visible = true;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -105,16 +107,20 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
+            if (visible)
             {
-                marioState.offset = marioState.XCoor - fourHundred;
+
+
+                if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
+                {
+                    marioState.offset = marioState.XCoor - fourHundred;
+                }
+                Rectangle sourceRectangle = drawMar.giveSource();
+                destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
+                spriteBatch.Begin();
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+                spriteBatch.End();
             }
-            Rectangle sourceRectangle = drawMar.giveSource();
-            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
         }
 
         public Rectangle DestinationRectangle()

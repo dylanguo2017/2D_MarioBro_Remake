@@ -50,8 +50,9 @@
     <Compile Include="Blocks\BlueBrick.cs" />
     <Compile Include="Blocks\BlueCrack.cs" />
     <Compile Include="Blocks\Brick.cs" />
+    <Compile Include="Blocks\Castle.cs" />
     <Compile Include="Blocks\PipeTransition.cs" />
-    <Compile Include="Blocks\popPipe.cs" />
+    <Compile Include="Blocks\PopPipe.cs" />
     <Compile Include="Blocks\SidePipe.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CameraObjectDetector.cs" />

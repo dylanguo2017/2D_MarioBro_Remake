@@ -9,6 +9,7 @@ namespace Game
         void Update();
 
         Rectangle DestinationRectangle();
+        bool visible { get; set; }
 
         MarioStateClass.marioStatus currentStatus();
     }
