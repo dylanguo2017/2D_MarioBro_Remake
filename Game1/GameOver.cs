@@ -16,7 +16,7 @@ namespace Game
         Vector2 totalLivesPos;
         Vector2 livesPos;
         RCommand reset;
-        
+        DCommand walkToTheCastle;
 
         public GameOver(Game game)
         {
@@ -32,6 +32,7 @@ namespace Game
 
             delay = 100;
             reset = new RCommand(myGame);
+            walkToTheCastle = new DCommand(myGame);
         }
 
         public void Update()
@@ -49,6 +50,12 @@ namespace Game
         public void SetDelay()
         {
             delay = 100;
+        }
+
+        public void WalkIntoTheCastle()
+        {
+            System.Diagnostics.Debug.Write("walk");
+            walkToTheCastle.Execute();
         }
 
         public void Draw(SpriteBatch spriteBatch)

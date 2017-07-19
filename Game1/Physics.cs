@@ -67,5 +67,6 @@ namespace Game
             xCoor = x;
             yCoor = y;
         }
+
     }
 }
