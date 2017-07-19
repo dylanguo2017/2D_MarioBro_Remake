@@ -133,10 +133,13 @@ namespace Game
 
         public void reset()
         {
-            numberOfCoins = 0;
-            lives = 3;
+            if(lives == 0)
+            {
+                numberOfCoins = 0;
+                lives = 3;
+                pointTotal = 0;
+            }
             levelTime = 400;
-            pointTotal = 0;
         }
 
 
