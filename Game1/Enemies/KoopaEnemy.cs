@@ -57,46 +57,54 @@ namespace Game.Enemies
 
         public void Update()
         {
-            if(myGame.animMod % twenty == zero)
+            if (myGame.animMod % twenty == zero && movingLeft)
             {
-                if (movingLeft)
+            
+                 currentFrame--;
+                 if (currentFrame == one)
+                 {
+                     currentFrame = 3;
+                 }
+                 moveLeft();
+            }
+            else if (myGame.animMod % twenty == zero && movingRight)
+            {
+                 currentFrame++;
+                 if (currentFrame == six)
+                 {
+                     currentFrame = 4;
+                 }
+                 moveRight();
+            }
+            else if (almostDead)
+            {
+                currentFrame = 8;
+                lifeTimer++;
+                if (lifeTimer > twenty)
                 {
-                    currentFrame--;
-                    if (currentFrame == one)
-                    {
-                        currentFrame = 3;
-                    }
-                    moveLeft();
+                    dead = true;
                 }
-                else if (movingRight)
+                else
                 {
-                    currentFrame++;
-                    if (currentFrame == six)
-                    {
-                        currentFrame = 4;
-                    }
-                    moveRight();
-                }
-                else if (almostDead)
-                {
-                    currentFrame = 8;
-                }
-                else if (dead)
-                {
-                    currentFrame = 9;
-                    timer++;
-                    if (timer > twenty)
-                    {
-                        visible = false;
-                    }
-                    else
-                    {
-                        deadOffset = deadOffset + twenty;
-                    }
+                    currentFrame = 3;
+                    movingLeft = true;
                 }
             }
+            else if (dead)
+            {
+                 currentFrame = 9;
+                 timer++;
+                 if (timer > twenty)
+                 {
+                     visible = false;
+                 }
+                 else
+                 {
+                     deadOffset = deadOffset + 10;
+                 }
+            }
 
-            KoopaPhys.Update();
+                KoopaPhys.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -145,7 +153,24 @@ namespace Game.Enemies
             }
         }
 
-        
+        public void startLifeTimer()
+        {
+            if (lifeTimer < one)
+            {
+                lifeTimer++;
+            }
+            else if (lifeTimer == twenty)
+            {
+                currentFrame = 3;
+                movingLeft = true;
+            }
+            else
+            {
+                dead = true;
+            }
+        }
+
+
 
     }
 }

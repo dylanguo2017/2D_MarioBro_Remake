@@ -48,7 +48,6 @@ namespace Game.Blocks
 
         public void Update()
         {
-            //System.Diagnostics.Debug.WriteLine("pipe update");
 
         }
 

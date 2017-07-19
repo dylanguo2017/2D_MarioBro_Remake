@@ -21,6 +21,7 @@ namespace Game
             if (myGame.marioState.marioPhys.YCoor > 800 && !myGame.gameover)
             {
                 myGame.gameover = true;
+                myGame.hud.looseLife();
                 myGame.mario = new DeadMario(myGame);
             }
                 
