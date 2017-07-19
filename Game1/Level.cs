@@ -177,6 +177,8 @@ namespace Game
                     {
                         IItem gameObject = new Flagpole(myGame, myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
                         itemList.Add(gameObject);
+                        IBlock block = new Diamond(myGame, myGame.blockSprite, 28, 33, (positionColumn * 16) - 6, (positionRow * 16) + 128);
+                        blockList.Add(block);
                     }
                     else if (target[positionColumn].Equals("title"))
                     {

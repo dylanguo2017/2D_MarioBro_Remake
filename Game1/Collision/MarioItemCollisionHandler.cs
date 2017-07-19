@@ -40,8 +40,8 @@
                 }
                 else if(item is Flagpole)
                 {
-                    myGame.marioState.flagpole = true;
-                    myGame.soundEffect.Flagpole();
+                    Flagpole flag = item as Flagpole;
+                    flag.FlagDown(); 
                 }
             }
 

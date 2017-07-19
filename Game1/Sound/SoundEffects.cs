@@ -53,7 +53,7 @@ namespace Game
         
         public void Jump()
         {
-            if (!myGame.marioState.marioPhys.falling)
+            if (!myGame.marioState.marioPhys.falling && !myGame.marioState.flagpole)
             {
                 effect = myGame.Content.Load<SoundEffect>("SoundEffects/jump-super");
                 effect.Play();

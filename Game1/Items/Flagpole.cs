@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game
 {
@@ -8,13 +9,13 @@ namespace Game
     {
 
         private Game myGame;
-        public Point drawLocation;
-        private Rectangle destinationRectangle;
+        public Point poleLoc;
+        private Rectangle poleDestinationRec;
         public int currentLoc
         {
             get
             {
-                return drawLocation.X;
+                return poleLoc.X;
             }
         }
         public int rows { get; set; }
@@ -24,6 +25,7 @@ namespace Game
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
 
+        private Point flagLoc;
 
         public Flagpole(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
@@ -33,9 +35,9 @@ namespace Game
             currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            poleLoc = new Point(pointX, pointY);
             visible = true;
-
+            flagLoc = poleLoc;
         }
 
         public virtual void Update()
@@ -46,25 +48,43 @@ namespace Game
         {
             if (visible)
             {
-                int width = texture.Width / columns;
-                int height = texture.Height / rows;
-                int row = currentFrame / columns;
-                int column = currentFrame % columns;
+                int flagSize = 16;
+                int ballSize = 8;
+                int polWidth = 2;
+                int polHeight = 128;
 
-                Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
+                Rectangle ballSourceRec = new Rectangle(thirteen, one, ballSize, ballSize);
+                Rectangle ballDestinationRec = new Rectangle(poleLoc.X - myGame.camera.GetOffset() - three, poleLoc.Y - ballSize, ballSize, ballSize);
+
+                Rectangle poleSourceRec = new Rectangle(sixteen, twentyFive, polWidth, polHeight);
+                poleDestinationRec = new Rectangle(poleLoc.X - myGame.camera.GetOffset(), poleLoc.Y, polWidth, polHeight);
+
+                Rectangle flagSourceRec = new Rectangle(zero, nine, flagSize, flagSize);
+                Rectangle flagDestinationRec = new Rectangle(poleLoc.X - myGame.camera.GetOffset() - flagSize, flagLoc.Y , flagSize, flagSize);
 
                 spriteBatch.Begin();
-                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+                spriteBatch.Draw(texture, poleDestinationRec, poleSourceRec, Color.White);
+                spriteBatch.Draw(texture, flagDestinationRec, flagSourceRec, Color.White);
+                spriteBatch.Draw(texture, ballDestinationRec, ballSourceRec, Color.White);
                 spriteBatch.End();
             }
         }
 
         public Rectangle DestinationRectangle()
         {
-            return destinationRectangle;
+            return poleDestinationRec;
         }
 
+
+        public void FlagDown()
+        {
+            myGame.marioState.flagpole = true;
+            myGame.soundEffect.Flagpole();
+            if (flagLoc.Y != fourHundredSixteen)
+            {
+                flagLoc.Y++;
+            }
+        }
 
     }
 }
