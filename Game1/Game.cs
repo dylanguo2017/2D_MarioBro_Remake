@@ -9,7 +9,6 @@ namespace Game
     public class Game : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        GameTime gameTime;
         
         SpriteBatch spriteBatch;
 
@@ -68,6 +67,8 @@ namespace Game
         public bool pause;
         public bool pipeLevel;
         public Pause paused;
+        public bool gameover;
+        public GameOver gameOver;
         public HUD hud;
         public LevelControl lvCtrl;
         
@@ -102,8 +103,7 @@ namespace Game
         protected override void Initialize()
         {
             hud = new HUD(this);
-
-            gameTime = new GameTime();
+            
             soundEffect = new SoundEffects(this);
             sound = new Sounds(this);
             contrl = new ArrayList();
@@ -123,6 +123,8 @@ namespace Game
             contrl.Add(keyboard);
             contrl.Add(gmPad);
             paused = new Pause(this);
+            gameOver = new GameOver(this);
+            gameover = false;
 
             marioState = new MarioStateClass(false, false, false, false);
             fireBalls = new List<Fireball>();
@@ -203,7 +205,7 @@ namespace Game
         protected override void Update(GameTime gameTime)
         {
             
-            hud.Update(gameTime);
+            hud.Update();
             
             animationModifier++;
 
@@ -215,10 +217,12 @@ namespace Game
 
         protected override void Draw(GameTime gameTime)
         {
-
+            
             lvCtrl.Draw(spriteBatch);
             hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
+            gameOver.Draw(spriteBatch);
+
             foreach (IBlock block in blockCamList)
             {
                 if (block is Question)

@@ -26,7 +26,6 @@ namespace Game
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
         public Boolean hit { get; set; }
-        public int timer;
 
 
         public BlueBrick(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
@@ -40,27 +39,10 @@ namespace Game
             drawLocation = new Point(pointX, pointY);
             visible = true;
             hit = false;
-            timer = 0;
         }
 
         public void Update()
         {
-            if (hit)
-            {
-                if (timer < one)
-                {
-                    timer++;
-                }
-                else
-                {
-                    timer = 0;
-                    hit = false;
-                    BumpDown();
-                    myGame.marioState.marioPhys.YCoor += two;
-                }
-            }
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -85,24 +67,5 @@ namespace Game
         {
             return destinationRectangle;
         }
-
-        public void BumpUp()
-        {
-            hit = true;
-            drawLocation.Y = drawLocation.Y - two;
-            myGame.soundEffect.Bump();
-        }
-
-        public void BumpDown()
-        {
-            drawLocation.Y = drawLocation.Y + two;
-        }
-
-        public void Break()
-        {
-            visible = false;
-            myGame.soundEffect.Break();
-        }
-
     }
 }

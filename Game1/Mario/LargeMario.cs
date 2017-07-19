@@ -37,7 +37,8 @@ namespace Game
         private Rectangle destinationRectangle;
         private int invCtr;
         private int animMod;
-        
+        public bool visible { get; set; }
+
         public LargeMario(Game game)
         {
             myGame = game;
@@ -52,7 +53,7 @@ namespace Game
             animMod = 0;
             drawMar = new DrawLargeMario(myGame, this);
 
-            myGame.marioState.flagpole = false;
+            visible = true;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -98,21 +99,25 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
+            if (visible)
             {
-                marioState.offset = marioState.XCoor - fourHundred;
-            }
 
-            Rectangle sourceRectangle = drawMar.giveSource();
+                if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
+                {
+                    marioState.offset = marioState.XCoor - fourHundred;
+                }
 
-            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
-            if (invCtr % two == one)
-            {
-                return;
+                Rectangle sourceRectangle = drawMar.giveSource();
+
+                destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
+                if (invCtr % two == one)
+                {
+                    return;
+                }
+                spriteBatch.Begin();
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+                spriteBatch.End();
             }
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
         }
 
         public Rectangle DestinationRectangle()

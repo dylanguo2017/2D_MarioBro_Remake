@@ -55,11 +55,12 @@
         public const int twoHundredNineteen = 219;
         public const int twoHundredFiftyFive = 255;
         public const int fourHundred = 400;
+        public const int fourHundredSixteen = 416;
         public const int fourHundredThirtyTwo = 432;
 
         public const int screenWidth = 800;
 
         public enum sides { left, right, top, bottom, none };
-        public enum soundStates { mainTheme, starman, hurry, gameOver, stop, reset };
+        public enum soundStates { mainTheme, starman, hurry, gameOver, stop, reset, bonus };
     }
 }

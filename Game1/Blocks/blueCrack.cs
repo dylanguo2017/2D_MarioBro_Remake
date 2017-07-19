@@ -25,7 +25,6 @@ namespace Game
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
         public Boolean hit { get; set; }
-        public int timer;
 
 
         public BlueCrack(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
@@ -39,7 +38,6 @@ namespace Game
             drawLocation = new Point(pointX, pointY);
             visible = true;
             hit = false;
-            timer = 0;
         }
 
         public void Update()

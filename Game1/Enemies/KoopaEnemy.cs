@@ -32,6 +32,7 @@ namespace Game.Enemies
         }
         private Physics KoopaPhys;
         private int timer;
+        private int deadOffset;
         private int lifeTimer;
 
         public KoopaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
@@ -48,6 +49,7 @@ namespace Game.Enemies
             movingRight = false;
             almostDead = false;
             dead = false;
+            deadOffset = 0;
             timer = 0;
             lifeTimer = 0;
             
@@ -55,37 +57,54 @@ namespace Game.Enemies
 
         public void Update()
         {
-            if(myGame.animMod % twenty == zero)
+            if (myGame.animMod % twenty == zero && movingLeft)
             {
-                if (movingLeft)
+            
+                 currentFrame--;
+                 if (currentFrame == one)
+                 {
+                     currentFrame = 3;
+                 }
+                 moveLeft();
+            }
+            else if (myGame.animMod % twenty == zero && movingRight)
+            {
+                 currentFrame++;
+                 if (currentFrame == six)
+                 {
+                     currentFrame = 4;
+                 }
+                 moveRight();
+            }
+            else if (almostDead)
+            {
+                currentFrame = 8;
+                lifeTimer++;
+                if (lifeTimer > twenty)
                 {
-                    currentFrame--;
-                    if (currentFrame == one)
-                    {
-                        currentFrame = 3;
-                    }
-                    moveLeft();
+                    dead = true;
                 }
-                else if (movingRight)
+                else
                 {
-                    currentFrame++;
-                    if (currentFrame == six)
-                    {
-                        currentFrame = 4;
-                    }
-                    moveRight();
-                }
-                else if (almostDead)
-                {
-                    currentFrame = 8;
-                }
-                else if (dead)
-                {
-                    currentFrame = 9;
+                    currentFrame = 3;
+                    movingLeft = true;
                 }
             }
+            else if (dead)
+            {
+                 currentFrame = 9;
+                 timer++;
+                 if (timer > twenty)
+                 {
+                     visible = false;
+                 }
+                 else
+                 {
+                     deadOffset = deadOffset + 10;
+                 }
+            }
 
-            KoopaPhys.Update();
+                KoopaPhys.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -98,7 +117,7 @@ namespace Game.Enemies
                 int column = currentFrame % columns;
 
                 sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(KoopaPhys.XCoor - myGame.camera.GetOffset(), KoopaPhys.YCoor - seven, width, height);
+                destinationRectangle = new Rectangle(KoopaPhys.XCoor - myGame.camera.GetOffset() - deadOffset, KoopaPhys.YCoor - seven, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -134,18 +153,24 @@ namespace Game.Enemies
             }
         }
 
-        public void LifeTimer()
+        public void startLifeTimer()
         {
-            if (currentFrame == 8 && lifeTimer < 4)
+            if (lifeTimer < one)
             {
                 lifeTimer++;
             }
-            else
+            else if (lifeTimer == twenty)
             {
                 currentFrame = 3;
                 movingLeft = true;
             }
+            else
+            {
+                dead = true;
+            }
         }
+
+
 
     }
 }

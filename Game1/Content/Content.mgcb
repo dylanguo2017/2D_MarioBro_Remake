@@ -572,3 +572,9 @@
 /processorParam:Quality=Best
 /build:SoundEffects/flagpole.wav
 
+#begin Sounds/bonus.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/bonus.wav
+

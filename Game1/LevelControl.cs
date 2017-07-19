@@ -18,9 +18,21 @@ namespace Game
 
         public void Update()
         {
+            if (myGame.marioState.marioPhys.YCoor > 800 && !myGame.gameover)
+            {
+                myGame.gameover = true;
+                myGame.hud.looseLife();
+                myGame.mario = new DeadMario(myGame);
+            }
+                
             myGame.paused.Update();
             if (myGame.pause)
                 return;
+            myGame.gameOver.Update();
+            if (myGame.gameover)
+            {
+                return;
+            }
             if (myGame.fbDelay > zero)
                 myGame.fbDelay--;
             
@@ -90,10 +102,6 @@ namespace Game
                 {
                     block.Update();
                 }
-                //  foreach (IBlock block in questionBlockList)
-                // {
-                //   block.Update();
-                //  }
             }
             myGame.sound.Update();
         }

@@ -50,13 +50,15 @@
     <Compile Include="Blocks\BlueBrick.cs" />
     <Compile Include="Blocks\BlueCrack.cs" />
     <Compile Include="Blocks\Brick.cs" />
+    <Compile Include="Blocks\Castle.cs" />
     <Compile Include="Blocks\PipeTransition.cs" />
-    <Compile Include="Blocks\popPipe.cs" />
+    <Compile Include="Blocks\PopPipe.cs" />
     <Compile Include="Blocks\SidePipe.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CameraObjectDetector.cs" />
     <Compile Include="Commands\SpaceCommand.cs" />
     <Compile Include="Controllers\KeyBind.cs" />
+    <Compile Include="GameOver.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Items\CoinItem.cs" />
     <Compile Include="Collision\EnemyCollisionHandler.cs" />

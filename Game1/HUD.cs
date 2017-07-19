@@ -25,7 +25,8 @@ namespace Game
         public int numberOfCoins;
         public int pointTotal;
         public int lives;
-
+        public int levelTime;
+        private int delay;
 
         public TimeSpan ElapsedTime { get; set; }
 
@@ -54,10 +55,27 @@ namespace Game
             numberOfCoins = 0;
             pointTotal = 0;
             lives = 3;
+            levelTime = 400;
+            delay = 50;
         }
-        public void Update(GameTime gameTime)
+        public void Update()
         {
-            ElapsedTime = gameTime.TotalGameTime;
+
+            if(delay > 0 && levelTime > 0)
+            {
+                delay--;
+            }
+            else if(delay > 0 && levelTime == 0)
+            {
+                levelTime = 400;
+                delay = 50;
+            }
+            else
+            {
+                levelTime--;
+                delay = 50;
+            }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -80,9 +98,8 @@ namespace Game
 
             string time = "TIME";
             spriteBatch.DrawString(font1, time, timeString, Color.White);
+            spriteBatch.DrawString(font1, levelTime.ToString(), timePos, Color.White);
 
-            spriteBatch.DrawString(font1, ElapsedTime.ToString(), timePos, Color.White);
-            
             spriteBatch.End();
         }
 
@@ -103,13 +120,29 @@ namespace Game
 
         public void looseLife()
         {
-            lives--;
+            if(lives > 0)
+            {
+                lives--;
+            }
         }
 
         public void gainLife()
         {
             lives++;
         }
+
+        public void reset()
+        {
+            if(lives == 0)
+            {
+                numberOfCoins = 0;
+                lives = 3;
+                pointTotal = 0;
+            }
+            levelTime = 400;
+        }
+
+
     }
     
 }

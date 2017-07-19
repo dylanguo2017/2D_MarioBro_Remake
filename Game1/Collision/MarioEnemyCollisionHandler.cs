@@ -32,9 +32,10 @@ namespace Game
                             if (koopa.movingLeft || koopa.movingRight)
                             {
                                 koopa.almostDead = true;
+                                koopa.startLifeTimer();
+                                koopa.dead = false;
                                 koopa.movingLeft = false;
                                 koopa.movingRight = false;
-                               // koopa.LifeTimer();
                             }
                             else if (koopa.almostDead)
                             {
@@ -73,6 +74,7 @@ namespace Game
             if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
             {
                 myGame.mario = new DeadMario(myGame);
+                myGame.gameover = true;
                 myGame.hud.looseLife();
                 myGame.hud.decreasePoints(hundred);
             }
