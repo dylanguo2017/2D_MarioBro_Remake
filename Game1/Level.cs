@@ -117,11 +117,6 @@ namespace Game
                         Pipe gameObject = new Pipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("sidePipe"))
-                    {
-                        SidePipe gameObject = new SidePipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
 
                     else if (target[positionColumn].Equals("standardPipeTransition"))
                     {
@@ -248,15 +243,15 @@ namespace Game
                         CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
                         itemPipeList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("goomba"))
+                    else if (target[positionColumn].Equals("pipeNeck"))
                     {
-                        IEnemy gameObject = new GoombaEnemy(myGame, myGame.goombaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
-                        enemyPipeList.Add(gameObject);
+                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockPipeList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("koopa"))
+                    else if (target[positionColumn].Equals("sidePipe"))
                     {
-                        IEnemy gameObject = new KoopaEnemy(myGame, myGame.koopaEnemy, 1, 10, positionColumn * 16, positionRow * 16);
-                        enemyPipeList.Add(gameObject);
+                        SidePipe gameObject = new SidePipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockPipeList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("pipeNeck"))
                     {
@@ -280,8 +275,8 @@ namespace Game
             enemyPipeList.Sort(enemyComp);
 
             //TESTING ONLY BELOW THIS PT
-            for (int i = 0; i < 19; i++)
-                System.Diagnostics.Debug.WriteLine("OBJECT NAME: " + itemPipeList[i].texture.ToString() + "    LOCATION:" + itemPipeList[i].currentLoc + "      OBJ #:"+i);
+            //for (int i = 0; i < 576; i++)
+            //    System.Diagnostics.Debug.WriteLine("OBJECT NAME: " + blockList[i].texture.ToString() + "    LOCATION:" + blockList[i].DrawLoc + "      OBJ #:"+i);
         }
         
         private class BlockComparer<T> : IComparer<T>
