@@ -64,6 +64,7 @@ namespace Game
         private void HandleSidePipe(IBlock block)
         {
             Transition.EndTransition();
+            myGame.sound.state = soundStates.mainTheme;
         }
 
         private void HandleQuestion(IBlock block)
@@ -107,9 +108,10 @@ namespace Game
 
         private void HandlePipeTransition(IBlock block)
         {
+            myGame.soundEffect.IntoTheTunnel();
             Transition.StartTransition();
-
         }
+
         private void DisableMarioMovement()
         {
             if(hColFrom.Equals(sides.right))

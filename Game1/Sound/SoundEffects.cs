@@ -104,10 +104,9 @@ namespace Game
             effect.Play();
         }
 
-        // call when Mario goes in the tunnel
         public void IntoTheTunnel()
         {
-            myGame.sound.state = soundStates.stop;
+            myGame.sound.state = soundStates.bonus;
             effect = myGame.Content.Load<SoundEffect>("SoundEffects/into-the-tunnel");
             effect.Play();
         }

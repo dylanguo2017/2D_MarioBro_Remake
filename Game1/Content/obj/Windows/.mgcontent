@@ -41,6 +41,7 @@
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SpriteSheets/Tileset.png</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/1-up.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/bump.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/coin.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/fireball.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/powerup.wav</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/jump.wav</File>
@@ -60,6 +61,6 @@
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Courier New.spritefont</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/blueBricks.png</File>
     <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/flagpole.wav</File>
-    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/coin.wav</File>
+    <File>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/Sounds/bonus.wav</File>
   </SourceFiles>
 </SourceFileCollection>

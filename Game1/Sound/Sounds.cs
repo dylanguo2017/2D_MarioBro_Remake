@@ -13,6 +13,7 @@ namespace Game
         private SoundEffectInstance starman;
         private SoundEffectInstance hurry;
         private SoundEffectInstance gameOver;
+        private SoundEffectInstance bonus;
 
         public Sounds(Game game)
         {
@@ -29,6 +30,7 @@ namespace Game
             starman = myGame.Content.Load<SoundEffect>("Sounds/starman").CreateInstance();
             hurry = myGame.Content.Load<SoundEffect>("Sounds/hurry").CreateInstance();
             gameOver = myGame.Content.Load<SoundEffect>("Sounds/game-over").CreateInstance();
+            bonus = myGame.Content.Load<SoundEffect>("Sounds/bonus").CreateInstance();
         }
 
         private void Loop()
@@ -37,6 +39,7 @@ namespace Game
             starman.IsLooped = true;
             hurry.IsLooped = true;
             gameOver.IsLooped = true;
+            bonus.IsLooped = true;
         }
 
         public void Starman()
@@ -51,6 +54,7 @@ namespace Game
         {
             if (state.Equals(soundStates.mainTheme))
             {
+                bonus.Pause();
                 starman.Stop();
                 mainTheme.Resume();
             }
@@ -76,6 +80,14 @@ namespace Game
             {
                 Stop();
             }
+            else if (state.Equals(soundStates.bonus))
+            {
+                mainTheme.Pause();
+                starman.Pause();
+                hurry.Pause();
+                gameOver.Pause();
+                bonus.Play();
+            }
             else
             {
                 Stop();
@@ -98,6 +110,7 @@ namespace Game
             starman.Pause();
             hurry.Pause();
             gameOver.Pause();
+            bonus.Pause();
         }
         
 
