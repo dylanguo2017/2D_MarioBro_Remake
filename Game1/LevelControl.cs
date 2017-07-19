@@ -21,6 +21,11 @@ namespace Game
             myGame.paused.Update();
             if (myGame.pause)
                 return;
+            myGame.gameOver.Update();
+            if (myGame.gameover)
+            {
+                return;
+            }
             if (myGame.fbDelay > zero)
                 myGame.fbDelay--;
             
@@ -90,10 +95,6 @@ namespace Game
                 {
                     block.Update();
                 }
-                //  foreach (IBlock block in questionBlockList)
-                // {
-                //   block.Update();
-                //  }
             }
             myGame.sound.Update();
         }

@@ -67,6 +67,8 @@ namespace Game
         public bool pause;
         public bool pipeLevel;
         public Pause paused;
+        public bool gameover;
+        public GameOver gameOver;
         public HUD hud;
         public LevelControl lvCtrl;
         
@@ -121,6 +123,8 @@ namespace Game
             contrl.Add(keyboard);
             contrl.Add(gmPad);
             paused = new Pause(this);
+            gameOver = new GameOver(this);
+            gameover = false;
 
             marioState = new MarioStateClass(false, false, false, false);
             fireBalls = new List<Fireball>();
@@ -217,6 +221,7 @@ namespace Game
             lvCtrl.Draw(spriteBatch);
             hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
+            gameOver.Draw(spriteBatch);
 
             foreach (IBlock block in blockCamList)
             {
