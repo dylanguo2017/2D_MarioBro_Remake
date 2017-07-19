@@ -445,12 +445,6 @@
 /processorParam:Quality=Best
 /build:SoundEffects/bump.wav
 
-#begin SoundEffects/coin.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SoundEffects/coin.wav
-
 #begin SoundEffects/fireball.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -571,4 +565,10 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SoundEffects/flagpole.wav
+
+#begin SoundEffects/coin.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/coin.wav
 
