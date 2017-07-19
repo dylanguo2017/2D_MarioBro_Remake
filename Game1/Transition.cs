@@ -64,10 +64,12 @@ namespace Game
                 }
             }
         }
+
         public static void StartTransition()
         {
             transition = true;
         }
+
         public static void EndTransition()
         {
             transBack = true;

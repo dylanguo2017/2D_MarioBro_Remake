@@ -36,6 +36,7 @@ namespace Game
         private DrawFireMario drawMar;
         private Rectangle destinationRectangle;
         private int animMod;
+        public bool visible { get; set; }
 
         public FireMario(Game game)
         {
@@ -51,6 +52,7 @@ namespace Game
             drawMar = new DrawFireMario(myGame, this);
 
             myGame.marioState.flagpole = false;
+            visible = true;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -81,17 +83,20 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRectangle = drawMar.giveSource();
-
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
+            if (visible)
             {
-                marioState.offset = marioState.XCoor - fourHundred;
-            }
-            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
+                Rectangle sourceRectangle = drawMar.giveSource();
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+                if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
+                {
+                    marioState.offset = marioState.XCoor - fourHundred;
+                }
+                destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
+
+                spriteBatch.Begin();
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+                spriteBatch.End();
+            }
         }
 
         public Rectangle DestinationRectangle()

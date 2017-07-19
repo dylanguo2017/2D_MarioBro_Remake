@@ -95,7 +95,7 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("popPipe"))
                     {
-                        popPipe gameObject = new popPipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        PopPipe gameObject = new PopPipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("pipeNeck"))
@@ -170,8 +170,8 @@ namespace Game
                     }
                     else if (target[positionColumn].Equals("smallCastle"))
                     {
-                        IBackground gameObject = new Background(myGame, myGame.smallCastle, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
+                        IBlock gameObject = new Castle(myGame, myGame.smallCastle, 1, 1, positionColumn * 16, positionRow * 16);
+                        blockList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("flagpole"))
                     {

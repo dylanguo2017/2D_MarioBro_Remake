@@ -20,41 +20,49 @@ namespace Game
         {
             if (block.visible)
             {
-                DisableMarioMovement();
-                if (vColFrom.Equals(sides.bottom))
+                if(block is Castle)
                 {
-                    myGame.marioState.marioPhys.yVel = 0;
-                    if (block is Question)
-                    {
-                        HandleQuestion(block);
-                    }
-                    else if (block is Brick)
-                    {
-                        HandleBrick(block);
-                    }
-                    else if (block is Invisible)
-                    {
-                        HandleInvisible(block);
-                    }
+                    myGame.mario.visible = false;
+                }
+                else
+                {
 
-                }
-                else if (vColFrom.Equals(sides.top))
-                {
-                    myGame.marioState.marioPhys.DontFall();
-                    myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - one);
-                    myGame.marioState.jmpCtr = 20;
-                    myGame.marioState.jump = false;
-                    myGame.marioState.wPress = false;
-                    if (block is PipeTransition && myGame.marioState.crouch)
+                    DisableMarioMovement();
+                    if (vColFrom.Equals(sides.bottom))
                     {
-                        HandlePipeTransition(block);
+                        myGame.marioState.marioPhys.yVel = 0;
+                        if (block is Question)
+                        {
+                            HandleQuestion(block);
+                        }
+                        else if (block is Brick)
+                        {
+                            HandleBrick(block);
+                        }
+                        else if (block is Invisible)
+                        {
+                            HandleInvisible(block);
+                        }
+
                     }
-                }
-                else if (hColFrom.Equals(sides.left))
-                {
-                    if (block is SidePipe)
+                    else if (vColFrom.Equals(sides.top))
                     {
-                        HandleSidePipe(block);
+                        myGame.marioState.marioPhys.DontFall();
+                        myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - one);
+                        myGame.marioState.jmpCtr = 20;
+                        myGame.marioState.jump = false;
+                        myGame.marioState.wPress = false;
+                        if (block is PipeTransition && myGame.marioState.crouch)
+                        {
+                            HandlePipeTransition(block);
+                        }
+                    }
+                    else if (hColFrom.Equals(sides.left))
+                    {
+                        if (block is SidePipe)
+                        {
+                            HandleSidePipe(block);
+                        }
                     }
                 }
 
@@ -64,6 +72,7 @@ namespace Game
         private void HandleSidePipe(IBlock block)
         {
             Transition.EndTransition();
+            myGame.sound.state = soundStates.mainTheme;
         }
 
         private void HandleQuestion(IBlock block)
@@ -107,9 +116,10 @@ namespace Game
 
         private void HandlePipeTransition(IBlock block)
         {
+            myGame.soundEffect.IntoTheTunnel();
             Transition.StartTransition();
-
         }
+
         private void DisableMarioMovement()
         {
             if(hColFrom.Equals(sides.right))

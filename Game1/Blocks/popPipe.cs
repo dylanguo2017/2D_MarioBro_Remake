@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game.Blocks
 {
-    public class popPipe : IBlock
+    public class PopPipe : IBlock
     {
         private Game myGame;
         public Point drawLocation;
@@ -32,7 +28,7 @@ namespace Game.Blocks
         public int timer;
 
 
-        public popPipe(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public PopPipe(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
@@ -48,8 +44,6 @@ namespace Game.Blocks
 
         public void Update()
         {
-            //System.Diagnostics.Debug.WriteLine("pipe update");
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -141,9 +141,9 @@ namespace Game
             LoadLevel();
             foreach (IBlock block in myGame.blockCamList)
             {
-                if(block is Blocks.popPipe)
+                if(block is Blocks.PopPipe)
                 {
-                    Blocks.popPipe dummy = block as Blocks.popPipe;
+                    Blocks.PopPipe dummy = block as Blocks.PopPipe;
                     myGame.marioState.marioPhys.Spawn(dummy.DrawLoc, dummy.drawLocation.Y - 64);
                 }
             }

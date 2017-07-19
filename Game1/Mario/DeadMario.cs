@@ -13,6 +13,7 @@ namespace Game
         private int currentFrame;
 
         private Rectangle destinationRectangle;
+        public bool visible { get; set; }
 
         public DeadMario(Game game)
         {
@@ -26,6 +27,7 @@ namespace Game
             marioState.curStat = MarioStateClass.marioStatus.dead;
            
             myGame.soundEffect.MarioDies();
+            visible = true;
         }
 
         public MarioStateClass.marioStatus currentStatus()
@@ -40,20 +42,23 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int width = 17;
-            int height = 17;
-
-            Rectangle sourceRectangle = new Rectangle((int)marioPosition.PositionArr[currentFrame].X, (int)marioPosition.PositionArr[currentFrame].Y, width, height);
-
-            if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
+            if (visible)
             {
-                marioState.offset = marioState.XCoor - fourHundred;
-            }
-            destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, width, height);
+                int width = 17;
+                int height = 17;
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+                Rectangle sourceRectangle = new Rectangle((int)marioPosition.PositionArr[currentFrame].X, (int)marioPosition.PositionArr[currentFrame].Y, width, height);
+
+                if (!marioState.facingLeft && marioState.move && marioState.XCoor - marioState.offset > fourHundred)
+                {
+                    marioState.offset = marioState.XCoor - fourHundred;
+                }
+                destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor, width, height);
+
+                spriteBatch.Begin();
+                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+                spriteBatch.End();
+            }
         }
 
         public Rectangle DestinationRectangle()

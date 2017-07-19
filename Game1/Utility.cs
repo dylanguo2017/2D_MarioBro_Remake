@@ -61,6 +61,6 @@
         public const int screenWidth = 800;
 
         public enum sides { left, right, top, bottom, none };
-        public enum soundStates { mainTheme, starman, hurry, gameOver, stop, reset };
+        public enum soundStates { mainTheme, starman, hurry, gameOver, stop, reset, bonus };
     }
 }
