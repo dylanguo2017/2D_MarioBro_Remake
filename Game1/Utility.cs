@@ -2,6 +2,7 @@
 {
     public static class Utility
     {
+        public const int minusOne = -1;
         public const int zero = 0;
         public const int one = 1;
         public const int two = 2;
@@ -12,6 +13,7 @@
         public const int seven = 7;
         public const int eight = 8;
         public const int nine = 9;
+        public const int ten = 10;
         public const int eleven = 11;
         public const int thirteen = 13;
         public const int sixteen = 16;
@@ -24,6 +26,7 @@
         public const int twentyFive = 25;
         public const int twentySix = 26;
         public const int twentySeven = 27;
+        public const int twentyEight = 28;
         public const int thirty = 30;
         public const int thirtyThree = 33;
         public const int thirtyFour = 34;
@@ -52,6 +55,7 @@
         public const int seventyOne = 71;
         public const int seventyFive = 75;
         public const int hundred = 100;
+        public const int oneHundredTwentyEight = 128;
         public const int twoHundredNineteen = 219;
         public const int twoHundredFiftyFive = 255;
         public const int fourHundred = 400;
