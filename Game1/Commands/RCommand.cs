@@ -23,6 +23,8 @@
 
             myGame.hud.reset();
 
+            myGame.gameover = false;
+
             myGame.mario = new SmallMario(myGame);
 
             Level.LoadLists(myGame);

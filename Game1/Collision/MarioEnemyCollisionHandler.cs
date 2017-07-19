@@ -73,6 +73,7 @@ namespace Game
             if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
             {
                 myGame.mario = new DeadMario(myGame);
+                myGame.gameover = true;
                 myGame.hud.looseLife();
                 myGame.hud.decreasePoints(hundred);
             }
