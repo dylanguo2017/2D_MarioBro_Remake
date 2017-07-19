@@ -72,36 +72,6 @@ namespace Game
                         Question gameObject = new Question(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("questionRedMushroom"))
-                    {
-                        //RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
-                    else if (target[positionColumn].Equals("questionGreenMushroom"))
-                    {
-                        //GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
-                    else if (target[positionColumn].Equals("questionStar"))
-                    {
-                        //StarItem gameObject = new StarItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
-                    else if (target[positionColumn].Equals("questionCoin"))
-                    {
-                        //CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
-                    else if (target[positionColumn].Equals("questionFlower"))
-                    {
-                        //FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
                     else if (target[positionColumn].Equals("used"))
                     {
                         Used gameObject = new Used(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
