@@ -1,6 +1,6 @@
 ﻿Group 4
 
-Each team member has two code reviews in the "Code Reviews" folder under Sprint 3. The group reflection and discussion on the Burndown Chart is in the "Burndown Chart Reflections" folder. The game is "Game.sln" and all related files are in the "Game1" folder.
+Each team member has two code reviews in the "Code Reviews" folder under Sprint 5. The group reflection and discussion on the Burndown Chart is in the "Burndown Chart Reflections" folder. The game is "Game.sln" and all related files are in the "Game1" folder.
 
 ***We ran Code Analysis and received 0 errors and 0 warnings. Below is the output:
 	1>------ Rebuild All started: Project: Game, Configuration: Debug x86 ------
