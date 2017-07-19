@@ -28,6 +28,7 @@ namespace Game
                     }
                     else if(block is Diamond)
                     {
+                        myGame.marioState.levelComp = true;
                         myGame.gameOver.WalkIntoTheCastle();
                     }
                     else

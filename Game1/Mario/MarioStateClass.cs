@@ -23,6 +23,7 @@ namespace Game
         public bool wPress = false;
 
         public bool flagpole = false;
+        public bool levelComp = false;
 
         public int XCoor
         {
@@ -66,10 +67,12 @@ namespace Game
 
         public void MoveR()
         {
-            if (!flagpole)
+            if (!flagpole || levelComp)
             {
+                System.Diagnostics.Debug.Write("levelComp");
                 if (right && !(curStat.Equals(marioStatus.dead)))
                 {
+                    System.Diagnostics.Debug.Write("right");
 
                     if (facingLeft && move && !jump)
                     {

@@ -47,13 +47,7 @@ namespace Game
             }
         }
 
-        public void setDelay()
-        {
-            delay = 100;
-        }
-
-<<<<<<< HEAD
-        public static void SetDelay()
+        public void SetDelay()
         {
             delay = 100;
         }
@@ -64,8 +58,6 @@ namespace Game
             walkToTheCastle.Execute();
         }
 
-=======
->>>>>>> 0ea6104e321c5d7c99350fde3cd88f5ca04c3046
         public void Draw(SpriteBatch spriteBatch)
         {
             if (myGame.gameover)
