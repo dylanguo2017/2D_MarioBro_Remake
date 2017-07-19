@@ -143,7 +143,6 @@ namespace Game
             {
                 if(block is Blocks.popPipe)
                 {
-                    System.Diagnostics.Debug.WriteLine("EXECUTED SPAWN");
                     Blocks.popPipe dummy = block as Blocks.popPipe;
                     myGame.marioState.marioPhys.Spawn(dummy.DrawLoc, dummy.drawLocation.Y - 64);
                 }
