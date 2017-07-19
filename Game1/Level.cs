@@ -72,36 +72,6 @@ namespace Game
                         Question gameObject = new Question(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("questionRedMushroom"))
-                    {
-                        //RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
-                    else if (target[positionColumn].Equals("questionGreenMushroom"))
-                    {
-                        //GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
-                    else if (target[positionColumn].Equals("questionStar"))
-                    {
-                        //StarItem gameObject = new StarItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
-                    else if (target[positionColumn].Equals("questionCoin"))
-                    {
-                        //CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
-                    else if (target[positionColumn].Equals("questionFlower"))
-                    {
-                        //FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        //questionItemArray[countOfPopItem] = gameObject;
-                        //countOfPopItem++;
-                    }
                     else if (target[positionColumn].Equals("used"))
                     {
                         Used gameObject = new Used(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
@@ -255,6 +225,11 @@ namespace Game
                         SidePipe gameObject = new SidePipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
                         blockPipeList.Add(gameObject);
                     }
+                    else if (target[positionColumn].Equals("pipeNeck"))
+                    {
+                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
+                        blockPipeList.Add(gameObject);
+                    }
                     positionColumn++;
                 }
                 positionRow++;
@@ -272,8 +247,8 @@ namespace Game
             enemyPipeList.Sort(enemyComp);
 
             //TESTING ONLY BELOW THIS PT
-            for (int i = 0; i < 19; i++)
-                System.Diagnostics.Debug.WriteLine("OBJECT NAME: " + itemPipeList[i].texture.ToString() + "    LOCATION:" + itemPipeList[i].currentLoc + "      OBJ #:"+i);
+            //for (int i = 0; i < 576; i++)
+            //    System.Diagnostics.Debug.WriteLine("OBJECT NAME: " + blockList[i].texture.ToString() + "    LOCATION:" + blockList[i].DrawLoc + "      OBJ #:"+i);
         }
         
         private class BlockComparer<T> : IComparer<T>

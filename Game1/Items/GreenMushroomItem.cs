@@ -9,14 +9,16 @@ namespace Game
 
         private Game myGame;
         public Point drawLocation;
-        private Rectangle destinationRectangle;
+        public Physics gmPhysics;
         public int currentLoc
         {
             get
             {
-                return drawLocation.X;
+                return gmPhysics.XCoor;
             }
         }
+        private Rectangle destinationRectangle;
+        
 
         public int rows { get; set; }
         public int columns { get; set; }
@@ -34,7 +36,7 @@ namespace Game
             currentFrame = 1;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            gmPhysics = new Physics(pointX, pointY);
             visible = true;
             movingRight = true;
         }
@@ -49,6 +51,7 @@ namespace Game
             {
                 MoveLeft();
             }
+            gmPhysics.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -61,7 +64,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(gmPhysics.XCoor - myGame.camera.GetOffset(), gmPhysics.YCoor, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -77,12 +80,12 @@ namespace Game
 
         public void MoveLeft()
         {
-            drawLocation.X--;
+            gmPhysics.xVel--;
         }
 
         public void MoveRight()
         {
-            drawLocation.X++;
+            gmPhysics.xVel++;
         }
 
         public void OneUp()

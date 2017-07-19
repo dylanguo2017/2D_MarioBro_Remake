@@ -9,7 +9,6 @@ namespace Game
     public class Game : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        GameTime gameTime;
         
         SpriteBatch spriteBatch;
 
@@ -102,8 +101,7 @@ namespace Game
         protected override void Initialize()
         {
             hud = new HUD(this);
-
-            gameTime = new GameTime();
+            
             soundEffect = new SoundEffects(this);
             sound = new Sounds(this);
             contrl = new ArrayList();
@@ -203,7 +201,7 @@ namespace Game
         protected override void Update(GameTime gameTime)
         {
             
-            hud.Update(gameTime);
+            hud.Update();
             
             animationModifier++;
 
@@ -215,10 +213,11 @@ namespace Game
 
         protected override void Draw(GameTime gameTime)
         {
-
+            
             lvCtrl.Draw(spriteBatch);
             hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
+
             foreach (IBlock block in blockCamList)
             {
                 if (block is Question)

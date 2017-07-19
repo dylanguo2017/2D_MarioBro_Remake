@@ -22,13 +22,20 @@ namespace Game
             myGame.enemyCamList.Clear();
             myGame.itemCamList.Clear();
             myGame.blockCamList.Clear();
-            IEnemy curEnemy = myGame.enemyList[zero];
-            while (myGame.camera.IsInCamera(curEnemy.enemyPhys.XCoor))
+            if (myGame.enemyList.Count > zero)
             {
-                myGame.enemyList.RemoveAt(zero);
-                myGame.enemyCamList.Add(curEnemy);
-                curEnemy = myGame.enemyList[zero];
+                IEnemy curEnemy = myGame.enemyList[zero];
+                while (myGame.camera.IsInCamera(curEnemy.enemyPhys.XCoor))
+                {
+                    myGame.enemyList.RemoveAt(zero);
+                    myGame.enemyCamList.Add(curEnemy);
+                    if (myGame.enemyList.Count > zero)
+                        curEnemy = myGame.enemyList[zero];
+                    else
+                        break;
+                }
             }
+               
 
             IBlock curBlock = myGame.blockList[zero];
             while (myGame.camera.IsInCamera(curBlock.DrawLoc))
@@ -38,12 +45,18 @@ namespace Game
                 curBlock = myGame.blockList[zero];
             }
 
-            IItem curItem = myGame.itemList[zero];
-            while (myGame.camera.IsInCamera(curItem.currentLoc))
+            if(myGame.itemList.Count > zero)
             {
-                myGame.itemList.RemoveAt(zero);
-                myGame.itemCamList.Add(curItem);
-                curItem = myGame.itemList[zero];
+                IItem curItem = myGame.itemList[zero];
+                while (myGame.camera.IsInCamera(curItem.currentLoc))
+                {
+                    myGame.itemList.RemoveAt(zero);
+                    myGame.itemCamList.Add(curItem);
+                    if (myGame.itemList.Count > zero)
+                        curItem = myGame.itemList[zero];
+                    else
+                        break;
+                }
             }
         }
 
@@ -53,6 +66,7 @@ namespace Game
             myGame.itemCamList.Clear();
             myGame.blockCamList.Clear();
             myGame.marioState.offset = 0;
+            camLoc = 0;
             myGame.camera.reset();
             myGame.marioState.marioPhys.Spawn(32, 10);
             myGame.marioState.crouch = false;
@@ -95,17 +109,18 @@ namespace Game
         {
             myGame.marioState.offset = 2532;
             Camera.offset = 2532;
+            camLoc = 2532;
             if (myGame.enemyList.Count > zero)
             {
                 IEnemy curEnemy = myGame.enemyList[zero];
-                while (curEnemy.enemyPhys.XCoor < myGame.marioState.offset)
+                while (curEnemy.enemyPhys.XCoor < myGame.marioState.offset - 10)
                 {
                     myGame.enemyList.RemoveAt(zero);
                     curEnemy = myGame.enemyList[zero];
                 }
             }
             IBlock curBlock = myGame.blockList[zero];
-            while (curBlock.DrawLoc < myGame.marioState.offset)
+            while (curBlock.DrawLoc < myGame.marioState.offset - 10)
             {
                 myGame.blockList.RemoveAt(zero);
                 curBlock = myGame.blockList[zero];
@@ -113,16 +128,27 @@ namespace Game
             if (myGame.itemList.Count > zero)
             {
                 IItem curItem = myGame.itemList[zero];
-                while (curItem.currentLoc < myGame.marioState.offset)
+                while (curItem.currentLoc < myGame.marioState.offset - 10)
                 {
                     myGame.itemList.RemoveAt(zero);
-                    curItem = myGame.itemList[zero];
+                    if (myGame.itemList.Count > zero)
+                        curItem = myGame.itemList[zero];
+                    else
+                        break;
+                }
+            }
+     
+            LoadLevel();
+            foreach (IBlock block in myGame.blockCamList)
+            {
+                if(block is Blocks.popPipe)
+                {
+                    Blocks.popPipe dummy = block as Blocks.popPipe;
+                    myGame.marioState.marioPhys.Spawn(dummy.DrawLoc, dummy.drawLocation.Y - 64);
                 }
             }
 
-            LoadLevel();
-            //IBlock popPipe = myGame.blockCamList.Find()
-            //myGame.marioState.marioPhys.Spawn(popPipe.DrawLoc, );
+
         }
         public void Update()
         {
