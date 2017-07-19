@@ -20,6 +20,8 @@ namespace Game
             marioState = myGame.marioState;
             texture = myGame.marioSprites;
 
+            myGame.gameOver.SetDelay();
+
             currentFrame = 12;
             marioState.curStat = MarioStateClass.marioStatus.dead;
 
