@@ -32,9 +32,9 @@ namespace Game
                             if (koopa.movingLeft || koopa.movingRight)
                             {
                                 koopa.almostDead = true;
+                                koopa.dead = false;
                                 koopa.movingLeft = false;
                                 koopa.movingRight = false;
-                               // koopa.LifeTimer();
                             }
                             else if (koopa.almostDead)
                             {

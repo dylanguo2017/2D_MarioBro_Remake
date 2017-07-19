@@ -58,13 +58,17 @@ namespace Game
             levelTime = 400;
             delay = 50;
         }
-        public void Update(GameTime gameTime)
+        public void Update()
         {
-            ElapsedTime = gameTime.TotalGameTime;
 
-            if(delay > 0)
+            if(delay > 0 && levelTime > 0)
             {
                 delay--;
+            }
+            else if(delay > 0 && levelTime == 0)
+            {
+                levelTime = 400;
+                delay = 50;
             }
             else
             {
@@ -116,14 +120,25 @@ namespace Game
 
         public void looseLife()
         {
-            lives--;
+            if(lives > 0)
+            {
+                lives--;
+            }
         }
 
         public void gainLife()
         {
             lives++;
         }
-        
+
+        public void reset()
+        {
+            numberOfCoins = 0;
+            lives = 3;
+            levelTime = 400;
+            pointTotal = 0;
+        }
+
 
     }
     

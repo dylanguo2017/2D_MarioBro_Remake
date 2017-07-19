@@ -21,6 +21,8 @@
             myGame.camera.reset();
             myGame.marioState.offset = 0;
 
+            myGame.hud.reset();
+
             myGame.mario = new SmallMario(myGame);
 
             Level.LoadLists(myGame);
