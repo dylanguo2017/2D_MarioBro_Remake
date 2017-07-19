@@ -21,7 +21,7 @@ namespace Game
             marioState = myGame.marioState;
             texture = myGame.marioSprites;
 
-            myGame.gameOver.SetDelay();
+            myGame.gameOver.setDelay();
 
             currentFrame = 12;
             marioState.curStat = MarioStateClass.marioStatus.dead;

@@ -20,13 +20,21 @@ namespace Game
         {
             if (block.visible)
             {
-                if(block is Castle)
+                if (myGame.marioState.flagpole)
                 {
-                    myGame.mario.visible = false;
+                    if (block is Castle)
+                    {
+                        myGame.mario.visible = false;
+                    }
+                    else if(block is Diamond)
+                    {
+                        myGame.gameOver.WalkIntoTheCastle();
+                    }
+                    else
+                    {
+                        myGame.gameOver.WalkIntoTheCastle();
+                    }
                 }
-                else
-                {
-
                     DisableMarioMovement();
                     if (vColFrom.Equals(sides.bottom))
                     {
@@ -64,7 +72,6 @@ namespace Game
                             HandleSidePipe(block);
                         }
                     }
-                }
 
             }
         }

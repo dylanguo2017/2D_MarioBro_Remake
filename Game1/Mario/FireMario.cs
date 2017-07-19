@@ -51,7 +51,6 @@ namespace Game
             animMod = 0;
             drawMar = new DrawFireMario(myGame, this);
 
-            myGame.marioState.flagpole = false;
             visible = true;
         }
 

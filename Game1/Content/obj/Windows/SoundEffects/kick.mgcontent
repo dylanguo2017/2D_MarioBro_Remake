@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/SoundEffects/kick.wav</SourceFile>
-  <SourceTime>2017-07-14T16:03:20.6012445-04:00</SourceTime>
-  <DestFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/bin/Windows/SoundEffects/kick.xnb</DestFile>
-  <DestTime>2017-07-18T21:36:00.6863-04:00</DestTime>
+  <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/SoundEffects/kick.wav</SourceFile>
+  <SourceTime>2017-07-14T14:49:22.6000373-04:00</SourceTime>
+  <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/SoundEffects/kick.xnb</DestFile>
+  <DestTime>2017-07-18T22:21:36.2515189-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

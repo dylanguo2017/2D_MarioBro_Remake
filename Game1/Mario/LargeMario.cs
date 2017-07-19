@@ -53,7 +53,6 @@ namespace Game
             animMod = 0;
             drawMar = new DrawLargeMario(myGame, this);
 
-            myGame.marioState.flagpole = false;
             visible = true;
         }
 
