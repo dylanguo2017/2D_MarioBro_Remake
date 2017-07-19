@@ -51,6 +51,11 @@ namespace Game
             delay = 100;
         }
 
+        public static void SetDelay()
+        {
+            delay = 100;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             if (myGame.gameover)
