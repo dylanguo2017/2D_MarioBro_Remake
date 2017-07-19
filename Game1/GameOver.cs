@@ -10,10 +10,11 @@ namespace Game
     public class GameOver
     {
         public Game myGame;
-        private int delay = 0;
+        private static int delay;
         SpriteFont font1;
         Vector2 gameOverPos;
         Vector2 totalLivesPos;
+        Vector2 livesPos;
         RCommand reset;
         
 
@@ -25,6 +26,11 @@ namespace Game
             gameOverPos.Y = 100;
             totalLivesPos.X = 400;
             totalLivesPos.Y = 300;
+            livesPos.X = 550;
+            livesPos.Y = 300;
+            
+
+            delay = 100;
             reset = new RCommand(myGame);
         }
 
@@ -40,16 +46,28 @@ namespace Game
             }
         }
 
+        public void SetDelay()
+        {
+            delay = 100;
+        }
+
+        public static void SetDelay()
+        {
+            delay = 100;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             if (myGame.gameover)
             {
+               myGame.GraphicsDevice.Clear(Color.Black);
                 spriteBatch.Begin();
                 string GameOver = "GAME OVER";
                 spriteBatch.DrawString(font1, GameOver, gameOverPos, Color.White);
 
                 string TotalLives = "Lives left:";
                 spriteBatch.DrawString(font1, TotalLives, totalLivesPos, Color.White);
+                spriteBatch.DrawString(font1, myGame.hud.lives.ToString(), livesPos, Color.White);
 
                 spriteBatch.End();
             }
