@@ -42,7 +42,7 @@ namespace Game
             flagDown = false;
         }
 
-        public virtual void Update()
+        public void Update()
         {
             if (flagDown)
             {

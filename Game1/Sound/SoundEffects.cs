@@ -53,7 +53,7 @@ namespace Game
         
         public void Jump()
         {
-            if (!myGame.marioState.marioPhys.falling && !myGame.marioState.flagpole)
+            if (!myGame.marioState.marioPhys.falling && !myGame.marioState.lvlComp && !myGame.marioState.flagpole)
             {
                 effect = myGame.Content.Load<SoundEffect>("SoundEffects/jump-super");
                 effect.Play();
@@ -68,8 +68,11 @@ namespace Game
 
         public void Fireball()
         {
-            effect = myGame.Content.Load<SoundEffect>("SoundEffects/fireball");
-            effect.Play();
+            if (!myGame.marioState.lvlComp)
+            {
+                effect = myGame.Content.Load<SoundEffect>("SoundEffects/fireball");
+                effect.Play();
+            }
         }
 
         public void Pause()

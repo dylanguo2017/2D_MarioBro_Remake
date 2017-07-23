@@ -67,5 +67,24 @@ namespace Game
         {
             return destinationRectangle;
         }
+
+        public void BumpUp()
+        {
+            hit = true;
+            drawLocation.Y = drawLocation.Y - two;
+            myGame.soundEffect.Bump();
+        }
+
+        public void BumpDown()
+        {
+            drawLocation.Y = drawLocation.Y + two;
+        }
+
+        public void Break()
+        {
+            visible = false;
+            myGame.soundEffect.Break();
+        }
+
     }
 }

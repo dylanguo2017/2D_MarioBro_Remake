@@ -13,7 +13,7 @@ namespace Game
 
         public void Execute()
         {
-            if(myGame.fbDelay == zero && myGame.marioState.curStat == MarioStateClass.marioStatus.fire)
+            if(myGame.fbDelay == zero && myGame.marioState.curStat == MarioStateClass.marioStatus.fire && !myGame.marioState.lvlComp)
             {
                 Fireball newBall = new Fireball(myGame.marioState, myGame.fireballSprite);
                 myGame.fireBalls.Add(newBall);
