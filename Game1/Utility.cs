@@ -2,6 +2,7 @@
 {
     public static class Utility
     {
+        public const int minusTwenty = -20;
         public const int minusOne = -1;
         public const int zero = 0;
         public const int one = 1;

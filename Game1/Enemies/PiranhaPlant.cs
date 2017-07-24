@@ -11,14 +11,19 @@ namespace Game.Enemies
         public Boolean visible { get; set; }
 
         private Game myGame;
-        private Rectangle destinationRectangle;
+        private Rectangle destinationRec;
 
         public Boolean movingR { get; set; }
         public Boolean dead { get; set; }
 
         private bool toggle;
+        private bool up;
+
         private int mouthOpen; 
         private int mouthClose;
+        private int maxHeight;
+        private int height;
+
         private Physics piranhaPlantPhys;
         public Physics enemyPhys
         {
@@ -32,12 +37,16 @@ namespace Game.Enemies
         {
             myGame = game;
             texture = myGame.piranhaPlant;
+
             visible = true;
             toggle = false;
+            up = true;
 
             piranhaPlantPhys = new Physics(x + (stdSpriteSize) / two, y);
             mouthClose = 390;
             mouthOpen = 420;
+            maxHeight = 24;
+            height = 0;
         }
 
         public void Update()
@@ -52,6 +61,8 @@ namespace Game.Enemies
                 {
                     toggle = false;
                 }
+
+                StartTimer();
             }
         }
 
@@ -61,34 +72,69 @@ namespace Game.Enemies
             {
                 int spriteY = 30;
                 int width = 16;
-                int height = 23;
-                Rectangle sourceRectangle;
+                Rectangle sourceRec;
 
                 if (!toggle)
                 {
-                    sourceRectangle = new Rectangle(mouthClose, spriteY, width, height);
+                    sourceRec = new Rectangle(mouthClose, spriteY, width, maxHeight);
                 }
                 else
                 {
-                    sourceRectangle = new Rectangle(mouthOpen, spriteY, width, height);
+                    sourceRec = new Rectangle(mouthOpen, spriteY, width, maxHeight);
                 }
 
-                destinationRectangle = new Rectangle(piranhaPlantPhys.XCoor - myGame.camera.GetOffset(), piranhaPlantPhys.YCoor - height, width, height);
+                destinationRec = new Rectangle(piranhaPlantPhys.XCoor - myGame.camera.GetOffset(), piranhaPlantPhys.YCoor - height, width, maxHeight);
 
                 spriteBatch.Begin();
-                spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
+                spriteBatch.Draw(texture, destinationRec, sourceRec, Color.White);
                 spriteBatch.End();
             }
         }
 
         public Rectangle DestinationRectangle()
         {
-            return destinationRectangle;
+            return destinationRec;
         }
 
 
         public void StartTimer()
         {
+            if (up)
+            {
+                Up();   
+            }
+            else
+            {
+                Down();
+            }
+        }
+
+        private void Up()
+        {
+            if (height < maxHeight)
+            {
+                height += 2;
+            }
+            else
+            {
+                up = false;
+            }
+        }
+
+        private void Down()
+        {
+            if (height > minusTwenty)
+            {
+                height -= 2;
+            }
+            else
+            {
+                Rectangle marioRec = myGame.mario.DestinationRectangle();
+                if (marioRec.Bottom <= piranhaPlantPhys.yCoor - stdSpriteSize)
+                {
+                    up = true;
+                }
+            }
         }
 
     }

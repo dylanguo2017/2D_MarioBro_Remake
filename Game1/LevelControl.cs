@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Game.Utility;
+using Game.Enemies;
 
 namespace Game
 {
@@ -41,6 +42,7 @@ namespace Game
 
             myGame.projColDet.Update();
             trans.Update();
+
             foreach (IController x in myGame.contrl)
             {
                 if (x.isConnected())
@@ -55,7 +57,7 @@ namespace Game
                 myGame.starDuration--;
                 if (myGame.starDuration < zero)
                 {
-                    myGame.sound.state = Utility.soundStates.mainTheme;
+                    myGame.sound.state = soundStates.mainTheme;
                     myGame.starDuration = 500;
                     if (myGame.marioState.curStat.Equals(MarioStateClass.marioStatus.small))
                     {
@@ -75,6 +77,7 @@ namespace Game
                 myGame.mario.Update();
             myGame.itemSpawn.Update();
             myGame.camObj.Update();
+
             if (myGame.fireBalls.Count != zero)
             {
                 foreach (Fireball fBalls in myGame.fireBalls)
@@ -82,16 +85,19 @@ namespace Game
                     fBalls.Update();
                 }
             }
-            foreach (Enemies.IEnemy enemy in myGame.enemyCamList)
+
+            foreach (IEnemy enemy in myGame.enemyCamList)
             {
                 enemy.Update();
                 myGame.enemyColDetector.Update();
             }
+
             foreach (IItem item in myGame.itemCamList)
             {
                 item.Update();
                 myGame.itemColDetector.Update();
             }
+
             if (myGame.animMod % twenty == zero)
             {
                 foreach (IBg background in myGame.bgList)
@@ -122,19 +128,22 @@ namespace Game
         {
             myGame.GraphicsDevice.Clear(Color.Black);
             myGame.mario.Draw(spriteBatch);
+
             foreach (IBlock block in myGame.blockCamList)
             {
                 block.Draw(spriteBatch);
             }
-
-            foreach (Enemies.IEnemy enemy in myGame.enemyCamList)
-            {
-                enemy.Draw(spriteBatch);
-            }
+            
             foreach (IItem item in myGame.itemCamList)
             {
                 item.Draw(spriteBatch);
             }
+
+            foreach (IEnemy enemy in myGame.enemyCamList)
+            {
+                enemy.Draw(spriteBatch);
+            }
+
             if (myGame.fireBalls.Count != zero)
             {
                 foreach (Fireball fBalls in myGame.fireBalls)
@@ -153,20 +162,34 @@ namespace Game
             {
                 background.Draw(spriteBatch);
             }
+
             myGame.mario.Draw(spriteBatch);
+            foreach (IEnemy enemy in myGame.enemyCamList)
+            {
+                if(enemy is PiranhaPlant)
+                {
+                    enemy.Draw(spriteBatch);
+                }
+            }
+
             foreach (IBlock block in myGame.blockCamList)
             {
                 block.Draw(spriteBatch);
             }
 
-            foreach (Enemies.IEnemy enemy in myGame.enemyCamList)
-            {
-                enemy.Draw(spriteBatch);
-            }
             foreach (IItem item in myGame.itemCamList)
             {
                 item.Draw(spriteBatch);
             }
+
+            foreach (IEnemy enemy in myGame.enemyCamList)
+            {
+                if(enemy is PiranhaPlant == false)
+                {
+                    enemy.Draw(spriteBatch);
+                }
+            }
+
             if (myGame.fireBalls.Count != zero)
             {
                 foreach (Fireball fBalls in myGame.fireBalls)
