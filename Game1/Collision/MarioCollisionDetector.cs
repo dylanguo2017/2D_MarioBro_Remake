@@ -67,6 +67,7 @@ namespace Game
 
                 if (enemy.visible && marioRec.Intersects(enemyRec))
                 {
+                    System.Diagnostics.Debug.WriteLine(marioRec.Bottom + "   " + enemyRec.Top);
                     marioEnemy.CollidesFrom(marioRec, enemyRec);
                     MarioEnemyCollisionHandler enemyColHandler = new MarioEnemyCollisionHandler(myGame);
                     enemyColHandler.hColFrom = marioEnemy.hColFrom;

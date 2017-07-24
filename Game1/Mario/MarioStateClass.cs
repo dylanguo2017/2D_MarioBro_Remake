@@ -54,7 +54,7 @@ namespace Game
             crouch = crch;
             jump = jmp;
             move = mv;
-            marioPhys = new Physics(fourtyEight, fourHundredThirtyTwo);
+            marioPhys = new Physics(fourtyEight, 300);
             left = true;
             right = true;
             up = true;
