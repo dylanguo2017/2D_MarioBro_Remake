@@ -88,6 +88,7 @@ namespace Game
 
         private void ChangeMarioState()
         {
+            System.Diagnostics.Debug.WriteLine("change mario");
             if (!myGame.marioState.inv)
             {
                 if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
