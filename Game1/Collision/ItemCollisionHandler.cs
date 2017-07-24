@@ -37,11 +37,11 @@ namespace Game
 
             if (hColFrom.Equals(sides.left))
             {
-                star.movingRight = false;
+                star.movingR = false;
             }
             else if (hColFrom.Equals(sides.right))
             {
-                star.movingRight = true;
+                star.movingR = true;
             }
 
             if (vColFrom.Equals(sides.top))
@@ -59,11 +59,11 @@ namespace Game
             GreenMushroom greenMushroom = item as GreenMushroom;
             if (hColFrom.Equals(sides.left))
             {
-                greenMushroom.movingRight = false;
+                greenMushroom.movingR = false;
             }
             else if (hColFrom.Equals(sides.right))
             {
-                greenMushroom.movingRight = true;
+                greenMushroom.movingR = true;
             }
 
         }
@@ -73,11 +73,11 @@ namespace Game
             RedMushroom redMushroom = item as RedMushroom;
             if (hColFrom.Equals(sides.left))
             {
-                redMushroom.movingRight = false;
+                redMushroom.movingR = false;
             }
             else if (hColFrom.Equals(sides.right))
             {
-                redMushroom.movingRight = true;
+                redMushroom.movingR = true;
             }
             if (vColFrom.Equals(sides.top))
             {

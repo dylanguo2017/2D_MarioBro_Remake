@@ -6,37 +6,38 @@ namespace Game
 {
     public class Star : IItem
     {
-        
         private Game myGame;
-        private Point drawLocation;
-        private Rectangle destinationRectangle;
-        public int currentLoc
+
+        private Point drawLoc;
+        public int DrawLoc
         {
             get
             {
-                return drawLocation.X;
+                return drawLoc.X;
             }
         }
-        public int rows { get; set; }
-        public int columns { get; set; }
-        public Texture2D texture { get; set; }
-        public int currentFrame { get; set; }
-        public int totalFrame { get; set; }
-        public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
-        public Boolean movingUp { get; set; }
+        private Rectangle destinationRectangle;
+        private Texture2D texture;
 
-        public Star (Game game, Texture2D texture,int rows, int columns, int pointX, int pointY) 
+        private int rows;
+        private int columns;
+        private int currentFrame;
+
+        public Boolean visible { get; set; }
+        public bool movingR;
+        public bool movingUp;
+
+        public Star (Game game, int x, int y)
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns =columns;
-            currentFrame = 108;
-            totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            texture = myGame.itemSprite;
+            rows = 21;
+            columns = 36;
+            currentFrame = 108;
+            drawLoc = new Point(x, y);
+
             visible = true;
-            movingRight = true;
+            movingR = true;
             movingUp = true;
         }
 
@@ -50,13 +51,13 @@ namespace Game
                     currentFrame = 108;
                 }
             }
-            if (movingRight)
+            if (movingR)
             {
                 MoveRight();
             }
             else
             {
-                movingRight = false;
+                movingR = false;
                 MoveLeft();
             }
 
@@ -81,7 +82,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(drawLoc.X - myGame.camera.GetOffset(), drawLoc.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -97,22 +98,22 @@ namespace Game
 
         private void MoveUp()
         {
-            drawLocation.Y--;
+            drawLoc.Y--;
         }
 
         private void MoveDown()
         {
-            drawLocation.Y++;
+            drawLoc.Y++;
         }
 
         private void MoveLeft()
         {
-            drawLocation.X--;
+            drawLoc.X--;
         }
 
         private void MoveRight()
         {
-            drawLocation.X++;
+            drawLoc.X++;
         }
 
         public void PowerUp()

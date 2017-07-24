@@ -74,7 +74,7 @@ namespace Game
                     }
                     else if (target[posCol].Equals("used"))
                     {
-                        IBlock block = new Used(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        IBlock block = new Used(myGame, posCol * sixteen, posRow * sixteen);
                         blockList.Add(block);
                     }
                     else if (target[posCol].Equals("invisible"))
@@ -114,7 +114,7 @@ namespace Game
 
                     else if (target[posCol].Equals("flagpole"))
                     {
-                        IItem item = new Flagpole(myGame, myGame.flagpoleElement, one, one, posCol * sixteen, posRow * sixteen);
+                        IItem item = new Flagpole(myGame, posCol * sixteen, posRow * sixteen);
                         itemList.Add(item);
 
                         IBlock block = new Diamond(myGame, (posCol * sixteen) - six, (posRow * sixteen) + oneHundredTwentyEight);
@@ -123,27 +123,27 @@ namespace Game
 
                     else if (target[posCol].Equals("star"))
                     {
-                        IItem item = new Star(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        IItem item = new Star(myGame, posCol * sixteen, posRow * sixteen);
                         itemList.Add(item);
                     }
                     else if (target[posCol].Equals("coin"))
                     {
-                        IItem item = new Coin(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        IItem item = new Coin(myGame, posCol * sixteen, posRow * sixteen);
                         itemList.Add(item);
                     }
                     else if (target[posCol].Equals("flower"))
                     {
-                        IItem item = new Flower(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        IItem item = new Flower(myGame, posCol * sixteen, posRow * sixteen);
                         itemList.Add(item);
                     }
                     else if (target[posCol].Equals("redMushroom"))
                     {
-                        IItem item = new RedMushroom(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        IItem item = new RedMushroom(myGame, posCol * sixteen, posRow * sixteen);
                         itemList.Add(item);
                     }
                     else if (target[posCol].Equals("greenMushroom"))
                     {
-                        IItem item = new GreenMushroom(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        IItem item = new GreenMushroom(myGame, posCol * sixteen, posRow * sixteen);
                         itemList.Add(item);
                     }
 
@@ -223,7 +223,7 @@ namespace Game
 
                     else if (target[posCol].Equals("coin"))
                     {
-                        IItem item = new Coin(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        IItem item = new Coin(myGame, posCol * sixteen, posRow * sixteen);
                         itemPipeList.Add(item);
                     }
 
@@ -234,7 +234,7 @@ namespace Game
                     }
                     else if (target[posCol].Equals("sidePipe"))
                     {
-                        IBlock block = new SidePipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow *  sixteen);
+                        IBlock block = new SidePipe(myGame, posCol * sixteen, posRow *  sixteen);
                         blockPipeList.Add(block);
                     }
                     else if (target[posCol].Equals("pipeNeck"))
@@ -283,9 +283,9 @@ namespace Game
             {
                 IItem b1 = (IItem)a;
                 IItem b2 = (IItem)b;
-                if (b1.currentLoc > b2.currentLoc)
+                if (b1.DrawLoc > b2.DrawLoc)
                     return one;
-                if (b1.currentLoc < b2.currentLoc)
+                if (b1.DrawLoc < b2.DrawLoc)
                     return minusOne;
                 else
                     return zero;

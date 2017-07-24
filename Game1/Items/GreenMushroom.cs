@@ -6,44 +6,42 @@ namespace Game
 {
     public class GreenMushroom : IItem
     {
-
         private Game myGame;
-        public Point drawLocation;
-        public Physics gmPhysics;
-        public int currentLoc
+
+        private Point drawLoc;
+        public int DrawLoc
         {
             get
             {
-                return gmPhysics.XCoor;
+                return drawLoc.X;
             }
         }
         private Rectangle destinationRectangle;
-        
+        private Texture2D texture;
 
-        public int rows { get; set; }
-        public int columns { get; set; }
-        public Texture2D texture { get; set; }
-        public int currentFrame { get; set; }
-        public int totalFrame { get; set; }
+        private int rows;
+        private int columns;
+        private int currentFrame;
+
         public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
+        public bool movingR;
+        public Physics gmPhysics;
 
-        public GreenMushroom(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public GreenMushroom(Game game, int x, int y)
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            currentFrame = 1;
-            totalFrame = this.rows * this.columns;
             myGame = game;
-            gmPhysics = new Physics(pointX, pointY);
+            texture = myGame.itemSprite;
+            rows = 21;
+            columns = 36;
+            currentFrame = 1;
+            gmPhysics = new Physics(x, y);
             visible = true;
-            movingRight = true;
+            movingR = true;
         }
 
-        public virtual void Update()
+        public void Update()
         {
-            if (movingRight.Equals(true))
+            if (movingR.Equals(true))
             {
                 MoveRight();
             }
@@ -77,13 +75,12 @@ namespace Game
             return destinationRectangle;
         }
 
-
-        public void MoveLeft()
+        private void MoveLeft()
         {
             gmPhysics.xVel--;
         }
 
-        public void MoveRight()
+        private void MoveRight()
         {
             gmPhysics.xVel++;
         }
@@ -94,7 +91,6 @@ namespace Game
             myGame.soundEffect.OneUp();
             myGame.hud.gainLife();
         }
-
 
     }
 }

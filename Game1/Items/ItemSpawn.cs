@@ -8,8 +8,8 @@ namespace Game
     public class ItemSpawn
     {
         private Game myGame;
-        public List<RedMushroom> spawnItem;
-        public List<RedMushroom> spawned;
+        private List<RedMushroom> spawnItem;
+        private List<RedMushroom> spawned;
 
         public ItemSpawn(Game game)
         {
@@ -20,7 +20,7 @@ namespace Game
 
         public void SpawnItem(Point spawnLoc)
         {
-            RedMushroom spawnThis = new RedMushroom(myGame, myGame.itemSprite, twentyOne, thirtySix, spawnLoc.X, spawnLoc.Y);
+            RedMushroom spawnThis = new RedMushroom(myGame, spawnLoc.X, spawnLoc.Y);
             spawnItem.Add(spawnThis);
         }
 

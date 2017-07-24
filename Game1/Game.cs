@@ -32,7 +32,7 @@ namespace Game
         public Texture2D bigMountainBgElement;
 
         public Texture2D smallCastle;
-        public Texture2D flagpoleElement;
+        public Texture2D flagpole;
 
         public Texture2D goomba;
         public Texture2D koopa;
@@ -167,7 +167,7 @@ namespace Game
             bigMountainBgElement = Content.Load<Texture2D>("BigMountainBgElement");
 
             smallCastle = Content.Load<Texture2D>("smallCastle");
-            flagpoleElement = Content.Load<Texture2D>("flagPole");
+            flagpole = Content.Load<Texture2D>("flagPole");
 
             goomba = Content.Load<Texture2D>("goomba");
             koopa = Content.Load<Texture2D>("koopa");

@@ -20,7 +20,6 @@ namespace Game.Enemies
         private int rows;
         private int columns;
         private int currentFrame;
-        private int totalFrame;
         private int timer;
 
         private Rectangle destinationRectangle;
@@ -41,7 +40,6 @@ namespace Game.Enemies
             columns = 3;
             currentFrame = 0;
             timer = 0;
-            totalFrame = this.rows * this.columns;
 
             GoombaPhys = new Physics(x, y);
 

@@ -7,25 +7,10 @@ namespace Game
 {
     public interface IItem 
     {
-        Texture2D texture { get; set; }
-
-        int rows { get; set; }
-
-        int columns { get; set; }
-
-        int currentFrame { get; set; }
-
-        int totalFrame { get; set; }
-        
         Boolean visible { get; set; }
-
         Rectangle DestinationRectangle();
-
         void Update();
-
         void Draw(SpriteBatch spriteBatch);
-
-        int currentLoc { get; }
-        
+        int DrawLoc { get; }        
     }
 }

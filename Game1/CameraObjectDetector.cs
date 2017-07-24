@@ -48,7 +48,7 @@ namespace Game
             if(myGame.itemList.Count > zero)
             {
                 IItem curItem = myGame.itemList[zero];
-                while (myGame.camera.IsInCamera(curItem.currentLoc))
+                while (myGame.camera.IsInCamera(curItem.DrawLoc))
                 {
                     myGame.itemList.RemoveAt(zero);
                     myGame.itemCamList.Add(curItem);
@@ -95,7 +95,7 @@ namespace Game
             }
 
             IItem curItem = myGame.itemPipeList[zero];
-            while (myGame.camera.IsInCamera(curItem.currentLoc))
+            while (myGame.camera.IsInCamera(curItem.DrawLoc))
             {
                 myGame.itemPipeList.RemoveAt(zero);
                 myGame.itemCamList.Add(curItem);
@@ -128,7 +128,7 @@ namespace Game
             if (myGame.itemList.Count > zero)
             {
                 IItem curItem = myGame.itemList[zero];
-                while (curItem.currentLoc < myGame.marioState.offset - 10)
+                while (curItem.DrawLoc < myGame.marioState.offset - 10)
                 {
                     myGame.itemList.RemoveAt(zero);
                     if (myGame.itemList.Count > zero)
@@ -202,7 +202,7 @@ namespace Game
             if (myGame.itemPipeList.Count > zero)
             {
                 IItem curItem = myGame.itemPipeList[zero];
-                while (myGame.camera.IsInCamera(curItem.currentLoc))
+                while (myGame.camera.IsInCamera(curItem.DrawLoc))
                 {
                     myGame.itemPipeList.RemoveAt(zero);
                     myGame.itemCamList.Add(curItem);
@@ -250,7 +250,7 @@ namespace Game
             if (myGame.itemCamList.Count > zero)
             {
                 IItem camItem = myGame.itemCamList[zero];
-                while (!myGame.camera.IsInCamera(camItem.currentLoc))
+                while (!myGame.camera.IsInCamera(camItem.DrawLoc))
                 {
                     myGame.itemCamList.RemoveAt(zero);
                     if (myGame.itemCamList.Count > zero)
@@ -299,7 +299,7 @@ namespace Game
             if (myGame.itemList.Count > zero)
             {
                 IItem curItem = myGame.itemList[zero];
-                while (myGame.camera.IsInCamera(curItem.currentLoc))
+                while (myGame.camera.IsInCamera(curItem.DrawLoc))
                 {
                     myGame.itemList.RemoveAt(zero);
                     myGame.itemCamList.Add(curItem);
@@ -347,7 +347,7 @@ namespace Game
             if (myGame.itemCamList.Count > zero)
             {
                 IItem camItem = myGame.itemCamList[zero];
-                while (!myGame.camera.IsInCamera(camItem.currentLoc))
+                while (!myGame.camera.IsInCamera(camItem.DrawLoc))
                 {
                     myGame.itemCamList.RemoveAt(zero);
                     if (myGame.itemCamList.Count > zero)

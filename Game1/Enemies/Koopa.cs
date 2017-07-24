@@ -14,7 +14,6 @@ namespace Game.Enemies
         private int rows;
         private int columns;
         private int currentFrame;
-        private int totalFrame;
 
         public Texture2D texture { get; set; }
 
@@ -44,7 +43,6 @@ namespace Game.Enemies
             rows = 1;
             columns = 10;
             currentFrame = 3;
-            totalFrame = rows * columns;
             KoopaPhys = new Physics(x, y);
 
             deadOffset = 0;
@@ -126,7 +124,6 @@ namespace Game.Enemies
             }
         }
 
-
         public Rectangle DestinationRectangle()
         {
             return destinationRectangle;
@@ -170,7 +167,6 @@ namespace Game.Enemies
                 dead = true;
             }
         }
-
 
     }
 }

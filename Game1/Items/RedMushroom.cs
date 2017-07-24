@@ -6,45 +6,44 @@ namespace Game
 {
     public class RedMushroom : IItem
     {
-
         private Game myGame;
-       
-        public Physics rmPhysics;
-        public int currentLoc
+
+        private Point drawLoc;
+        public int DrawLoc
         {
             get
             {
-                return rmPhysics.XCoor;
+                return drawLoc.X;
             }
         }
         private Rectangle destinationRectangle;
+        private Texture2D texture;
 
-        public int rows { get; set; }
-        public int columns { get; set; }
-        public Texture2D texture { get; set; }
-        public int currentFrame { get; set; }
-        public int totalFrame { get; set; }
+        private int rows;
+        private int columns;
+        private int currentFrame;
+
         public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
+        public Boolean movingR;
+        public Physics rmPhysics;
         public int spawnCtr = 0;
 
-        public RedMushroom(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public RedMushroom(Game game, int pointX, int pointY)
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            currentFrame = 0;
-            totalFrame = this.rows * this.columns;
             myGame = game;
+            texture = myGame.itemSprite;
+            rows = 21;
+            columns = 36;
+            currentFrame = 0;
           
             rmPhysics = new Physics(pointX, pointY);
             visible = true;
-            movingRight = true;
+            movingR = true;
         }
 
-        public virtual void Update()
+        public void Update()
         {
-            if (movingRight.Equals(true))
+            if (movingR.Equals(true))
             {
                 MoveRight();
             }
@@ -77,7 +76,6 @@ namespace Game
         {
             return destinationRectangle;
         }
-
 
         private void MoveLeft()
         {
