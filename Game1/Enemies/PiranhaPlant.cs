@@ -123,17 +123,13 @@ namespace Game.Enemies
 
         private void Down()
         {
-            if (height > minusTwenty)
+            if (height > minusTen)
             {
                 height -= 2;
             }
             else
             {
-                Rectangle marioRec = myGame.mario.DestinationRectangle();
-                if (marioRec.Bottom <= piranhaPlantPhys.yCoor - stdSpriteSize)
-                {
-                    up = true;
-                }
+                up = true;
             }
         }
 
