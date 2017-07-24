@@ -94,7 +94,7 @@ namespace Game
             }
             if (myGame.animMod % twenty == zero)
             {
-                foreach (IBackground background in myGame.bgList)
+                foreach (IBg background in myGame.bgList)
                 {
                     background.Update();
                 }
@@ -149,7 +149,7 @@ namespace Game
             myGame.GraphicsDevice.Clear(Color.CornflowerBlue);
             myGame.itemSpawn.Draw(spriteBatch);
             
-            foreach (IBackground background in myGame.bgList)
+            foreach (IBg background in myGame.bgList)
             {
                 background.Draw(spriteBatch);
             }

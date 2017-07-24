@@ -46,7 +46,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Background\Background.cs" />
+    <Compile Include="Background\Bg.cs" />
     <Compile Include="Blocks\BlueBrick.cs" />
     <Compile Include="Blocks\BlueCrack.cs" />
     <Compile Include="Blocks\Brick.cs" />
@@ -101,9 +101,9 @@
     <Compile Include="Enemies\IEnemy.cs" />
     <Compile Include="Enemies\Koopa.cs" />
     <Compile Include="Items\Flagpole.cs" />
-    <Compile Include="Items\Flower.cs" />
+    <Compile Include="Items\FireFlower.cs" />
     <Compile Include="Items\GreenMushroom.cs" />
-    <Compile Include="Background\IBackground.cs" />
+    <Compile Include="Background\IBg.cs" />
     <Compile Include="Blocks\IBlock.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Blocks\Invisible.cs" />

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game.Blocks
 {
@@ -32,7 +33,7 @@ namespace Game.Blocks
             rows = 28;
             columns = 33;
             currentFrame = 266;
-            drawLoc = new Point(x, y);
+            drawLoc = new Point(x * stdSpriteSize, y * stdSpriteSize);
             visible = true;
         }
 

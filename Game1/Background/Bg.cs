@@ -4,17 +4,17 @@ using static Game.Utility;
 
 namespace Game
 {
-    public class Background : IBackground
+    public class Bg : IBg
     {
         public Texture2D texture { get; set; }
 
         private Game myGame;
         private Point location;
 
-        public Background(Game game, Texture2D texture, int x, int y)
+        public Bg(Game game, Texture2D texture, int x, int y)
         {
             this.texture = texture;
-            location = new Point(x, y);
+            location = new Point(x * stdSpriteSize, y * stdSpriteSize);
 
             myGame = game;
         }

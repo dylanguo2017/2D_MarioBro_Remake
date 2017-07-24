@@ -34,7 +34,7 @@ namespace Game
             rows = 1;
             columns = 1;
             currentFrame = 0;
-            poleLoc = new Point(x, y);
+            poleLoc = new Point(x * stdSpriteSize, y * stdSpriteSize);
 
             visible = true;
             flagDown = false;
@@ -65,7 +65,7 @@ namespace Game
                 Rectangle ballSourceRec = new Rectangle(thirteen, one, ballSize, ballSize);
                 Rectangle ballDestinationRec = new Rectangle(poleLoc.X - myGame.camera.GetOffset() - three, poleLoc.Y - ballSize, ballSize, ballSize);
 
-                Rectangle poleSourceRec = new Rectangle(sixteen, twentyFive, polWidth, polHeight);
+                Rectangle poleSourceRec = new Rectangle(stdSpriteSize, twentyFive, polWidth, polHeight);
                 poleDestinationRec = new Rectangle(poleLoc.X - myGame.camera.GetOffset(), poleLoc.Y, polWidth, polHeight);
 
                 Rectangle flagSourceRec = new Rectangle(zero, nine, flagSize, flagSize);

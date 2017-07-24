@@ -36,7 +36,7 @@ namespace Game
             rows = 1;
             columns = 2;
             currentFrame = 1;
-            drawLoc = new Point(x, y);
+            drawLoc = new Point(x * stdSpriteSize, y * stdSpriteSize);
 
             visible = true;
             hit = false;

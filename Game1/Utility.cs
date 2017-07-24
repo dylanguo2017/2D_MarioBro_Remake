@@ -16,7 +16,7 @@
         public const int ten = 10;
         public const int eleven = 11;
         public const int thirteen = 13;
-        public const int sixteen = 16;
+        public const int stdSpriteSize = 16;
         public const int seventeen = 17;
         public const int eighteen = 18;
         public const int nineteen = 19;
@@ -28,6 +28,7 @@
         public const int twentySeven = 27;
         public const int twentyEight = 28;
         public const int thirty = 30;
+        public const int thirtyTwo = 32;
         public const int thirtyThree = 33;
         public const int thirtyFour = 34;
         public const int thirtyFive = 35;

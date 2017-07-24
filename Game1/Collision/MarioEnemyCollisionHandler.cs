@@ -28,23 +28,7 @@ namespace Game
                     {
                         if (enemy is Koopa)
                         {
-                            Koopa koopa = enemy as Koopa;
-                            if (koopa.movingL || koopa.movingR)
-                            {
-                                koopa.almostDead = true;
-                                koopa.startLifeTimer();
-                                koopa.dead = false;
-                                koopa.movingL = false;
-                                koopa.movingR = false;
-                            }
-                            else if (koopa.almostDead)
-                            {
-                                koopa.dead = true;
-                                koopa.almostDead = false;
-                                koopa.movingL = false;
-                                koopa.movingR = false;
-                                KillEnemy(koopa);
-                            }
+                            HandleKoopa(enemy);
                         }
                         else
                         {
@@ -60,13 +44,33 @@ namespace Game
             }
         }
 
-
         private void KillEnemy(IEnemy enemy)
         {
             myGame.soundEffect.Stomp();
             enemy.dead = true;
             enemy.StartTimer();
             myGame.hud.increasePoints(hundred);
+        }
+
+        private void HandleKoopa(IEnemy enemy)
+        {
+            Koopa koopa = enemy as Koopa;
+            if (koopa.movingL || koopa.movingR)
+            {
+                koopa.almostDead = true;
+                koopa.startLifeTimer();
+                koopa.dead = false;
+                koopa.movingL = false;
+                koopa.movingR = false;
+            }
+            else if (koopa.almostDead)
+            {
+                koopa.dead = true;
+                koopa.almostDead = false;
+                koopa.movingL = false;
+                koopa.movingR = false;
+                KillEnemy(koopa);
+            }
         }
 
         private void ChangeMarioState()

@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    public interface IBackground
+    public interface IBg
     {
         Texture2D texture { get; set; }
         void Draw(SpriteBatch spriteBatch);

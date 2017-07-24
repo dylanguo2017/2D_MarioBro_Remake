@@ -51,7 +51,7 @@ namespace Game
         public List<IBlock> questionBlockList;
         public List<IEnemy> enemyList;
         public List<IItem> itemList;
-        public List<IBackground> bgList;
+        public List<IBg> bgList;
 
         public List<IBlock> blockPipeList;
         public List<IEnemy> enemyPipeList;
@@ -61,7 +61,7 @@ namespace Game
         public List<IBlock> questionBlockCamList;
         public List<IEnemy> enemyCamList;
         public List<IItem> itemCamList;
-        public List<IBackground> bgCamList;
+        public List<IBg> bgCamList;
 
         public IController keyboard;
         public IController gmPad;
@@ -144,13 +144,10 @@ namespace Game
 
         protected override void LoadContent()
         {   
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            
             Font1 = Content.Load<SpriteFont>("Courier New");
 
-                     
             FontPos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2,
                 graphics.GraphicsDevice.Viewport.Height / 2);
 
@@ -208,7 +205,6 @@ namespace Game
 
         protected override void Update(GameTime gameTime)
         {
-            
             hud.Update();
             
             animationModifier++;
@@ -221,7 +217,6 @@ namespace Game
 
         protected override void Draw(GameTime gameTime)
         {
-            
             lvCtrl.Draw(spriteBatch);
             hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);

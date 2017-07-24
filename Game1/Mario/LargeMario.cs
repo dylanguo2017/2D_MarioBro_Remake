@@ -90,7 +90,7 @@ namespace Game
                 {
                     rightFacingCurrentFrame++;
 
-                    if (rightFacingCurrentFrame == sixteen)
+                    if (rightFacingCurrentFrame == stdSpriteSize)
                         rightFacingCurrentFrame = 14;
 
                 }
@@ -109,7 +109,7 @@ namespace Game
 
                 Rectangle sourceRectangle = drawMar.giveSource();
 
-                destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - sixteen, sourceRectangle.Width, sourceRectangle.Height);
+                destinationRectangle = new Rectangle(marioState.XCoor - marioState.offset, marioState.YCoor - stdSpriteSize, sourceRectangle.Width, sourceRectangle.Height);
                 if (invCtr % two == one)
                 {
                     return;

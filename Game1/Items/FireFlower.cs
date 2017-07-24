@@ -5,7 +5,7 @@ using static Game.Utility;
 
 namespace Game
 {
-    public class Flower : IItem
+    public class FireFlower : IItem
     {
         private Game myGame;
 
@@ -26,7 +26,7 @@ namespace Game
 
         public Boolean visible { get; set; }
 
-        public Flower(Game game, int x, int y)
+        public FireFlower(Game game, int x, int y)
         {
             myGame = game;
             texture = myGame.itemSprite;

@@ -41,7 +41,7 @@ namespace Game.Enemies
             currentFrame = 0;
             timer = 0;
 
-            GoombaPhys = new Physics(x, y);
+            GoombaPhys = new Physics(x * stdSpriteSize, y * stdSpriteSize);
 
             visible = true;
             movingL = true;

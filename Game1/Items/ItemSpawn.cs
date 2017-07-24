@@ -31,7 +31,7 @@ namespace Game
                 foreach (RedMushroom spawnIt in spawnItem)
                 {
                     spawnIt.spawnCtr++;
-                    if (spawnIt.spawnCtr > sixteen)
+                    if (spawnIt.spawnCtr > stdSpriteSize)
                     {
                         spawned.Add(spawnIt);
                     }

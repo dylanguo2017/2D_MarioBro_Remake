@@ -43,7 +43,7 @@ namespace Game.Enemies
             rows = 1;
             columns = 10;
             currentFrame = 3;
-            KoopaPhys = new Physics(x, y);
+            KoopaPhys = new Physics(x * stdSpriteSize, y * stdSpriteSize);
 
             deadOffset = 0;
             timer = 0;

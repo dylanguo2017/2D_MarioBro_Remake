@@ -33,7 +33,7 @@ namespace Game
             rows = 21;
             columns = 36;
             currentFrame = 216;
-            drawLoc = new Point(x, y);
+            drawLoc = new Point(x * stdSpriteSize, y * stdSpriteSize);
             visible = true;
             
         }

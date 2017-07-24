@@ -28,7 +28,7 @@ namespace Game
         public Physics rmPhysics;
         public int spawnCtr = 0;
 
-        public RedMushroom(Game game, int pointX, int pointY)
+        public RedMushroom(Game game, int x, int y)
         {
             myGame = game;
             texture = myGame.itemSprite;
@@ -36,7 +36,7 @@ namespace Game
             columns = 36;
             currentFrame = 0;
           
-            rmPhysics = new Physics(pointX, pointY);
+            rmPhysics = new Physics(x, y);
             visible = true;
             movingR = true;
         }

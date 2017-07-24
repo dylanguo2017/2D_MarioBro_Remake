@@ -23,9 +23,9 @@
                     RedMushroom redMushroom = item as RedMushroom;
                     redMushroom.PowerUp();
                 }
-                else if (item is Flower)
+                else if (item is FireFlower)
                 {
-                    Flower fireFlower = item as Flower;
+                    FireFlower fireFlower = item as FireFlower;
                     fireFlower.PowerUp();
                 }
                 else if(item is GreenMushroom)
