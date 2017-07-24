@@ -86,7 +86,7 @@ namespace Game
                 question.BumpUp();
                 question.ChangeToUsed();
                 myGame.soundEffect.PowerupAppears();
-                myGame.itemSpawn.SpawnItem(question.drawLocation);
+                myGame.itemSpawn.SpawnItem(question.drawLoc);
             }
         }
 

@@ -17,13 +17,12 @@ namespace Game.Blocks
             }
         }
         private Rectangle destinationRectangle;
+        private Texture2D texture;
 
         private int rows;
         private int columns;
         private int currentFrame;
-        private int timer;
 
-        public Texture2D texture { get; set; }
         public Boolean visible { get; set; }
 
         public Castle(Game game, int x, int y)

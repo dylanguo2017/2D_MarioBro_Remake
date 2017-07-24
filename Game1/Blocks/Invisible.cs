@@ -18,6 +18,7 @@ namespace Game
             }
         }
         private Rectangle destinationRectangle;
+        private Texture2D texture;
 
         private int rows;
         private int columns;
@@ -27,7 +28,6 @@ namespace Game
         public bool used;
         public bool hit;
 
-        public Texture2D texture { get; set; }
         public Boolean visible { get; set; }
 
         public Invisible(Game game, int x, int y)

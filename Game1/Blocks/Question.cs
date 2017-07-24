@@ -7,43 +7,42 @@ namespace Game
 {
     public class Question : IBlock
     {
-
         private Game myGame;
-        public Point drawLocation;
+
+        public Point drawLoc;
         public int DrawLoc
         {
             get
             {
-                return drawLocation.X;
+                return drawLoc.X;
             }
         }
         private Rectangle destinationRectangle;
+        private Texture2D texture;
 
-        public int rows { get; set; }
-        public int columns { get; set; }
-        public Texture2D texture { get; set; }
-        public int currentFrame { get; set; }
-        public int totalFrame { get; set; }
+        private int rows;
+        private int columns;
+        private int currentFrame;
+        private int timer;
+
+        public bool hit;
+        public bool used;
+
         public Boolean visible { get; set; }
-        public Boolean hit { get; set; }
-        public int timer;
-        public Boolean used;
-        
 
-        public Question(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Question(Game game, int x, int y)
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            currentFrame = 24;
-            totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            texture = myGame.blockSprite;
+            rows = 28;
+            columns = 33;
+            currentFrame = 24;
+            drawLoc = new Point(x, y);
+            timer = 0;
+
             visible = true;
             hit = false;
-            timer = 0;
             used = false;
-            
         }
 
         public void Update()
@@ -83,7 +82,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(drawLoc.X - myGame.camera.GetOffset(), drawLoc.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -100,13 +99,13 @@ namespace Game
         public void BumpUp()
         {
             hit = true;
-            drawLocation.Y -= two;
+            drawLoc.Y -= two;
             myGame.soundEffect.Bump();
         }
 
-        public void BumpDown()
+        private void BumpDown()
         {
-            drawLocation.Y += two;
+            drawLoc.Y += two;
         }
 
         public void ChangeToUsed()

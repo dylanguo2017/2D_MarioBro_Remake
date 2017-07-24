@@ -69,7 +69,7 @@ namespace Game
                     }
                     else if (target[posCol].Equals("question"))
                     {
-                        IBlock block = new Question(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        IBlock block = new Question(myGame, posCol * sixteen, posRow * sixteen);
                         blockList.Add(block);
                     }
                     else if (target[posCol].Equals("used"))
@@ -93,17 +93,17 @@ namespace Game
 
                     else if (target[posCol].Equals("standardPipeTransition"))
                     {
-                        PipeTransition block = new PipeTransition(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        PipeTransition block = new PipeTransition(myGame, posCol * sixteen, posRow * sixteen);
                         blockList.Add(block);
                     }
                     else if (target[posCol].Equals("popPipe"))
                     {
-                        PopPipe block = new PopPipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        PopPipe block = new PopPipe(myGame, posCol * sixteen, posRow * sixteen);
                         blockList.Add(block);
                     }
                     else if (target[posCol].Equals("pipeNeck"))
                     {
-                        PipeNeck block = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        PipeNeck block = new PipeNeck(myGame, posCol * sixteen, posRow * sixteen);
                         blockList.Add(block);
                     }
                     else if (target[posCol].Equals("smallCastle"))
@@ -229,7 +229,7 @@ namespace Game
 
                     else if (target[posCol].Equals("pipeNeck"))
                     {
-                        IBlock block = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        IBlock block = new PipeNeck(myGame, posCol * sixteen, posRow * sixteen);
                         blockPipeList.Add(block);
                     }
                     else if (target[posCol].Equals("sidePipe"))
@@ -239,7 +239,7 @@ namespace Game
                     }
                     else if (target[posCol].Equals("pipeNeck"))
                     {
-                        IBlock block = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        IBlock block = new PipeNeck(myGame, posCol * sixteen, posRow * sixteen);
                         blockPipeList.Add(block);
                     }
                     posCol++;

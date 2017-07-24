@@ -144,7 +144,7 @@ namespace Game
                 if(block is Blocks.PopPipe)
                 {
                     Blocks.PopPipe dummy = block as Blocks.PopPipe;
-                    myGame.marioState.marioPhys.Spawn(dummy.DrawLoc, dummy.drawLocation.Y - 64);
+                    myGame.marioState.marioPhys.Spawn(dummy.DrawLoc, dummy.drawLoc.Y - 64);
                 }
             }
 

@@ -7,7 +7,6 @@ namespace Game
 {
     public interface IBlock
     {
-        Texture2D texture { get; set; }
         Boolean visible { get; set; }
         int DrawLoc { get; }
         Rectangle DestinationRectangle();
