@@ -43,156 +43,159 @@ namespace Game
                     );
 
             String inComingLine;
-            int positionRow = zero;
+            int posRow = zero;
 
             while (!levelFile.EndOfStream)
             {
                 inComingLine = levelFile.ReadLine();
                 String[] target = inComingLine.Split(',');
-                int positionColumn = zero;
-                while (positionColumn < target.Length)
+                int posCol = zero;
+                while (posCol < target.Length)
                 {
-                    if (target[positionColumn].Equals("brick"))
+                    if (target[posCol].Equals("brick"))
                     {
-                        Brick gameObject = new Brick(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        Brick gameObject = new Brick(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
 
-                    else if (target[positionColumn].Equals("crack"))
+                    else if (target[posCol].Equals("crack"))
                     {
-                        Crack gameObject = new Crack(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        Crack gameObject = new Crack(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("diamond"))
+                    else if (target[posCol].Equals("diamond"))
                     {
-                        Diamond gameObject = new Diamond(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        Diamond gameObject = new Diamond(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("question"))
+                    else if (target[posCol].Equals("question"))
                     {
-                        Question gameObject = new Question(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        Question gameObject = new Question(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("used"))
+                    else if (target[posCol].Equals("used"))
                     {
-                        Used gameObject = new Used(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        Used gameObject = new Used(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("invisible"))
+                    else if (target[posCol].Equals("invisible"))
                     {
-                        Invisible gameObject = new Invisible(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        Invisible gameObject = new Invisible(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("standardPipe"))
+                    else if (target[posCol].Equals("standardPipe"))
                     {
-                        Pipe gameObject = new Pipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
-                        blockList.Add(gameObject);
+                        Pipe pipe = new Pipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        blockList.Add(pipe);
+
+                        IEnemy enemy = new PiranhaPlant(myGame, myGame.piranhaPlant, pipe.drawLocation.X, pipe.drawLocation.Y);
+                        enemyList.Add(enemy);
                     }
 
-                    else if (target[positionColumn].Equals("standardPipeTransition"))
+                    else if (target[posCol].Equals("standardPipeTransition"))
                     {
-                        PipeTransition gameObject = new PipeTransition(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        PipeTransition gameObject = new PipeTransition(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("popPipe"))
+                    else if (target[posCol].Equals("popPipe"))
                     {
-                        PopPipe gameObject = new PopPipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        PopPipe gameObject = new PopPipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("pipeNeck"))
+                    else if (target[posCol].Equals("pipeNeck"))
                     {
-                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("star"))
+                    else if (target[posCol].Equals("smallCastle"))
                     {
-                        StarItem gameObject = new StarItem(myGame, myGame.itemSprite, twentyOne, thirtySix, positionColumn * sixteen, positionRow * sixteen);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("coin"))
-                    {
-                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, twentyOne, thirtySix, positionColumn * sixteen, positionRow * sixteen);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("flower"))
-                    {
-                        FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, twentyOne, thirtySix, positionColumn * sixteen, positionRow * sixteen);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("redMushroom"))
-                    {
-                        RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, twentyOne, thirtySix, positionColumn * sixteen, positionRow * sixteen);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("greenMushroom"))
-                    {
-                        GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, twentyOne, thirtySix, positionColumn * sixteen, positionRow * sixteen);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("goomba"))
-                    {
-                        IEnemy gameObject = new GoombaEnemy(myGame, myGame.goombaEnemy, one, three, positionColumn * sixteen, positionRow * sixteen);
-                        enemyList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("koopa"))
-                    {
-                        IEnemy gameObject = new KoopaEnemy(myGame, myGame.koopaEnemy, one, ten, positionColumn * sixteen, positionRow * sixteen);
-                        enemyList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("oneCloud"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.oneCloudBgElement, one, one, positionColumn * sixteen, positionRow * sixteen);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("threeClouds"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.threeCloudsBgElement, one, one, positionColumn * sixteen, positionRow * sixteen);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("oneBush"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.oneBushBgElement, one, one,  positionColumn * sixteen, positionRow * sixteen);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("threeBushes"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.threeBushesBgElement, one, one, positionColumn * sixteen, positionRow * sixteen);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("smallMountain"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.smallMountainBgElement, one, one, positionColumn * sixteen, positionRow * sixteen);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("bigMountain"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.bigMountainBgElement, one, one, positionColumn * sixteen, positionRow * sixteen);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("smallCastle"))
-                    {
-                        IBlock gameObject = new Castle(myGame, myGame.smallCastle, one, one, positionColumn * sixteen, positionRow * sixteen);
+                        IBlock gameObject = new Castle(myGame, myGame.smallCastle, one, one, posCol * sixteen, posRow * sixteen);
                         blockList.Add(gameObject);
                     }
-                    else if (target[positionColumn].Equals("flagpole"))
+                    else if (target[posCol].Equals("flagpole"))
                     {
-                        IItem gameObject = new Flagpole(myGame, myGame.flagpoleElement, one, one, positionColumn * sixteen, positionRow * sixteen);
+                        IItem gameObject = new Flagpole(myGame, myGame.flagpoleElement, one, one, posCol * sixteen, posRow * sixteen);
                         itemList.Add(gameObject);
-                        IBlock block = new Diamond(myGame, myGame.blockSprite, twentyEight, thirtyThree, (positionColumn * sixteen) - 6, (positionRow * sixteen) + oneHundredTwentyEight);
+                        IBlock block = new Diamond(myGame, myGame.blockSprite, twentyEight, thirtyThree, (posCol * sixteen) - 6, (posRow * sixteen) + oneHundredTwentyEight);
                         blockList.Add(block);
                     }
-                    else if (target[positionColumn].Equals("title"))
+                    else if (target[posCol].Equals("star"))
                     {
-                        IBackground gameObject = new Background(myGame, myGame.titleScreen, one, one, positionColumn * sixteen, positionRow * sixteen);
+                        StarItem gameObject = new StarItem(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        itemList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("coin"))
+                    {
+                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        itemList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("flower"))
+                    {
+                        FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        itemList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("redMushroom"))
+                    {
+                        RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        itemList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("greenMushroom"))
+                    {
+                        GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, twentyOne, thirtySix, posCol * sixteen, posRow * sixteen);
+                        itemList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("goomba"))
+                    {
+                        IEnemy enemy = new Goomba(myGame, myGame.goomba, posCol * sixteen, posRow * sixteen);
+                        enemyList.Add(enemy);
+                    }
+                    else if (target[posCol].Equals("koopa"))
+                    {
+                        IEnemy enemy = new Koopa(myGame, myGame.koopa, posCol * sixteen, posRow * sixteen);
+                        enemyList.Add(enemy);
+                    }
+                    else if (target[posCol].Equals("oneCloud"))
+                    {
+                        IBackground gameObject = new Background(myGame, myGame.oneCloudBgElement, posCol * sixteen, posRow * sixteen);
+                        bgList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("threeClouds"))
+                    {
+                        IBackground gameObject = new Background(myGame, myGame.threeCloudsBgElement, posCol * sixteen, posRow * sixteen);
+                        bgList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("oneBush"))
+                    {
+                        IBackground gameObject = new Background(myGame, myGame.oneBushBgElement, posCol * sixteen, posRow * sixteen);
+                        bgList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("threeBushes"))
+                    {
+                        IBackground gameObject = new Background(myGame, myGame.threeBushesBgElement, posCol * sixteen, posRow * sixteen);
+                        bgList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("smallMountain"))
+                    {
+                        IBackground gameObject = new Background(myGame, myGame.smallMountainBgElement, posCol * sixteen, posRow * sixteen);
+                        bgList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("bigMountain"))
+                    {
+                        IBackground gameObject = new Background(myGame, myGame.bigMountainBgElement, posCol * sixteen, posRow * sixteen);
+                        bgList.Add(gameObject);
+                    }
+                    else if (target[posCol].Equals("title"))
+                    {
+                        IBackground gameObject = new Background(myGame, myGame.titleScreen, posCol * sixteen, posRow * sixteen);
                         bgList.Add(gameObject);
                     }
 
-                    positionColumn++;
+                    posCol++;
                 }
-                positionRow++;
+                posRow++;
             }
 
-            positionRow = zero;
+            posRow = zero;
             while (!bonusLevelFile.EndOfStream)
             {
                 inComingLine = bonusLevelFile.ReadLine();
@@ -203,37 +206,37 @@ namespace Game
                 {
                     if (target[positionColumn].Equals("blueBrick"))
                     {
-                        BlueBrick gameObject = new BlueBrick(myGame, myGame.blueBlockSprite, one, two, positionColumn * sixteen, positionRow * sixteen);
+                        BlueBrick gameObject = new BlueBrick(myGame, myGame.blueBlockSprite, one, two, positionColumn * sixteen, posRow * sixteen);
                         blockPipeList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("blueCrack"))
                     {
-                        BlueCrack gameObject = new BlueCrack(myGame, myGame.blueBlockSprite, one, two, positionColumn * sixteen, positionRow * sixteen);
+                        BlueCrack gameObject = new BlueCrack(myGame, myGame.blueBlockSprite, one, two, positionColumn * sixteen, posRow * sixteen);
                         blockPipeList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("coin"))
                     {
-                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, twentyOne, thirtySix, positionColumn * sixteen, positionRow * sixteen);
+                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, twentyOne, thirtySix, positionColumn * sixteen, posRow * sixteen);
                         itemPipeList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("pipeNeck"))
                     {
-                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, posRow * sixteen);
                         blockPipeList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("sidePipe"))
                     {
-                        SidePipe gameObject = new SidePipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow *  sixteen);
+                        SidePipe gameObject = new SidePipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, posRow *  sixteen);
                         blockPipeList.Add(gameObject);
                     }
                     else if (target[positionColumn].Equals("pipeNeck"))
                     {
-                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, positionRow * sixteen);
+                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, twentyEight, thirtyThree, positionColumn * sixteen, posRow * sixteen);
                         blockPipeList.Add(gameObject);
                     }
                     positionColumn++;
                 }
-                positionRow++;
+                posRow++;
             }
             levelFile.Close();
             bonusLevelFile.Close();

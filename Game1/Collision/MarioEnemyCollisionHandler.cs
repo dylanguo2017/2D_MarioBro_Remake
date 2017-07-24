@@ -26,23 +26,23 @@ namespace Game
                 {
                     if(vColFrom.Equals(sides.top))
                     {
-                        if (enemy is KoopaEnemy)
+                        if (enemy is Koopa)
                         {
-                            KoopaEnemy koopa = enemy as KoopaEnemy;
-                            if (koopa.movingLeft || koopa.movingRight)
+                            Koopa koopa = enemy as Koopa;
+                            if (koopa.movingL || koopa.movingR)
                             {
                                 koopa.almostDead = true;
                                 koopa.startLifeTimer();
                                 koopa.dead = false;
-                                koopa.movingLeft = false;
-                                koopa.movingRight = false;
+                                koopa.movingL = false;
+                                koopa.movingR = false;
                             }
                             else if (koopa.almostDead)
                             {
                                 koopa.dead = true;
                                 koopa.almostDead = false;
-                                koopa.movingLeft = false;
-                                koopa.movingRight = false;
+                                koopa.movingL = false;
+                                koopa.movingR = false;
                                 KillEnemy(koopa);
                             }
                         }

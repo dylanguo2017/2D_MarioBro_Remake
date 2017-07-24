@@ -5,10 +5,10 @@ using static Game.Utility;
 
 namespace Game.Enemies
 {
-    public class GoombaEnemy :IEnemy
+    public class Goomba : IEnemy
     {
         private Game myGame;
-        public Physics GoombaPhys;
+        private Physics GoombaPhys;
         public Physics enemyPhys
         {
             get
@@ -16,38 +16,39 @@ namespace Game.Enemies
                 return GoombaPhys;
             }
         }
-        private Rectangle destinationRectangle;
-        private Rectangle sourceRectangle { get; set; }
 
-        public int rows { get; set; }
-        public int columns { get; set; }
-        public int currentFrame { get; set; }
-        public int totalFrame { get; set; }
+        private int rows;
+        private int columns;
+        private int currentFrame;
+        private int totalFrame;
+        private int timer;
+
+        private Rectangle destinationRectangle;
+        private Rectangle sourceRectangle;
 
         public Texture2D texture { get; set; }
 
         public Boolean visible { get; set; }
-        public Boolean movingLeft { get; set; }
-        public Boolean movingRight { get; set; }
+        public Boolean movingL { get; set; }
+        public Boolean movingR { get; set; }
         public Boolean dead { get; set; }
 
-        private int timer;
-
-        public GoombaEnemy(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Goomba(Game game, Texture2D texture, int x, int y)
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            currentFrame = 0;
-            totalFrame = this.rows * this.columns;
             myGame = game;
-            GoombaPhys = new Physics(pointX, pointY);
-            visible = true;
-            movingLeft = true;
-            movingRight = false;
-            dead = false;
+            this.texture = texture;
+            rows = 1;
+            columns = 3;
+            currentFrame = 0;
             timer = 0;
+            totalFrame = this.rows * this.columns;
 
+            GoombaPhys = new Physics(x, y);
+
+            visible = true;
+            movingL = true;
+            movingR = false;
+            dead = false;
         }
 
         public void Update()
@@ -69,16 +70,16 @@ namespace Game.Enemies
                     visible = false;
                 }
             }
-            else if (movingLeft)
+            else if (movingL)
             {
-                moveLeft();
+                MoveLeft();
             }
-            else if (movingRight)
+            else if (movingR)
             {
-                moveRight();
+                MoveRight();
             }
-            GoombaPhys.Update();
 
+            GoombaPhys.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -105,12 +106,12 @@ namespace Game.Enemies
             return destinationRectangle;
         }
 
-        public void moveLeft()
+        private void MoveLeft()
         {
             GoombaPhys.XCoor--;
         }
 
-        public void moveRight()
+        private void MoveRight()
         {
             GoombaPhys.XCoor++;
         }

@@ -34,8 +34,8 @@ namespace Game
         public Texture2D smallCastle;
         public Texture2D flagpoleElement;
 
-        public Texture2D goombaEnemy;
-        public Texture2D koopaEnemy;
+        public Texture2D goomba;
+        public Texture2D koopa;
 
         public Texture2D marioSprites;
         public Texture2D fireballSprite;
@@ -44,6 +44,8 @@ namespace Game
         public Texture2D blockSprite;
         public Texture2D blueBlockSprite;
         public Texture2D itemSprite;
+
+        public Texture2D piranhaPlant;
 
         public List<IBlock> blockList;
         public List<IBlock> questionBlockList;
@@ -167,12 +169,14 @@ namespace Game
             smallCastle = Content.Load<Texture2D>("smallCastle");
             flagpoleElement = Content.Load<Texture2D>("flagPole");
 
-            goombaEnemy = Content.Load<Texture2D>("goomba");
-            koopaEnemy = Content.Load<Texture2D>("koopa");
+            goomba = Content.Load<Texture2D>("goomba");
+            koopa = Content.Load<Texture2D>("koopa");
 
             titleScreen = Content.Load<Texture2D>("titleScreen");
             marioSprites = Content.Load<Texture2D>("SpriteSheets/Mario");
             fireballSprite = Content.Load<Texture2D>("fireball");
+
+            piranhaPlant = Content.Load<Texture2D>("SpriteSheets/enemies");
 
             mario = new SmallMario(this);
 

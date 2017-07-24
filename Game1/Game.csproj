@@ -58,6 +58,7 @@
     <Compile Include="CameraObjectDetector.cs" />
     <Compile Include="Commands\SpaceCommand.cs" />
     <Compile Include="Controllers\KeyBind.cs" />
+    <Compile Include="Enemies\PiranhaPlant.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Items\CoinItem.cs" />
@@ -96,9 +97,9 @@
     <Compile Include="Controllers\KeyboardController.cs" />
     <Compile Include="Blocks\Crack.cs" />
     <Compile Include="Blocks\Diamond.cs" />
-    <Compile Include="Enemies\GoombaEnemy.cs" />
+    <Compile Include="Enemies\Goomba.cs" />
     <Compile Include="Enemies\IEnemy.cs" />
-    <Compile Include="Enemies\KoopaEnemy.cs" />
+    <Compile Include="Enemies\Koopa.cs" />
     <Compile Include="Items\Flagpole.cs" />
     <Compile Include="Items\FlowerItem.cs" />
     <Compile Include="Items\GreenMushroomItem.cs" />

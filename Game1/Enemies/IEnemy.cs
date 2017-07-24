@@ -8,28 +8,15 @@ namespace Game.Enemies
     {
         Physics enemyPhys { get; }
         Texture2D texture { get; set; }
-
-        int rows { get; set; }
-
-        int columns { get; set; }
-
-        int currentFrame { get; set; }
-
-        int totalFrame { get; set; }
-
-        Boolean visible { get; set; }
-        Boolean movingLeft { get; set; }
-        Boolean movingRight { get; set; }
-        Boolean dead { get; set; }
-
         Rectangle DestinationRectangle();
 
-        void Update();
+        Boolean visible { get; set; }
+        Boolean movingL { get; set; }
+        Boolean movingR { get; set; }
+        Boolean dead { get; set; }
 
         void Draw(SpriteBatch spriteBatch);
-
-
-       
+        void Update();
         void StartTimer();
     }
 }

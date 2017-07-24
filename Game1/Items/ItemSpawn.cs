@@ -10,17 +10,20 @@ namespace Game
         private Game myGame;
         public List<RedMushroomItem> spawnItem;
         public List<RedMushroomItem> spawned;
+
         public ItemSpawn(Game game)
         {
             myGame = game;
             spawnItem = new List<RedMushroomItem>();
             spawned = new List<RedMushroomItem>();
         }
+
         public void SpawnItem(Point spawnLoc)
         {
             RedMushroomItem spawnThis = new RedMushroomItem(myGame, myGame.itemSprite, twentyOne, thirtySix, spawnLoc.X, spawnLoc.Y);
             spawnItem.Add(spawnThis);
         }
+
         public void Update()
         {
             if(spawnItem.Count != 0)
