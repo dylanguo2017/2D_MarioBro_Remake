@@ -21,12 +21,9 @@ namespace Game
         private int rows;
         private int columns;
         private int currentFrame;
-        private int totalFrame;
-        private int timer;
 
         public Texture2D texture { get; set; }
         public Boolean visible { get; set; }
-        public Boolean hit { get; set; }
 
         public Crack(Game game, int x, int y)
         {
@@ -35,12 +32,9 @@ namespace Game
             rows = 28;
             columns = 33;
             currentFrame = 0;
-            totalFrame = rows * columns;
             drawLoc = new Point(x, y);
 
             visible = true;
-            hit = false;
-            timer = 0;
         }
 
         public void Update()

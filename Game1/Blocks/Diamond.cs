@@ -6,40 +6,35 @@ namespace Game
 {
     public class Diamond : IBlock
     {
-
         private Game myGame;
-        public Point drawLocation;
+
+        private Point drawLoc;
         public int DrawLoc
         {
             get
             {
-                return drawLocation.X;
+                return drawLoc.X;
             }
         }
         private Rectangle destinationRectangle;
 
-        public int rows { get; set; }
-        public int columns { get; set; }
-        public Texture2D texture { get; set; }
-        public int currentFrame { get; set; }
-        public int totalFrame { get; set; }
-        public Boolean visible { get; set; }
-        public Boolean hit { get; set; }
-        public int timer;
-        
+        private int rows;
+        private int columns;
+        private int currentFrame;
 
-        public  Diamond(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Texture2D texture { get; set; }
+        public Boolean visible { get; set; }
+
+        public  Diamond(Game game, int x, int y)
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            currentFrame = 33;
-            totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
+            texture = myGame.blockSprite;
+            rows = 28;
+            columns = 33;
+            currentFrame = 33;
+            drawLoc = new Point(x, y);
+
             visible = true;
-            hit = false;
-            timer = 0;
         }
 
         public void Update()
@@ -58,7 +53,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(drawLoc.X - myGame.camera.GetOffset(), drawLoc.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -70,8 +65,6 @@ namespace Game
         {
             return destinationRectangle;
         }
-
-
 
     }
 }

@@ -21,12 +21,10 @@ namespace Game.Blocks
         private int rows;
         private int columns;
         private int currentFrame;
-        private int totalFrame;
         private int timer;
 
         public Texture2D texture { get; set; }
         public Boolean visible { get; set; }
-        public Boolean hit { get; set; }
 
         public Castle(Game game, int x, int y)
         {
@@ -35,7 +33,6 @@ namespace Game.Blocks
             rows = 1;
             columns = 1;
             currentFrame = 0;
-            totalFrame = rows * columns;
             drawLoc = new Point(x, y);
 
             visible = true;

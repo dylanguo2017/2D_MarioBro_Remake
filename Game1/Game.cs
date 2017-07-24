@@ -227,18 +227,6 @@ namespace Game
             paused.Draw(spriteBatch);
             gameOver.Draw(spriteBatch);
 
-            foreach (IBlock block in blockCamList)
-            {
-                if (block is Question)
-                {
-                    if (block.hit.Equals(true))
-                    {
-                        
-                    }
-                    
-                }
-            }
-
             base.Draw(gameTime);
         }
 

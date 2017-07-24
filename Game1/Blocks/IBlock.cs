@@ -9,7 +9,6 @@ namespace Game
     {
         Texture2D texture { get; set; }
         Boolean visible { get; set; }
-        Boolean hit { get; set; }
         int DrawLoc { get; }
         Rectangle DestinationRectangle();
         void Draw(SpriteBatch spriteBatch);

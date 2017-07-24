@@ -64,7 +64,7 @@ namespace Game
                     }
                     else if (target[posCol].Equals("diamond"))
                     {
-                        IBlock block = new Diamond(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        IBlock block = new Diamond(myGame, posCol * sixteen, posRow * sixteen);
                         blockList.Add(block);
                     }
                     else if (target[posCol].Equals("question"))
@@ -79,15 +79,15 @@ namespace Game
                     }
                     else if (target[posCol].Equals("invisible"))
                     {
-                        IBlock block = new Invisible(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        IBlock block = new Invisible(myGame, posCol * sixteen, posRow * sixteen);
                         blockList.Add(block);
                     }
                     else if (target[posCol].Equals("standardPipe"))
                     {
-                        Pipe block = new Pipe(myGame, myGame.blockSprite, twentyEight, thirtyThree, posCol * sixteen, posRow * sixteen);
+                        Pipe block = new Pipe(myGame, posCol * sixteen, posRow * sixteen);
                         blockList.Add(block);
 
-                        IEnemy enemy = new PiranhaPlant(myGame, block.drawLocation.X, block.drawLocation.Y);
+                        IEnemy enemy = new PiranhaPlant(myGame, block.drawLoc.X, block.drawLoc.Y);
                         enemyList.Add(enemy);
                     }
 
@@ -116,7 +116,8 @@ namespace Game
                     {
                         IItem item = new Flagpole(myGame, myGame.flagpoleElement, one, one, posCol * sixteen, posRow * sixteen);
                         itemList.Add(item);
-                        IBlock block = new Diamond(myGame, myGame.blockSprite, twentyEight, thirtyThree, (posCol * sixteen) - 6, (posRow * sixteen) + oneHundredTwentyEight);
+
+                        IBlock block = new Diamond(myGame, (posCol * sixteen) - six, (posRow * sixteen) + oneHundredTwentyEight);
                         blockList.Add(block);
                     }
 
