@@ -17,6 +17,7 @@ namespace Game
             myGame.itemCamList = new List<IItem>();
             myGame.blockCamList = new List<IBlock>();
         }
+
         public void LoadLevel()
         {
             myGame.enemyCamList.Clear();

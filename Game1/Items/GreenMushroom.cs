@@ -49,6 +49,7 @@ namespace Game
             {
                 MoveLeft();
             }
+
             gmPhysics.Update();
         }
 

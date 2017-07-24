@@ -28,7 +28,6 @@ namespace Game.Enemies
         public Texture2D texture { get; set; }
 
         public Boolean visible { get; set; }
-        public Boolean movingL { get; set; }
         public Boolean movingR { get; set; }
         public Boolean dead { get; set; }
 
@@ -44,7 +43,6 @@ namespace Game.Enemies
             GoombaPhys = new Physics(x * stdSpriteSize, y * stdSpriteSize);
 
             visible = true;
-            movingL = true;
             movingR = false;
             dead = false;
         }
@@ -68,11 +66,11 @@ namespace Game.Enemies
                     visible = false;
                 }
             }
-            else if (movingL)
+            else if (!movingR)
             {
                 MoveLeft();
             }
-            else if (movingR)
+            else
             {
                 MoveRight();
             }

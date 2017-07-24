@@ -75,7 +75,7 @@ namespace Game
             {
                 enemyRec = enemy.DestinationRectangle();
 
-                if (marioRec.Intersects(enemyRec))
+                if (enemy.visible && marioRec.Intersects(enemyRec))
                 {
                     CollidesFrom(enemyRec);
                     enemyColHandler = new MarioEnemyCollisionHandler(myGame);

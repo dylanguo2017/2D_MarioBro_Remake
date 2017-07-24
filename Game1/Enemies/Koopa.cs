@@ -16,9 +16,9 @@ namespace Game.Enemies
         private int currentFrame;
 
         public Texture2D texture { get; set; }
+        public Boolean movingL;
 
         public Boolean visible { get; set; }
-        public Boolean movingL { get; set; }
         public Boolean movingR { get; set; }
         public Boolean almostDead { get; set; }
         public Boolean dead { get; set; }

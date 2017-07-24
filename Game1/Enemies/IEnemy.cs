@@ -11,7 +11,6 @@ namespace Game.Enemies
         Rectangle DestinationRectangle();
 
         Boolean visible { get; set; }
-        Boolean movingL { get; set; }
         Boolean movingR { get; set; }
         Boolean dead { get; set; }
 
