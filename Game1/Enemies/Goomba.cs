@@ -33,10 +33,10 @@ namespace Game.Enemies
         public Boolean movingR { get; set; }
         public Boolean dead { get; set; }
 
-        public Goomba(Game game, Texture2D texture, int x, int y)
+        public Goomba(Game game, int x, int y)
         {
             myGame = game;
-            this.texture = texture;
+            texture = myGame.goomba;
             rows = 1;
             columns = 3;
             currentFrame = 0;

@@ -1,14 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using static Game.Utility;
 
 namespace Game
 {
-    public class StarItem : IItem
+    public class Coin : IItem
     {
-        
+
         private Game myGame;
-        private Point drawLocation;
+        public Point drawLocation;
         private Rectangle destinationRectangle;
         public int currentLoc
         {
@@ -23,51 +24,34 @@ namespace Game
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        public Boolean movingRight { get; set; }
-        public Boolean movingUp { get; set; }
+        
 
-        public StarItem (Game game, Texture2D texture,int rows, int columns, int pointX, int pointY) 
+        public Coin(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
-            this.columns =columns;
-            currentFrame = 108;
+            this.columns = columns;
+            currentFrame = 216;
             totalFrame = this.rows * this.columns;
             myGame = game;
             drawLocation = new Point(pointX, pointY);
             visible = true;
-            movingRight = true;
-            movingUp = true;
+            
         }
 
         public virtual void Update()
         {
-            if (myGame.animMod % 20 == 0)
+            if(myGame.animMod % twenty == zero)
             {
                 currentFrame++;
-                if (currentFrame == 111)
+                if (currentFrame == twoHundredNineteen)
                 {
-                    currentFrame = 108;
+                    currentFrame = 252;
                 }
-            }
-            if (movingRight)
-            {
-                MoveRight();
-            }
-            else
-            {
-                movingRight = false;
-                MoveLeft();
-            }
-
-            if (movingUp && destinationRectangle.Y > 300)
-            {
-                MoveUp();
-            }
-            else
-            {
-                movingUp = false;
-                MoveDown();
+                if (currentFrame == twoHundredFiftyFive)
+                {
+                    currentFrame = 216;
+                }
             }
         }
 
@@ -93,42 +77,14 @@ namespace Game
         {
             return destinationRectangle;
         }
-
-
-        private void MoveUp()
-        {
-            drawLocation.Y--;
-        }
-
-        private void MoveDown()
-        {
-            drawLocation.Y++;
-        }
-
-        private void MoveLeft()
-        {
-            drawLocation.X--;
-        }
-
-        private void MoveRight()
-        {
-            drawLocation.X++;
-        }
-
-        public void PowerUp()
+        
+        public void Collect()
         {
             visible = false;
-            myGame.soundEffect.PowerUp();
-
-            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
-            {
-                myGame.mario = new SmallStarMario(myGame);
-            }
-            else
-            {
-                myGame.mario = new LargeStarMario(myGame);
-            }
+            myGame.soundEffect.Coin();
+            myGame.hud.addCoin();
         }
 
+        
     }
 }

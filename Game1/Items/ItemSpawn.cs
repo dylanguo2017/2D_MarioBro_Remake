@@ -8,19 +8,19 @@ namespace Game
     public class ItemSpawn
     {
         private Game myGame;
-        public List<RedMushroomItem> spawnItem;
-        public List<RedMushroomItem> spawned;
+        public List<RedMushroom> spawnItem;
+        public List<RedMushroom> spawned;
 
         public ItemSpawn(Game game)
         {
             myGame = game;
-            spawnItem = new List<RedMushroomItem>();
-            spawned = new List<RedMushroomItem>();
+            spawnItem = new List<RedMushroom>();
+            spawned = new List<RedMushroom>();
         }
 
         public void SpawnItem(Point spawnLoc)
         {
-            RedMushroomItem spawnThis = new RedMushroomItem(myGame, myGame.itemSprite, twentyOne, thirtySix, spawnLoc.X, spawnLoc.Y);
+            RedMushroom spawnThis = new RedMushroom(myGame, myGame.itemSprite, twentyOne, thirtySix, spawnLoc.X, spawnLoc.Y);
             spawnItem.Add(spawnThis);
         }
 
@@ -28,7 +28,7 @@ namespace Game
         {
             if(spawnItem.Count != 0)
             {
-                foreach (RedMushroomItem spawnIt in spawnItem)
+                foreach (RedMushroom spawnIt in spawnItem)
                 {
                     spawnIt.spawnCtr++;
                     if (spawnIt.spawnCtr > sixteen)
@@ -39,7 +39,7 @@ namespace Game
             }
             if(spawned.Count != zero)
             {
-                foreach (RedMushroomItem spawnIt in spawned)
+                foreach (RedMushroom spawnIt in spawned)
                 {
                     spawnItem.Remove(spawnIt);
                     myGame.itemList.Add(spawnIt);
@@ -51,7 +51,7 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (RedMushroomItem spawnIt in spawnItem)
+            foreach (RedMushroom spawnIt in spawnItem)
             {
                 spawnIt.Draw(spriteBatch);
             }

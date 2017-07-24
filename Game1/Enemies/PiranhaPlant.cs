@@ -27,10 +27,10 @@ namespace Game.Enemies
         }
 
 
-        public PiranhaPlant(Game game, Texture2D texture, int x, int y)
+        public PiranhaPlant(Game game, int x, int y)
         {
             myGame = game;
-            this.texture = texture;
+            texture = myGame.piranhaPlant;
             drawLoc = new Point(x, y);
             PiranhaPlantPhys = new Physics(x, y);
         }

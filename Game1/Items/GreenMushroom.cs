@@ -4,20 +4,21 @@ using System;
 
 namespace Game
 {
-    public class RedMushroomItem : IItem
+    public class GreenMushroom : IItem
     {
 
         private Game myGame;
-       
-        public Physics rmPhysics;
+        public Point drawLocation;
+        public Physics gmPhysics;
         public int currentLoc
         {
             get
             {
-                return rmPhysics.XCoor;
+                return gmPhysics.XCoor;
             }
         }
         private Rectangle destinationRectangle;
+        
 
         public int rows { get; set; }
         public int columns { get; set; }
@@ -26,18 +27,16 @@ namespace Game
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
         public Boolean movingRight { get; set; }
-        public int spawnCtr = 0;
 
-        public RedMushroomItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public GreenMushroom(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 0;
+            currentFrame = 1;
             totalFrame = this.rows * this.columns;
             myGame = game;
-          
-            rmPhysics = new Physics(pointX, pointY);
+            gmPhysics = new Physics(pointX, pointY);
             visible = true;
             movingRight = true;
         }
@@ -52,7 +51,7 @@ namespace Game
             {
                 MoveLeft();
             }
-            rmPhysics.Update();
+            gmPhysics.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -65,7 +64,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(rmPhysics.XCoor - myGame.camera.GetOffset(), rmPhysics.YCoor-spawnCtr, width, height);
+                destinationRectangle = new Rectangle(gmPhysics.XCoor - myGame.camera.GetOffset(), gmPhysics.YCoor, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -79,33 +78,23 @@ namespace Game
         }
 
 
-        private void MoveLeft()
+        public void MoveLeft()
         {
-            rmPhysics.xVel = -1;
+            gmPhysics.xVel--;
         }
 
-        private void MoveRight()
+        public void MoveRight()
         {
-            rmPhysics.xVel = 1;
+            gmPhysics.xVel++;
         }
 
-        public void PowerUp()
+        public void OneUp()
         {
             visible = false;
-            myGame.soundEffect.PowerUp();
-
-            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
-            {
-                if (myGame.marioState.star)
-                {
-                    myGame.mario = new LargeStarMario(myGame);
-                }
-                else
-                {
-                    myGame.mario = new LargeMario(myGame);
-                }
-            }
+            myGame.soundEffect.OneUp();
+            myGame.hud.gainLife();
         }
+
 
     }
 }

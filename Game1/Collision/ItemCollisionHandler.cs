@@ -16,15 +16,15 @@ namespace Game
 
         public void HandleCollision(IItem item)
         {
-            if (item is StarItem)
+            if (item is Star)
             {
                 HandleStar(item);
             }
-            else if (item is GreenMushroomItem)
+            else if (item is GreenMushroom)
             {
                 HandleGreenMushroom(item);
             }
-            else if (item is RedMushroomItem)
+            else if (item is RedMushroom)
             {
                 HandleRedMushroom(item);
             }
@@ -33,7 +33,7 @@ namespace Game
 
         private void HandleStar(IItem item)
         {
-            StarItem star = item as StarItem;
+            Star star = item as Star;
 
             if (hColFrom.Equals(sides.left))
             {
@@ -56,7 +56,7 @@ namespace Game
 
         private void HandleGreenMushroom(IItem item)
         {
-            GreenMushroomItem greenMushroom = item as GreenMushroomItem;
+            GreenMushroom greenMushroom = item as GreenMushroom;
             if (hColFrom.Equals(sides.left))
             {
                 greenMushroom.movingRight = false;
@@ -70,7 +70,7 @@ namespace Game
 
         private void HandleRedMushroom(IItem item)
         {
-            RedMushroomItem redMushroom = item as RedMushroomItem;
+            RedMushroom redMushroom = item as RedMushroom;
             if (hColFrom.Equals(sides.left))
             {
                 redMushroom.movingRight = false;

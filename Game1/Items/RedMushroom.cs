@@ -1,53 +1,58 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using static Game.Utility;
 
 namespace Game
 {
-    public class FlowerItem : IItem
+    public class RedMushroom : IItem
     {
 
         private Game myGame;
-        public Point drawLocation;
-        private Rectangle destinationRectangle;
+       
+        public Physics rmPhysics;
         public int currentLoc
         {
             get
             {
-                return drawLocation.X;
+                return rmPhysics.XCoor;
             }
         }
+        private Rectangle destinationRectangle;
+
         public int rows { get; set; }
         public int columns { get; set; }
         public Texture2D texture { get; set; }
         public int currentFrame { get; set; }
         public int totalFrame { get; set; }
         public Boolean visible { get; set; }
-        
+        public Boolean movingRight { get; set; }
+        public int spawnCtr = 0;
 
-        public FlowerItem(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public RedMushroom(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
         {
             this.texture = texture;
             this.rows = rows;
             this.columns = columns;
-            currentFrame = 72;
+            currentFrame = 0;
             totalFrame = this.rows * this.columns;
             myGame = game;
-            drawLocation = new Point(pointX, pointY);
-            visible = true;            
+          
+            rmPhysics = new Physics(pointX, pointY);
+            visible = true;
+            movingRight = true;
         }
 
         public virtual void Update()
         {
-            if (myGame.animMod % twenty == zero)
+            if (movingRight.Equals(true))
             {
-                currentFrame++;
-                if (currentFrame == seventyFive)
-                {
-                    currentFrame = 72;
-                }
+                MoveRight();
             }
+            else
+            {
+                MoveLeft();
+            }
+            rmPhysics.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -60,7 +65,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(drawLocation.X - myGame.camera.GetOffset(), drawLocation.Y, width, height);
+                destinationRectangle = new Rectangle(rmPhysics.XCoor - myGame.camera.GetOffset(), rmPhysics.YCoor-spawnCtr, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -73,19 +78,32 @@ namespace Game
             return destinationRectangle;
         }
 
+
+        private void MoveLeft()
+        {
+            rmPhysics.xVel = -1;
+        }
+
+        private void MoveRight()
+        {
+            rmPhysics.xVel = 1;
+        }
+
         public void PowerUp()
         {
             visible = false;
             myGame.soundEffect.PowerUp();
 
-            if (myGame.marioState.star)
+            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
             {
-                myGame.mario = new LargeStarMario(myGame);
-                myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
-            }
-            else
-            {
-                myGame.mario = new FireMario(myGame);
+                if (myGame.marioState.star)
+                {
+                    myGame.mario = new LargeStarMario(myGame);
+                }
+                else
+                {
+                    myGame.mario = new LargeMario(myGame);
+                }
             }
         }
 

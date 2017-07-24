@@ -37,10 +37,10 @@ namespace Game.Enemies
         private int deadOffset;
         private int lifeTimer;
 
-        public Koopa(Game game, Texture2D texture, int x, int y)
+        public Koopa(Game game, int x, int y)
         {
             myGame = game;
-            this.texture = texture;
+            texture = myGame.koopa;
             rows = 1;
             columns = 10;
             currentFrame = 3;

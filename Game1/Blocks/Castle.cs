@@ -6,39 +6,39 @@ namespace Game.Blocks
 {
     public class Castle : IBlock
     {
-
         private Game myGame;
-        public Point location;
+
+        private Point drawLoc;
         public int DrawLoc
         {
             get
             {
-                return location.X;
+                return drawLoc.X;
             }
         }
         private Rectangle destinationRectangle;
 
-        public int rows { get; set; }
-        public int columns { get; set; }
+        private int rows;
+        private int columns;
+        private int currentFrame;
+        private int totalFrame;
+        private int timer;
+
         public Texture2D texture { get; set; }
-        public int currentFrame { get; set; }
-        public int totalFrame { get; set; }
         public Boolean visible { get; set; }
         public Boolean hit { get; set; }
-        public int timer;
-        public Boolean used;
 
-        public Castle(Game game, Texture2D texture, int rows, int columns, int x, int y)
+        public Castle(Game game, int x, int y)
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
+            myGame = game;
+            texture = myGame.smallCastle;
+            rows = 1;
+            columns = 1;
             currentFrame = 0;
-            totalFrame = this.rows * this.columns;
-            location = new Point(x, y);
+            totalFrame = rows * columns;
+            drawLoc = new Point(x, y);
 
             visible = true;
-            myGame = game;
         }
 
         public virtual void Update()
@@ -55,7 +55,7 @@ namespace Game.Blocks
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(location.X - myGame.camera.GetOffset(), location.Y, width, height);
+                destinationRectangle = new Rectangle(drawLoc.X - myGame.camera.GetOffset(), drawLoc.Y, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
