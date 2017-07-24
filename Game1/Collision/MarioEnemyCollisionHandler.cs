@@ -16,50 +16,67 @@ namespace Game
 
         public void HandleCollision(IMario mario, IEnemy enemy)
         {
-            if (enemy.visible)
+            if (myGame.marioState.star)
             {
-                if (myGame.marioState.star)
+                if(enemy is PiranhaPlant)
                 {
-                    KillEnemy(enemy);
+                    enemy.visible = false;
                 }
                 else
                 {
-                    if(vColFrom.Equals(sides.top))
-                    {
-                        if (enemy is KoopaEnemy)
-                        {
-                            KoopaEnemy koopa = enemy as KoopaEnemy;
-                            if (koopa.movingLeft || koopa.movingRight)
-                            {
-                                koopa.almostDead = true;
-                                koopa.startLifeTimer();
-                                koopa.dead = false;
-                                koopa.movingLeft = false;
-                                koopa.movingRight = false;
-                            }
-                            else if (koopa.almostDead)
-                            {
-                                koopa.dead = true;
-                                koopa.almostDead = false;
-                                koopa.movingLeft = false;
-                                koopa.movingRight = false;
-                                KillEnemy(koopa);
-                            }
-                        }
-                        else
-                        {
-                            KillEnemy(enemy);
-                        }
-                        myGame.marioState.marioPhys.Bounce();
-                    }
-                    else if((hColFrom.Equals(sides.left) || hColFrom.Equals(sides.none) || vColFrom.Equals(sides.bottom)) && !myGame.marioState.inv)
-                    {
-                        ChangeMarioState();   
-                    }
+                    KillEnemy(enemy);
                 }
+            }
+            else if (enemy is PiranhaPlant)
+            {
+                ChangeMarioState();
+            }
+            else
+            {
+                HandleEnemyCol(enemy);
             }
         }
 
+        private void HandleEnemyCol(IEnemy enemy)
+        {
+            if (vColFrom.Equals(sides.top))
+            {
+                if (enemy is Koopa)
+                {
+                    HandleKoopa(enemy);
+                }
+                else
+                {
+                    KillEnemy(enemy);
+                }
+                myGame.marioState.marioPhys.Bounce();
+            }
+            else
+            {
+                ChangeMarioState();
+            }
+        }
+
+        private void HandleKoopa(IEnemy enemy)
+        {
+            Koopa koopa = enemy as Koopa;
+            if (koopa.movingL || koopa.movingR)
+            {
+                koopa.almostDead = true;
+                koopa.startLifeTimer();
+                koopa.dead = false;
+                koopa.movingL = false;
+                koopa.movingR = false;
+            }
+            else if (koopa.almostDead)
+            {
+                koopa.dead = true;
+                koopa.almostDead = false;
+                koopa.movingL = false;
+                koopa.movingR = false;
+                KillEnemy(koopa);
+            }
+        }
 
         private void KillEnemy(IEnemy enemy)
         {
@@ -71,24 +88,28 @@ namespace Game
 
         private void ChangeMarioState()
         {
-            if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+            if (!myGame.marioState.inv)
             {
-                myGame.mario = new DeadMario(myGame);
-                myGame.gameover = true;
-                myGame.hud.looseLife();
-                myGame.hud.decreasePoints(hundred);
-            }
-            else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
-            {
-                myGame.marioState.inv = true;
-                myGame.mario = new SmallMario(myGame);
-                myGame.hud.decreasePoints(fifty);
-            }
-            else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.fire))
-            {
-                myGame.marioState.inv = true;
-                myGame.mario = new LargeMario(myGame);
-                myGame.hud.decreasePoints(fifty);
+                if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+                {
+                    myGame.mario = new DeadMario(myGame);
+                    myGame.gameover = true;
+                    myGame.hud.looseLife();
+                    myGame.hud.decreasePoints(hundred);
+                }
+                else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
+                {
+                    myGame.marioState.inv = true;
+                    myGame.mario = new SmallMario(myGame);
+                    myGame.hud.decreasePoints(fifty);
+                }
+                else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.fire))
+                {
+                    myGame.marioState.inv = true;
+                    myGame.mario = new LargeMario(myGame);
+                    myGame.hud.decreasePoints(fifty);
+                }
+
             }
         }
 

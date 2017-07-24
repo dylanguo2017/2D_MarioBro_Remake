@@ -20,62 +20,53 @@ namespace Game
         {
             if (block.visible)
             {
-                if (myGame.marioState.flagpole || myGame.marioState.levelComp)
+                DisableMarioMovement();
+
+                if (myGame.marioState.flagpole)
                 {
-                    if (block is Castle)
+                    HandleLvlComp(block);
+                }
+
+                if (vColFrom.Equals(sides.bottom))
+                {
+                    myGame.marioState.marioPhys.yVel = 0;
+                    if (block is Question)
                     {
-                        myGame.mario.visible = false;
-                        myGame.marioState.levelComp = false;
+                        HandleQuestion(block);
                     }
-                    else if(block is Diamond)
+                    else if (block is Brick)
                     {
-                        myGame.marioState.levelComp = true;
-                        myGame.marioState.flagpole = false;
-                        myGame.gameOver.Walk();
+                        HandleBrick(block);
                     }
-                    else
+                    else if (block is Invisible)
                     {
-                        myGame.marioState.MoveR();
-                        myGame.gameOver.Walk();
+                        HandleInvisible(block);
+                    }
+                    else if (block is BlueBrick)
+                    {
+                        HandleBlueBrick(block);
+                    }
+
+                }
+                else if (vColFrom.Equals(sides.top))
+                {
+                    myGame.marioState.marioPhys.DontFall();
+                    myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - one);
+                    myGame.marioState.jmpCtr = 20;
+                    myGame.marioState.jump = false;
+                    myGame.marioState.wPress = false;
+                    if (block is PipeTransition && myGame.marioState.crouch)
+                    {
+                        HandlePipeTransition(block);
                     }
                 }
-                    DisableMarioMovement();
-                    if (vColFrom.Equals(sides.bottom))
+                else if (hColFrom.Equals(sides.left))
+                {
+                    if (block is SidePipe)
                     {
-                        myGame.marioState.marioPhys.yVel = 0;
-                        if (block is Question)
-                        {
-                            HandleQuestion(block);
-                        }
-                        else if (block is Brick)
-                        {
-                            HandleBrick(block);
-                        }
-                        else if (block is Invisible)
-                        {
-                            HandleInvisible(block);
-                        }
-
+                        HandleSidePipe(block);
                     }
-                    else if (vColFrom.Equals(sides.top))
-                    {
-                        myGame.marioState.marioPhys.DontFall();
-                        myGame.marioState.marioPhys.YCoor -= (intersecRec.Height - one);
-                        myGame.marioState.jmpCtr = 20;
-                        myGame.marioState.jump = false;
-                        myGame.marioState.wPress = false;
-                        if (block is PipeTransition && myGame.marioState.crouch)
-                        {
-                            HandlePipeTransition(block);
-                        }
-                    }
-                    else if (hColFrom.Equals(sides.left))
-                    {
-                        if (block is SidePipe)
-                        {
-                            HandleSidePipe(block);
-                        }
-                    }
+                }
 
             }
         }
@@ -95,9 +86,10 @@ namespace Game
                 question.BumpUp();
                 question.ChangeToUsed();
                 myGame.soundEffect.PowerupAppears();
-                myGame.itemSpawn.SpawnItem(question.drawLocation);
+                myGame.itemSpawn.SpawnItem(question.drawLoc);
             }
         }
+
         private void HandleInvisible(IBlock block)
         {
             Invisible invisible = block as Invisible;
@@ -125,10 +117,44 @@ namespace Game
             }
         }
 
+        private void HandleBlueBrick(IBlock block)
+        {
+            BlueBrick brick = block as BlueBrick;
+            if (!(myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+            {
+                brick.Break();
+            }
+            else
+            {
+                if (!brick.hit)
+                {
+                    brick.BumpUp();
+                }
+            }
+        }
+
         private void HandlePipeTransition(IBlock block)
         {
             myGame.soundEffect.IntoTheTunnel();
             Transition.StartTransition();
+        }
+
+        private void HandleLvlComp(IBlock block)
+        {
+            myGame.marioState.lvlComp = true;
+            if (block is Castle)
+            {
+                myGame.mario.visible = false;
+                myGame.marioState.flagpole = false;
+            }
+            else if (block is Diamond)
+            {
+                myGame.marioState.MoveR();
+            }
+            else
+            {
+                myGame.marioState.MoveR();
+            }
         }
 
         private void DisableMarioMovement()

@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using static Game.Utility;
 
 namespace Game
 {
@@ -17,7 +18,7 @@ namespace Game
         public static List<IItem> itemPipeList;
         public static List<IBlock> blockPipeList;
 
-        public static List<IBackground> bgList;
+        public static List<IBg> bgList;
 
         public static void LoadLists(Game myGame)
         {
@@ -29,7 +30,7 @@ namespace Game
             itemPipeList = new List<IItem>();
             blockPipeList = new List<IBlock>();
 
-            bgList = new List<IBackground>();
+            bgList = new List<IBg>();
 
             StreamReader levelFile = new StreamReader(
          Path.Combine(Directory.GetCurrentDirectory(),
@@ -42,197 +43,208 @@ namespace Game
                     );
 
             String inComingLine;
-            int positionRow = 0;
+            int posRow = zero;
 
             while (!levelFile.EndOfStream)
             {
                 inComingLine = levelFile.ReadLine();
                 String[] target = inComingLine.Split(',');
-                int positionColumn = 0;
-                while (positionColumn < target.Length)
+                int posCol = zero;
+                while (posCol < target.Length)
                 {
-                    if (target[positionColumn].Equals("brick"))
+                    if (target[posCol].Equals("brick"))
                     {
-                        Brick gameObject = new Brick(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-
-                    else if (target[positionColumn].Equals("crack"))
-                    {
-                        Crack gameObject = new Crack(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("diamond"))
-                    {
-                        Diamond gameObject = new Diamond(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("question"))
-                    {
-                        Question gameObject = new Question(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("used"))
-                    {
-                        Used gameObject = new Used(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("invisible"))
-                    {
-                        Invisible gameObject = new Invisible(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("standardPipe"))
-                    {
-                        Pipe gameObject = new Pipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-
-                    else if (target[positionColumn].Equals("standardPipeTransition"))
-                    {
-                        PipeTransition gameObject = new PipeTransition(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("popPipe"))
-                    {
-                        PopPipe gameObject = new PopPipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("pipeNeck"))
-                    {
-                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("star"))
-                    {
-                        StarItem gameObject = new StarItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("coin"))
-                    {
-                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("flower"))
-                    {
-                        FlowerItem gameObject = new FlowerItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("redMushroom"))
-                    {
-                        RedMushroomItem gameObject = new RedMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("greenMushroom"))
-                    {
-                        GreenMushroomItem gameObject = new GreenMushroomItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        itemList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("goomba"))
-                    {
-                        IEnemy gameObject = new GoombaEnemy(myGame, myGame.goombaEnemy, 1, 3, positionColumn * 16, positionRow * 16);
-                        enemyList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("koopa"))
-                    {
-                        IEnemy gameObject = new KoopaEnemy(myGame, myGame.koopaEnemy, 1, 10, positionColumn * 16, positionRow * 16);
-                        enemyList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("oneCloud"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.oneCloudBgElement, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("threeClouds"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.threeCloudsBgElement, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("oneBush"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.oneBushBgElement, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("threeBushes"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.threeBushesBgElement, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("smallMountain"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.smallMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("bigMountain"))
-                    {
-                        IBackground gameObject = new Background(myGame, myGame.bigMountainBgElement, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("smallCastle"))
-                    {
-                        IBlock gameObject = new Castle(myGame, myGame.smallCastle, 1, 1, positionColumn * 16, positionRow * 16);
-                        blockList.Add(gameObject);
-                    }
-                    else if (target[positionColumn].Equals("flagpole"))
-                    {
-                        IItem gameObject = new Flagpole(myGame, myGame.flagpoleElement, 1, 1, positionColumn * 16, positionRow * 16);
-                        itemList.Add(gameObject);
-                        IBlock block = new Diamond(myGame, myGame.blockSprite, 28, 33, (positionColumn * 16) - 6, (positionRow * 16) + 128);
+                        IBlock block = new Brick(myGame, posCol, posRow);
                         blockList.Add(block);
                     }
-                    else if (target[positionColumn].Equals("title"))
+                    else if (target[posCol].Equals("crack"))
                     {
-                        IBackground gameObject = new Background(myGame, myGame.titleScreen, 1, 1, positionColumn * 16, positionRow * 16);
-                        bgList.Add(gameObject);
+                        IBlock block = new Crack(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("diamond"))
+                    {
+                        IBlock block = new Diamond(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("question"))
+                    {
+                        IBlock block = new Question(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("used"))
+                    {
+                        IBlock block = new Used(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("invisible"))
+                    {
+                        IBlock block = new Invisible(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("standardPipe"))
+                    {
+                        Pipe block = new Pipe(myGame, posCol, posRow);
+                        blockList.Add(block);
+
+                        IEnemy enemy = new PiranhaPlant(myGame, block.drawLoc.X, block.drawLoc.Y);
+                        enemyList.Add(enemy);
                     }
 
-                    positionColumn++;
+                    else if (target[posCol].Equals("standardPipeTransition"))
+                    {
+                        IBlock block = new PipeTransition(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("popPipe"))
+                    {
+                        IBlock block = new PopPipe(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("pipeNeck"))
+                    {
+                        IBlock block = new PipeNeck(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("smallCastle"))
+                    {
+                        IBlock block = new Castle(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+
+                    else if (target[posCol].Equals("flagpole"))
+                    {
+                        IItem item = new Flagpole(myGame, posCol, posRow);
+                        itemList.Add(item);
+
+                        IBlock block = new Diamond(myGame, (posCol * stdSpriteSize) - six, (posRow * stdSpriteSize) + oneHundredTwentyEight);
+                        blockList.Add(block);
+                    }
+
+                    else if (target[posCol].Equals("coin"))
+                    {
+                        IItem item = new Coin(myGame, posCol, posRow);
+                        itemList.Add(item);
+                    }
+                    else if (target[posCol].Equals("star"))
+                    {
+                        IItem item = new Star(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
+                        itemList.Add(item);
+                    }
+                    else if (target[posCol].Equals("flower"))
+                    {
+                        IItem item = new FireFlower(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
+                        itemList.Add(item);
+                    }
+                    else if (target[posCol].Equals("redMushroom"))
+                    {
+                        IItem item = new RedMushroom(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
+                        itemList.Add(item);
+                    }
+                    else if (target[posCol].Equals("greenMushroom"))
+                    {
+                        IItem item = new GreenMushroom(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
+                        itemList.Add(item);
+                    }
+
+
+                    else if (target[posCol].Equals("goomba"))
+                    {
+                        IEnemy enemy = new Goomba(myGame, posCol, posRow);
+                        enemyList.Add(enemy);
+                    }
+                    else if (target[posCol].Equals("koopa"))
+                    {
+                        IEnemy enemy = new Koopa(myGame, posCol, posRow);
+                        enemyList.Add(enemy);
+                    }
+
+                    
+                    else if (target[posCol].Equals("oneCloud"))
+                    {
+                        IBg bg = new Bg(myGame, myGame.oneCloudBgElement, posCol, posRow);
+                        bgList.Add(bg);
+                    }
+                    else if (target[posCol].Equals("threeClouds"))
+                    {
+                        IBg bg = new Bg(myGame, myGame.threeCloudsBgElement, posCol, posRow);
+                        bgList.Add(bg);
+                    }
+                    else if (target[posCol].Equals("oneBush"))
+                    {
+                        IBg bg = new Bg(myGame, myGame.oneBushBgElement, posCol, posRow);
+                        bgList.Add(bg);
+                    }
+                    else if (target[posCol].Equals("threeBushes"))
+                    {
+                        IBg bg = new Bg(myGame, myGame.threeBushesBgElement, posCol, posRow);
+                        bgList.Add(bg);
+                    }
+                    else if (target[posCol].Equals("smallMountain"))
+                    {
+                        IBg bg = new Bg(myGame, myGame.smallMountainBgElement, posCol, posRow);
+                        bgList.Add(bg);
+                    }
+                    else if (target[posCol].Equals("bigMountain"))
+                    {
+                        IBg bg = new Bg(myGame, myGame.bigMountainBgElement, posCol, posRow);
+                        bgList.Add(bg);
+                    }
+                    else if (target[posCol].Equals("title"))
+                    {
+                        IBg bg = new Bg(myGame, myGame.titleScreen, posCol, posRow);
+                        bgList.Add(bg);
+                    }
+
+                    posCol++;
                 }
-                positionRow++;
+                posRow++;
             }
 
-            positionRow = 0;
+            posRow = zero;
             while (!bonusLevelFile.EndOfStream)
             {
                 inComingLine = bonusLevelFile.ReadLine();
                 String[] target = inComingLine.Split(',');
-                int positionColumn = 0;
+                int posCol = zero;
 
-                while (positionColumn < target.Length)
+                while (posCol < target.Length)
                 {
-                    if (target[positionColumn].Equals("blueBrick"))
+                    if (target[posCol].Equals("blueBrick"))
                     {
-                        BlueBrick gameObject = new BlueBrick(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
-                        blockPipeList.Add(gameObject);
+                        IBlock block = new BlueBrick(myGame, posCol, posRow);
+                        blockPipeList.Add(block);
                     }
-                    else if (target[positionColumn].Equals("blueCrack"))
+                    else if (target[posCol].Equals("blueCrack"))
                     {
-                        BlueCrack gameObject = new BlueCrack(myGame, myGame.blueBlockSprite, 1, 2, positionColumn * 16, positionRow * 16);
-                        blockPipeList.Add(gameObject);
+                        IBlock block = new BlueCrack(myGame, posCol, posRow);
+                        blockPipeList.Add(block);
                     }
-                    else if (target[positionColumn].Equals("coin"))
+
+                    else if (target[posCol].Equals("coin"))
                     {
-                        CoinItem gameObject = new CoinItem(myGame, myGame.itemSprite, 21, 36, positionColumn * 16, positionRow * 16);
-                        itemPipeList.Add(gameObject);
+                        IItem item = new Coin(myGame, posCol, posRow);
+                        itemPipeList.Add(item);
                     }
-                    else if (target[positionColumn].Equals("pipeNeck"))
+
+                    else if (target[posCol].Equals("pipeNeck"))
                     {
-                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockPipeList.Add(gameObject);
+                        IBlock block = new PipeNeck(myGame, posCol, posRow);
+                        blockPipeList.Add(block);
                     }
-                    else if (target[positionColumn].Equals("sidePipe"))
+                    else if (target[posCol].Equals("sidePipe"))
                     {
-                        SidePipe gameObject = new SidePipe(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockPipeList.Add(gameObject);
+                        IBlock block = new SidePipe(myGame, posCol, posRow);
+                        blockPipeList.Add(block);
                     }
-                    else if (target[positionColumn].Equals("pipeNeck"))
+                    else if (target[posCol].Equals("pipeNeck"))
                     {
-                        PipeNeck gameObject = new PipeNeck(myGame, myGame.blockSprite, 28, 33, positionColumn * 16, positionRow * 16);
-                        blockPipeList.Add(gameObject);
+                        IBlock block = new PipeNeck(myGame, posCol, posRow);
+                        blockPipeList.Add(block);
                     }
-                    positionColumn++;
+                    posCol++;
                 }
-                positionRow++;
+                posRow++;
             }
             levelFile.Close();
             bonusLevelFile.Close();
@@ -258,11 +270,11 @@ namespace Game
                 IBlock b1 = (IBlock)a;
                 IBlock b2 = (IBlock)b;
                 if (b1.DrawLoc > b2.DrawLoc)
-                    return 1;
+                    return one;
                 if (b1.DrawLoc < b2.DrawLoc)
-                    return -1;
+                    return minusOne;
                 else
-                    return 0;
+                    return zero;
             }
         }
         private class ItemComparer<T> : IComparer<T>
@@ -271,12 +283,12 @@ namespace Game
             {
                 IItem b1 = (IItem)a;
                 IItem b2 = (IItem)b;
-                if (b1.currentLoc > b2.currentLoc)
-                    return 1;
-                if (b1.currentLoc < b2.currentLoc)
-                    return -1;
+                if (b1.DrawLoc > b2.DrawLoc)
+                    return one;
+                if (b1.DrawLoc < b2.DrawLoc)
+                    return minusOne;
                 else
-                    return 0;
+                    return zero;
             }
         }
         private class EnemyComparer<T> : IComparer<T>
@@ -286,11 +298,11 @@ namespace Game
                 IEnemy b1 = (IEnemy)a;
                 IEnemy b2 = (IEnemy)b;
                 if (b1.enemyPhys.XCoor > b2.enemyPhys.XCoor)
-                    return 1;
+                    return one;
                 if (b1.enemyPhys.XCoor < b2.enemyPhys.XCoor)
-                    return -1;
+                    return minusOne;
                 else
-                    return 0;
+                    return zero;
             }
         }
     }

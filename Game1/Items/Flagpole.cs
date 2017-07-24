@@ -7,42 +7,41 @@ namespace Game
 {
     public class Flagpole : IItem
     {
-
-        private Game myGame;
-        public Point poleLoc;
-        private Rectangle poleDestinationRec;
-        public bool flagDown;
-        public int currentLoc
+        public int DrawLoc
         {
             get
             {
                 return poleLoc.X;
             }
         }
-        public int rows { get; set; }
-        public int columns { get; set; }
-        public Texture2D texture { get; set; }
-        public int currentFrame { get; set; }
-        public int totalFrame { get; set; }
+
+        private Game myGame;
+        private int rows;
+        private int columns;
+        private int currentFrame;
+        private Texture2D texture;
+        private Point poleLoc;
+        private Point flagLoc;
+        private Rectangle poleDestinationRec;
+
+        public bool flagDown;
         public Boolean visible { get; set; }
 
-        private Point flagLoc;
-
-        public Flagpole(Game game, Texture2D texture, int rows, int columns, int pointX, int pointY)
+        public Flagpole(Game game, int x, int y)
         {
-            this.texture = texture;
-            this.rows = rows;
-            this.columns = columns;
-            currentFrame = 0;
-            totalFrame = this.rows * this.columns;
             myGame = game;
-            poleLoc = new Point(pointX, pointY);
+            texture = myGame.flagpole;
+            rows = 1;
+            columns = 1;
+            currentFrame = 0;
+            poleLoc = new Point(x * stdSpriteSize, y * stdSpriteSize);
+
             visible = true;
-            flagLoc = poleLoc;
             flagDown = false;
+            flagLoc = poleLoc;
         }
 
-        public virtual void Update()
+        public void Update()
         {
             if (flagDown)
             {
@@ -66,7 +65,7 @@ namespace Game
                 Rectangle ballSourceRec = new Rectangle(thirteen, one, ballSize, ballSize);
                 Rectangle ballDestinationRec = new Rectangle(poleLoc.X - myGame.camera.GetOffset() - three, poleLoc.Y - ballSize, ballSize, ballSize);
 
-                Rectangle poleSourceRec = new Rectangle(sixteen, twentyFive, polWidth, polHeight);
+                Rectangle poleSourceRec = new Rectangle(stdSpriteSize, twentyFive, polWidth, polHeight);
                 poleDestinationRec = new Rectangle(poleLoc.X - myGame.camera.GetOffset(), poleLoc.Y, polWidth, polHeight);
 
                 Rectangle flagSourceRec = new Rectangle(zero, nine, flagSize, flagSize);

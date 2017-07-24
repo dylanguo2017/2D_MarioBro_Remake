@@ -21,7 +21,7 @@ namespace Game
         public bool IsInCamera(int xCoor)
         {
             camIn = false;
-            if (xCoor > myGame.marioState.offset - sixteen && xCoor < (myGame.marioState.offset + screenWidth))
+            if (xCoor > myGame.marioState.offset - stdSpriteSize && xCoor < (myGame.marioState.offset + screenWidth))
             {
                 camIn = true;
             }

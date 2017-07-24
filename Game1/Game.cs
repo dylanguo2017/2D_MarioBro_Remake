@@ -32,10 +32,10 @@ namespace Game
         public Texture2D bigMountainBgElement;
 
         public Texture2D smallCastle;
-        public Texture2D flagpoleElement;
+        public Texture2D flagpole;
 
-        public Texture2D goombaEnemy;
-        public Texture2D koopaEnemy;
+        public Texture2D goomba;
+        public Texture2D koopa;
 
         public Texture2D marioSprites;
         public Texture2D fireballSprite;
@@ -45,11 +45,13 @@ namespace Game
         public Texture2D blueBlockSprite;
         public Texture2D itemSprite;
 
+        public Texture2D piranhaPlant;
+
         public List<IBlock> blockList;
         public List<IBlock> questionBlockList;
         public List<IEnemy> enemyList;
         public List<IItem> itemList;
-        public List<IBackground> bgList;
+        public List<IBg> bgList;
 
         public List<IBlock> blockPipeList;
         public List<IEnemy> enemyPipeList;
@@ -59,7 +61,7 @@ namespace Game
         public List<IBlock> questionBlockCamList;
         public List<IEnemy> enemyCamList;
         public List<IItem> itemCamList;
-        public List<IBackground> bgCamList;
+        public List<IBg> bgCamList;
 
         public IController keyboard;
         public IController gmPad;
@@ -142,13 +144,10 @@ namespace Game
 
         protected override void LoadContent()
         {   
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            
             Font1 = Content.Load<SpriteFont>("Courier New");
 
-                     
             FontPos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2,
                 graphics.GraphicsDevice.Viewport.Height / 2);
 
@@ -165,14 +164,16 @@ namespace Game
             bigMountainBgElement = Content.Load<Texture2D>("BigMountainBgElement");
 
             smallCastle = Content.Load<Texture2D>("smallCastle");
-            flagpoleElement = Content.Load<Texture2D>("flagPole");
+            flagpole = Content.Load<Texture2D>("flagPole");
 
-            goombaEnemy = Content.Load<Texture2D>("goomba");
-            koopaEnemy = Content.Load<Texture2D>("koopa");
+            goomba = Content.Load<Texture2D>("goomba");
+            koopa = Content.Load<Texture2D>("koopa");
 
             titleScreen = Content.Load<Texture2D>("titleScreen");
             marioSprites = Content.Load<Texture2D>("SpriteSheets/Mario");
             fireballSprite = Content.Load<Texture2D>("fireball");
+
+            piranhaPlant = Content.Load<Texture2D>("SpriteSheets/enemies");
 
             mario = new SmallMario(this);
 
@@ -204,7 +205,6 @@ namespace Game
 
         protected override void Update(GameTime gameTime)
         {
-            
             hud.Update();
             
             animationModifier++;
@@ -217,23 +217,10 @@ namespace Game
 
         protected override void Draw(GameTime gameTime)
         {
-            
             lvCtrl.Draw(spriteBatch);
             hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
             gameOver.Draw(spriteBatch);
-
-            foreach (IBlock block in blockCamList)
-            {
-                if (block is Question)
-                {
-                    if (block.hit.Equals(true))
-                    {
-                        
-                    }
-                    
-                }
-            }
 
             base.Draw(gameTime);
         }

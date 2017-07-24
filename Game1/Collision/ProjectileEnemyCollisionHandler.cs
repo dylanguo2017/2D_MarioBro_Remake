@@ -14,7 +14,14 @@ namespace Game
         {
             if (enemy.visible)
             {
-                KillEnemy(enemy);
+                if (enemy is PiranhaPlant)
+                {
+                    enemy.visible = false;
+                }
+                else
+                {
+                    KillEnemy(enemy);
+                }
             }
         }
 

@@ -15,6 +15,7 @@
             myGame.marioState.jump = false;
             myGame.marioState.crouch = false;
             myGame.marioState.move = false;
+            myGame.marioState.lvlComp = false;
             myGame.marioState.XCoor = 48;
             myGame.marioState.YCoor = 432;
 

@@ -13,29 +13,29 @@
         {
             if (item.visible)
             {
-                if (item is StarItem)
+                if (item is Star)
                 {
-                    StarItem star = item as StarItem;
+                    Star star = item as Star;
                     star.PowerUp();
                 }
-                else if (item is RedMushroomItem)
+                else if (item is RedMushroom)
                 {
-                    RedMushroomItem redMushroom = item as RedMushroomItem;
+                    RedMushroom redMushroom = item as RedMushroom;
                     redMushroom.PowerUp();
                 }
-                else if (item is FlowerItem)
+                else if (item is FireFlower)
                 {
-                    FlowerItem fireFlower = item as FlowerItem;
+                    FireFlower fireFlower = item as FireFlower;
                     fireFlower.PowerUp();
                 }
-                else if(item is GreenMushroomItem)
+                else if(item is GreenMushroom)
                 {
-                    GreenMushroomItem greenMushroom = item as GreenMushroomItem;
+                    GreenMushroom greenMushroom = item as GreenMushroom;
                     greenMushroom.OneUp();
                 }
-                else if(item is CoinItem)
+                else if(item is Coin)
                 {
-                    CoinItem coin = item as CoinItem;
+                    Coin coin = item as Coin;
                     coin.Collect();
                 }
                 else if(item is Flagpole)

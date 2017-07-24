@@ -47,10 +47,12 @@ namespace Game
             falling = false;
             yVel = 0;
         }
+
         public void Bounce()
         {
             yVel = -3;
         }
+
         public void Update()
         {
             if (falling)
@@ -62,6 +64,7 @@ namespace Game
             yCoor = yCoor + yVel;
             falling = true;
         }
+
         public void Spawn(int x, int y)
         {
             xCoor = x;
