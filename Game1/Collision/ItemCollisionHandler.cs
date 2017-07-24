@@ -1,5 +1,4 @@
 ﻿using static Game.Utility;
-using System;
 
 namespace Game
 {

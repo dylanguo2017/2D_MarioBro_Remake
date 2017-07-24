@@ -41,6 +41,7 @@ namespace Game
         {
             if (vColFrom.Equals(sides.top))
             {
+                System.Diagnostics.Debug.WriteLine("top");
                 if (enemy is Koopa)
                 {
                     HandleKoopa(enemy);
@@ -49,7 +50,7 @@ namespace Game
                 {
                     KillEnemy(enemy);
                 }
-                myGame.marioState.marioPhys.Bounce();
+                //myGame.marioState.marioPhys.Bounce();
             }
             else
             {
@@ -88,7 +89,6 @@ namespace Game
 
         private void ChangeMarioState()
         {
-            System.Diagnostics.Debug.WriteLine("change mario");
             if (!myGame.marioState.inv)
             {
                 if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))

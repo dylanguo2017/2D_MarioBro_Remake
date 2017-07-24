@@ -36,8 +36,13 @@ namespace Game
             }
             if (myGame.fbDelay > zero)
                 myGame.fbDelay--;
-            
-            if(!trans.transitioning)
+
+            myGame.marioState.left = true;
+            myGame.marioState.right = true;
+            myGame.marioState.up = true;
+            myGame.marioState.down = true;
+
+            if (!trans.transitioning)
                 myGame.marioColDetector.Update();
 
             myGame.projColDet.Update();

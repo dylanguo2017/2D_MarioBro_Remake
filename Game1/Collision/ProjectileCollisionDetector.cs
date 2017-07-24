@@ -1,4 +1,5 @@
-﻿using Game.Enemies;
+﻿using Game.Collision;
+using Game.Enemies;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using static Game.Utility;
@@ -12,11 +13,8 @@ namespace Game
         private List<IEnemy> enemyList;
 
         private Rectangle projRec;
-        private Rectangle blockRec;
-        private Rectangle enemyRec;
 
-        private sides hColFrom;
-        private sides vColFrom;
+        private CollisionDetector projBlock;
 
         private ProjectileBlockCollisionHandler projBlockColHandler;
         private ProjectileEnemyCollisionHandler projEnemyColHandler;
@@ -24,10 +22,12 @@ namespace Game
         List<Fireball> proj;
         List<Fireball> toBeRemoved;
 
-        public ProjectileCollisionDetector(Game game,List<Fireball> projectile)
+        public ProjectileCollisionDetector(Game game, List<Fireball> projectile)
         {
             myGame = game;
             proj = projectile;
+
+            projBlock = new CollisionDetector();
         }
 
         public void Update()
@@ -64,13 +64,13 @@ namespace Game
         {
             foreach (IBlock block in blockList)
             {
-                blockRec = block.DestinationRectangle();
+                Rectangle blockRec = block.DestinationRectangle();
 
-                if (projRec.Intersects(blockRec))
+                if (block.visible && projRec.Intersects(blockRec))
                 {
-                    CollidesFrom(blockRec);
+                    projBlock.CollidesFrom(projRec, blockRec);
                     projBlockColHandler = new ProjectileBlockCollisionHandler(myGame);
-                    projBlockColHandler.vColFrom = vColFrom;
+                    projBlockColHandler.vColFrom = projBlock.vColFrom;
                     projBlockColHandler.HandleCollision(fBalls);
                 }
             }
@@ -80,35 +80,15 @@ namespace Game
         {
             foreach (IEnemy enemy in enemyList)
             {
-                enemyRec = enemy.DestinationRectangle();
+                Rectangle enemyRec = enemy.DestinationRectangle();
 
-                if (projRec.Intersects(enemyRec))
+                if (enemy.visible && projRec.Intersects(enemyRec))
                 {
-                    CollidesFrom(enemyRec);
                     projEnemyColHandler = new ProjectileEnemyCollisionHandler(myGame);
                     projEnemyColHandler.HandleCollision(enemy);
                 }
             }
         }
-
-        public void CollidesFrom(Rectangle objectRec)
-        {
-            vColFrom = sides.none;
-
-            if ((projRec.Left <= objectRec.Left && projRec.Right >= objectRec.Left + 2) || (projRec.Left > objectRec.Left && objectRec.Right >= projRec.Left - 2))
-            {
-                if (projRec.Bottom > objectRec.Bottom)
-                {
-                    vColFrom = sides.bottom;
-                }
-                else if (projRec.Top < objectRec.Top)
-                {
-                    vColFrom = sides.top;
-                }
-            }
-
-        }
-
 
     }
 }
