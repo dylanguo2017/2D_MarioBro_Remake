@@ -65,6 +65,7 @@
         public const int fourHundredSixteen = 416;
         public const int fourHundredThirtyTwo = 432;
         public const double maxSpeed = 10.1;
+        public const int deathTimer = 270;
 
         public const int screenWidth = 800;
 

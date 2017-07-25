@@ -47,14 +47,14 @@ namespace Game
 
         public void SetDelay()
         {
-            delay = 100;
+            delay = deathTimer;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (myGame.gameover)
+            if (myGame.gameover && delay < 100)
             {
-               myGame.GraphicsDevice.Clear(Color.Black);
+                myGame.GraphicsDevice.Clear(Color.Black);
                 spriteBatch.Begin();
                 string GameOver = "GAME   OVER";
                 spriteBatch.DrawString(font1, GameOver, gameOverPos, Color.White);

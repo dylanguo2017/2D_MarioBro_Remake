@@ -72,7 +72,8 @@ namespace Game
             }
             else
             {
-                levelTime--;
+                if (!myGame.pause)
+                    levelTime--;
                 delay = 50;
             }
             

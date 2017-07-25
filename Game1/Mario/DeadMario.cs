@@ -26,7 +26,7 @@ namespace Game
 
             currentFrame = 12;
             marioState.curStat = MarioStateClass.marioStatus.dead;
-           
+            myGame.gameover = true;
             myGame.soundEffect.MarioDies();
             visible = true;
         }
