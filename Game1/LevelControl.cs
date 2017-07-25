@@ -80,6 +80,7 @@ namespace Game
             }
             if (!trans.transitioning)
                 myGame.mario.Update();
+            System.Diagnostics.Debug.WriteLine("mario speed: " + myGame.marioState.marioPhys.yVel);
             myGame.itemSpawn.Update();
             myGame.camObj.Update();
 
