@@ -33,13 +33,13 @@ namespace Game.Collision
 
             if ((rec1.Left <= rec2.Left && rec1.Right >= rec2.Left + two) || (rec1.Left > rec2.Left && rec2.Right >= rec1.Left - two))
             {
-                if (rec1.Bottom > rec2.Bottom)
-                {
-                    vColFrom = sides.bottom;
-                }
-                else if (rec1.Top < rec2.Top)
+                if (rec1.Top < rec2.Top && rec1.Bottom < rec2.Top + ten)
                 {
                     vColFrom = sides.top;
+                }
+                else if (rec1.Bottom > rec2.Bottom)
+                {
+                    vColFrom = sides.bottom;
                 }
             }
 
