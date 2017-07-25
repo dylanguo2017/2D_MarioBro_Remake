@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/KoopaEnemyDead.png</SourceFile>
-  <SourceTime>2017-07-14T13:56:42.4999098-04:00</SourceTime>
-  <DestFile>C:/Users/Shiny Patel/Source/Repos/Mario4.0/Game1/Content/bin/Windows/KoopaEnemyDead.xnb</DestFile>
-  <DestTime>2017-07-18T22:21:32.2009313-04:00</DestTime>
+  <SourceFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/KoopaEnemyDead.png</SourceFile>
+  <SourceTime>2017-06-20T17:38:40.8442955-04:00</SourceTime>
+  <DestFile>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/bin/Windows/KoopaEnemyDead.xnb</DestFile>
+  <DestTime>2017-07-24T18:55:17.5288514-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -12,5 +12,6 @@ namespace Game
         void Update();
         void Draw(SpriteBatch spriteBatch);
         int DrawLoc { get; }        
+        int spwnCtr { get; set; }
     }
 }

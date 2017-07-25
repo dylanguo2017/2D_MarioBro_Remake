@@ -72,6 +72,30 @@ namespace Game
                         IBlock block = new Question(myGame, posCol, posRow);
                         blockList.Add(block);
                     }
+                    else if (target[posCol].Equals("questionRedM"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.redM;
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("questionFireF"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.flower;
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("questionCoin"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.coin;
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("questionGreenM"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.greenM;
+                        blockList.Add(block);
+                    }
                     else if (target[posCol].Equals("used"))
                     {
                         IBlock block = new Used(myGame, posCol, posRow);
@@ -123,7 +147,7 @@ namespace Game
 
                     else if (target[posCol].Equals("coin"))
                     {
-                        IItem item = new Coin(myGame, posCol, posRow);
+                        IItem item = new Coin(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
                         itemList.Add(item);
                     }
                     else if (target[posCol].Equals("star"))
@@ -223,7 +247,7 @@ namespace Game
 
                     else if (target[posCol].Equals("coin"))
                     {
-                        IItem item = new Coin(myGame, posCol, posRow);
+                        IItem item = new Coin(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
                         itemPipeList.Add(item);
                     }
 
@@ -257,10 +281,6 @@ namespace Game
             blockPipeList.Sort(blockComp);
             itemPipeList.Sort(itemComp);
             enemyPipeList.Sort(enemyComp);
-
-            //TESTING ONLY BELOW THIS PT
-            //for (int i = 0; i < 576; i++)
-            //    System.Diagnostics.Debug.WriteLine("OBJECT NAME: " + blockList[i].texture.ToString() + "    LOCATION:" + blockList[i].DrawLoc + "      OBJ #:"+i);
         }
         
         private class BlockComparer<T> : IComparer<T>

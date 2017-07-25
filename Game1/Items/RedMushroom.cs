@@ -26,7 +26,18 @@ namespace Game
         public Boolean visible { get; set; }
         public Boolean movingR;
         public Physics rmPhysics;
-        public int spawnCtr = 0;
+        private int spawnCtr = 0;
+        public int spwnCtr
+        {
+            get
+            {
+                return spawnCtr;
+            }
+            set
+            {
+                spawnCtr = value;
+            }
+        }
 
         public RedMushroom(Game game, int x, int y)
         {

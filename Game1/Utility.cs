@@ -68,5 +68,6 @@
 
         public enum sides { left, right, top, bottom, none };
         public enum soundStates { mainTheme, starman, hurry, gameOver, stop, reset, bonus };
+        public enum items { coin, flower, greenM, redM, none };
     }
 }

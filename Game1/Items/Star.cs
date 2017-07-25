@@ -26,6 +26,18 @@ namespace Game
         public Boolean visible { get; set; }
         public bool movingR;
         public bool movingUp;
+        private int spawnCtr = 0;
+        public int spwnCtr
+        {
+            get
+            {
+                return spawnCtr;
+            }
+            set
+            {
+                spawnCtr = value;
+            }
+        }
 
         public Star (Game game, int x, int y)
         {
