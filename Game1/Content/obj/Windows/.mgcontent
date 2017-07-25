@@ -63,5 +63,7 @@
     <File>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/SoundEffects/flagpole.wav</File>
     <File>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/Sounds/bonus.wav</File>
     <File>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/SpriteSheets/enemies.png</File>
+    <File>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/batLeft.png</File>
+    <File>C:/Users/utomo/Source/Repos/Mario4.0/Game1/Content/batRight.png</File>
   </SourceFiles>
 </SourceFileCollection>

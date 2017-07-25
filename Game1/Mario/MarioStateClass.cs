@@ -13,6 +13,7 @@ namespace Game
         public Boolean down;
         public Boolean left;
         public Boolean right;
+        public Boolean bat;
         public enum marioStatus { large, fire, small, dead};
         public marioStatus curStat;
         public bool star;
@@ -69,7 +70,13 @@ namespace Game
         {
             if (!flagpole || lvlComp)
             {
-                if (right && !(curStat.Equals(marioStatus.dead)))
+                if (bat)
+                {
+                    facingLeft = false;
+                    move = true;
+                    marioPhys.XCoor += 3;
+                }
+                else if (right && !(curStat.Equals(marioStatus.dead)))
                 {
                     if (facingLeft && move && !jump)
                     {
@@ -102,7 +109,16 @@ namespace Game
         {
             if (!flagpole)
             {
-                if (left && !(curStat.Equals(marioStatus.dead)))
+                if (bat)
+                {
+                    facingLeft = true;
+                    move = true;
+                    if (marioPhys.XCoor-3> offset)
+                    {
+                        marioPhys.XCoor -= 3;
+                    }
+                }
+                else if (left && !(curStat.Equals(marioStatus.dead)))
                 {
 
                     if (!facingLeft && move && !jump)
@@ -143,7 +159,11 @@ namespace Game
         {
             if (!flagpole)
             {
-                if (!curStat.Equals(marioStatus.dead))
+                if (bat)
+                {
+                    marioPhys.YCoor += 2;
+                }
+                else if (!curStat.Equals(marioStatus.dead))
                 {
                     if (!jump)
                     {
@@ -158,6 +178,11 @@ namespace Game
         {
             if (!flagpole)
             {
+                if (bat)
+                {
+                    if (marioPhys.YCoor - 2 > 0)
+                        marioPhys.YCoor -= 2;
+                }
                 if (up && !(curStat.Equals(marioStatus.dead)))
                 {
                     if (crouch)

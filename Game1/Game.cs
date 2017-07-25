@@ -40,6 +40,8 @@ namespace Game
         public Texture2D marioSprites;
         public Texture2D fireballSprite;
         public Texture2D titleScreen;
+        public Texture2D marioBatRight;
+        public Texture2D marioBatLeft;
 
         public Texture2D blockSprite;
         public Texture2D blueBlockSprite;
@@ -174,6 +176,8 @@ namespace Game
             fireballSprite = Content.Load<Texture2D>("fireball");
 
             piranhaPlant = Content.Load<Texture2D>("SpriteSheets/enemies");
+            marioBatRight = Content.Load<Texture2D>("batRight");
+            marioBatLeft = Content.Load<Texture2D>("batLeft");
 
             mario = new SmallMario(this);
 

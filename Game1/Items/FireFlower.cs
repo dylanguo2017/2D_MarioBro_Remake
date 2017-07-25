@@ -89,7 +89,11 @@ namespace Game
             visible = false;
             myGame.soundEffect.PowerUp();
 
-            if (myGame.marioState.star)
+            if (myGame.marioState.bat)
+            {
+                myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
+            }
+            else if (myGame.marioState.star)
             {
                 myGame.mario = new LargeStarMario(myGame);
                 myGame.marioState.curStat = MarioStateClass.marioStatus.fire;

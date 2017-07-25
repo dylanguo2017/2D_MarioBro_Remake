@@ -111,6 +111,8 @@
     <Compile Include="Items\ItemSpawn.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="LevelControl.cs" />
+    <Compile Include="Mario\BatMario.cs" />
+    <Compile Include="Mario\BatMarioDic.cs" />
     <Compile Include="Mario\DrawFireMario.cs" />
     <Compile Include="Mario\DrawLargeMario.cs" />
     <Compile Include="Mario\DrawLargeStarMario.cs" />

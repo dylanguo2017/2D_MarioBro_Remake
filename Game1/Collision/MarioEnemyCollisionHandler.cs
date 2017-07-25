@@ -88,7 +88,11 @@ namespace Game
 
         private void ChangeMarioState()
         {
-            if (!myGame.marioState.inv)
+            if (myGame.marioState.bat)
+            {
+                myGame.mario = new DeadMario(myGame);
+            }
+            else if (!myGame.marioState.inv)
             {
                 if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
                 {
