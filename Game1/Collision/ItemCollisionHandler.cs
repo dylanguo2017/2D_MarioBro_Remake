@@ -29,7 +29,6 @@ namespace Game
             }
         }
 
-
         private void HandleStar(IItem item)
         {
             Star star = item as Star;

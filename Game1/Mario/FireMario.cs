@@ -51,6 +51,7 @@ namespace Game
             marioState.star = false;
             animMod = 0;
             drawMar = new DrawFireMario(myGame, this);
+            myGame.marioState.bat = false;
 
             invCtr = 0;
             visible = true;

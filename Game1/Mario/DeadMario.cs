@@ -20,6 +20,7 @@ namespace Game
             myGame = game;
             marioState = myGame.marioState;
             texture = myGame.marioSprites;
+            myGame.marioState.bat = false;
 
             myGame.gameOver.SetDelay();
 

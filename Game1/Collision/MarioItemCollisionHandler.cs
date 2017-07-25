@@ -36,6 +36,11 @@
                 Coin coin = item as Coin;
                 coin.Collect();
             }
+            else if (item is BatItem)
+            {
+                BatItem bat = item as BatItem;
+                bat.PowerUp();
+            }
             else if (item is Flagpole)
             {
                 myGame.marioState.flagpole = true;

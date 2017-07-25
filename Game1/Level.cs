@@ -96,6 +96,12 @@ namespace Game
                         block.contain = Utility.items.greenM;
                         blockList.Add(block);
                     }
+                    else if (target[posCol].Equals("questionBat"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.bat;
+                        blockList.Add(block);
+                    }
                     else if (target[posCol].Equals("used"))
                     {
                         IBlock block = new Used(myGame, posCol, posRow);

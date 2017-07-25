@@ -62,6 +62,7 @@
     <Compile Include="Enemies\PiranhaPlant.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="HUD.cs" />
+    <Compile Include="Items\BatItem.cs" />
     <Compile Include="Items\Coin.cs" />
     <Compile Include="Collision\EnemyCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionDetector.cs" />

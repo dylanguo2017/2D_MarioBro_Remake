@@ -25,22 +25,26 @@ namespace Game
                 IItem spawnThis = new RedMushroom(myGame, spawnLoc.X, spawnLoc.Y);
                 spawnItem.Add(spawnThis);
             }
-            if (theQ.contain.Equals(Utility.items.coin))
+            else if (theQ.contain.Equals(Utility.items.coin))
             {
                 IItem spawnThis = new Coin(myGame, spawnLoc.X, spawnLoc.Y);
                 spawnItem.Add(spawnThis);
             }
-            if (theQ.contain.Equals(Utility.items.greenM))
+            else if (theQ.contain.Equals(Utility.items.greenM))
             {
                 IItem spawnThis = new GreenMushroom(myGame, spawnLoc.X, spawnLoc.Y);
                 spawnItem.Add(spawnThis);
             }
-            if (theQ.contain.Equals(Utility.items.flower))
+            else if (theQ.contain.Equals(Utility.items.flower))
             {
                 IItem spawnThis = new FireFlower(myGame, spawnLoc.X, spawnLoc.Y);
                 spawnItem.Add(spawnThis);
             }
-
+            else if (theQ.contain.Equals(Utility.items.bat))
+            {
+                IItem spawnThis = new BatItem(myGame, spawnLoc.X, spawnLoc.Y);
+                spawnItem.Add(spawnThis);
+            }
         }
 
         public void Update()

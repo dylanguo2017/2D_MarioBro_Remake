@@ -119,7 +119,6 @@ namespace Game
                 {
                     sourceRectangle = sourceBat.RecArrLeft[leftFacingCurrentFrame];
                     texture = textureLeft;
-                    System.Diagnostics.Debug.WriteLine("Left: " + leftFacingCurrentFrame);
                 }
                 else
                 {

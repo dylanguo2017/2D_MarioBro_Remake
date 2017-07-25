@@ -17,6 +17,7 @@
         public const int ten = 10;
         public const int eleven = 11;
         public const int thirteen = 13;
+        public const int fourteen = 14;
         public const int stdSpriteSize = 16;
         public const int seventeen = 17;
         public const int eighteen = 18;
@@ -69,6 +70,6 @@
 
         public enum sides { left, right, top, bottom, none };
         public enum soundStates { mainTheme, starman, hurry, gameOver, stop, reset, bonus };
-        public enum items { coin, flower, greenM, redM, none };
+        public enum items { coin, flower, greenM, redM, bat, none };
     }
 }
