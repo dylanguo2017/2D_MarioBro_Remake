@@ -143,7 +143,7 @@ namespace Game
         {
             if (!flagpole)
             {
-                if (!curStat.Equals(marioStatus.dead) && !curStat.Equals(marioStatus.small))
+                if (!curStat.Equals(marioStatus.dead))
                 {
                     if (!jump)
                     {
