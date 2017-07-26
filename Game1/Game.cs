@@ -1,4 +1,5 @@
 ﻿using Game.Enemies;
+using Game.Infinite_Level;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections;
@@ -9,11 +10,15 @@ namespace Game
     public class Game : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        
+       
         SpriteBatch spriteBatch;
 
         SpriteFont Font1;
         Vector2 FontPos;
+
+        public bool begin;
+        public bool infinite;
+        public bool normal;
 
         public MarioStateClass marioState;
 
@@ -21,9 +26,7 @@ namespace Game
         public CameraObjectDetector camObj;
         public ItemSpawn itemSpawn;
         public IMario mario;
-        
-        public ArrayList contrl;
-        
+
         public Texture2D oneCloudBgElement;
         public Texture2D threeCloudsBgElement;
         public Texture2D oneBushBgElement;
@@ -46,6 +49,8 @@ namespace Game
         public Texture2D itemSprite;
 
         public Texture2D piranhaPlant;
+        
+        public ArrayList contrl;
 
         public List<IBlock> blockList;
         public List<IBlock> questionBlockList;
@@ -72,7 +77,9 @@ namespace Game
         public bool gameover;
         public GameOver gameOver;
         public HUD hud;
+        public startScreen start;
         public LevelControl lvCtrl;
+        public InfiniteLevel infLvl;
         
         private int animationModifier;
         public int animMod
@@ -105,6 +112,10 @@ namespace Game
         protected override void Initialize()
         {
             hud = new HUD(this);
+
+            begin = true;
+            infinite = false;
+            normal = false;
             
             soundEffect = new SoundEffects(this);
             sound = new Sounds(this);
@@ -112,7 +123,9 @@ namespace Game
             camera = new Camera(this);
             camObj = new CameraObjectDetector(this);
             itemSpawn = new ItemSpawn(this);
+            start = new startScreen(this);
             lvCtrl = new LevelControl(this);
+            infLvl = new InfiniteLevel(this);
 
             marioColDetector = new MarioCollisionDetector(this);
             enemyColDetector = new EnemyCollisionDetector(this);
@@ -155,7 +168,6 @@ namespace Game
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
             blueBlockSprite = Content.Load<Texture2D>("blueBricks");
 
-
             oneCloudBgElement = Content.Load<Texture2D>("1CloudBgElement");
             threeCloudsBgElement = Content.Load<Texture2D>("3CloudsBgElement");
             oneBushBgElement = Content.Load<Texture2D>("1BushElement");
@@ -174,27 +186,12 @@ namespace Game
             fireballSprite = Content.Load<Texture2D>("fireball");
 
             piranhaPlant = Content.Load<Texture2D>("SpriteSheets/enemies");
-
+            
             mario = new SmallMario(this);
 
             Level.LoadLists(this);
-            enemyList = Level.enemyList;
-            blockList = Level.blockList;
-            itemList = Level.itemList;
-            enemyPipeList = Level.enemyPipeList;
-            blockPipeList = Level.blockPipeList;
-            itemPipeList = Level.itemPipeList;
-            camObj.LoadLevel();
-            
-            bgList = Level.bgList;
-            foreach(IBlock block in blockList)
-            {
-                if(block is Question)
-                {
-                    countOfPopItem++;
-                }
-                
-            }
+            InfiniteLevelLoader.InfiniteLevelLoad(this);
+
         }
 
         protected override void UnloadContent()
@@ -205,20 +202,44 @@ namespace Game
 
         protected override void Update(GameTime gameTime)
         {
-            hud.Update();
             
+            if (begin)
+            {
+                start.Update();
+            }
+            else if (normal)
+            {
+                hud.Update();
+                lvCtrl.Update();
+            }
+            else if (infinite)
+            {
+                hud.Update();
+                infLvl.Update();
+            }
+
             animationModifier++;
-
-            lvCtrl.Update();
-
             base.Update(gameTime);
         }
         
 
         protected override void Draw(GameTime gameTime)
         {
-            lvCtrl.Draw(spriteBatch);
-            hud.Draw(spriteBatch);
+            if (begin)
+            {
+                start.Draw(spriteBatch);
+            }
+            else if (normal)
+            {
+                lvCtrl.Draw(spriteBatch);
+                hud.Draw(spriteBatch);
+            }
+            else if (infinite)
+            {
+                infLvl.Draw(spriteBatch);
+                hud.Draw(spriteBatch);
+            }
+            
             paused.Draw(spriteBatch);
             gameOver.Draw(spriteBatch);
 

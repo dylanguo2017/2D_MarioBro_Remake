@@ -1,4 +1,7 @@
-﻿namespace Game
+﻿using Game.Infinite_Level;
+using Microsoft.Xna.Framework.Input;
+
+namespace Game
 {
     class RCommand : ICommand
     {
@@ -11,6 +14,22 @@
 
         public void Execute()
         {
+            if (myGame.hud.lives == 0 || Keyboard.GetState().IsKeyDown(Keys.R))
+            {
+                myGame.begin = true;
+                myGame.normal = false;
+                myGame.infinite = false;
+            }
+            else if (myGame.normal)
+            {
+                Level.LoadLists(myGame);
+                myGame.enemyList = Level.enemyList;
+                myGame.blockList = Level.blockList;
+                myGame.itemList = Level.itemList;
+                myGame.bgList = Level.bgList;
+                myGame.camObj.LoadLevel();
+            }
+            
             myGame.marioState.facingLeft = false;
             myGame.marioState.jump = false;
             myGame.marioState.crouch = false;
@@ -29,11 +48,7 @@
             myGame.mario = new SmallMario(myGame);
 
             Level.LoadLists(myGame);
-            myGame.enemyList = Level.enemyList;
-            myGame.blockList = Level.blockList;
-            myGame.itemList = Level.itemList;
-            myGame.bgList = Level.bgList;
-            myGame.camObj.LoadLevel();
+            InfiniteLevelLoader.InfiniteLevelLoad(myGame);
 
             myGame.sound.state = Utility.soundStates.reset;
         }
