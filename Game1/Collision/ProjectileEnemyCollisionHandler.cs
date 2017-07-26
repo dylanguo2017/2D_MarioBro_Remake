@@ -12,16 +12,13 @@ namespace Game
         }
         public void HandleCollision(IEnemy enemy)
         {
-            if (enemy.visible)
+            if (enemy is PiranhaPlant)
             {
-                if (enemy is PiranhaPlant)
-                {
-                    enemy.visible = false;
-                }
-                else
-                {
-                    KillEnemy(enemy);
-                }
+                enemy.visible = false;
+            }
+            else
+            {
+                KillEnemy(enemy);
             }
         }
 

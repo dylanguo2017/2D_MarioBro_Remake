@@ -55,7 +55,7 @@ namespace Game
 
         public void Update()
         {
-            if (falling)
+            if (falling && yVel < Utility.maxSpeed)
             {        
                 yVel += yAcc;
             }

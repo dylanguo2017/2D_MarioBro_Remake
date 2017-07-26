@@ -62,6 +62,7 @@ namespace Game
             altColor = false;
             animMod = 0;
             drawMar = new DrawSmallStarMario(this);
+            myGame.marioState.bat = false;
 
             myGame.sound.Starman();
             visible = true;

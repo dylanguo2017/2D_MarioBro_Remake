@@ -1,5 +1,4 @@
 ﻿using static Game.Utility;
-using System;
 
 namespace Game
 {
@@ -29,7 +28,6 @@ namespace Game
                 HandleRedMushroom(item);
             }
         }
-
 
         private void HandleStar(IItem item)
         {

@@ -23,6 +23,18 @@ namespace Game
         private int rows;
         private int columns;
         private int currentFrame;
+        private int spawnCtr = 0;
+        public int spwnCtr
+        {
+            get
+            {
+                return spawnCtr;
+            }
+            set
+            {
+                spawnCtr = value;
+            }
+        }
 
         public Boolean visible { get; set; }
 
@@ -33,14 +45,14 @@ namespace Game
             rows = 21;
             columns = 36;
             currentFrame = 216;
-            drawLoc = new Point(x * stdSpriteSize, y * stdSpriteSize);
+            drawLoc = new Point(x , y);
             visible = true;
             
         }
 
         public void Update()
         {
-            if(myGame.animMod % twenty == zero)
+            if(myGame.animMod % ten == zero)
             {
                 currentFrame++;
                 if (currentFrame == twoHundredNineteen)
@@ -64,7 +76,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(drawLoc.X - myGame.camera.GetOffset(), drawLoc.Y, width, height);
+                destinationRectangle = new Rectangle(drawLoc.X - myGame.camera.GetOffset(), drawLoc.Y - (spawnCtr * two), width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

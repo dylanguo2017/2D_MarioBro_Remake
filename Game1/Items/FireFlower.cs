@@ -23,6 +23,18 @@ namespace Game
         private int rows;
         private int columns;
         private int currentFrame;
+        private int spawnCtr = 0;
+        public int spwnCtr
+        {
+            get
+            {
+                return spawnCtr;
+            }
+            set
+            {
+                spawnCtr = value;
+            }
+        }
 
         public Boolean visible { get; set; }
 
@@ -59,7 +71,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(drawLoc.X - myGame.camera.GetOffset(), drawLoc.Y, width, height);
+                destinationRectangle = new Rectangle(drawLoc.X - myGame.camera.GetOffset(), drawLoc.Y - spawnCtr, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
@@ -77,7 +89,11 @@ namespace Game
             visible = false;
             myGame.soundEffect.PowerUp();
 
-            if (myGame.marioState.star)
+            if (myGame.marioState.bat)
+            {
+                myGame.marioState.curStat = MarioStateClass.marioStatus.fire;
+            }
+            else if (myGame.marioState.star)
             {
                 myGame.mario = new LargeStarMario(myGame);
                 myGame.marioState.curStat = MarioStateClass.marioStatus.fire;

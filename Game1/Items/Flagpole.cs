@@ -24,6 +24,18 @@ namespace Game
         private Point flagLoc;
         private Rectangle poleDestinationRec;
 
+        public int spwnCtr
+        {
+            get
+            {
+                return 0;
+            }
+            set
+            {
+               
+            }
+        }
+
         public bool flagDown;
         public Boolean visible { get; set; }
 

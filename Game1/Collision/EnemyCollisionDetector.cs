@@ -1,7 +1,7 @@
-﻿using Game.Enemies;
+﻿using Game.Collision;
+using Game.Enemies;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using static Game.Utility;
 
 namespace Game
 {
@@ -11,39 +11,33 @@ namespace Game
         private List<IEnemy> enemyList;
         private List<IBlock> blockList;
 
-        private Rectangle enemyRec;
-
-        private sides hColFrom;
-        private sides vColFrom;
-
-        private EnemyCollisionHandler enemyColHandler;
+        private CollisionDetector enemyBlock;
 
         public EnemyCollisionDetector(Game game)
         {
             myGame = game;
+            enemyBlock = new CollisionDetector();
         }
 
         public void Update()
         {
-            blockList = myGame.blockCamList;
             enemyList = myGame.enemyCamList;
-
-            Rectangle blockRec;
+            blockList = myGame.blockCamList;
 
             foreach (IEnemy enemy in enemyList)
             {
-                enemyRec = enemy.DestinationRectangle();
+                Rectangle enemyRec = enemy.DestinationRectangle();
 
                 foreach (IBlock block in blockList)
                 {
-                    blockRec = block.DestinationRectangle();
+                    Rectangle blockRec = block.DestinationRectangle();
 
                     if (block.visible && enemyRec.Intersects(blockRec))
                     {
-                        CollidesFrom(blockRec);
-                        enemyColHandler = new EnemyCollisionHandler(myGame);
-                        enemyColHandler.hColFrom = hColFrom;
-                        enemyColHandler.vColFrom = vColFrom;
+                        enemyBlock.CollidesFrom(enemyRec, blockRec);
+                        EnemyCollisionHandler enemyColHandler = new EnemyCollisionHandler(myGame);
+                        enemyColHandler.hColFrom = enemyBlock.hColFrom;
+                        enemyColHandler.vColFrom = enemyBlock.vColFrom;
                         enemyColHandler.HandleCollision(enemy);
                     }
 
@@ -51,35 +45,5 @@ namespace Game
             }
         }
 
-        public void CollidesFrom(Rectangle blockRec)
-        {
-            hColFrom = sides.none;
-            vColFrom = sides.none;
-
-            if ((enemyRec.Top <= blockRec.Top && enemyRec.Bottom >= blockRec.Top + two) || (enemyRec.Top > blockRec.Top && blockRec.Bottom >= enemyRec.Top - two))
-            {
-                if (enemyRec.Right > blockRec.Right)
-                {
-                    hColFrom = sides.right;
-                }
-                else if (enemyRec.Left < blockRec.Left)
-                {
-                    hColFrom = sides.left;
-                }
-            }
-
-            if ((enemyRec.Left <= blockRec.Left && enemyRec.Right >= blockRec.Left + two) || (enemyRec.Left > blockRec.Left && blockRec.Right >= enemyRec.Left - two))
-            {
-                if (enemyRec.Bottom > blockRec.Bottom)
-                {
-                    vColFrom = sides.bottom;
-                }
-                else if (enemyRec.Top < blockRec.Top)
-                {
-                    vColFrom = sides.top;
-                }
-            }
-        }
-        
     }
 }

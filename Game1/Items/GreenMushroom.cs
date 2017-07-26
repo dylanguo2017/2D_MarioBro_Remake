@@ -26,6 +26,18 @@ namespace Game
         public Boolean visible { get; set; }
         public bool movingR;
         public Physics gmPhysics;
+        private int spawnCtr = 0;
+        public int spwnCtr
+        {
+            get
+            {
+                return spawnCtr;
+            }
+            set
+            {
+                spawnCtr = value;
+            }
+        }
 
         public GreenMushroom(Game game, int x, int y)
         {
@@ -63,7 +75,7 @@ namespace Game
                 int column = currentFrame % columns;
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                destinationRectangle = new Rectangle(gmPhysics.XCoor - myGame.camera.GetOffset(), gmPhysics.YCoor, width, height);
+                destinationRectangle = new Rectangle(gmPhysics.XCoor - myGame.camera.GetOffset(), gmPhysics.YCoor - spawnCtr, width, height);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);

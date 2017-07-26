@@ -85,8 +85,17 @@ namespace Game
             {
                 question.BumpUp();
                 question.ChangeToUsed();
-                myGame.soundEffect.PowerupAppears();
-                myGame.itemSpawn.SpawnItem(question.drawLoc);
+                
+                myGame.itemSpawn.SpawnItem(question.drawLoc, question);
+                if (question.contain.Equals(Utility.items.coin))
+                {
+                    myGame.soundEffect.Coin();
+                    myGame.hud.addCoin();
+                }
+                else if (!question.contain.Equals(Utility.items.none))
+                {
+                    myGame.soundEffect.PowerupAppears();
+                }
             }
         }
 

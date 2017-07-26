@@ -56,13 +56,13 @@
     <Compile Include="Blocks\SidePipe.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CameraObjectDetector.cs" />
+    <Compile Include="Collision\CollisionDetector.cs" />
     <Compile Include="Commands\SpaceCommand.cs" />
     <Compile Include="Controllers\KeyBind.cs" />
     <Compile Include="Enemies\PiranhaPlant.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="HUD.cs" />
-    <Compile Include="Infinite Level\InfiniteLevel.cs" />
-    <Compile Include="Infinite Level\InfiniteLevelLoader.cs" />
+    <Compile Include="Items\BatItem.cs" />
     <Compile Include="Items\Coin.cs" />
     <Compile Include="Collision\EnemyCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionDetector.cs" />
@@ -112,6 +112,8 @@
     <Compile Include="Items\ItemSpawn.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="LevelControl.cs" />
+    <Compile Include="Mario\BatMario.cs" />
+    <Compile Include="Mario\BatMarioDic.cs" />
     <Compile Include="Mario\DrawFireMario.cs" />
     <Compile Include="Mario\DrawLargeMario.cs" />
     <Compile Include="Mario\DrawLargeStarMario.cs" />
@@ -140,7 +142,6 @@
     <Compile Include="Blocks\Used.cs" />
     <Compile Include="Sound\SoundEffects.cs" />
     <Compile Include="Sound\Sounds.cs" />
-    <Compile Include="startScreen.cs" />
     <Compile Include="Transition.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>

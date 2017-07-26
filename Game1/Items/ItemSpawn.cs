@@ -8,30 +8,53 @@ namespace Game
     public class ItemSpawn
     {
         private Game myGame;
-        private List<RedMushroom> spawnItem;
-        private List<RedMushroom> spawned;
+        private List<IItem> spawnItem;
+        private List<IItem> spawned;
 
         public ItemSpawn(Game game)
         {
             myGame = game;
-            spawnItem = new List<RedMushroom>();
-            spawned = new List<RedMushroom>();
+            spawnItem = new List<IItem>();
+            spawned = new List<IItem>();
         }
 
-        public void SpawnItem(Point spawnLoc)
+        public void SpawnItem(Point spawnLoc, Question theQ)
         {
-            RedMushroom spawnThis = new RedMushroom(myGame, spawnLoc.X, spawnLoc.Y);
-            spawnItem.Add(spawnThis);
+            if (theQ.contain.Equals(Utility.items.redM))
+            {
+                IItem spawnThis = new RedMushroom(myGame, spawnLoc.X, spawnLoc.Y);
+                spawnItem.Add(spawnThis);
+            }
+            else if (theQ.contain.Equals(Utility.items.coin))
+            {
+                IItem spawnThis = new Coin(myGame, spawnLoc.X, spawnLoc.Y);
+                spawnItem.Add(spawnThis);
+            }
+            else if (theQ.contain.Equals(Utility.items.greenM))
+            {
+                IItem spawnThis = new GreenMushroom(myGame, spawnLoc.X, spawnLoc.Y);
+                spawnItem.Add(spawnThis);
+            }
+            else if (theQ.contain.Equals(Utility.items.flower))
+            {
+                IItem spawnThis = new FireFlower(myGame, spawnLoc.X, spawnLoc.Y);
+                spawnItem.Add(spawnThis);
+            }
+            else if (theQ.contain.Equals(Utility.items.bat))
+            {
+                IItem spawnThis = new BatItem(myGame, spawnLoc.X, spawnLoc.Y);
+                spawnItem.Add(spawnThis);
+            }
         }
 
         public void Update()
         {
             if(spawnItem.Count != 0)
             {
-                foreach (RedMushroom spawnIt in spawnItem)
+                foreach (IItem spawnIt in spawnItem)
                 {
-                    spawnIt.spawnCtr++;
-                    if (spawnIt.spawnCtr > stdSpriteSize)
+                    spawnIt.spwnCtr++;
+                    if (spawnIt.spwnCtr > stdSpriteSize)
                     {
                         spawned.Add(spawnIt);
                     }
@@ -39,11 +62,18 @@ namespace Game
             }
             if(spawned.Count != zero)
             {
-                foreach (RedMushroom spawnIt in spawned)
+                foreach (IItem spawnIt in spawned)
                 {
                     spawnItem.Remove(spawnIt);
-                    myGame.itemList.Add(spawnIt);
-                    myGame.itemCamList.Add(spawnIt);
+                    if (spawnIt is Coin)
+                    {
+
+                    } 
+                    else
+                    {
+                        myGame.itemList.Add(spawnIt);
+                        myGame.itemCamList.Add(spawnIt);
+                    }
                 }
                 spawned.Clear();
             }
@@ -51,7 +81,7 @@ namespace Game
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (RedMushroom spawnIt in spawnItem)
+            foreach (IItem spawnIt in spawnItem)
             {
                 spawnIt.Draw(spriteBatch);
             }

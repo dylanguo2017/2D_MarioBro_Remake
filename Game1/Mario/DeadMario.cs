@@ -20,12 +20,13 @@ namespace Game
             myGame = game;
             marioState = myGame.marioState;
             texture = myGame.marioSprites;
+            myGame.marioState.bat = false;
 
             myGame.gameOver.SetDelay();
 
             currentFrame = 12;
             marioState.curStat = MarioStateClass.marioStatus.dead;
-           
+            myGame.gameover = true;
             myGame.soundEffect.MarioDies();
             visible = true;
         }

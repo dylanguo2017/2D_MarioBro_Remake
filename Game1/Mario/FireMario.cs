@@ -36,6 +36,7 @@ namespace Game
         private DrawFireMario drawMar;
         private Rectangle destinationRectangle;
         private int animMod;
+        private int invCtr;
         public bool visible { get; set; }
 
         public FireMario(Game game)
@@ -50,7 +51,9 @@ namespace Game
             marioState.star = false;
             animMod = 0;
             drawMar = new DrawFireMario(myGame, this);
+            myGame.marioState.bat = false;
 
+            invCtr = 0;
             visible = true;
         }
 
@@ -62,8 +65,22 @@ namespace Game
         public void Update()
         {
             animMod++;
+            if (marioState.inv && invCtr == zero)
+            {
+                invCtr = 10;
+            }
+
+            marioState.marioPhys.Update();
             if (animMod % twenty == zero)
             {
+                if (invCtr > zero)
+                {
+                    invCtr--;
+                    if (invCtr == zero)
+                    {
+                        marioState.inv = false;
+                    }
+                }
                 if (marioState.move && marioState.facingLeft)
                 {
                     leftFacingCurrentFrame++;
@@ -77,7 +94,6 @@ namespace Game
                         rightFacingCurrentFrame = 28;
                 }
             }
-            marioState.marioPhys.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)

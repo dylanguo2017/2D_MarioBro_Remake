@@ -27,6 +27,7 @@ namespace Game
 
         public bool hit;
         public bool used;
+        public Utility.items contain;
 
         public Boolean visible { get; set; }
 
@@ -39,6 +40,7 @@ namespace Game
             currentFrame = 24;
             drawLoc = new Point(x * stdSpriteSize, y * stdSpriteSize);
             timer = 0;
+            contain = Utility.items.none;
 
             visible = true;
             hit = false;

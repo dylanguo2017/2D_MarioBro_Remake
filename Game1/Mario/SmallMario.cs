@@ -54,6 +54,7 @@ namespace Game
             invCtr = 0;
             animMod = 0;
             drawMar = new DrawSmallMario(myGame, this);
+            myGame.marioState.bat = false;
 
             visible = true;
         }
