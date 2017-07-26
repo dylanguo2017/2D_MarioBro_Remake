@@ -61,6 +61,8 @@
     <Compile Include="Enemies\PiranhaPlant.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="HUD.cs" />
+    <Compile Include="Infinite Level\InfiniteLevel.cs" />
+    <Compile Include="Infinite Level\InfiniteLevelLoader.cs" />
     <Compile Include="Items\Coin.cs" />
     <Compile Include="Collision\EnemyCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionDetector.cs" />
@@ -138,6 +140,7 @@
     <Compile Include="Blocks\Used.cs" />
     <Compile Include="Sound\SoundEffects.cs" />
     <Compile Include="Sound\Sounds.cs" />
+    <Compile Include="startScreen.cs" />
     <Compile Include="Transition.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
