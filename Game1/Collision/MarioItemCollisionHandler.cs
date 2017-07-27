@@ -49,7 +49,12 @@ namespace Game
                 Flagpole flagPole = item as Flagpole;
                 flagPole.flagDown = true;
             }
-            
+            else if (item is SpinFireBeam)
+            {
+                SpinFireBeam beam = item as SpinFireBeam;
+                beam.ChangeMarioState();
+            }
+
         }
 
     }

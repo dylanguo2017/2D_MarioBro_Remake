@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using static Game.Utility;
 
-namespace Game.Enemies
+namespace Game
 {
     public class SpinFireBeam : IItem
 
@@ -91,7 +91,38 @@ namespace Game.Enemies
         {
             return destinationRectangle;
         }
-        
+
+        public void ChangeMarioState()
+        {
+            if (myGame.marioState.bat)
+            {
+                myGame.mario = new DeadMario(myGame);
+            }
+            else if (!myGame.marioState.inv)
+            {
+                if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.small))
+                {
+                    myGame.mario = new DeadMario(myGame);
+                    myGame.gameover = true;
+                    myGame.hud.looseLife();
+                    myGame.hud.decreasePoints(hundred);
+                }
+                else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.large))
+                {
+                    myGame.marioState.inv = true;
+                    myGame.mario = new SmallMario(myGame);
+                    myGame.hud.decreasePoints(fifty);
+                }
+                else if ((myGame.mario.currentStatus()).Equals(MarioStateClass.marioStatus.fire))
+                {
+                    myGame.marioState.inv = true;
+                    myGame.mario = new LargeMario(myGame);
+                    myGame.hud.decreasePoints(fifty);
+                }
+
+            }
+        }
+
 
 
 
