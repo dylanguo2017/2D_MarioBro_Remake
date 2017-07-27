@@ -21,7 +21,7 @@ namespace Game
             {
                 RedMushroom redMushroom = item as RedMushroom;
                 redMushroom.PowerUp();
-            }
+            }            
             else if (item is FireFlower)
             {
                 FireFlower fireFlower = item as FireFlower;
@@ -49,6 +49,12 @@ namespace Game
                 flagPole.flagDown = true;
                 myGame.hud.increasePoints(fourHundred);
             }
+            else if (item is SpinFireBeam)
+            {
+                SpinFireBeam beam = item as SpinFireBeam;
+                beam.ChangeMarioState();
+            }
+
         }
 
     }
