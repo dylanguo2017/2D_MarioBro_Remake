@@ -49,9 +49,19 @@ namespace Game
                 flagPole.flagDown = true;
                 myGame.hud.increasePoints(fourHundred);
             }
-            else if (item is SpinFireBeam)
+            else if (item is SmallSpinFireBeam)
             {
-                SpinFireBeam beam = item as SpinFireBeam;
+                SmallSpinFireBeam beam = item as SmallSpinFireBeam;
+                beam.ChangeMarioState();
+            }
+            else if (item is MediumSpinFireBeam)
+            {
+                MediumSpinFireBeam beam = item as MediumSpinFireBeam;
+                beam.ChangeMarioState();
+            }
+            else if (item is LargeSpinFireBeam)
+            {
+                LargeSpinFireBeam beam = item as LargeSpinFireBeam;
                 beam.ChangeMarioState();
             }
 

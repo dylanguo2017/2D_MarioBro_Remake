@@ -478,3 +478,4 @@ E:\group4\Game1\bin\Windows\x86\Debug\Content\batRight.xnb
 E:\group4\Game1\bin\Windows\x86\Debug\Content\Sounds\bonus.xnb
 E:\group4\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\enemies.xnb
 E:\group4\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\fireBeam.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\startScreen.xnb

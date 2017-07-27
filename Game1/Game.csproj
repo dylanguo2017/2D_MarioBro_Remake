@@ -60,7 +60,9 @@
     <Compile Include="Commands\SpaceCommand.cs" />
     <Compile Include="Controllers\KeyBind.cs" />
     <Compile Include="Enemies\PiranhaPlant.cs" />
-    <Compile Include="Items\SpinFireBeam.cs" />
+    <Compile Include="Items\LargeSpinFireBeam.cs" />
+    <Compile Include="Items\MediumSpinFireBeam.cs" />
+    <Compile Include="Items\SmallSpinFireBeam.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Infinite Level\InfiniteLevel.cs" />

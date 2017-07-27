@@ -65,6 +65,7 @@
     <File>E:/group4/Game1/Content/SpriteSheets/enemies.png</File>
     <File>E:/group4/Game1/Content/batLeft.png</File>
     <File>E:/group4/Game1/Content/batRight.png</File>
+    <File>E:/group4/Game1/Content/startScreen.png</File>
     <File>E:/group4/Game1/Content/SpriteSheets/fireBeam.png</File>
   </SourceFiles>
 </SourceFileCollection>

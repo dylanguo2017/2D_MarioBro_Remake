@@ -176,9 +176,21 @@ namespace Game
                         IItem item = new GreenMushroom(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
                         itemList.Add(item);
                     }
-                    else if (target[posCol].Equals("fireBeam"))
+                    else if (target[posCol].Equals("smallFireBeam"))
                     {
-                        IItem item = new SpinFireBeam(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
+                        IItem item = new SmallSpinFireBeam(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
+                        itemList.Add(item);
+                        IBlock block = new Used(myGame, posCol, posRow);
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("mediumFireBeam"))
+                    {
+                        IItem item = new MediumSpinFireBeam(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
+                        itemList.Add(item);
+                    }
+                    else if (target[posCol].Equals("largeFireBeam"))
+                    {
+                        IItem item = new LargeSpinFireBeam(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
                         itemList.Add(item);
                     }
 
