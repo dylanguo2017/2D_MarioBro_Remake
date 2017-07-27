@@ -1,0 +1,12 @@
+Author: Rezeki Utomo
+Date: 7/27/2017
+Sprint#: 6
+.cs file reviewed: startScreen.cs
+author of cs file: Morgan Gongwer
+# of minutes taken to complete the review: 20
+
+Specific comments on readibility: 
+	Code is readable enough due to the well named variables. On top of variable names, control flow was also designed well enough so that the reader
+    would know the program flow. However, since this is the class that is directly handling whether or not the program enters a normal or an infinite
+    level, a difference in algorithm is used. Because I was largely in charge of the optimization and level loading of the normal level, I noticed that
+    this class uses a different algorithm; one that is a bit confusing. 
