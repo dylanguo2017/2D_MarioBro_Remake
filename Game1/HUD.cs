@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Game.Utility;
+
 
 namespace Game
 {
@@ -61,20 +63,24 @@ namespace Game
         public void Update()
         {
 
-            if(delay > 0 && levelTime > 0)
+            if(delay > zero && levelTime > zero)
             {
                 delay--;
             }
-            else if(delay > 0 && levelTime == 0)
+            else if(delay > zero && levelTime == zero)
             {
                 levelTime = 400;
                 delay = 50;
             }
-            else
+            else if(!myGame.pause)
             {
-                if (!myGame.pause)
-                    levelTime--;
+                levelTime--;
                 delay = 50;
+            }
+            else if(levelTime == zero)
+            {
+                myGame.gameover = true;
+                myGame.hud.looseLife();
             }
             
         }

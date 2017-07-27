@@ -33,6 +33,7 @@ namespace Game
         public Texture2D threeBushesBgElement;
         public Texture2D smallMountainBgElement;
         public Texture2D bigMountainBgElement;
+        public Texture2D startScreen;
 
         public Texture2D smallCastle;
         public Texture2D flagpole;
@@ -176,6 +177,7 @@ namespace Game
             threeBushesBgElement = Content.Load<Texture2D>("3BushesBgElement");
             smallMountainBgElement = Content.Load<Texture2D>("SmallMountainBgElement");
             bigMountainBgElement = Content.Load<Texture2D>("BigMountainBgElement");
+            startScreen = Content.Load<Texture2D>("startScreen");
 
             smallCastle = Content.Load<Texture2D>("smallCastle");
             flagpole = Content.Load<Texture2D>("flagPole");
@@ -219,6 +221,7 @@ namespace Game
             else if (infinite)
             {
                 hud.Update();
+                hud.levelTime = 400;
                 infLvl.Update();
             }
 
@@ -236,19 +239,19 @@ namespace Game
             else if (normal)
             {
                 lvCtrl.Draw(spriteBatch);
-                hud.Draw(spriteBatch);
             }
             else if (infinite)
             {
                 infLvl.Draw(spriteBatch);
-                hud.Draw(spriteBatch);
             }
-            
+
+            hud.Draw(spriteBatch);
             paused.Draw(spriteBatch);
             gameOver.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }
+        
 
     }
 }

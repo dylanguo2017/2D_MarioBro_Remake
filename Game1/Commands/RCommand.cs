@@ -19,6 +19,7 @@ namespace Game
                 myGame.begin = true;
                 myGame.normal = false;
                 myGame.infinite = false;
+                myGame.sound.state = Utility.soundStates.reset;
             }
             else if (myGame.normal)
             {
@@ -28,6 +29,7 @@ namespace Game
                 myGame.itemList = Level.itemList;
                 myGame.bgList = Level.bgList;
                 myGame.camObj.LoadLevel();
+                myGame.sound.state = Utility.soundStates.reset;
             }
             
             myGame.marioState.facingLeft = false;

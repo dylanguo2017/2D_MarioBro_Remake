@@ -38,6 +38,11 @@ namespace Game.Infinite_Level
             if (myGame.fbDelay > zero)
                 myGame.fbDelay--;
 
+            myGame.marioState.left = true;
+            myGame.marioState.right = true;
+            myGame.marioState.up = true;
+            myGame.marioState.down = true;
+
             myGame.marioColDetector.Update();
             myGame.projColDet.Update();
 
@@ -73,6 +78,8 @@ namespace Game.Infinite_Level
             }
             myGame.mario.Update();
             myGame.itemSpawn.Update();
+
+            myGame.camObj.Update();
 
             if (myGame.fireBalls.Count != zero)
             {
@@ -120,7 +127,7 @@ namespace Game.Infinite_Level
             myGame.mario.Draw(spriteBatch);
             foreach (IEnemy enemy in myGame.enemyCamList)
             {
-                if (enemy is PiranhaPlant)
+                if(enemy is PiranhaPlant)
                 {
                     enemy.Draw(spriteBatch);
                 }
@@ -134,6 +141,14 @@ namespace Game.Infinite_Level
             foreach (IItem item in myGame.itemCamList)
             {
                 item.Draw(spriteBatch);
+            }
+
+            foreach (IEnemy enemy in myGame.enemyCamList)
+            {
+                if (enemy is PiranhaPlant == false)
+                {
+                    enemy.Draw(spriteBatch);
+                }
             }
 
             if (myGame.fireBalls.Count != zero)

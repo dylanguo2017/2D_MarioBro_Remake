@@ -22,22 +22,11 @@ namespace Game.Infinite_Level
             blockList = new List<IBlock>();
             bgList = new List<IBg>();
 
-            String[] levelFile = new String[four] { "InfiniteLevel-1.txt", "InfiniteLevel-2.txt", "InfiniteLevel-1.txt", "InfiniteLevel-2.txt" };
+            String[] levelFile = new String[two] { "InfiniteLevel-1.txt", "InfiniteLevel-2.txt"};
             int file = 0;
 
             StreamReader File = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(),
                       "Content", "Levels", levelFile[file]));
-
-            if (file < four)
-            {
-                File = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(),
-                      "Content", "Levels", levelFile[file]));
-                file++;
-            }
-            else
-            {
-                file = zero;
-            }
 
             String inComingLine;
             int posRow = zero;
@@ -69,6 +58,36 @@ namespace Game.Infinite_Level
                         IBlock block = new Question(myGame, posCol, posRow);
                         blockList.Add(block);
                     }
+                    else if (target[posCol].Equals("questionRedM"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.redM;
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("questionFireF"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.flower;
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("questionCoin"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.coin;
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("questionGreenM"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.greenM;
+                        blockList.Add(block);
+                    }
+                    else if (target[posCol].Equals("questionBat"))
+                    {
+                        Question block = new Question(myGame, posCol, posRow);
+                        block.contain = Utility.items.bat;
+                        blockList.Add(block);
+                    }
                     else if (target[posCol].Equals("used"))
                     {
                         IBlock block = new Used(myGame, posCol, posRow);
@@ -96,7 +115,7 @@ namespace Game.Infinite_Level
 
                     else if (target[posCol].Equals("coin"))
                     {
-                        IItem item = new Coin(myGame, posCol, posRow);
+                        IItem item = new Coin(myGame, posCol * stdSpriteSize, posRow * stdSpriteSize);
                         itemList.Add(item);
                     }
                     else if (target[posCol].Equals("star"))
@@ -166,8 +185,20 @@ namespace Game.Infinite_Level
                     posCol++;
                 }
                 posRow++;
+
             }
             File.Close();
+            if (file < two)
+            {
+                File = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(),
+                      "Content", "Levels", levelFile[file]));
+                file++;
+            }
+            else
+            {
+                file = zero;
+            }
+            
             IComparer<IBlock> blockComp = new BlockComparer<IBlock>();
             IComparer<IItem> itemComp = new ItemComparer<IItem>();
             IComparer<IEnemy> enemyComp = new EnemyComparer<IEnemy>();

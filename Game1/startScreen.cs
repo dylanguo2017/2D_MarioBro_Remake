@@ -13,28 +13,26 @@ namespace Game
     {
         public Game myGame;
         SpriteFont font1;
-        Vector2 welcomePos;
         Vector2 normalPos;
         Vector2 infinitePos;
-        //RCommand reset;
+        Vector2 titlePos;
 
         public startScreen(Game game)
         {
             myGame = game;
             font1 = myGame.Content.Load<SpriteFont>("Courier New");
-            welcomePos.X = 225;
-            welcomePos.Y = 100;
             normalPos.X = 200;
-            normalPos.Y = 250;
+            normalPos.Y = 300;
             infinitePos.X = 200;
             infinitePos.Y = 350;
-            
-            //reset = new RCommand(myGame);
+            titlePos.X = 0;
+            titlePos.Y = 0;
         }
 
         public void Update()
         {
-            if(myGame.begin && Keyboard.GetState().IsKeyDown(Keys.N))
+            myGame.sound.Update();
+            if (myGame.begin && Keyboard.GetState().IsKeyDown(Keys.N))
             {
                 myGame.begin = false;
                 myGame.normal = true;
@@ -82,6 +80,7 @@ namespace Game
             {
                 
             }
+            
 
         }
         
@@ -90,11 +89,11 @@ namespace Game
         {
             if (myGame.begin)
             {
-                myGame.GraphicsDevice.Clear(Color.Indigo);
-                spriteBatch.Begin();
-                string welcome = "WELCOME   TO   MARIO!";
-                spriteBatch.DrawString(font1, welcome, welcomePos, Color.White);
+                myGame.GraphicsDevice.Clear(Color.CornflowerBlue);
 
+                spriteBatch.Begin();
+                spriteBatch.Draw(myGame.startScreen, titlePos, null);
+                
                 string normalMode = "NORMAL   MODE   PRESS   N";
                 spriteBatch.DrawString(font1, normalMode, normalPos, Color.White);
 

@@ -63,6 +63,10 @@ namespace Game
             {
                 greenMushroom.movingR = true;
             }
+            if (vColFrom.Equals(sides.top))
+            {
+                greenMushroom.gmPhysics.DontFall();
+            }
 
         }
 

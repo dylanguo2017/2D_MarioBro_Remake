@@ -1,4 +1,5 @@
-﻿namespace Game
+﻿using static Game.Utility;
+namespace Game
 {
     public class MarioItemCollisionHandler
     {
@@ -46,6 +47,7 @@
                 myGame.marioState.flagpole = true;
                 Flagpole flagPole = item as Flagpole;
                 flagPole.flagDown = true;
+                myGame.hud.increasePoints(fourHundred);
             }
         }
 
