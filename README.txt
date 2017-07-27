@@ -16,3 +16,10 @@ New Feature:
 1>  Code Analysis Complete -- 0 error(s), 0 warning(s)
 ========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========
 
+
+New Feature 2:
+- Rotating FireBeam Enemy type: By Dylan Guo
+
+	A rotating firebeam consisting 3 diffent size fire balls spining around an used block serving as an new enemy type. This rotating firebeam can be added
+at anywhere to create new hurdles for mario to progress. Any collision between mario and the each of the 3 fireballs will change the current mario state accordingly.
+While the firebeam is rotating downward, the upward space is safe for mario to pass and vice versa.
