@@ -49,6 +49,7 @@ namespace Game
         public Texture2D blockSprite;
         public Texture2D blueBlockSprite;
         public Texture2D itemSprite;
+        public Texture2D fireBeamSprite;
 
         public Texture2D piranhaPlant;
         
@@ -167,6 +168,7 @@ namespace Game
                 graphics.GraphicsDevice.Viewport.Height / 2);
 
             itemSprite = Content.Load<Texture2D>("SpriteSheets/Items");
+            fireBeamSprite= Content.Load<Texture2D>("SpriteSheets/fireBeam");
             blockSprite = Content.Load<Texture2D>("SpriteSheets/Tileset");
             blueBlockSprite = Content.Load<Texture2D>("blueBricks");
 

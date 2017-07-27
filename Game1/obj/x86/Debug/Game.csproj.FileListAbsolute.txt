@@ -472,3 +472,9 @@ C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.XInput.
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.exe
 C:\Users\utomo\Source\Repos\Mario4.0\Game1\obj\x86\Debug\Game1.pdb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\bat.32x32.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\batLeft.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\batRight.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\Sounds\bonus.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\enemies.xnb
+E:\group4\Game1\bin\Windows\x86\Debug\Content\SpriteSheets\fireBeam.xnb

@@ -48,7 +48,7 @@ namespace Game
             myGame.mario = new SmallMario(myGame);
 
             Level.LoadLists(myGame);
-            InfiniteLevelLoader.InfiniteLevelLoad(myGame);
+           InfiniteLevelLoader.InfiniteLevelLoad(myGame);
 
             myGame.sound.state = Utility.soundStates.reset;
         }

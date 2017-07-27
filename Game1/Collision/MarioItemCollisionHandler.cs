@@ -1,4 +1,6 @@
-﻿namespace Game
+﻿
+
+namespace Game
 {
     public class MarioItemCollisionHandler
     {
@@ -20,7 +22,7 @@
             {
                 RedMushroom redMushroom = item as RedMushroom;
                 redMushroom.PowerUp();
-            }
+            }            
             else if (item is FireFlower)
             {
                 FireFlower fireFlower = item as FireFlower;
@@ -47,6 +49,7 @@
                 Flagpole flagPole = item as Flagpole;
                 flagPole.flagDown = true;
             }
+            
         }
 
     }

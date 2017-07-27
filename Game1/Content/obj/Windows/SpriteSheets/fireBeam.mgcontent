@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/group4/Game1/Content/DiamondBlock.png</SourceFile>
-  <SourceTime>2017-07-26T14:59:13.6120707-04:00</SourceTime>
-  <DestFile>E:/group4/Game1/Content/bin/Windows/DiamondBlock.xnb</DestFile>
-  <DestTime>2017-07-26T15:01:22.2517625-04:00</DestTime>
+  <SourceFile>E:/group4/Game1/Content/SpriteSheets/fireBeam.png</SourceFile>
+  <SourceTime>2017-07-26T20:29:59.8026627-04:00</SourceTime>
+  <DestFile>E:/group4/Game1/Content/bin/Windows/SpriteSheets/fireBeam.xnb</DestFile>
+  <DestTime>2017-07-26T20:31:44.9715773-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
