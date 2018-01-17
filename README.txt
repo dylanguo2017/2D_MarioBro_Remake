@@ -1,6 +1,4 @@
-﻿Group 4
 
-Each team member has two code reviews in the "Code Reviews" folder under Sprint 6. The group reflection and discussion on the Burndown Chart is in the "Burndown Chart Reflections" folder. The game is "Game.sln" and all related files are in the "Game1" folder.
 
 New Feature: 
 - Bat Mario: Rezeki Utomo
@@ -9,8 +7,8 @@ New Feature:
 	of the user control. While in the bat state, mario is vulnerable despite the previous state he was in. If he got hit during bat state, he would die instantly. This is a design decision to prevent the game from being too easy. For testing purposes,
 	the "y" key has been changed to turn mario into the bat state. During normal gameplay, mario has to pick up the powerup item hidden in boxes in order to turn into a bat.
 
-***We ran Code Analysis and received 0 errors and 0 warnings. Below is the output:
-	1>------ Rebuild All started: Project: Game, Configuration: Debug x86 ------
+***Code Analysis and received 0 errors and 0 warnings. Below is the output:
+1>------ Rebuild All started: Project: Game, Configuration: Debug x86 ------
 1>  Game -> C:\Users\Admin\Source\Repos\Mario4.02\Game1\bin\Windows\x86\Debug\Game1.exe
 1>  Running Code Analysis...
 1>  Code Analysis Complete -- 0 error(s), 0 warning(s)
@@ -18,7 +16,7 @@ New Feature:
 
 
 New Feature 2:
-- Rotating FireBeam Enemy type: By Dylan Guo
+- Rotating FireBeam Enemy type: By Chuanjing Guo
 
 	A rotating firebeam consisting 3 diffent size fire balls spining around an used block serving as an new enemy type. This rotating firebeam can be added
 at anywhere to create new hurdles for mario to progress. Any collision between mario and the each of the 3 fireballs will change the current mario state accordingly.

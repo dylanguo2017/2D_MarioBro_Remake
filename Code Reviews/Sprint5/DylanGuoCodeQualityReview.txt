@@ -1,9 +1,0 @@
-Author: Dylan Guo
-Date: 7/18/2017
-Sprint 5
-Name of the .cs file: HUD.cs
-Author of the .cs file been reviewed: Morgan Gongwer
-minutes: 5
-comments: 
-	Methods are well defined, it would be better to use static class to implement this class, since coins
-and life points can follow the singleton design pattern

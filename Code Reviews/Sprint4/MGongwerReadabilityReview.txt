@@ -1,9 +1,0 @@
-﻿Author: Morgan Gongwer
-Date: 6/30/2017
-Sprint 4
-Name of the .cs file being reviewed: MovingAnimatedSprite.cs
-Author of the .cs file being reviewed: Shiny Patel
-Number of minutes taken to complete the review: 25
-
-Specific comments on readibility: 
-	The code is readable and each field has a meaningful name that allows knowing what it will be used for easy. It is usable by any object that needs to move and animate so gives it easy maintainability. It is fairly short and cohesive so understanding what the class does is pretty simple. The number of parameters the class takes is a little lengthy but all have meaningful names.

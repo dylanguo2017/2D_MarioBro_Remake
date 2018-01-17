@@ -1,8 +1,0 @@
-Author: Dylan Guo
-Date: 6/30/2017
-Sprint 4
-Name of the .cs file: ProjectileCollisionDetector.cs
-Author of the .cs file been reviewed: Shiny Patel
-minutes: 5
-comments: 
-	Variable names are well descriptive, flow controls are easy to follow. Good readability in general.

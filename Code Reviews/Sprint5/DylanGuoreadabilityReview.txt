@@ -1,8 +1,0 @@
-Author: Dylan Guo
-Date: 7/14/2017
-Sprint 5
-Name of the .cs file: HUD.cs
-Author of the .cs file been reviewed: Morgan Gongwer
-minutes: 5
-comments: 
-	Variable names are well descriptive, methods are well defined.

@@ -1,9 +1,0 @@
-﻿Author: Morgan Gongwer
-Date: 7/14/2017
-Sprint 5
-Name of the .cs file being reviewed: CameraObjectDetector.cs
-Author of the .cs file being reviewed: Rezeki Utomo
-Number of minutes taken to complete the review: 25
-
-Specific comments on readibility: 
-	The code is pretty readable and is very consistient and similar for each element. That makes following the code and understanding easier. If you understand what it does for one element, you can understand the rest. It is very maintainable because any object that is a part of the game needs to be held until it is in the camera's view. It is fairly short and cohesive so understanding what the class does is pretty simple. There are just a few methods so that makes understanding it easier. Since we made each object have its own type, that makes adding more types to this class is simple.
